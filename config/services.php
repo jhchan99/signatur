@@ -34,5 +34,9 @@ return [
             'channel' => env('SLACK_BOT_USER_DEFAULT_CHANNEL'),
         ],
     ],
+    'openlibrary' => [
+        'base_url' => env('OPENLIBRARY_BASE_URL'),
+        'timeout' => (int) env('OPENLIBRARY_TIMEOUT', 10),
+    ],
 
 ];
