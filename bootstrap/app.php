@@ -1,5 +1,7 @@
 <?php
 
+use App\Jobs\ImportFeaturedBooksJob;
+use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
@@ -12,6 +14,11 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withMiddleware(function (Middleware $middleware): void {
         //
+    })
+    ->withSchedule(function (Schedule $schedule): void {
+        $schedule->job(ImportFeaturedBooksJob::class)
+            ->twiceWeekly(1, 4)
+            ->withoutOverlapping();
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         //
