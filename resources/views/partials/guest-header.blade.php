@@ -1,9 +1,15 @@
 @php
-    /** @var string $subline */
-    $subline = $subline ?? 'Books, reactions, and what to read next.';
+    /** @var string|null $subline */
+    $subline = $subline ?? null;
+
+    $tabBase =
+        'inline-flex select-none rounded-full px-4 py-2 transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white';
+    $tabActive = 'bg-white text-zinc-950 shadow-sm';
+    $tabInactive = 'text-zinc-300 hover:bg-zinc-800 hover:text-white';
 @endphp
 
-<header class="mx-auto flex w-full max-w-7xl flex-wrap items-center justify-between gap-4 px-6 py-6 lg:px-8">
+<header class="mx-auto flex w-full max-w-7xl flex-col gap-4 px-6 py-6 lg:px-8">
+    <div class="flex flex-wrap items-center justify-between gap-4">
     <a href="{{ route('home') }}" class="flex items-center gap-3">
         <span class="flex size-10 items-center justify-center rounded-2xl bg-white text-sm font-semibold text-zinc-950">
             S
@@ -20,33 +26,30 @@
                 role="tablist"
                 aria-label="Navigation"
             >
-                <span
-                    class="select-none rounded-full px-4 py-2 text-zinc-500"
+                <a
+                    href="{{ route('home') }}"
+                    @class([$tabBase, request()->routeIs('home') ? $tabActive : $tabInactive])
                     role="tab"
-                    aria-selected="false"
-                    aria-disabled="true"
-                    tabindex="-1"
+                    aria-selected="{{ request()->routeIs('home') ? 'true' : 'false' }}"
                 >
-                    Home 
-                </span>
-                <span
-                    class="select-none rounded-full px-4 py-2 text-zinc-500"
+                    Home
+                </a>
+                <a
+                    href="{{ route('books.index') }}"
+                    @class([$tabBase, request()->routeIs('books.*') ? $tabActive : $tabInactive])
                     role="tab"
-                    aria-selected="false"
-                    aria-disabled="true"
-                    tabindex="-1"
+                    aria-selected="{{ request()->routeIs('books.*') ? 'true' : 'false' }}"
                 >
                     Books
-                </span>
-                <span
-                    class="select-none rounded-full px-4 py-2 text-zinc-500"
+                </a>
+                <a
+                    href="{{ route('collections.index') }}"
+                    @class([$tabBase, request()->routeIs('collections.*') ? $tabActive : $tabInactive])
                     role="tab"
-                    aria-selected="false"
-                    aria-disabled="true"
-                    tabindex="-1"
+                    aria-selected="{{ request()->routeIs('collections.*') ? 'true' : 'false' }}"
                 >
                     Collections
-                </span>
+                </a>
             </div>
         </div>
     @endguest
@@ -70,4 +73,11 @@
             @endif
         @endauth
     </nav>
+    </div>
+
+    @if (filled($subline))
+        <p class="text-center text-xs text-zinc-500 lg:text-left">
+            {{ $subline }}
+        </p>
+    @endif
 </header>
