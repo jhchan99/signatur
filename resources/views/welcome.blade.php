@@ -37,37 +37,7 @@
             <div class="absolute inset-0 -z-20 bg-zinc-950"></div>
             <div class="absolute inset-x-0 top-0 -z-10 h-[40rem] bg-linear-to-b from-zinc-900 via-zinc-950 to-zinc-950"></div>
 
-            <header class="mx-auto flex w-full max-w-7xl items-center justify-between px-6 py-6 lg:px-8">
-                <a href="{{ route('home') }}" class="flex items-center gap-3">
-                    <span class="flex size-10 items-center justify-center rounded-2xl bg-white text-sm font-semibold text-zinc-950">
-                        S
-                    </span>
-                    <span>
-                        <span class="block text-sm font-semibold tracking-[0.2em] uppercase text-zinc-300">Signatr</span>
-                        <span class="block text-sm text-zinc-400">Books, reactions, and what to read next.</span>
-                    </span>
-                </a>
-
-                <nav class="flex items-center gap-3 text-sm">
-                    @auth
-                        <a href="{{ route('profile.edit') }}" class="inline-flex rounded-full border border-zinc-700 bg-zinc-900 px-4 py-2 font-medium text-white transition hover:border-zinc-600 hover:bg-zinc-800">
-                            Account settings
-                        </a>
-                    @else
-                        @if (Route::has('login'))
-                            <a href="{{ route('login') }}" class="inline-flex rounded-full px-4 py-2 text-zinc-300 transition hover:bg-zinc-900 hover:text-white">
-                                Log in
-                            </a>
-                        @endif
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="inline-flex rounded-full border border-white bg-white px-4 py-2 font-medium text-zinc-950 shadow-sm transition hover:bg-zinc-200">
-                                Create account
-                            </a>
-                        @endif
-                    @endauth
-                </nav>
-            </header>
+            @include('partials.guest-header')
 
             <main class="mx-auto flex w-full max-w-7xl flex-col gap-18 px-6 pb-20 pt-4 lg:px-8 lg:pb-28">
                 <section id="featured-books" class="space-y-6">

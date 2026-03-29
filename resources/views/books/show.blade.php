@@ -14,17 +14,7 @@
     </head>
     <body class="min-h-screen bg-zinc-950 text-zinc-100">
         <div class="relative">
-            <header class="mx-auto flex w-full max-w-7xl items-center justify-between px-6 py-6 lg:px-8">
-                <a href="{{ route('home') }}" class="flex items-center gap-3">
-                    <span class="flex size-10 items-center justify-center rounded-2xl bg-white text-sm font-semibold text-zinc-950">
-                        S
-                    </span>
-                    <span>
-                        <span class="block text-sm font-semibold tracking-[0.2em] uppercase text-zinc-300">Signatr</span>
-                        <span class="block text-sm text-zinc-400">Back to home</span>
-                    </span>
-                </a>
-            </header>
+            @include('partials.guest-header', ['subline' => 'Back to home'])
 
             <main class="mx-auto flex w-full max-w-7xl flex-col gap-10 px-6 pb-20 lg:px-8 lg:pb-28">
                 <article class="grid gap-10 lg:grid-cols-[18rem_minmax(0,1fr)] lg:items-start">

@@ -2,6 +2,7 @@
 
 use App\Models\Book;
 use App\Models\BookFeaturedEntry;
+use App\Models\User;
 use Illuminate\Support\Facades\Cache;
 
 test('the landing page can be rendered', function () {
@@ -13,7 +14,17 @@ test('the landing page can be rendered', function () {
         ->assertSee('Featured books')
         ->assertSee('What Signatr does')
         ->assertSee('Project Hail Mary')
+        ->assertSee('Books', escape: false)
+        ->assertSee('Collections', escape: false)
         ->assertDontSee('Open on Open Library');
+});
+
+test('the landing page hides guest tab navigation when logged in', function () {
+    $this->actingAs(User::factory()->create())
+        ->get(route('home'))
+        ->assertSuccessful()
+        ->assertDontSee('Collections', escape: false)
+        ->assertSee('Account settings');
 });
 
 test('the landing page shows imported featured books when present', function () {

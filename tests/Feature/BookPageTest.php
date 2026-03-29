@@ -20,7 +20,22 @@ test('the book detail page renders stored catalog fields', function () {
         ->assertSee('2019')
         ->assertSee('Essays')
         ->assertSee('Biography')
-        ->assertSee('No public reviews yet');
+        ->assertSee('No public reviews yet')
+        ->assertSee('Back to home')
+        ->assertSee('Books', escape: false)
+        ->assertSee('Collections', escape: false);
+});
+
+test('the book detail page hides guest tab navigation when logged in', function () {
+    $book = Book::factory()->create([
+        'title' => 'Auth Header Book',
+    ]);
+
+    $this->actingAs(User::factory()->create())
+        ->get(route('books.show', $book))
+        ->assertSuccessful()
+        ->assertDontSee('Collections', escape: false)
+        ->assertSee('Account settings');
 });
 
 test('the book page shows public reviews and hides private logs', function () {
