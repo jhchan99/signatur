@@ -20,6 +20,7 @@ test('featured books import persists catalog rows and featured entries', functio
             'first_publish_year' => 2021,
             'covers' => [1_234_567],
             'description' => ['type' => '/type/text', 'value' => 'A test synopsis.'],
+            'subjects' => ['Fiction', 'Science fiction'],
             'authors' => [
                 ['author' => ['key' => '/authors/OL1A']],
             ],
@@ -35,7 +36,8 @@ test('featured books import persists catalog rows and featured entries', functio
     expect($book)->not->toBeNull()
         ->and($book->title)->toBe('Imported Work')
         ->and($book->author)->toBe('Taylor Reader')
-        ->and($book->cover_url)->toBe('https://covers.openlibrary.org/b/id/1234567-M.jpg');
+        ->and($book->cover_url)->toBe('https://covers.openlibrary.org/b/id/1234567-M.jpg')
+        ->and($book->subjects)->toBe(['Fiction', 'Science fiction']);
 
     expect(BookFeaturedEntry::query()->count())->toBe(1)
         ->and(BookFeaturedEntry::query()->first()->book_id)->toBe($book->id);

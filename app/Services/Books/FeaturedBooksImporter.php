@@ -88,6 +88,7 @@ class FeaturedBooksImporter
                 'cover_url' => OpenLibraryBookNormalizer::coverUrlFromWork($work),
                 'publish_year' => $year,
                 'description' => OpenLibraryBookNormalizer::description($work['description'] ?? null),
+                'subjects' => OpenLibraryBookNormalizer::subjectsFromWork($work),
             ],
         );
     }

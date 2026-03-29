@@ -9,15 +9,17 @@ final class OpenLibraryBookNormalizer
     /**
      * @param  array<string, mixed>  $work
      */
-    public static function coverUrlFromWork(array $work): ?string
+    public static function coverUrlFromWork(array $work, string $size = 'M'): ?string
     {
+        $size = self::normalizeCoverSize($size);
+
         $covers = $work['covers'] ?? null;
         if (is_array($covers) && $covers !== []) {
             $first = $covers[0] ?? null;
             if (is_int($first) || (is_string($first) && ctype_digit($first))) {
                 $id = (int) $first;
 
-                return 'https://covers.openlibrary.org/b/id/'.$id.'-M.jpg';
+                return 'https://covers.openlibrary.org/b/id/'.$id.'-'.$size.'.jpg';
             }
         }
 
@@ -25,10 +27,35 @@ final class OpenLibraryBookNormalizer
         if (is_string($editionKey) && str_starts_with($editionKey, '/books/')) {
             $olid = basename($editionKey);
 
-            return 'https://covers.openlibrary.org/b/olid/'.$olid.'-M.jpg';
+            return 'https://covers.openlibrary.org/b/olid/'.$olid.'-'.$size.'.jpg';
         }
 
         return null;
+    }
+
+    /**
+     * Catalog `cover_url` stores medium covers; hero layouts should request large when possible.
+     */
+    public static function heroCoverUrlFromStoredCover(?string $catalogCoverUrl): ?string
+    {
+        if ($catalogCoverUrl === null || $catalogCoverUrl === '') {
+            return null;
+        }
+
+        if (! str_contains($catalogCoverUrl, 'covers.openlibrary.org')) {
+            return null;
+        }
+
+        $upgraded = preg_replace('/-(S|M|L)\.jpg$/i', '-L.jpg', $catalogCoverUrl);
+
+        return is_string($upgraded) && $upgraded !== '' ? $upgraded : null;
+    }
+
+    public static function normalizeCoverSize(string $size): string
+    {
+        $upper = strtoupper($size);
+
+        return in_array($upper, ['S', 'M', 'L'], true) ? $upper : 'M';
     }
 
     public static function description(mixed $raw): ?string
@@ -74,5 +101,45 @@ final class OpenLibraryBookNormalizer
             ->filter()
             ->unique()
             ->values();
+    }
+
+    /**
+     * Subject tags from an Open Library work payload (stored locally for display).
+     *
+     * @param  array<string, mixed>  $work
+     * @return list<string>
+     */
+    public static function subjectsFromWork(array $work, int $limit = 12): array
+    {
+        $raw = $work['subjects'] ?? null;
+        if (! is_array($raw)) {
+            return [];
+        }
+
+        /** @var list<string> $out */
+        $out = [];
+        foreach ($raw as $item) {
+            $label = null;
+            if (is_string($item)) {
+                $label = $item;
+            } elseif (is_array($item)) {
+                $name = $item['name'] ?? $item['subject'] ?? null;
+                if (is_string($name)) {
+                    $label = $name;
+                }
+            }
+            if ($label === null) {
+                continue;
+            }
+            $trimmed = trim($label);
+            if ($trimmed === '') {
+                continue;
+            }
+            $out[] = $trimmed;
+        }
+
+        $out = array_values(array_unique($out, SORT_STRING));
+
+        return array_slice($out, 0, $limit);
     }
 }

@@ -2,16 +2,38 @@
 
 use App\Services\OpenLibrary\OpenLibraryBookNormalizer;
 
-it('builds a cover url from a work covers id', function () {
+it('builds a medium cover url from a work covers id', function () {
     expect(OpenLibraryBookNormalizer::coverUrlFromWork([
         'covers' => [9_255_560],
     ]))->toBe('https://covers.openlibrary.org/b/id/9255560-M.jpg');
 });
 
-it('builds a cover url from cover edition olid', function () {
+it('builds a large cover url when requested', function () {
+    expect(OpenLibraryBookNormalizer::coverUrlFromWork([
+        'covers' => [9_255_560],
+    ], 'L'))->toBe('https://covers.openlibrary.org/b/id/9255560-L.jpg');
+});
+
+it('builds a medium cover url from cover edition olid', function () {
     expect(OpenLibraryBookNormalizer::coverUrlFromWork([
         'cover_edition_key' => '/books/OL7440863M',
     ]))->toBe('https://covers.openlibrary.org/b/olid/OL7440863M-M.jpg');
+});
+
+it('upgrades a stored catalog cover url to large for hero use', function () {
+    expect(OpenLibraryBookNormalizer::heroCoverUrlFromStoredCover(
+        'https://covers.openlibrary.org/b/id/9255560-M.jpg',
+    ))->toBe('https://covers.openlibrary.org/b/id/9255560-L.jpg');
+
+    expect(OpenLibraryBookNormalizer::heroCoverUrlFromStoredCover(
+        'https://covers.openlibrary.org/b/olid/OL7440863M-S.jpg',
+    ))->toBe('https://covers.openlibrary.org/b/olid/OL7440863M-L.jpg');
+});
+
+it('does not fabricate a hero url from non open library images', function () {
+    expect(OpenLibraryBookNormalizer::heroCoverUrlFromStoredCover(
+        'https://images.unsplash.com/photo-123?w=1600',
+    ))->toBeNull();
 });
 
 it('normalizes description strings and value objects', function () {
@@ -32,4 +54,26 @@ it('extracts author keys from a work payload', function () {
         '/authors/OL34184A',
         '/authors/OL999A',
     ]);
+});
+
+it('normalizes subjects from string and object entries', function () {
+    expect(OpenLibraryBookNormalizer::subjectsFromWork([
+        'subjects' => [' Literary ', 'Fiction', 'Fiction'],
+    ]))->toBe(['Literary', 'Fiction']);
+
+    expect(OpenLibraryBookNormalizer::subjectsFromWork([
+        'subjects' => [
+            ['name' => 'Fantasy'],
+            ['subject' => 'Adventure'],
+        ],
+    ]))->toBe(['Fantasy', 'Adventure']);
+});
+
+it('caps the number of stored subjects', function () {
+    $subjects = OpenLibraryBookNormalizer::subjectsFromWork([
+        'subjects' => array_map(fn (int $n) => 'Topic '.$n, range(1, 20)),
+    ], limit: 5);
+
+    expect($subjects)->toHaveCount(5)
+        ->and($subjects[0])->toBe('Topic 1');
 });

@@ -22,6 +22,7 @@ class Book extends Model
         'cover_url',
         'publish_year',
         'description',
+        'subjects',
     ];
 
     /**
@@ -31,6 +32,7 @@ class Book extends Model
     {
         return [
             'publish_year' => 'integer',
+            'subjects' => 'array',
         ];
     }
 
@@ -40,5 +42,13 @@ class Book extends Model
     public function featuredEntries(): HasMany
     {
         return $this->hasMany(BookFeaturedEntry::class);
+    }
+
+    /**
+     * @return HasMany<ReadingLog, $this>
+     */
+    public function readingLogs(): HasMany
+    {
+        return $this->hasMany(ReadingLog::class);
     }
 }

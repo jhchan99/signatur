@@ -26,6 +26,7 @@ class BookFactory extends Factory
             'cover_url' => 'https://covers.openlibrary.org/b/id/'.fake()->numberBetween(1000000, 9999999).'-M.jpg',
             'publish_year' => fake()->year(),
             'description' => fake()->paragraph(),
+            'subjects' => null,
         ];
     }
 }

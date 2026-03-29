@@ -43,7 +43,7 @@
                         S
                     </span>
                     <span>
-                        <span class="block text-sm font-semibold tracking-[0.2em] uppercase text-zinc-300">Signatur</span>
+                        <span class="block text-sm font-semibold tracking-[0.2em] uppercase text-zinc-300">Signatr</span>
                         <span class="block text-sm text-zinc-400">Books, reactions, and what to read next.</span>
                     </span>
                 </a>
@@ -70,57 +70,25 @@
             </header>
 
             <main class="mx-auto flex w-full max-w-7xl flex-col gap-18 px-6 pb-20 pt-4 lg:px-8 lg:pb-28">
-                <section class="relative overflow-hidden rounded-[2rem] border border-zinc-800 bg-zinc-900 shadow-2xl">
-                    <img
-                        src="{{ $heroBook['image'] }}"
-                        alt="{{ $heroBook['title'] }}"
-                        class="absolute inset-0 h-full w-full object-cover object-center"
-                    />
-                    <div class="absolute inset-0 bg-linear-to-t from-zinc-950 via-zinc-950/65 to-zinc-950/25"></div>
-
-                    <div class="relative flex min-h-[38rem] flex-col justify-end px-8 py-10 sm:px-12 sm:py-14 lg:min-h-[42rem] lg:px-16 lg:py-16">
-                        <div class="mt-12 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between sm:gap-6">
-                            <div class="space-y-2">
-                                <h1 class="text-3xl font-semibold tracking-tight text-white sm:text-4xl lg:text-5xl">
-                                    {{ $heroBook['title'] }}
-                                </h1>
-                                @if (! empty($heroBook['author']))
-                                    <p class="text-base text-zinc-300">
-                                        {{ $heroBook['author'] }}
-                                    </p>
-                                @endif
-                            </div>
-                            <a
-                                href="{{ $heroBook['href'] }}"
-                                target="_blank"
-                                rel="noreferrer"
-                                class="inline-flex shrink-0 rounded-full border border-zinc-700 px-4 py-2 text-sm text-zinc-300 transition hover:border-zinc-500 hover:bg-zinc-900 hover:text-white"
-                            >
-                                Open on Open Library
-                            </a>
-                        </div>
-                    </div>
-                </section>
-
                 <section id="featured-books" class="space-y-6">
-                    <div class="max-w-2xl space-y-2">
-                        <h2 class="text-2xl font-semibold tracking-tight text-white sm:text-3xl">Featured books</h2>
-                        <p class="text-sm leading-7 text-zinc-400">
-                            A rotating set of titles we pull in from Open Library. Log in to start tracking your own shelves.
-                        </p>
-                    </div>
+                    <p class="text-sm font-semibold uppercase tracking-[0.25em] text-zinc-400">Featured books</p>
 
                     <div class="-mx-6 overflow-x-auto px-6 pb-3 lg:mx-0 lg:px-0">
                         <div class="flex gap-4 lg:grid lg:grid-cols-6">
                             @foreach ($featuredCovers as $cover)
                                 <a
                                     href="{{ $cover['href'] }}"
-                                    target="_blank"
-                                    rel="noreferrer"
-                                    class="group block min-w-[10rem] overflow-hidden rounded-xl border border-zinc-800 bg-zinc-900 shadow-lg transition hover:-translate-y-1 hover:border-zinc-700"
+                                    @if ($cover['external'] ?? true)
+                                        target="_blank"
+                                        rel="noreferrer"
+                                    @endif
+                                    class="group block min-w-[10rem] overflow-hidden rounded-xl border-3 border-zinc-800 bg-zinc-900 shadow-lg transition-colors duration-200 hover:border-white/60"
                                 >
                                     <img
-                                        src="{{ $cover['image'] }}"
+                                        src="{{ $cover['card_image'] ?? $cover['image'] }}"
+                                        @if (($cover['image'] ?? '') !== ($cover['card_image'] ?? ''))
+                                            srcset="{{ $cover['image'] }} 2x"
+                                        @endif
                                         alt="{{ $cover['title'] }}"
                                         class="aspect-[2/3] h-full w-full object-cover"
                                     />
