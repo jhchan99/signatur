@@ -84,7 +84,7 @@
                                     </div>
                                 </div>
 
-                                <div class="{{ $filterBubble }} opacity-45" title="Coming soon">
+                                <!-- <div class="{{ $filterBubble }} opacity-45" title="Coming soon">
                                     <span class="{{ $filterBubbleLabel }}">
                                         Popular
                                     </span>
@@ -98,7 +98,7 @@
                                         </select>
                                         <span class="pointer-events-none absolute right-2 top-1/2 -translate-y-1/2 text-[10px] text-zinc-600" aria-hidden="true">▾</span>
                                     </div>
-                                </div>
+                                </div> -->
 
                                 @if (filled($filters['q']) || filled($filters['subject']) || filled($filters['year']))
                                     <p class="w-full pb-0.5 sm:w-auto sm:self-center">
