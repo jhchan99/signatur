@@ -1,0 +1,6 @@
+id,import_batch,book_id,position,source,list_name,payload,imported_at,created_at,updated_at
+1,550e8400-e29b-41d4-a716-446655440000,1,1,open_library,"Staff Picks","{""blurb"":""A landmark work of speculative fiction."",""theme"":""Classics""}",2026-03-01 07:00:00+00,2026-03-01 07:00:00+00,2026-03-01 07:00:00+00
+2,550e8400-e29b-41d4-a716-446655440000,3,2,open_library,"Staff Picks","{""blurb"":""A lyrical myth retelling."",""theme"":""Modern Favorites""}",2026-03-01 07:00:00+00,2026-03-01 07:00:00+00,2026-03-01 07:00:00+00
+3,550e8400-e29b-41d4-a716-446655440000,4,3,open_library,"Staff Picks","{""blurb"":""An enduring fantasy adventure."",""theme"":""Adventure""}",2026-03-01 07:00:00+00,2026-03-01 07:00:00+00,2026-03-01 07:00:00+00
+4,660e8400-e29b-41d4-a716-446655440001,6,1,editorial,"Trending Mysteries","{""reason"":""High community ratings this week.""}",2026-03-08 07:00:00+00,2026-03-08 07:00:00+00,2026-03-08 07:00:00+00
+5,660e8400-e29b-41d4-a716-446655440001,5,2,editorial,"Trending Mysteries","{""reason"":""Popular with book club readers.""}",2026-03-08 07:00:00+00,2026-03-08 07:00:00+00,2026-03-08 07:00:00+00

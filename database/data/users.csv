@@ -1,0 +1,6 @@
+id,name,username,display_name,avatar_url,email,email_verified_at,password,two_factor_secret,two_factor_recovery_codes,two_factor_confirmed_at,bio,remember_token,created_at,updated_at
+1,Alice Nguyen,alice,Alice N.,https://images.example.com/avatars/alice.jpg,alice@example.com,2026-03-01 10:15:00,$2y$12$fakehashalice,,,,Reads literary fiction and sci-fi.,tok_alice_123,2026-02-20 09:00:00,2026-03-15 08:30:00
+2,Ben Carter,benc,Ben Carter,https://images.example.com/avatars/ben.jpg,ben@example.com,2026-03-02 11:00:00,$2y$12$fakehashben,,,,"Into fantasy, history, and long reviews.",tok_ben_456,2026-02-21 10:00:00,2026-03-16 09:00:00
+3,Clara Moreno,claram,Clara,https://images.example.com/avatars/clara.jpg,clara@example.com,2026-03-05 14:10:00,$2y$12$fakehashclara,,,,Usually reading romance or memoir.,tok_clara_789,2026-02-22 13:00:00,2026-03-18 12:15:00
+4,David Kim,dkim,David K.,,david@example.com,,$2y$12$fakehashdavid,,,,Trying to read 40 books this year.,,2026-02-25 16:30:00,2026-03-19 17:00:00
+5,Eva Patel,evap,Eva P.,https://images.example.com/avatars/eva.jpg,eva@example.com,2026-03-03 08:45:00,$2y$12$fakehasheva,,,,Big fan of mystery and translated fiction.,tok_eva_321,2026-02-26 08:00:00,2026-03-20 10:45:00

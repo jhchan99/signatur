@@ -1,0 +1,9 @@
+id,user_id,action_type,target_id,target_type,created_at
+1,1,finished_book,1,reading_log,2026-02-10 19:05:00+00
+2,2,followed_user,1,user,2026-03-01 08:00:00+00
+3,3,finished_book,2,reading_log,2026-02-14 16:45:00+00
+4,5,finished_book,8,reading_log,2026-02-23 20:20:00+00
+5,1,started_book,2,reading_log,2026-03-12 18:25:00+00
+6,4,started_book,7,reading_log,2026-03-14 22:05:00+00
+7,3,followed_user,5,user,2026-03-06 14:10:00+00
+8,2,added_to_tbr,4,reading_log,2026-03-01 12:05:00+00
