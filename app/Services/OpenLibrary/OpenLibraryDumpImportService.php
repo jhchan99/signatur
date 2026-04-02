@@ -97,7 +97,7 @@ class OpenLibraryDumpImportService
         }
 
         $name = trim($name);
-        if ($name === '' || ! $this->isAsciiOnlyAuthorName($name)) {
+        if ($name === '' || ! $this->isImportableAuthorName($name)) {
             return null;
         }
 
@@ -128,11 +128,90 @@ class OpenLibraryDumpImportService
     }
 
     /**
-     * Temporary catalog policy: skip authors whose display name uses non-ASCII characters.
+     * Strict catalog policy: keep only ASCII names that look like normal English personal names.
+     * Rows with wrapper punctuation, HTML entities, title-like text, or label-like ALL CAPS tokens are dropped.
      */
-    protected function isAsciiOnlyAuthorName(string $name): bool
+    protected function isImportableAuthorName(string $name): bool
     {
-        return ! preg_match('/[^\x00-\x7F]/', $name);
+        if (preg_match('/[^\x00-\x7F]/', $name)) {
+            return false;
+        }
+
+        if (strlen($name) > 64) {
+            return false;
+        }
+
+        if (preg_match('/&#\d+;|&[a-zA-Z][a-zA-Z0-9]{0,48};/', $name)) {
+            return false;
+        }
+
+        if (! preg_match('/^[A-Za-z]/', $name) || ! preg_match('/[A-Za-z]$/', $name)) {
+            return false;
+        }
+
+        if (preg_match('/[0-9&,";:()[\]{}\/\\\\|`!@#$%*+=?<>]/', $name)) {
+            return false;
+        }
+
+        /** @var list<string> $words */
+        $words = preg_split('/\s+/', $name, -1, PREG_SPLIT_NO_EMPTY);
+        if ($words === false || $words === []) {
+            return false;
+        }
+
+        $wordCount = count($words);
+        if ($wordCount > 6) {
+            return false;
+        }
+
+        foreach ($words as $word) {
+            if (strlen($word) > 64) {
+                return false;
+            }
+
+            if (preg_match('/^[A-Z]{2,}$/', $word)) {
+                return false;
+            }
+
+            if (! $this->isEnglishLookingAuthorWord($word)) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    protected function isEnglishLookingAuthorWord(string $word): bool
+    {
+        if (preg_match('/^([A-Z]\.)+$/', $word)) {
+            return true;
+        }
+
+        if (preg_match('/^[A-Z][a-z]+$/', $word)) {
+            return true;
+        }
+
+        if (preg_match('/^[A-Z][a-z]+-[A-Z][a-z]+$/', $word)) {
+            return true;
+        }
+
+        if (preg_match('/^[A-Z][a-z]+\'[A-Z][a-z]+$/', $word)) {
+            return true;
+        }
+
+        if (preg_match('/^[A-Z]\'[A-Z][a-z]+$/', $word)) {
+            return true;
+        }
+
+        if (preg_match('/^Mc[A-Z][a-z]+$/', $word)) {
+            return true;
+        }
+
+        if (preg_match('/^Mac[A-Z][a-z]+$/', $word)) {
+            return true;
+        }
+
+        return false;
     }
 
     /**
