@@ -17,11 +17,7 @@ test('search endpoints degrade to empty results when Open Library transport fail
 
     $service = new OpenLibraryService;
 
-    expect($service->search('anything'))->toHaveCount(0)
-        ->and($service->searchDocuments('anything'))->toHaveCount(0)
-        ->and($service->searchDocumentsByTitleAndAuthor('t', 'a'))->toHaveCount(0)
-        ->and($service->searchAuthorDocuments('anyone'))->toHaveCount(0)
-        ->and($service->searchDocumentsWithAuthorField('Anyone'))->toHaveCount(0);
+    expect($service->searchDocumentsByTitleAndAuthor('t', 'a'))->toHaveCount(0);
 });
 
 test('getWork and getAuthor rethrow connection failures for retryable queue work', function () {

@@ -27,39 +27,6 @@ class OpenLibraryService
     }
 
     /**
-     * @return Collection<int|string, mixed>
-     */
-    public function search(string $query): Collection
-    {
-        $payload = $this->get('search.json', [
-            'q' => $query,
-            'limit' => 20,
-        ], degradeOnTransportFailure: true);
-
-        return collect($payload);
-    }
-
-    /**
-     * @return Collection<int, array<string, mixed>>
-     */
-    public function searchDocuments(string $query): Collection
-    {
-        $payload = $this->get('search.json', [
-            'q' => $query,
-            'limit' => 20,
-        ], degradeOnTransportFailure: true);
-
-        $docs = $payload['docs'] ?? [];
-
-        if (! is_array($docs)) {
-            return collect();
-        }
-
-        /** @var array<int, array<string, mixed>> $docs */
-        return collect($docs);
-    }
-
-    /**
      * @return Collection<int, array<string, mixed>>
      */
     public function searchDocumentsByTitleAndAuthor(string $title, string $author): Collection
@@ -68,48 +35,6 @@ class OpenLibraryService
             'title' => $title,
             'author' => $author,
             'limit' => 10,
-        ], degradeOnTransportFailure: true);
-
-        $docs = $payload['docs'] ?? [];
-
-        if (! is_array($docs)) {
-            return collect();
-        }
-
-        /** @var array<int, array<string, mixed>> $docs */
-        return collect($docs);
-    }
-
-    /**
-     * @return Collection<int, array<string, mixed>>
-     */
-    public function searchAuthorDocuments(string $query): Collection
-    {
-        $payload = $this->get('search/authors.json', [
-            'q' => $query,
-            'limit' => 10,
-        ], degradeOnTransportFailure: true);
-
-        $docs = $payload['docs'] ?? [];
-
-        if (! is_array($docs)) {
-            return collect();
-        }
-
-        /** @var array<int, array<string, mixed>> $docs */
-        return collect($docs);
-    }
-
-    /**
-     * Search works where Open Library attributes match the author field.
-     *
-     * @return Collection<int, array<string, mixed>>
-     */
-    public function searchDocumentsWithAuthorField(string $author): Collection
-    {
-        $payload = $this->get('search.json', [
-            'author' => $author,
-            'limit' => 20,
         ], degradeOnTransportFailure: true);
 
         $docs = $payload['docs'] ?? [];

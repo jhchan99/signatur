@@ -10,13 +10,9 @@ final readonly class BookDiscoveryResult
 {
     /**
      * @param  LengthAwarePaginator<int, Work>  $books
-     * @param  list<BookSearchResultItem>  $openLibraryItems
      */
     public function __construct(
         public LengthAwarePaginator $books,
-        public array $openLibraryItems,
         public BookSearchMode $mode,
-        public bool $usedOpenLibraryFallback,
-        public bool $rateLimitedFallback,
     ) {}
 }

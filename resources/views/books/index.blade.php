@@ -153,11 +153,7 @@
                     </div>
                 </form>
 
-                @if ($discovery->rateLimitedFallback && filled($filters['q']))
-                    <p class="rounded-[1.5rem] border border-amber-900/60 bg-amber-950/40 p-8 text-center text-sm leading-7 text-amber-200/90" role="status">
-                        {{ __('Too many catalog lookups from Open Library. Please wait a moment and try again.') }}
-                    </p>
-                @elseif ($books->isNotEmpty())
+                @if ($books->isNotEmpty())
                     <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                         @foreach ($books as $book)
                             <a
@@ -196,53 +192,6 @@
 
                     <div class="mt-4 text-zinc-400">
                         {{ $books->links() }}
-                    </div>
-                @elseif ($discovery->openLibraryItems !== [])
-                    @if ($discovery->usedOpenLibraryFallback)
-                        <p class="text-center text-xs text-zinc-500">
-                            {{ __('No matches in our catalog yet. Showing results from Open Library (adding them to our catalog in the background).') }}
-                        </p>
-                    @endif
-                    <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-                        @foreach ($discovery->openLibraryItems as $item)
-                            <a
-                                href="{{ $item->detailUrl }}"
-                                @if ($item->source === 'open_library') target="_blank" rel="noopener noreferrer" @endif
-                                class="group flex gap-4 rounded-[1.25rem] border border-zinc-800 bg-zinc-900/70 p-4 shadow-sm transition hover:border-white/40"
-                            >
-                                <div class="shrink-0">
-                                    @if (filled($item->coverUrl))
-                                        <div class="overflow-hidden rounded-xl border border-zinc-800 bg-zinc-950">
-                                            <img
-                                                src="{{ $item->coverUrl }}"
-                                                alt=""
-                                                class="h-28 w-20 object-cover sm:h-32 sm:w-[5.5rem]"
-                                            />
-                                        </div>
-                                    @else
-                                        <div class="flex h-28 w-20 items-center justify-center rounded-xl border border-zinc-800 bg-zinc-950 text-xs text-zinc-500 sm:h-32 sm:w-[5.5rem]">
-                                            {{ __('No cover') }}
-                                        </div>
-                                    @endif
-                                </div>
-                                <div class="min-w-0 flex-1 space-y-2">
-                                    <h2 class="text-sm font-semibold leading-snug text-white group-hover:underline">
-                                        {{ $item->title }}
-                                    </h2>
-                                    @if (filled($item->author))
-                                        <p class="text-xs text-zinc-400">{{ $item->author }}</p>
-                                    @endif
-                                    @if ($item->publishYear)
-                                        <p class="text-xs text-zinc-500">{{ $item->publishYear }}</p>
-                                    @endif
-                                    @if ($item->source === 'open_library')
-                                        <p class="text-[10px] font-semibold uppercase tracking-wider text-zinc-600">
-                                            {{ __('Open Library') }}
-                                        </p>
-                                    @endif
-                                </div>
-                            </a>
-                        @endforeach
                     </div>
                 @else
                     <p class="rounded-[1.5rem] border border-zinc-800 bg-zinc-900/70 p-8 text-center text-sm leading-7 text-zinc-400">

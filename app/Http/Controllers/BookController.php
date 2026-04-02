@@ -24,9 +24,7 @@ class BookController extends Controller
             $request->validated(),
         );
 
-        $rateKey = 'openlibrary-fallback:'.($request->user()?->getKey() ?? 'guest').':'.sha1($request->ip());
-
-        $discoveryResult = $discovery->discover($validated, $rateKey);
+        $discoveryResult = $discovery->discover($validated);
 
         $subjectOptions = Work::query()
             ->whereNotNull('subjects')
