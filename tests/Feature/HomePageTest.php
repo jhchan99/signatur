@@ -15,6 +15,7 @@ test('the landing page can be rendered', function () {
         ->assertSee('What Signatr does')
         ->assertSee('Project Hail Mary')
         ->assertSee('Books', escape: false)
+        ->assertSee('Authors', escape: false)
         ->assertSee('Collections', escape: false)
         ->assertDontSee('Open on Open Library');
 });

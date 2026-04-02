@@ -18,6 +18,7 @@ test('the books index page can be rendered', function () {
     $response
         ->assertSuccessful()
         ->assertSee('Books', escape: false)
+        ->assertSee('Authors', escape: false)
         ->assertSee('Collections', escape: false)
         ->assertSee('Browse by', escape: false)
         ->assertSee('Find a book', escape: false)

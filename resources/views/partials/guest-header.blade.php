@@ -43,6 +43,14 @@
                     Books
                 </a>
                 <a
+                    href="{{ route('authors.index') }}"
+                    @class([$tabBase, request()->routeIs('authors.*') ? $tabActive : $tabInactive])
+                    role="tab"
+                    aria-selected="{{ request()->routeIs('authors.*') ? 'true' : 'false' }}"
+                >
+                    Authors
+                </a>
+                <a
                     href="{{ route('collections.index') }}"
                     @class([$tabBase, request()->routeIs('collections.*') ? $tabActive : $tabInactive])
                     role="tab"
@@ -73,6 +81,12 @@
             @endif
         @endauth
     </nav>
+    </div>
+
+    <div class="w-full">
+        @include('partials.global-search-form', [
+            'value' => $globalSearchQuery ?? request('q', ''),
+        ])
     </div>
 
     @if (filled($subline))

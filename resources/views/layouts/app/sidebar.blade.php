@@ -10,6 +10,10 @@
                 <flux:sidebar.collapse class="lg:hidden" />
             </flux:sidebar.header>
 
+            <div class="border-b border-zinc-200 px-2 pb-3 pt-1 dark:border-zinc-700">
+                @include('partials.global-search-form', ['compact' => true])
+            </div>
+
             <flux:sidebar.nav>
                 <flux:sidebar.group :heading="__('Platform')" class="grid">
                     <flux:sidebar.item icon="home" :href="route('home')" :current="request()->routeIs('home')" wire:navigate>
@@ -34,12 +38,14 @@
         </flux:sidebar>
 
         <!-- Mobile User Menu -->
-        <flux:header class="lg:hidden">
-            <flux:sidebar.toggle class="lg:hidden" icon="bars-2" inset="left" />
+        <flux:header class="lg:hidden flex items-center gap-2 border-b border-zinc-200 px-2 py-2 dark:border-zinc-700">
+            <flux:sidebar.toggle class="lg:hidden shrink-0" icon="bars-2" inset="left" />
 
-            <flux:spacer />
+            <div class="min-w-0 flex-1">
+                @include('partials.global-search-form', ['compact' => true])
+            </div>
 
-            <flux:dropdown position="top" align="end">
+            <flux:dropdown position="top" align="end" class="shrink-0">
                 <flux:profile
                     :initials="auth()->user()->initials()"
                     icon-trailing="chevron-down"
