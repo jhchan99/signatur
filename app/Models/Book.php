@@ -5,6 +5,7 @@ namespace App\Models;
 use Database\Factories\BookFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Book extends Model
@@ -18,7 +19,6 @@ class Book extends Model
     protected $fillable = [
         'open_library_id',
         'title',
-        'author',
         'cover_url',
         'publish_year',
         'description',
@@ -45,10 +45,30 @@ class Book extends Model
     }
 
     /**
+     * @return BelongsToMany<Author, $this>
+     */
+    public function authors(): BelongsToMany
+    {
+        return $this->belongsToMany(Author::class, 'book_author')
+            ->withPivot('position')
+            ->orderByPivot('position');
+    }
+
+    /**
      * @return HasMany<ReadingLog, $this>
      */
     public function readingLogs(): HasMany
     {
         return $this->hasMany(ReadingLog::class);
+    }
+
+    public function displayAuthor(): ?string
+    {
+        $names = $this->authors
+            ->pluck('name')
+            ->filter(fn (mixed $name): bool => is_string($name) && $name !== '')
+            ->implode(', ');
+
+        return $names !== '' ? $names : null;
     }
 }

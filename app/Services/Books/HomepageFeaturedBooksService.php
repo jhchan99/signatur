@@ -27,7 +27,7 @@ class HomepageFeaturedBooksService
     {
         /** @var Collection<int, BookFeaturedEntry> $entries */
         $entries = BookFeaturedEntry::query()
-            ->with('book')
+            ->with('book.authors')
             ->forLatestImport()
             ->orderBy('position')
             ->get();
@@ -39,7 +39,7 @@ class HomepageFeaturedBooksService
         return Cache::remember('home.featured_books', (int) config('books.featured.cache_ttl'), function () {
             /** @var Collection<int, BookFeaturedEntry> $fresh */
             $fresh = BookFeaturedEntry::query()
-                ->with('book')
+                ->with('book.authors')
                 ->forLatestImport()
                 ->orderBy('position')
                 ->get();
@@ -90,7 +90,7 @@ class HomepageFeaturedBooksService
         return [
             'heroBook' => [
                 'title' => $hero->title,
-                'author' => $hero->author,
+                'author' => $hero->displayAuthor(),
                 'href' => route('books.show', $hero),
                 'image' => $heroImage,
                 'card_image' => $heroCard,

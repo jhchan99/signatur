@@ -1,9 +1,9 @@
 <?php
 
+use App\Models\Author;
 use App\Models\Book;
 use App\Models\BookFeaturedEntry;
 use App\Services\Books\FeaturedBooksImporter;
-use App\Services\OpenLibrary\OpenLibraryService;
 use Illuminate\Support\Facades\Http;
 
 beforeEach(function () {
@@ -30,14 +30,18 @@ test('featured books import persists catalog rows and featured entries', functio
         ], 200),
     ]);
 
-    (new FeaturedBooksImporter(app(OpenLibraryService::class)))->import();
+    app(FeaturedBooksImporter::class)->import();
 
     $book = Book::query()->where('open_library_id', '/works/OL27448W')->first();
     expect($book)->not->toBeNull()
         ->and($book->title)->toBe('Imported Work')
-        ->and($book->author)->toBe('Taylor Reader')
         ->and($book->cover_url)->toBe('https://covers.openlibrary.org/b/id/1234567-M.jpg')
         ->and($book->subjects)->toBe(['Fiction', 'Science fiction']);
+
+    $author = Author::query()->where('open_library_id', '/authors/OL1A')->first();
+    expect($author)->not->toBeNull()
+        ->and($author->name)->toBe('Taylor Reader')
+        ->and($book->authors()->first()?->is($author))->toBeTrue();
 
     expect(BookFeaturedEntry::query()->count())->toBe(1)
         ->and(BookFeaturedEntry::query()->first()->book_id)->toBe($book->id);

@@ -142,4 +142,45 @@ final class OpenLibraryBookNormalizer
 
         return array_slice($out, 0, $limit);
     }
+
+    /**
+     * @param  array<string, mixed>  $doc
+     */
+    public static function coverUrlFromSearchDoc(array $doc): ?string
+    {
+        $coverI = $doc['cover_i'] ?? null;
+        if (is_int($coverI) || (is_string($coverI) && ctype_digit($coverI))) {
+            return 'https://covers.openlibrary.org/b/id/'.(int) $coverI.'-M.jpg';
+        }
+
+        return null;
+    }
+
+    /**
+     * @param  array<string, mixed>  $doc
+     */
+    public static function authorLabelFromSearchDoc(array $doc): ?string
+    {
+        $name = $doc['author_name'] ?? null;
+        if (is_string($name) && $name !== '') {
+            return $name;
+        }
+
+        if (! is_array($name)) {
+            return null;
+        }
+
+        $strings = [];
+        foreach ($name as $item) {
+            if (is_string($item) && $item !== '') {
+                $strings[] = $item;
+            }
+        }
+
+        if ($strings === []) {
+            return null;
+        }
+
+        return implode(', ', array_unique($strings, SORT_STRING));
+    }
 }

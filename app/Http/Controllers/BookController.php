@@ -2,43 +2,31 @@
 
 namespace App\Http\Controllers;
 
+use App\Enums\BookSearchMode;
 use App\Http\Requests\BookIndexRequest;
 use App\Models\Book;
 use App\Models\ReadingLog;
+use App\Services\Books\BookDiscoveryService;
 use Illuminate\Contracts\View\View;
-use Illuminate\Database\Eloquent\Builder;
 
 class BookController extends Controller
 {
-    public function index(BookIndexRequest $request): View
+    public function index(BookIndexRequest $request, BookDiscoveryService $discovery): View
     {
-        /** @var array{q?: string|null, subject?: string|null, year?: int|null} $validated */
+        /** @var array{q?: string|null, subject?: string|null, year?: int|null, mode?: string|null} $validated */
         $validated = array_merge(
-            ['q' => null, 'subject' => null, 'year' => null],
+            [
+                'q' => null,
+                'subject' => null,
+                'year' => null,
+                'mode' => BookSearchMode::Books->value,
+            ],
             $request->validated(),
         );
 
-        $searchQuery = filled($validated['q']) ? $validated['q'] : null;
-        $subjectFilter = filled($validated['subject']) ? $validated['subject'] : null;
-        $yearFilter = $validated['year'] !== null ? (int) $validated['year'] : null;
+        $rateKey = 'openlibrary-fallback:'.($request->user()?->getKey() ?? 'guest').':'.sha1($request->ip());
 
-        $books = Book::query()
-            ->when($searchQuery, function (Builder $query) use ($searchQuery): void {
-                $query->where(function (Builder $inner) use ($searchQuery): void {
-                    $inner
-                        ->where('title', 'like', '%'.$searchQuery.'%')
-                        ->orWhere('author', 'like', '%'.$searchQuery.'%');
-                });
-            })
-            ->when($subjectFilter, function (Builder $query) use ($subjectFilter): void {
-                $query->whereJsonContains('subjects', $subjectFilter);
-            })
-            ->when($yearFilter, function (Builder $query) use ($yearFilter): void {
-                $query->where('publish_year', $yearFilter);
-            })
-            ->orderBy('title')
-            ->paginate(15)
-            ->withQueryString();
+        $discoveryResult = $discovery->discover($validated, $rateKey);
 
         $subjectOptions = Book::query()
             ->whereNotNull('subjects')
@@ -58,11 +46,13 @@ class BookController extends Controller
 
         return view('books.index', [
             'title' => __('Books'),
-            'books' => $books,
+            'books' => $discoveryResult->books,
+            'discovery' => $discoveryResult,
             'filters' => [
-                'q' => $searchQuery ?? '',
-                'subject' => $subjectFilter ?? '',
-                'year' => $yearFilter !== null ? (string) $yearFilter : '',
+                'q' => filled($validated['q'] ?? null) ? (string) $validated['q'] : '',
+                'subject' => filled($validated['subject'] ?? null) ? (string) $validated['subject'] : '',
+                'year' => isset($validated['year']) && $validated['year'] !== null ? (string) (int) $validated['year'] : '',
+                'mode' => $discoveryResult->mode->value,
             ],
             'subjectOptions' => $subjectOptions,
             'yearOptions' => $yearOptions,
@@ -71,6 +61,8 @@ class BookController extends Controller
 
     public function show(Book $book): View
     {
+        $book->load('authors');
+
         $reviews = ReadingLog::query()
             ->where('book_id', $book->getKey())
             ->where('is_private', false)

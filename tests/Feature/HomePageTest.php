@@ -33,7 +33,6 @@ test('the landing page shows imported featured books when present', function () 
     $book = Book::factory()->create([
         'open_library_id' => '/works/OLUNIT123W',
         'title' => 'Visible Featured Title',
-        'author' => 'Casey Catalog',
         'cover_url' => 'https://covers.openlibrary.org/b/id/9999999-M.jpg',
     ]);
 
@@ -63,7 +62,6 @@ test('the landing page falls back to a high resolution hero when the featured bo
     $book = Book::factory()->create([
         'open_library_id' => '/works/OLNOCOVER1W',
         'title' => 'No Cover Title',
-        'author' => 'Pat Poster',
         'cover_url' => null,
     ]);
 

@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Author;
 use App\Models\Book;
 use App\Models\ReadingLog;
 use App\Models\User;
@@ -7,11 +8,14 @@ use App\Models\User;
 test('the book detail page renders stored catalog fields', function () {
     $book = Book::factory()->create([
         'title' => 'Page Title Alpha',
-        'author' => 'Author Example',
         'publish_year' => 2019,
         'description' => str_repeat('Synopsis line. ', 40),
         'subjects' => ['Essays', 'Biography'],
     ]);
+    $book->authors()->attach(
+        Author::factory()->create(['name' => 'Author Example']),
+        ['position' => 1],
+    );
 
     $this->get(route('books.show', $book))
         ->assertSuccessful()

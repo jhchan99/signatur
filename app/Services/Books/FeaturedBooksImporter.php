@@ -4,7 +4,7 @@ namespace App\Services\Books;
 
 use App\Models\Book;
 use App\Models\BookFeaturedEntry;
-use App\Services\OpenLibrary\OpenLibraryBookNormalizer;
+use App\Services\OpenLibrary\OpenLibraryBookSyncService;
 use App\Services\OpenLibrary\OpenLibraryService;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
@@ -14,6 +14,7 @@ class FeaturedBooksImporter
 {
     public function __construct(
         protected OpenLibraryService $openLibrary,
+        protected OpenLibraryBookSyncService $bookSync,
     ) {}
 
     public function import(): void
@@ -67,30 +68,7 @@ class FeaturedBooksImporter
             return null;
         }
 
-        $work = $this->openLibrary->getWork($workKey);
-        if ($work === []) {
-            return null;
-        }
-
-        $authorNames = $this->resolveAuthorNames($work);
-        $normalizedKey = $this->normalizeWorkKey($workKey);
-        $title = $work['title'] ?? null;
-        $title = is_string($title) && $title !== '' ? $title : 'Unknown title';
-
-        $yearRaw = $work['first_publish_year'] ?? null;
-        $year = is_numeric($yearRaw) ? (int) $yearRaw : null;
-
-        return Book::query()->updateOrCreate(
-            ['open_library_id' => $normalizedKey],
-            [
-                'title' => $title,
-                'author' => $authorNames,
-                'cover_url' => OpenLibraryBookNormalizer::coverUrlFromWork($work),
-                'publish_year' => $year,
-                'description' => OpenLibraryBookNormalizer::description($work['description'] ?? null),
-                'subjects' => OpenLibraryBookNormalizer::subjectsFromWork($work),
-            ],
-        );
+        return $this->bookSync->syncFromWorkKey($workKey);
     }
 
     /**
@@ -120,45 +98,5 @@ class FeaturedBooksImporter
         }
 
         return $key;
-    }
-
-    protected function normalizeWorkKey(string $workKey): string
-    {
-        $trimmed = trim($workKey);
-
-        if (str_starts_with($trimmed, '/works/')) {
-            return $trimmed;
-        }
-
-        if (str_starts_with($trimmed, 'works/')) {
-            return '/'.$trimmed;
-        }
-
-        return '/works/'.ltrim($trimmed, '/');
-    }
-
-    /**
-     * @param  array<string, mixed>  $work
-     */
-    protected function resolveAuthorNames(array $work): ?string
-    {
-        $keys = OpenLibraryBookNormalizer::authorKeysFromWork($work)->take(5);
-        if ($keys->isEmpty()) {
-            return null;
-        }
-
-        $names = [];
-        foreach ($keys as $authorKey) {
-            $payload = $this->openLibrary->getAuthor($authorKey);
-            if ($payload !== [] && isset($payload['name']) && is_string($payload['name'])) {
-                $names[] = $payload['name'];
-            }
-        }
-
-        if ($names === []) {
-            return null;
-        }
-
-        return implode(', ', $names);
     }
 }

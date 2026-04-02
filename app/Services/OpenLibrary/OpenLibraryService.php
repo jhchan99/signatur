@@ -2,6 +2,8 @@
 
 namespace App\Services\OpenLibrary;
 
+use Illuminate\Http\Client\ConnectionException;
+use Illuminate\Http\Client\PendingRequest;
 use Illuminate\Http\Client\Response;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Http;
@@ -12,6 +14,8 @@ class OpenLibraryService
 
     protected int $timeout;
 
+    protected int $connectTimeout;
+
     public function __construct()
     {
         $configured = config('services.openlibrary.base_url');
@@ -19,6 +23,7 @@ class OpenLibraryService
             ? $configured
             : 'https://openlibrary.org';
         $this->timeout = (int) config('services.openlibrary.timeout');
+        $this->connectTimeout = (int) config('services.openlibrary.connect_timeout');
     }
 
     /**
@@ -29,7 +34,7 @@ class OpenLibraryService
         $payload = $this->get('search.json', [
             'q' => $query,
             'limit' => 20,
-        ]);
+        ], degradeOnTransportFailure: true);
 
         return collect($payload);
     }
@@ -42,7 +47,7 @@ class OpenLibraryService
         $payload = $this->get('search.json', [
             'q' => $query,
             'limit' => 20,
-        ]);
+        ], degradeOnTransportFailure: true);
 
         $docs = $payload['docs'] ?? [];
 
@@ -63,7 +68,49 @@ class OpenLibraryService
             'title' => $title,
             'author' => $author,
             'limit' => 10,
-        ]);
+        ], degradeOnTransportFailure: true);
+
+        $docs = $payload['docs'] ?? [];
+
+        if (! is_array($docs)) {
+            return collect();
+        }
+
+        /** @var array<int, array<string, mixed>> $docs */
+        return collect($docs);
+    }
+
+    /**
+     * @return Collection<int, array<string, mixed>>
+     */
+    public function searchAuthorDocuments(string $query): Collection
+    {
+        $payload = $this->get('search/authors.json', [
+            'q' => $query,
+            'limit' => 10,
+        ], degradeOnTransportFailure: true);
+
+        $docs = $payload['docs'] ?? [];
+
+        if (! is_array($docs)) {
+            return collect();
+        }
+
+        /** @var array<int, array<string, mixed>> $docs */
+        return collect($docs);
+    }
+
+    /**
+     * Search works where Open Library attributes match the author field.
+     *
+     * @return Collection<int, array<string, mixed>>
+     */
+    public function searchDocumentsWithAuthorField(string $author): Collection
+    {
+        $payload = $this->get('search.json', [
+            'author' => $author,
+            'limit' => 20,
+        ], degradeOnTransportFailure: true);
 
         $docs = $payload['docs'] ?? [];
 
@@ -99,15 +146,21 @@ class OpenLibraryService
      * @param  array<string, mixed|array<int|string, mixed>>  $query
      * @return array<string, mixed>
      */
-    protected function get(string $path, array $query = []): array
+    protected function get(string $path, array $query = [], bool $degradeOnTransportFailure = false): array
     {
         $url = rtrim($this->baseUrl, '/').'/'.ltrim($path, '/');
 
-        /** @var Response $response */
-        $response = Http::timeout($this->timeout)
-            ->retry(3, 250, throw: false)
-            ->acceptJson()
-            ->get($url, $query);
+        try {
+            /** @var Response $response */
+            $response = $this->pendingRequest()
+                ->get($url, $query);
+        } catch (ConnectionException $e) {
+            if ($degradeOnTransportFailure) {
+                return [];
+            }
+
+            throw $e;
+        }
 
         if ($response->failed()) {
             return [];
@@ -117,5 +170,18 @@ class OpenLibraryService
         $json = $response->json() ?? [];
 
         return $json;
+    }
+
+    protected function pendingRequest(): PendingRequest
+    {
+        $pending = Http::timeout($this->timeout)
+            ->retry(3, 250, throw: false)
+            ->acceptJson();
+
+        if ($this->connectTimeout > 0) {
+            $pending->connectTimeout($this->connectTimeout);
+        }
+
+        return $pending;
     }
 }

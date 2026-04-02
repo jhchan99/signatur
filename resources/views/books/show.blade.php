@@ -2,6 +2,7 @@
     $excerpt = $book->description
         ? \Illuminate\Support\Str::limit(\Illuminate\Support\Str::squish(strip_tags($book->description)), 900)
         : null;
+    $displayAuthor = $book->displayAuthor();
 
     /** @var list<string> $subjectTags */
     $subjectTags = is_array($book->subjects) ? $book->subjects : [];
@@ -44,8 +45,8 @@
                             @endif
                         </div>
 
-                        @if (filled($book->author))
-                            <p class="text-base text-zinc-300">{{ $book->author }}</p>
+                        @if (filled($displayAuthor))
+                            <p class="text-base text-zinc-300">{{ $displayAuthor }}</p>
                         @endif
 
                         @if ($excerpt !== null && $excerpt !== '')

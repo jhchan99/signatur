@@ -1,13 +1,17 @@
 <?php
 
+use App\Models\Author;
 use App\Models\Book;
 use App\Models\User;
 
 test('the books index page can be rendered', function () {
-    Book::factory()->create([
+    $book = Book::factory()->create([
         'title' => 'Index Visible Book',
-        'author' => 'Taylor Reader',
     ]);
+    $book->authors()->attach(
+        Author::factory()->create(['name' => 'Taylor Reader']),
+        ['position' => 1],
+    );
 
     $response = $this->get(route('books.index'));
 
@@ -36,8 +40,8 @@ test('the books index orders books by title', function () {
 });
 
 test('the books index can search by title', function () {
-    Book::factory()->create(['title' => 'Unique Solar Title', 'author' => 'Some Author']);
-    Book::factory()->create(['title' => 'Other Moon', 'author' => 'Other Author']);
+    Book::factory()->create(['title' => 'Unique Solar Title']);
+    Book::factory()->create(['title' => 'Other Moon']);
 
     $this->get(route('books.index', ['q' => 'Solar']))
         ->assertSuccessful()
@@ -46,10 +50,13 @@ test('the books index can search by title', function () {
 });
 
 test('the books index can search by author', function () {
-    Book::factory()->create(['title' => 'First Book', 'author' => 'Quinn AuthorMatch']);
-    Book::factory()->create(['title' => 'Second Book', 'author' => 'Different Person']);
+    $matchingBook = Book::factory()->create(['title' => 'First Book']);
+    $matchingAuthor = Author::factory()->create(['name' => 'Quinn AuthorMatch']);
+    $matchingBook->authors()->attach($matchingAuthor, ['position' => 1]);
 
-    $this->get(route('books.index', ['q' => 'AuthorMatch']))
+    Book::factory()->create(['title' => 'Second Book']);
+
+    $this->get(route('books.index', ['q' => 'AuthorMatch', 'mode' => 'author']))
         ->assertSuccessful()
         ->assertSee('First Book')
         ->assertDontSee('Second Book');
