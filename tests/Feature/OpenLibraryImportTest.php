@@ -58,3 +58,26 @@ test('openlibrary import respects --limit', function () {
     expect(Author::count())->toBe(1)
         ->and(Author::query()->value('open_library_id'))->toBe('/authors/OLIMPA');
 });
+
+test('openlibrary import accepts long author names', function () {
+    $longName = str_repeat('Very Long Imported Author Name ', 12);
+    $fixture = tempnam(sys_get_temp_dir(), 'ol-authors-');
+
+    file_put_contents(
+        $fixture,
+        "/type/author\t/authors/OLLONGA\t1\t2019-01-01T00:00:00.000000\t".json_encode([
+            'name' => $longName,
+            'bio' => null,
+        ]).PHP_EOL,
+    );
+
+    $this->artisan('openlibrary:import', [
+        'type' => 'authors',
+        'file' => $fixture,
+    ])->assertSuccessful();
+
+    expect(Author::query()->where('open_library_id', '/authors/OLLONGA')->value('name'))
+        ->toBe($longName);
+
+    @unlink($fixture);
+});

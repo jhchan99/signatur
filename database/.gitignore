@@ -1,1 +1,5 @@
 *.sqlite*
+/data/*
+!/data/*.csv
+!/data/app_csv_seed.zip
+!/data/.gitignore
