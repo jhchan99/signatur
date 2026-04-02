@@ -31,10 +31,11 @@ class BookSeeder extends Seeder
 
             $authorName = trim((string) ($data['author'] ?? ''));
             if ($authorName !== '') {
-                $author = Author::query()->firstOrCreate(
-                    ['open_library_id' => '/authors/csv-'.sha1($authorName)],
-                    ['name' => $authorName, 'bio' => null],
-                );
+                $author = Author::query()->where('name', $authorName)->first()
+                    ?? Author::query()->firstOrCreate(
+                        ['open_library_id' => '/authors/csv-'.sha1($authorName)],
+                        ['name' => $authorName, 'bio' => null],
+                    );
 
                 DB::table('book_author')->insert([
                     'book_id' => (int) $data['id'],

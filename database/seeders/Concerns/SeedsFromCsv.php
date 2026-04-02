@@ -62,6 +62,7 @@ trait SeedsFromCsv
 
         $allowedTable = match ($table) {
             'users',
+            'authors',
             'books',
             'reading_logs',
             'activities',
