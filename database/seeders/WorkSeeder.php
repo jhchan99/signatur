@@ -7,7 +7,7 @@ use Database\Seeders\Concerns\SeedsFromCsv;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class BookSeeder extends Seeder
+class WorkSeeder extends Seeder
 {
     use SeedsFromCsv;
 
@@ -16,15 +16,16 @@ class BookSeeder extends Seeder
      */
     public function run(): void
     {
-        $this->eachCsvRow('books.csv', function (array $data): void {
-            DB::table('books')->insert([
+        $this->eachCsvRow('works.csv', function (array $data): void {
+            DB::table('works')->insert([
                 'id' => (int) $data['id'],
-                'open_library_id' => $data['open_library_id'],
+                'open_library_key' => $data['open_library_key'],
                 'title' => $data['title'],
-                'cover_url' => ($data['cover_url'] ?? '') === '' ? null : $data['cover_url'], // nullable
-                'publish_year' => ($data['publish_year'] ?? '') === '' ? null : (int) $data['publish_year'], // nullable
-                'description' => ($data['description'] ?? '') === '' ? null : $data['description'], // nullable
-                'subjects' => ($data['subjects'] ?? '') === '' ? null : $data['subjects'], // nullable json
+                'subtitle' => ($data['subtitle'] ?? '') === '' ? null : $data['subtitle'],
+                'cover_id' => ($data['cover_id'] ?? '') === '' ? null : (int) $data['cover_id'],
+                'first_publish_year' => ($data['first_publish_year'] ?? '') === '' ? null : (int) $data['first_publish_year'],
+                'description' => ($data['description'] ?? '') === '' ? null : $data['description'],
+                'subjects' => ($data['subjects'] ?? '') === '' ? null : $data['subjects'],
                 'created_at' => $data['created_at'],
                 'updated_at' => $data['updated_at'],
             ]);
@@ -37,14 +38,15 @@ class BookSeeder extends Seeder
                         ['name' => $authorName, 'bio' => null],
                     );
 
-                DB::table('book_author')->insert([
-                    'book_id' => (int) $data['id'],
+                DB::table('author_works')->insert([
+                    'work_id' => (int) $data['id'],
                     'author_id' => $author->getKey(),
                     'position' => 1,
+                    'role' => null,
                 ]);
             }
         });
 
-        $this->syncPostgresIdSequence('books');
+        $this->syncPostgresIdSequence('works');
     }
 }

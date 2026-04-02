@@ -3,15 +3,15 @@
 namespace Database\Factories;
 
 use App\Models\Author;
-use App\Models\Book;
+use App\Models\Work;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends Factory<Book>
+ * @extends Factory<Work>
  */
-class BookFactory extends Factory
+class WorkFactory extends Factory
 {
-    protected $model = Book::class;
+    protected $model = Work::class;
 
     /**
      * @return array<string, mixed>
@@ -21,10 +21,11 @@ class BookFactory extends Factory
         $suffix = fake()->unique()->numerify('#######');
 
         return [
-            'open_library_id' => '/works/OL'.$suffix.'W',
+            'open_library_key' => '/works/OL'.$suffix.'W',
             'title' => fake()->sentence(3),
-            'cover_url' => 'https://covers.openlibrary.org/b/id/'.fake()->numberBetween(1000000, 9999999).'-M.jpg',
-            'publish_year' => fake()->year(),
+            'subtitle' => null,
+            'cover_id' => fake()->numberBetween(1000000, 9999999),
+            'first_publish_year' => fake()->year(),
             'description' => fake()->paragraph(),
             'subjects' => null,
         ];
@@ -32,14 +33,14 @@ class BookFactory extends Factory
 
     public function withAuthors(int $count = 1): static
     {
-        return $this->afterCreating(function (Book $book) use ($count): void {
+        return $this->afterCreating(function (Work $work) use ($count): void {
             $authors = Author::factory()->count($count)->create();
 
-            $book->authors()->sync(
+            $work->authors()->sync(
                 $authors
                     ->values()
                     ->mapWithKeys(fn (Author $author, int $index): array => [
-                        $author->getKey() => ['position' => $index + 1],
+                        $author->getKey() => ['position' => $index + 1, 'role' => null],
                     ])
                     ->all(),
             );

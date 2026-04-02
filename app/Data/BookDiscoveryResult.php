@@ -3,13 +3,13 @@
 namespace App\Data;
 
 use App\Enums\BookSearchMode;
-use App\Models\Book;
+use App\Models\Work;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 
 final readonly class BookDiscoveryResult
 {
     /**
-     * @param  LengthAwarePaginator<int, Book>  $books
+     * @param  LengthAwarePaginator<int, Work>  $books
      * @param  list<BookSearchResultItem>  $openLibraryItems
      */
     public function __construct(

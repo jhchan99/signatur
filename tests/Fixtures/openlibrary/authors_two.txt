@@ -1,0 +1,2 @@
+/type/author	/authors/OLIMPA	1	2019-01-01T00:00:00.000000	{"name":"First Author","bio":null}
+/type/author	/authors/OLIMPB	1	2019-01-01T00:00:00.000000	{"name":"Second Author","bio":null}

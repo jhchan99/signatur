@@ -2,8 +2,8 @@
 
 namespace App\Services\Books;
 
-use App\Models\Book;
 use App\Models\BookFeaturedEntry;
+use App\Models\Work;
 use App\Services\OpenLibrary\OpenLibraryBookNormalizer;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Facades\Cache;
@@ -27,7 +27,7 @@ class HomepageFeaturedBooksService
     {
         /** @var Collection<int, BookFeaturedEntry> $entries */
         $entries = BookFeaturedEntry::query()
-            ->with('book.authors')
+            ->with('work.authors')
             ->forLatestImport()
             ->orderBy('position')
             ->get();
@@ -39,7 +39,7 @@ class HomepageFeaturedBooksService
         return Cache::remember('home.featured_books', (int) config('books.featured.cache_ttl'), function () {
             /** @var Collection<int, BookFeaturedEntry> $fresh */
             $fresh = BookFeaturedEntry::query()
-                ->with('book.authors')
+                ->with('work.authors')
                 ->forLatestImport()
                 ->orderBy('position')
                 ->get();
@@ -64,22 +64,22 @@ class HomepageFeaturedBooksService
         /** @var list<array{title: string, image: string, href: string, card_image: string, external: bool}> $covers */
         $covers = [];
         foreach ($entries as $index => $entry) {
-            $book = $entry->book;
-            $card = $book->cover_url ?? $fallbackImages[$index % count($fallbackImages)];
-            if ($book->cover_url === null || $book->cover_url === '') {
+            $work = $entry->work;
+            $card = $work->cover_url ?? $fallbackImages[$index % count($fallbackImages)];
+            if ($work->cover_url === null || $work->cover_url === '') {
                 $card = $fallbackHeroImage;
             }
-            $display = OpenLibraryBookNormalizer::heroCoverUrlFromStoredCover($book->cover_url) ?? $card;
+            $display = OpenLibraryBookNormalizer::heroCoverUrlFromCoverId($work->cover_id) ?? $card;
             $covers[] = [
-                'title' => $book->title,
+                'title' => $work->title,
                 'image' => $display,
                 'card_image' => $card,
-                'href' => route('books.show', $book),
+                'href' => route('books.show', $work),
                 'external' => false,
             ];
         }
 
-        $hero = $entries->first()?->book;
+        $hero = $entries->first()?->work;
         if ($hero === null) {
             return $fallback;
         }
@@ -100,15 +100,9 @@ class HomepageFeaturedBooksService
         ];
     }
 
-    protected static function resolveHeroBackgroundUrl(Book $book): ?string
+    protected static function resolveHeroBackgroundUrl(Work $work): ?string
     {
-        $large = OpenLibraryBookNormalizer::heroCoverUrlFromStoredCover($book->cover_url);
-
-        if ($large !== null) {
-            return $large;
-        }
-
-        return null;
+        return OpenLibraryBookNormalizer::heroCoverUrlFromCoverId($work->cover_id);
     }
 
     /**

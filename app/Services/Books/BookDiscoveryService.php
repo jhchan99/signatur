@@ -5,10 +5,10 @@ namespace App\Services\Books;
 use App\Data\BookDiscoveryResult;
 use App\Data\BookSearchResultItem;
 use App\Enums\BookSearchMode;
-use App\Jobs\SyncBookFromOpenLibraryJob;
-use App\Models\Book;
-use App\Services\OpenLibrary\OpenLibraryBookSyncService;
+use App\Jobs\SyncWorkFromOpenLibraryJob;
+use App\Models\Work;
 use App\Services\OpenLibrary\OpenLibraryService;
+use App\Services\OpenLibrary\OpenLibraryWorkSyncService;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\RateLimiter;
@@ -72,7 +72,7 @@ class BookDiscoveryService
         ?string $subjectFilter,
         ?int $yearFilter,
     ): Builder {
-        return Book::query()
+        return Work::query()
             ->with('authors')
             ->when($searchQuery !== null, function (Builder $query) use ($searchQuery, $mode): void {
                 if ($mode === BookSearchMode::Author) {
@@ -93,7 +93,7 @@ class BookDiscoveryService
                 $query->whereJsonContains('subjects', $subjectFilter);
             })
             ->when($yearFilter !== null, function (Builder $query) use ($yearFilter): void {
-                $query->where('publish_year', $yearFilter);
+                $query->where('first_publish_year', $yearFilter);
             });
     }
 
@@ -130,7 +130,7 @@ class BookDiscoveryService
             if (! is_string($key) || ! str_starts_with($key, '/works/')) {
                 continue;
             }
-            $normalizedKeys[] = OpenLibraryBookSyncService::normalizeWorkKey($key);
+            $normalizedKeys[] = OpenLibraryWorkSyncService::normalizeWorkKey($key);
         }
 
         $uniqueKeys = array_values(array_unique($normalizedKeys));
@@ -138,9 +138,9 @@ class BookDiscoveryService
             return [];
         }
 
-        $existing = Book::query()
-            ->whereIn('open_library_id', $uniqueKeys)
-            ->pluck('open_library_id')
+        $existing = Work::query()
+            ->whereIn('open_library_key', $uniqueKeys)
+            ->pluck('open_library_key')
             ->all();
 
         $existingSet = array_flip($existing);
@@ -189,7 +189,7 @@ class BookDiscoveryService
             if ($count >= self::FALLBACK_SYNC_CAP) {
                 break;
             }
-            SyncBookFromOpenLibraryJob::dispatch($item->openLibraryId);
+            SyncWorkFromOpenLibraryJob::dispatch($item->openLibraryId);
             $count++;
         }
     }

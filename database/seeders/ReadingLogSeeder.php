@@ -19,7 +19,7 @@ class ReadingLogSeeder extends Seeder
             DB::table('reading_logs')->insert([
                 'id' => (int) $data['id'],
                 'user_id' => (int) $data['user_id'],
-                'book_id' => (int) $data['book_id'],
+                'work_id' => (int) $data['work_id'],
                 'status' => $data['status'],
                 'rating' => ($data['rating'] ?? '') === '' ? null : $data['rating'], // nullable
                 'review_text' => ($data['review_text'] ?? '') === '' ? null : $data['review_text'], // nullable

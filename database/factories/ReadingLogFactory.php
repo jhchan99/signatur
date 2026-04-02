@@ -2,9 +2,9 @@
 
 namespace Database\Factories;
 
-use App\Models\Book;
 use App\Models\ReadingLog;
 use App\Models\User;
+use App\Models\Work;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -12,8 +12,6 @@ use Illuminate\Database\Eloquent\Factories\Factory;
  */
 class ReadingLogFactory extends Factory
 {
-    protected $model = ReadingLog::class;
-
     /**
      * @return array<string, mixed>
      */
@@ -21,36 +19,20 @@ class ReadingLogFactory extends Factory
     {
         return [
             'user_id' => User::factory(),
-            'book_id' => Book::factory(),
-            'status' => 'finished',
-            'rating' => fake()->randomElement([3.0, 3.5, 4.0, 4.5, 5.0]),
-            'review_text' => fake()->paragraph(),
-            'is_spoiler' => false,
-            'is_private' => false,
-            'date_started' => null,
-            'date_finished' => null,
+            'work_id' => Work::factory(),
+            'status' => fake()->randomElement(['want_to_read', 'currently_reading', 'finished']),
+            'rating' => fake()->optional()->randomFloat(1, 1, 5),
+            'review_text' => fake()->optional()->paragraph(),
+            'is_spoiler' => fake()->boolean(20),
+            'is_private' => fake()->boolean(15),
+            'date_started' => fake()->optional()->date(),
+            'date_finished' => fake()->optional()->date(),
         ];
-    }
-
-    public function publicReview(): static
-    {
-        return $this->state(fn (array $attributes) => [
-            'is_private' => false,
-            'review_text' => fake()->paragraph(),
-        ]);
-    }
-
-    public function privateLog(): static
-    {
-        return $this->state(fn (array $attributes) => [
-            'is_private' => true,
-            'review_text' => fake()->paragraph(),
-        ]);
     }
 
     public function withoutReviewText(): static
     {
-        return $this->state(fn (array $attributes) => [
+        return $this->state(fn (): array => [
             'review_text' => null,
         ]);
     }

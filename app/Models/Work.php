@@ -2,25 +2,27 @@
 
 namespace App\Models;
 
-use Database\Factories\BookFactory;
+use App\Services\OpenLibrary\OpenLibraryBookNormalizer;
+use Database\Factories\WorkFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Book extends Model
+class Work extends Model
 {
-    /** @use HasFactory<BookFactory> */
+    /** @use HasFactory<WorkFactory> */
     use HasFactory;
 
     /**
      * @var list<string>
      */
     protected $fillable = [
-        'open_library_id',
+        'open_library_key',
         'title',
-        'cover_url',
-        'publish_year',
+        'subtitle',
+        'cover_id',
+        'first_publish_year',
         'description',
         'subjects',
     ];
@@ -31,7 +33,8 @@ class Book extends Model
     protected function casts(): array
     {
         return [
-            'publish_year' => 'integer',
+            'cover_id' => 'integer',
+            'first_publish_year' => 'integer',
             'subjects' => 'array',
         ];
     }
@@ -49,8 +52,8 @@ class Book extends Model
      */
     public function authors(): BelongsToMany
     {
-        return $this->belongsToMany(Author::class, 'book_author')
-            ->withPivot('position')
+        return $this->belongsToMany(Author::class, 'author_works')
+            ->withPivot(['position', 'role'])
             ->orderByPivot('position');
     }
 
@@ -60,6 +63,32 @@ class Book extends Model
     public function readingLogs(): HasMany
     {
         return $this->hasMany(ReadingLog::class);
+    }
+
+    /**
+     * @return HasMany<Edition, $this>
+     */
+    public function editions(): HasMany
+    {
+        return $this->hasMany(Edition::class);
+    }
+
+    /**
+     * Medium cover URL for templates and API-shaped fields that expect a string URL.
+     */
+    public function getCoverUrlAttribute(): ?string
+    {
+        return OpenLibraryBookNormalizer::coverUrlFromCoverId($this->cover_id, 'M');
+    }
+
+    public function getPublishYearAttribute(): ?int
+    {
+        return $this->first_publish_year;
+    }
+
+    public function resolveCoverUrl(string $size = 'M'): ?string
+    {
+        return OpenLibraryBookNormalizer::coverUrlFromCoverId($this->cover_id, $size);
     }
 
     public function displayAuthor(): ?string

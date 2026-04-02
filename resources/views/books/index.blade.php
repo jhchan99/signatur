@@ -15,7 +15,7 @@
                         $filterSelect = 'min-w-0 flex-1 cursor-pointer appearance-none border-0 bg-transparent py-2 pl-2 pr-8 text-[11px] font-semibold uppercase tracking-wider text-zinc-200 outline-none sm:min-w-[6.5rem]';
                         $filterSelectDisabled = 'min-w-0 flex-1 cursor-not-allowed appearance-none border-0 bg-transparent py-2 pl-2 pr-8 text-[11px] font-semibold uppercase tracking-wider text-zinc-400 outline-none sm:min-w-[6.5rem]';
                         $filterChevron = 'pointer-events-none absolute right-2 top-1/2 -translate-y-1/2 text-[10px] text-zinc-500';
-                        $displayAuthor = static fn (\App\Models\Book $book): ?string => $book->displayAuthor();
+                        $displayAuthor = static fn (\App\Models\Work $book): ?string => $book->displayAuthor();
                     @endphp
                     <div class="flex flex-col gap-4">
                         <div class="flex flex-wrap items-baseline justify-between gap-x-8 gap-y-2">

@@ -1,0 +1,1 @@
+/type/work	/works/OLIMPW	1	2019-01-01T00:00:00.000000	{"title":"Import Work Beta","first_publish_date":"1999","covers":[12345],"authors":[{"author":{"key":"/authors/OLIMPA"},"role":"author"}]}

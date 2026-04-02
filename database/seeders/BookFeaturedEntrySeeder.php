@@ -19,7 +19,7 @@ class BookFeaturedEntrySeeder extends Seeder
             DB::table('book_featured_entries')->insert([
                 'id' => (int) $data['id'],
                 'import_batch' => $data['import_batch'],
-                'book_id' => (int) $data['book_id'],
+                'work_id' => (int) $data['work_id'],
                 'position' => (int) $data['position'],
                 'source' => $data['source'],
                 'list_name' => ($data['list_name'] ?? '') === '' ? null : $data['list_name'], // nullable

@@ -13,7 +13,7 @@ class BookFeaturedEntry extends Model
      */
     protected $fillable = [
         'import_batch',
-        'book_id',
+        'work_id',
         'position',
         'source',
         'list_name',
@@ -33,11 +33,11 @@ class BookFeaturedEntry extends Model
     }
 
     /**
-     * @return BelongsTo<Book, $this>
+     * @return BelongsTo<Work, $this>
      */
-    public function book(): BelongsTo
+    public function work(): BelongsTo
     {
-        return $this->belongsTo(Book::class);
+        return $this->belongsTo(Work::class);
     }
 
     /**

@@ -2,10 +2,10 @@
 
 namespace App\Services\Books;
 
-use App\Models\Book;
 use App\Models\BookFeaturedEntry;
-use App\Services\OpenLibrary\OpenLibraryBookSyncService;
+use App\Models\Work;
 use App\Services\OpenLibrary\OpenLibraryService;
+use App\Services\OpenLibrary\OpenLibraryWorkSyncService;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
@@ -14,7 +14,7 @@ class FeaturedBooksImporter
 {
     public function __construct(
         protected OpenLibraryService $openLibrary,
-        protected OpenLibraryBookSyncService $bookSync,
+        protected OpenLibraryWorkSyncService $workSync,
     ) {}
 
     public function import(): void
@@ -38,14 +38,14 @@ class FeaturedBooksImporter
                 }
 
                 $position = (int) $index + 1;
-                $book = $this->importBookFromSeed($seed);
-                if ($book === null) {
+                $work = $this->importWorkFromSeed($seed);
+                if ($work === null) {
                     continue;
                 }
 
                 BookFeaturedEntry::query()->create([
                     'import_batch' => $batch,
-                    'book_id' => $book->id,
+                    'work_id' => $work->id,
                     'position' => $position,
                     'source' => $source,
                     'list_name' => $listName,
@@ -61,14 +61,14 @@ class FeaturedBooksImporter
     /**
      * @param  array<string, mixed>  $seed
      */
-    protected function importBookFromSeed(array $seed): ?Book
+    protected function importWorkFromSeed(array $seed): ?Work
     {
         $workKey = $this->resolveWorkKey($seed);
         if ($workKey === null) {
             return null;
         }
 
-        return $this->bookSync->syncFromWorkKey($workKey);
+        return $this->workSync->syncFromWorkKey($workKey);
     }
 
     /**

@@ -19,14 +19,29 @@ class Author extends Model
         'open_library_id',
         'name',
         'bio',
+        'birth_date',
+        'death_date',
+        'wikipedia',
+        'alternate_names',
     ];
 
     /**
-     * @return BelongsToMany<Book, $this>
+     * @return array<string, string>
      */
-    public function books(): BelongsToMany
+    protected function casts(): array
     {
-        return $this->belongsToMany(Book::class, 'book_author')
-            ->withPivot('position');
+        return [
+            'alternate_names' => 'array',
+        ];
+    }
+
+    /**
+     * @return BelongsToMany<Work, $this>
+     */
+    public function works(): BelongsToMany
+    {
+        return $this->belongsToMany(Work::class, 'author_works')
+            ->withPivot(['position', 'role'])
+            ->orderByPivot('position');
     }
 }

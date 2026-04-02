@@ -1,4 +1,4 @@
-id,import_batch,book_id,position,source,list_name,payload,imported_at,created_at,updated_at
+id,import_batch,work_id,position,source,list_name,payload,imported_at,created_at,updated_at
 1,550e8400-e29b-41d4-a716-446655440000,1,1,open_library,"Staff Picks","{""blurb"":""A landmark work of speculative fiction."",""theme"":""Classics""}",2026-03-01 07:00:00+00,2026-03-01 07:00:00+00,2026-03-01 07:00:00+00
 2,550e8400-e29b-41d4-a716-446655440000,3,2,open_library,"Staff Picks","{""blurb"":""A lyrical myth retelling."",""theme"":""Modern Favorites""}",2026-03-01 07:00:00+00,2026-03-01 07:00:00+00,2026-03-01 07:00:00+00
 3,550e8400-e29b-41d4-a716-446655440000,4,3,open_library,"Staff Picks","{""blurb"":""An enduring fantasy adventure."",""theme"":""Adventure""}",2026-03-01 07:00:00+00,2026-03-01 07:00:00+00,2026-03-01 07:00:00+00

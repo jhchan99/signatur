@@ -1,7 +1,7 @@
 <?php
 
 use App\Models\Author;
-use App\Models\Book;
+use App\Models\Work;
 use App\Services\Books\BookDiscoveryService;
 use Illuminate\Http\Client\Request;
 use Illuminate\Support\Facades\Http;
@@ -15,7 +15,7 @@ beforeEach(function () {
 test('books index does not call Open Library when local catalog matches', function () {
     Http::preventStrayRequests();
 
-    Book::factory()->create([
+    Work::factory()->create([
         'title' => 'Local Only Solar',
     ]);
 
@@ -63,14 +63,14 @@ test('books index falls back to Open Library and persists work on miss', functio
         ->assertSee('Discovery Remote Title')
         ->assertSee('Remote Writer');
 
-    $book = Book::query()->where('open_library_id', '/works/OLDISCOVERY1W')->first();
-    expect($book)->not->toBeNull()
-        ->and($book->title)->toBe('Discovery Remote Title');
+    $work = Work::query()->where('open_library_key', '/works/OLDISCOVERY1W')->first();
+    expect($work)->not->toBeNull()
+        ->and($work->title)->toBe('Discovery Remote Title');
 
     $author = Author::query()->where('open_library_id', '/authors/OLXA')->first();
     expect($author)->not->toBeNull()
         ->and($author->name)->toBe('Remote Writer')
-        ->and($book->authors()->first()?->is($author))->toBeTrue();
+        ->and($work->authors()->first()?->is($author))->toBeTrue();
 });
 
 test('author mode falls back through authors search then work search', function () {
@@ -136,12 +136,12 @@ test('author mode falls back through authors search then work search', function 
 test('author mode can match related authors already in the catalog', function () {
     Http::preventStrayRequests();
 
-    $book = Book::factory()->create([
+    $work = Work::factory()->create([
         'title' => 'Catalog Author Hit',
     ]);
-    $book->authors()->attach(
+    $work->authors()->attach(
         Author::factory()->create(['name' => 'Stored Relation Author']),
-        ['position' => 1],
+        ['position' => 1, 'role' => null],
     );
 
     $this->get(route('books.index', [
@@ -152,9 +152,9 @@ test('author mode can match related authors already in the catalog', function ()
         ->assertSee('Catalog Author Hit');
 });
 
-test('open library fallback excludes works already in catalog by open_library_id', function () {
-    Book::factory()->create([
-        'open_library_id' => '/works/OLDEDUPE1W',
+test('open library fallback excludes works already in catalog by open_library_key', function () {
+    Work::factory()->create([
+        'open_library_key' => '/works/OLDEDUPE1W',
         'title' => 'Already Here',
     ]);
 

@@ -2,12 +2,12 @@
 
 namespace App\Jobs;
 
-use App\Services\OpenLibrary\OpenLibraryBookSyncService;
+use App\Services\OpenLibrary\OpenLibraryWorkSyncService;
 use Illuminate\Contracts\Queue\ShouldBeUnique;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Queue\Queueable;
 
-class SyncBookFromOpenLibraryJob implements ShouldBeUnique, ShouldQueue
+class SyncWorkFromOpenLibraryJob implements ShouldBeUnique, ShouldQueue
 {
     use Queueable;
 
@@ -21,7 +21,7 @@ class SyncBookFromOpenLibraryJob implements ShouldBeUnique, ShouldQueue
 
     public function uniqueId(): string
     {
-        return OpenLibraryBookSyncService::normalizeWorkKey($this->workKey);
+        return OpenLibraryWorkSyncService::normalizeWorkKey($this->workKey);
     }
 
     /**
@@ -32,7 +32,7 @@ class SyncBookFromOpenLibraryJob implements ShouldBeUnique, ShouldQueue
         return [15, 45, 90];
     }
 
-    public function handle(OpenLibraryBookSyncService $sync): void
+    public function handle(OpenLibraryWorkSyncService $sync): void
     {
         $sync->syncFromWorkKey($this->workKey);
     }

@@ -1,23 +1,23 @@
 <?php
 
 use App\Models\Author;
-use App\Models\Book;
 use App\Models\ReadingLog;
 use App\Models\User;
+use App\Models\Work;
 
 test('the book detail page renders stored catalog fields', function () {
-    $book = Book::factory()->create([
+    $work = Work::factory()->create([
         'title' => 'Page Title Alpha',
-        'publish_year' => 2019,
+        'first_publish_year' => 2019,
         'description' => str_repeat('Synopsis line. ', 40),
         'subjects' => ['Essays', 'Biography'],
     ]);
-    $book->authors()->attach(
+    $work->authors()->attach(
         Author::factory()->create(['name' => 'Author Example']),
-        ['position' => 1],
+        ['position' => 1, 'role' => null],
     );
 
-    $this->get(route('books.show', $book))
+    $this->get(route('books.show', $work))
         ->assertSuccessful()
         ->assertSee('Page Title Alpha')
         ->assertSee('Author Example')
@@ -31,19 +31,19 @@ test('the book detail page renders stored catalog fields', function () {
 });
 
 test('the book detail page hides guest tab navigation when logged in', function () {
-    $book = Book::factory()->create([
+    $work = Work::factory()->create([
         'title' => 'Auth Header Book',
     ]);
 
     $this->actingAs(User::factory()->create())
-        ->get(route('books.show', $book))
+        ->get(route('books.show', $work))
         ->assertSuccessful()
         ->assertDontSee('Collections', escape: false)
         ->assertSee('Account settings');
 });
 
 test('the book page shows public reviews and hides private logs', function () {
-    $book = Book::factory()->create([
+    $work = Work::factory()->create([
         'title' => 'Reviewed Title',
     ]);
 
@@ -53,7 +53,7 @@ test('the book page shows public reviews and hides private logs', function () {
 
     ReadingLog::factory()
         ->for($publicUser)
-        ->for($book)
+        ->for($work, 'work')
         ->create([
             'review_text' => 'This review is public.',
             'is_private' => false,
@@ -64,13 +64,13 @@ test('the book page shows public reviews and hides private logs', function () {
 
     ReadingLog::factory()
         ->for($privateUser)
-        ->for($book)
+        ->for($work, 'work')
         ->create([
             'review_text' => 'This should stay hidden.',
             'is_private' => true,
         ]);
 
-    $this->get(route('books.show', $book))
+    $this->get(route('books.show', $work))
         ->assertSuccessful()
         ->assertSee('Public Reviewer')
         ->assertSee('This review is public.')
@@ -79,19 +79,19 @@ test('the book page shows public reviews and hides private logs', function () {
 });
 
 test('the book page omits empty or null review text', function () {
-    $book = Book::factory()->create();
+    $work = Work::factory()->create();
 
     $user = User::factory()->create();
 
     ReadingLog::factory()
         ->for($user)
-        ->for($book)
+        ->for($work, 'work')
         ->withoutReviewText()
         ->create([
             'is_private' => false,
         ]);
 
-    $this->get(route('books.show', $book))
+    $this->get(route('books.show', $work))
         ->assertSuccessful()
         ->assertSee('No public reviews yet');
 });

@@ -1,16 +1,16 @@
 <?php
 
 use App\Models\Author;
-use App\Models\Book;
 use App\Models\User;
+use App\Models\Work;
 
 test('the books index page can be rendered', function () {
-    $book = Book::factory()->create([
+    $work = Work::factory()->create([
         'title' => 'Index Visible Book',
     ]);
-    $book->authors()->attach(
+    $work->authors()->attach(
         Author::factory()->create(['name' => 'Taylor Reader']),
-        ['position' => 1],
+        ['position' => 1, 'role' => null],
     );
 
     $response = $this->get(route('books.index'));
@@ -27,8 +27,8 @@ test('the books index page can be rendered', function () {
 });
 
 test('the books index orders books by title', function () {
-    Book::factory()->create(['title' => 'Zebra Title']);
-    Book::factory()->create(['title' => 'Alpha Title']);
+    Work::factory()->create(['title' => 'Zebra Title']);
+    Work::factory()->create(['title' => 'Alpha Title']);
 
     $response = $this->get(route('books.index'));
 
@@ -40,8 +40,8 @@ test('the books index orders books by title', function () {
 });
 
 test('the books index can search by title', function () {
-    Book::factory()->create(['title' => 'Unique Solar Title']);
-    Book::factory()->create(['title' => 'Other Moon']);
+    Work::factory()->create(['title' => 'Unique Solar Title']);
+    Work::factory()->create(['title' => 'Other Moon']);
 
     $this->get(route('books.index', ['q' => 'Solar']))
         ->assertSuccessful()
@@ -50,11 +50,11 @@ test('the books index can search by title', function () {
 });
 
 test('the books index can search by author', function () {
-    $matchingBook = Book::factory()->create(['title' => 'First Book']);
+    $matchingWork = Work::factory()->create(['title' => 'First Book']);
     $matchingAuthor = Author::factory()->create(['name' => 'Quinn AuthorMatch']);
-    $matchingBook->authors()->attach($matchingAuthor, ['position' => 1]);
+    $matchingWork->authors()->attach($matchingAuthor, ['position' => 1, 'role' => null]);
 
-    Book::factory()->create(['title' => 'Second Book']);
+    Work::factory()->create(['title' => 'Second Book']);
 
     $this->get(route('books.index', ['q' => 'AuthorMatch', 'mode' => 'author']))
         ->assertSuccessful()
@@ -63,14 +63,14 @@ test('the books index can search by author', function () {
 });
 
 test('the books index can filter by publish year', function () {
-    Book::factory()->create([
+    Work::factory()->create([
         'title' => 'From Nineteen Ninety Nine',
-        'publish_year' => 1999,
+        'first_publish_year' => 1999,
     ]);
 
-    Book::factory()->create([
+    Work::factory()->create([
         'title' => 'From Twenty Twenty',
-        'publish_year' => 2020,
+        'first_publish_year' => 2020,
     ]);
 
     $this->get(route('books.index', ['year' => 1999]))
@@ -80,12 +80,12 @@ test('the books index can filter by publish year', function () {
 });
 
 test('the books index can filter by subject', function () {
-    Book::factory()->create([
+    Work::factory()->create([
         'title' => 'Essays Pick',
         'subjects' => ['Essays', 'Biography'],
     ]);
 
-    Book::factory()->create([
+    Work::factory()->create([
         'title' => 'Fiction Only',
         'subjects' => ['Fiction'],
     ]);
@@ -98,7 +98,7 @@ test('the books index can filter by subject', function () {
 
 test('the books index paginates results', function () {
     foreach (range(1, 16) as $i) {
-        Book::factory()->create([
+        Work::factory()->create([
             'title' => sprintf('Pagination Book %02d', $i),
         ]);
     }

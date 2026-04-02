@@ -1,0 +1,1 @@
+/type/edition	/books/OLIMPM	1	2019-01-01T00:00:00.000000	{"title":"Import Edition Gamma","works":[{"key":"/works/OLIMPW"}],"isbn_13":["9780306406157"],"languages":[{"key":"/languages/eng"}]}

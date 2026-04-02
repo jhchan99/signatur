@@ -1,0 +1,1 @@
+/type/author	/authors/OLIMPA	1	2019-01-01T00:00:00.000000	{"name":"Import Author Alpha","bio":{"type":"/type/text","value":"Short bio."},"birth_date":"1950"}

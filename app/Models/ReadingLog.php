@@ -17,7 +17,7 @@ class ReadingLog extends Model
      */
     protected $fillable = [
         'user_id',
-        'book_id',
+        'work_id',
         'status',
         'rating',
         'review_text',
@@ -50,10 +50,10 @@ class ReadingLog extends Model
     }
 
     /**
-     * @return BelongsTo<Book, $this>
+     * @return BelongsTo<Work, $this>
      */
-    public function book(): BelongsTo
+    public function work(): BelongsTo
     {
-        return $this->belongsTo(Book::class);
+        return $this->belongsTo(Work::class);
     }
 }

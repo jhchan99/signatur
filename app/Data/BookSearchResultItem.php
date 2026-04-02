@@ -2,9 +2,9 @@
 
 namespace App\Data;
 
-use App\Models\Book;
+use App\Models\Work;
 use App\Services\OpenLibrary\OpenLibraryBookNormalizer;
-use App\Services\OpenLibrary\OpenLibraryBookSyncService;
+use App\Services\OpenLibrary\OpenLibraryWorkSyncService;
 
 final readonly class BookSearchResultItem
 {
@@ -18,16 +18,16 @@ final readonly class BookSearchResultItem
         public ?string $detailUrl,
     ) {}
 
-    public static function fromBook(Book $book): self
+    public static function fromWork(Work $work): self
     {
         return new self(
-            title: $book->title,
-            author: $book->displayAuthor(),
-            publishYear: $book->publish_year,
-            coverUrl: $book->cover_url,
-            openLibraryId: $book->open_library_id,
+            title: $work->title,
+            author: $work->displayAuthor(),
+            publishYear: $work->first_publish_year,
+            coverUrl: $work->cover_url,
+            openLibraryId: $work->open_library_key,
             source: 'local',
-            detailUrl: route('books.show', $book, absolute: false),
+            detailUrl: route('books.show', $work, absolute: false),
         );
     }
 
@@ -42,7 +42,7 @@ final readonly class BookSearchResultItem
             return null;
         }
 
-        $normalized = OpenLibraryBookSyncService::normalizeWorkKey($key);
+        $normalized = OpenLibraryWorkSyncService::normalizeWorkKey($key);
 
         $title = $doc['title'] ?? null;
         if (! is_string($title) || $title === '') {

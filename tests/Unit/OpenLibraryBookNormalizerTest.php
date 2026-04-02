@@ -69,6 +69,34 @@ it('normalizes subjects from string and object entries', function () {
     ]))->toBe(['Fantasy', 'Adventure']);
 });
 
+it('builds cover url from a stored cover id', function () {
+    expect(OpenLibraryBookNormalizer::coverUrlFromCoverId(9_255_560))
+        ->toBe('https://covers.openlibrary.org/b/id/9255560-M.jpg');
+    expect(OpenLibraryBookNormalizer::coverUrlFromCoverId(9_255_560, 'L'))
+        ->toBe('https://covers.openlibrary.org/b/id/9255560-L.jpg');
+    expect(OpenLibraryBookNormalizer::heroCoverUrlFromCoverId(9_255_560))
+        ->toBe('https://covers.openlibrary.org/b/id/9255560-L.jpg');
+});
+
+it('extracts first publish year from work payload', function () {
+    expect(OpenLibraryBookNormalizer::firstPublishYearFromWork([
+        'first_publish_year' => 2010,
+    ]))->toBe(2010);
+
+    expect(OpenLibraryBookNormalizer::firstPublishYearFromWork([
+        'first_publish_date' => 'June 1999',
+    ]))->toBe(1999);
+});
+
+it('extracts language codes from edition payload', function () {
+    expect(OpenLibraryBookNormalizer::languageCodesFromEdition([
+        'languages' => [
+            ['key' => '/languages/eng'],
+            ['key' => '/languages/fre'],
+        ],
+    ]))->toBe(['eng', 'fre']);
+});
+
 it('caps the number of stored subjects', function () {
     $subjects = OpenLibraryBookNormalizer::subjectsFromWork([
         'subjects' => array_map(fn (int $n) => 'Topic '.$n, range(1, 20)),

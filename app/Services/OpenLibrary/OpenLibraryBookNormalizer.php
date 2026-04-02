@@ -6,6 +6,62 @@ use Illuminate\Support\Collection;
 
 final class OpenLibraryBookNormalizer
 {
+    public static function coverUrlFromCoverId(?int $coverId, string $size = 'M'): ?string
+    {
+        if ($coverId === null || $coverId <= 0) {
+            return null;
+        }
+
+        $size = self::normalizeCoverSize($size);
+
+        return 'https://covers.openlibrary.org/b/id/'.$coverId.'-'.$size.'.jpg';
+    }
+
+    /**
+     * @param  array<string, mixed>  $work
+     */
+    public static function firstCoverIdFromWork(array $work): ?int
+    {
+        $covers = $work['covers'] ?? null;
+        if (is_array($covers) && $covers !== []) {
+            $first = $covers[0] ?? null;
+            if (is_int($first) || (is_string($first) && ctype_digit($first))) {
+                return (int) $first;
+            }
+        }
+
+        return null;
+    }
+
+    /**
+     * @param  array<string, mixed>  $work
+     */
+    public static function firstPublishYearFromWork(array $work): ?int
+    {
+        $yearRaw = $work['first_publish_year'] ?? null;
+        if (is_numeric($yearRaw)) {
+            return (int) $yearRaw;
+        }
+
+        $dateRaw = $work['first_publish_date'] ?? null;
+        if (! is_string($dateRaw) || $dateRaw === '') {
+            return null;
+        }
+        if (preg_match('/(\d{4})/', $dateRaw, $m) === 1) {
+            return (int) $m[1];
+        }
+
+        return null;
+    }
+
+    /**
+     * Hero image from a stored Open Library cover id (large).
+     */
+    public static function heroCoverUrlFromCoverId(?int $coverId): ?string
+    {
+        return self::coverUrlFromCoverId($coverId, 'L');
+    }
+
     /**
      * @param  array<string, mixed>  $work
      */
@@ -13,14 +69,9 @@ final class OpenLibraryBookNormalizer
     {
         $size = self::normalizeCoverSize($size);
 
-        $covers = $work['covers'] ?? null;
-        if (is_array($covers) && $covers !== []) {
-            $first = $covers[0] ?? null;
-            if (is_int($first) || (is_string($first) && ctype_digit($first))) {
-                $id = (int) $first;
-
-                return 'https://covers.openlibrary.org/b/id/'.$id.'-'.$size.'.jpg';
-            }
+        $id = self::firstCoverIdFromWork($work);
+        if ($id !== null) {
+            return self::coverUrlFromCoverId($id, $size);
         }
 
         $editionKey = $work['cover_edition_key'] ?? null;
@@ -34,7 +85,7 @@ final class OpenLibraryBookNormalizer
     }
 
     /**
-     * Catalog `cover_url` stores medium covers; hero layouts should request large when possible.
+     * Catalog stored a full cover URL; hero layouts should request large when possible.
      */
     public static function heroCoverUrlFromStoredCover(?string $catalogCoverUrl): ?string
     {
@@ -78,6 +129,27 @@ final class OpenLibraryBookNormalizer
     /**
      * @param  array<string, mixed>  $work
      */
+    public static function authorRoleFromWorkAuthorEntry(mixed $item): ?string
+    {
+        if (! is_array($item)) {
+            return null;
+        }
+
+        $role = $item['role'] ?? null;
+        if (is_string($role) && $role !== '') {
+            return mb_substr($role, 0, 255);
+        }
+
+        if (is_array($role)) {
+            $key = $role['key'] ?? null;
+            if (is_string($key) && $key !== '') {
+                return mb_substr(basename($key), 0, 255);
+            }
+        }
+
+        return null;
+    }
+
     public static function authorKeysFromWork(array $work): Collection
     {
         $authors = $work['authors'] ?? [];
@@ -109,6 +181,37 @@ final class OpenLibraryBookNormalizer
      * @param  array<string, mixed>  $work
      * @return list<string>
      */
+    /**
+     * Language codes extracted from an edition payload (e.g. /languages/eng → eng).
+     *
+     * @param  array<string, mixed>  $edition
+     * @return list<string>
+     */
+    public static function languageCodesFromEdition(array $edition): array
+    {
+        $langs = $edition['languages'] ?? null;
+        if (! is_array($langs) || $langs === []) {
+            return [];
+        }
+
+        $out = [];
+        foreach ($langs as $lang) {
+            if (! is_array($lang)) {
+                continue;
+            }
+            $key = $lang['key'] ?? null;
+            if (! is_string($key) || ! str_starts_with($key, '/languages/')) {
+                continue;
+            }
+            $code = basename($key);
+            if ($code !== '') {
+                $out[] = $code;
+            }
+        }
+
+        return array_values(array_unique($out, SORT_STRING));
+    }
+
     public static function subjectsFromWork(array $work, int $limit = 12): array
     {
         $raw = $work['subjects'] ?? null;

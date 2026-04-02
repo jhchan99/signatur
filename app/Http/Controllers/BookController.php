@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Enums\BookSearchMode;
 use App\Http\Requests\BookIndexRequest;
-use App\Models\Book;
 use App\Models\ReadingLog;
+use App\Models\Work;
 use App\Services\Books\BookDiscoveryService;
 use Illuminate\Contracts\View\View;
 
@@ -28,7 +28,7 @@ class BookController extends Controller
 
         $discoveryResult = $discovery->discover($validated, $rateKey);
 
-        $subjectOptions = Book::query()
+        $subjectOptions = Work::query()
             ->whereNotNull('subjects')
             ->pluck('subjects')
             ->flatten()
@@ -37,11 +37,11 @@ class BookController extends Controller
             ->sort()
             ->values();
 
-        $yearOptions = Book::query()
-            ->whereNotNull('publish_year')
+        $yearOptions = Work::query()
+            ->whereNotNull('first_publish_year')
             ->distinct()
-            ->orderByDesc('publish_year')
-            ->pluck('publish_year')
+            ->orderByDesc('first_publish_year')
+            ->pluck('first_publish_year')
             ->values();
 
         return view('books.index', [
@@ -59,12 +59,12 @@ class BookController extends Controller
         ]);
     }
 
-    public function show(Book $book): View
+    public function show(Work $work): View
     {
-        $book->load('authors');
+        $work->load('authors');
 
         $reviews = ReadingLog::query()
-            ->where('book_id', $book->getKey())
+            ->where('work_id', $work->getKey())
             ->where('is_private', false)
             ->whereNotNull('review_text')
             ->where('review_text', '!=', '')
@@ -73,7 +73,7 @@ class BookController extends Controller
             ->get();
 
         return view('books.show', [
-            'book' => $book,
+            'book' => $work,
             'reviews' => $reviews,
         ]);
     }
