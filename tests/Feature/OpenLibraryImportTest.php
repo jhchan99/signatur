@@ -77,7 +77,80 @@ test('openlibrary import accepts long author names', function () {
     ])->assertSuccessful();
 
     expect(Author::query()->where('open_library_id', '/authors/OLLONGA')->value('name'))
-        ->toBe($longName);
+        ->toBe(trim($longName));
+
+    @unlink($fixture);
+});
+
+test('openlibrary import skips non-ascii primary author names', function () {
+    $fixture = tempnam(sys_get_temp_dir(), 'ol-authors-ascii-');
+
+    file_put_contents(
+        $fixture,
+        "/type/author\t/authors/OLNONASCII\t1\t2019-01-01T00:00:00.000000\t".json_encode([
+            'name' => 'José Unicode Name',
+            'bio' => null,
+        ], JSON_THROW_ON_ERROR).PHP_EOL,
+    );
+
+    $this->artisan('openlibrary:import', [
+        'type' => 'authors',
+        'file' => $fixture,
+    ])->assertSuccessful();
+
+    expect(Author::query()->where('open_library_id', '/authors/OLNONASCII')->exists())->toBeFalse();
+
+    @unlink($fixture);
+});
+
+test('openlibrary import normalizes messy author birth and death dates to a year', function () {
+    $fixture = tempnam(sys_get_temp_dir(), 'ol-authors-dates-');
+
+    file_put_contents(
+        $fixture,
+        "/type/author\t/authors/OLDATES1\t1\t2019-01-01T00:00:00.000000\t".json_encode([
+            'name' => 'Date Cleanup Author',
+            'bio' => null,
+            'birth_date' => '(c. 1950 March)',
+            'death_date' => 'circa 2001 or so',
+        ], JSON_THROW_ON_ERROR).PHP_EOL,
+    );
+
+    $this->artisan('openlibrary:import', [
+        'type' => 'authors',
+        'file' => $fixture,
+    ])->assertSuccessful();
+
+    $author = Author::query()->where('open_library_id', '/authors/OLDATES1')->first();
+    expect($author)->not->toBeNull()
+        ->and($author->birth_date)->toBe('1950')
+        ->and($author->death_date)->toBe('2001');
+
+    @unlink($fixture);
+});
+
+test('openlibrary import stores null life years when no four digit year is present', function () {
+    $fixture = tempnam(sys_get_temp_dir(), 'ol-authors-nodates-');
+
+    file_put_contents(
+        $fixture,
+        "/type/author\t/authors/OLNODATES\t1\t2019-01-01T00:00:00.000000\t".json_encode([
+            'name' => 'No Year Author',
+            'bio' => null,
+            'birth_date' => 'born in the spring',
+            'death_date' => 'unknown',
+        ], JSON_THROW_ON_ERROR).PHP_EOL,
+    );
+
+    $this->artisan('openlibrary:import', [
+        'type' => 'authors',
+        'file' => $fixture,
+    ])->assertSuccessful();
+
+    $author = Author::query()->where('open_library_id', '/authors/OLNODATES')->first();
+    expect($author)->not->toBeNull()
+        ->and($author->birth_date)->toBeNull()
+        ->and($author->death_date)->toBeNull();
 
     @unlink($fixture);
 });

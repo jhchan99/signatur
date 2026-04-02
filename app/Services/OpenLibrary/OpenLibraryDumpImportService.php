@@ -92,7 +92,12 @@ class OpenLibraryDumpImportService
         $data = $parsed['data'];
         $key = OpenLibraryWorkSyncService::normalizeAuthorKey($parsed['ol_key']);
         $name = $data['name'] ?? null;
-        if (! is_string($name) || $name === '') {
+        if (! is_string($name)) {
+            return null;
+        }
+
+        $name = trim($name);
+        if ($name === '' || ! $this->isAsciiOnlyAuthorName($name)) {
             return null;
         }
 
@@ -113,13 +118,47 @@ class OpenLibraryDumpImportService
             'open_library_id' => $key,
             'name' => $name,
             'bio' => OpenLibraryBookNormalizer::description($data['bio'] ?? null),
-            'birth_date' => $this->truncateString($data['birth_date'] ?? null, 128),
-            'death_date' => $this->truncateString($data['death_date'] ?? null, 128),
+            'birth_date' => $this->normalizeAuthorLifeYear($data['birth_date'] ?? null),
+            'death_date' => $this->normalizeAuthorLifeYear($data['death_date'] ?? null),
             'wikipedia' => $this->truncateString($data['wikipedia'] ?? null, 512),
             'alternate_names' => $alternateNames === null ? null : json_encode($alternateNames),
             'created_at' => now(),
             'updated_at' => now(),
         ];
+    }
+
+    /**
+     * Temporary catalog policy: skip authors whose display name uses non-ASCII characters.
+     */
+    protected function isAsciiOnlyAuthorName(string $name): bool
+    {
+        return ! preg_match('/[^\x00-\x7F]/', $name);
+    }
+
+    /**
+     * Reduce messy Open Library life-date strings to a single 4-digit year, or null.
+     */
+    protected function normalizeAuthorLifeYear(mixed $raw): ?string
+    {
+        if (! is_string($raw) || $raw === '') {
+            return null;
+        }
+
+        $trimmed = trim($raw);
+        if ($trimmed === '') {
+            return null;
+        }
+
+        if (preg_match_all('/\b(1[0-9]{3}|20[0-9]{2}|2100)\b/', $trimmed, $matches) !== 0) {
+            foreach ($matches[1] as $candidate) {
+                $year = (int) $candidate;
+                if ($year >= 1000 && $year <= 2100) {
+                    return (string) $year;
+                }
+            }
+        }
+
+        return null;
     }
 
     /**
