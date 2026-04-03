@@ -74,8 +74,8 @@ class GoodbooksBootstrapService
                     throw new InvalidArgumentException('books.csv missing header row.');
                 }
 
-                /** @var array<string, int> $authorIdByOpenLibraryId */
-                $authorIdByOpenLibraryId = [];
+                /** @var array<string, int> $authorIdsByDedupeKey dedupe keys from {@see goodbooksAuthorDedupeKey}, not Open Library ids */
+                $authorIdsByDedupeKey = [];
 
                 while (($row = fgetcsv($handle)) !== false) {
                     if ($row === [null]) {
@@ -116,10 +116,11 @@ class GoodbooksBootstrapService
                     $authorIdsOrdered = [];
 
                     foreach ($authorNames as $position => $authorName) {
-                        $authorKey = $this->syntheticAuthorOpenLibraryId($authorName);
-                        if (! isset($authorIdByOpenLibraryId[$authorKey])) {
-                            $authorIdByOpenLibraryId[$authorKey] = (int) DB::table('authors')->insertGetId([
-                                'open_library_id' => $authorKey,
+                        $dedupeKey = $this->goodbooksAuthorDedupeKey($authorName);
+                        if (! isset($authorIdsByDedupeKey[$dedupeKey])) {
+                            $authorIdsByDedupeKey[$dedupeKey] = (int) DB::table('authors')->insertGetId([
+                                'open_library_id' => null,
+                                'goodbooks_author_id' => $dedupeKey,
                                 'name' => $authorName,
                                 'bio' => null,
                                 'birth_date' => null,
@@ -130,7 +131,7 @@ class GoodbooksBootstrapService
                                 'updated_at' => $now,
                             ]);
                         }
-                        $authorIdsOrdered[$position + 1] = $authorIdByOpenLibraryId[$authorKey];
+                        $authorIdsOrdered[$position + 1] = $authorIdsByDedupeKey[$dedupeKey];
                     }
 
                     $workId = (int) DB::table('works')->insertGetId([
@@ -171,11 +172,14 @@ class GoodbooksBootstrapService
         return $importedWorks;
     }
 
-    public function syntheticAuthorOpenLibraryId(string $authorName): string
+    /**
+     * Stable hash for deduplicating Goodbooks author names. Not stored in the database and not an Open Library id.
+     */
+    public function goodbooksAuthorDedupeKey(string $authorName): string
     {
         $normalized = mb_strtolower(trim($authorName));
 
-        return '/authors/goodbooks/'.hash('sha1', $normalized);
+        return hash('sha1', $normalized);
     }
 
     /**
@@ -245,7 +249,7 @@ class GoodbooksBootstrapService
         $seen = [];
         $out = [];
         foreach ($names as $name) {
-            $key = $this->syntheticAuthorOpenLibraryId($name);
+            $key = $this->goodbooksAuthorDedupeKey($name);
             if (isset($seen[$key])) {
                 continue;
             }

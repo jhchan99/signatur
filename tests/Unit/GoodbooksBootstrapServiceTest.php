@@ -2,10 +2,10 @@
 
 use App\Services\Books\GoodbooksBootstrapService;
 
-test('goodbooks synthetic author id is stable until open library enrichment', function () {
+test('goodbooks author dedupe key is stable and is not a faux Open Library id', function () {
     $svc = new GoodbooksBootstrapService;
 
-    expect($svc->syntheticAuthorOpenLibraryId('  Jane Doe '))->toBe('/authors/goodbooks/'.hash('sha1', 'jane doe'));
+    expect($svc->goodbooksAuthorDedupeKey('  Jane Doe '))->toBe(hash('sha1', 'jane doe'));
 });
 
 test('parseAuthorNames splits comma-separated author lists', function () {

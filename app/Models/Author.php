@@ -17,6 +17,7 @@ class Author extends Model
      */
     protected $fillable = [
         'open_library_id',
+        'goodbooks_author_id',
         'name',
         'bio',
         'birth_date',

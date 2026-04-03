@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Author;
 use App\Models\Work;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
@@ -33,6 +34,12 @@ test('goodbooks bootstrap imports filtered english works with tags and multi-aut
         ->and($dup->authors)->toHaveCount(2)
         ->and($dup->authors[0]->name)->toBe('Alice A')
         ->and($dup->authors[1]->name)->toBe('Bob B');
+
+    expect(Author::query()->whereNotNull('open_library_id')->count())->toBe(0)
+        ->and(Author::query()->whereNull('goodbooks_author_id')->count())->toBe(0)
+        ->and(
+            Author::query()->where('name', 'Alice A')->value('goodbooks_author_id'),
+        )->toBe(hash('sha1', 'alice a'));
 });
 
 test('goodbooks bootstrap refuses when works exist without --force', function () {
