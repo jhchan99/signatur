@@ -51,7 +51,8 @@ This project has domain-specific skills available. You MUST activate the relevan
 
 ## Frontend Bundling
 
-- If the user doesn't see a frontend change reflected in the UI, it could mean they need to run `npm run build`, `npm run dev`, or `composer run dev`. Ask them.
+- If the user doesn't see a frontend change reflected in the UI, it could mean they need to run `npm run build:assets`, `npm run dev`, or `composer run dev`. Ask them.
+- **DigitalOcean App Platform:** set the web component **build command** to `composer install --no-dev --optimize-autoloader && npm run build:assets` (the repo has no `npm run build` script so the Node buildpack skips Vite until Composer has populated `vendor/`). A [`Procfile`](/Procfile) defines the web process. Copy production env vars from comments in [`.env.example`](/.env.example).
 
 ## Documentation Files
 
@@ -146,7 +147,7 @@ This project has domain-specific skills available. You MUST activate the relevan
 
 ## Vite Error
 
-- If you receive an "Illuminate\Foundation\ViteException: Unable to locate file in Vite manifest" error, you can run `npm run build` or ask the user to run `npm run dev` or `composer run dev`.
+- If you receive an "Illuminate\Foundation\ViteException: Unable to locate file in Vite manifest" error, you can run `npm run build:assets` or ask the user to run `npm run dev` or `composer run dev`.
 
 === livewire/core rules ===
 
