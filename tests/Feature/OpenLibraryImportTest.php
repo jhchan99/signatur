@@ -46,6 +46,32 @@ test('openlibrary import ingests authors works and editions from dump fixtures',
     expect(DB::table('edition_isbns')->where('isbn', '9780306406157')->exists())->toBeTrue();
 });
 
+test('openlibrary works import creates author_works using stub authors when authors dump was not imported first', function () {
+    $base = base_path('tests/Fixtures/openlibrary');
+
+    $this->artisan('openlibrary:import', [
+        'type' => 'works',
+        'file' => $base.'/works_sample.txt',
+    ])->assertSuccessful();
+
+    $author = Author::query()->where('open_library_id', '/authors/OLIMPA')->first();
+    expect($author)->not->toBeNull()
+        ->and($author->name)->toBe('Pending Author');
+
+    $work = Work::query()->where('open_library_key', '/works/OLIMPW')->first();
+    expect($work)->not->toBeNull();
+
+    expect(DB::table('author_works')->where('work_id', $work->id)->where('author_id', $author->id)->exists())->toBeTrue();
+
+    $this->artisan('openlibrary:import', [
+        'type' => 'authors',
+        'file' => $base.'/authors_sample.txt',
+    ])->assertSuccessful();
+
+    $author->refresh();
+    expect($author->name)->toBe('Import Author Alpha');
+});
+
 test('openlibrary import respects --limit', function () {
     $path = base_path('tests/Fixtures/openlibrary/authors_two.txt');
 
@@ -293,6 +319,97 @@ test('openlibrary import accepts hyphenated and irish style surnames', function 
         'Sean O\'Brien',
         'Alistair MacIntyre',
     ]);
+
+    @unlink($fixture);
+});
+
+test('openlibrary import skips html entity work titles', function () {
+    $fixture = tempnam(sys_get_temp_dir(), 'ol-works-ent-');
+
+    file_put_contents(
+        $fixture,
+        "/type/work\t/works/OLWENT\t1\t2019-01-01T00:00:00.000000\t".json_encode([
+            'title' => '&#1057;&#1077; Entity Spam Title',
+            'authors' => [],
+        ], JSON_THROW_ON_ERROR).PHP_EOL,
+    );
+
+    $this->artisan('openlibrary:import', [
+        'type' => 'works',
+        'file' => $fixture,
+    ])->assertSuccessful();
+
+    expect(Work::query()->where('open_library_key', '/works/OLWENT')->exists())->toBeFalse();
+
+    @unlink($fixture);
+});
+
+test('openlibrary import skips conference style work titles', function () {
+    $fixture = tempnam(sys_get_temp_dir(), 'ol-works-conf-');
+
+    file_put_contents(
+        $fixture,
+        "/type/work\t/works/OLWCONF\t1\t2019-01-01T00:00:00.000000\t".json_encode([
+            'title' => 'Proceedings of the Great Workshop on Fiction',
+            'authors' => [],
+        ], JSON_THROW_ON_ERROR).PHP_EOL,
+    );
+
+    $this->artisan('openlibrary:import', [
+        'type' => 'works',
+        'file' => $fixture,
+    ])->assertSuccessful();
+
+    expect(Work::query()->where('open_library_key', '/works/OLWCONF')->exists())->toBeFalse();
+
+    @unlink($fixture);
+});
+
+test('openlibrary import accepts english work titles and normalizes messy first publish year', function () {
+    $fixture = tempnam(sys_get_temp_dir(), 'ol-works-year-');
+
+    file_put_contents(
+        $fixture,
+        "/type/work\t/works/OLWYEAR\t1\t2019-01-01T00:00:00.000000\t".json_encode([
+            'title' => 'English Title For Year Test',
+            'first_publish_date' => '(c. 1985, revised 2001)',
+            'authors' => [],
+        ], JSON_THROW_ON_ERROR).PHP_EOL,
+    );
+
+    $this->artisan('openlibrary:import', [
+        'type' => 'works',
+        'file' => $fixture,
+    ])->assertSuccessful();
+
+    $work = Work::query()->where('open_library_key', '/works/OLWYEAR')->first();
+    expect($work)->not->toBeNull()
+        ->and($work->title)->toBe('English Title For Year Test')
+        ->and($work->first_publish_year)->toBe(1985);
+
+    @unlink($fixture);
+});
+
+test('openlibrary import stores null publish year when work date has no year', function () {
+    $fixture = tempnam(sys_get_temp_dir(), 'ol-works-noyear-');
+
+    file_put_contents(
+        $fixture,
+        "/type/work\t/works/OLWNOYEAR\t1\t2019-01-01T00:00:00.000000\t".json_encode([
+            'title' => 'No Year Work Title Here',
+            'first_publish_date' => 'sometime in spring',
+            'authors' => [],
+        ], JSON_THROW_ON_ERROR).PHP_EOL,
+    );
+
+    $this->artisan('openlibrary:import', [
+        'type' => 'works',
+        'file' => $fixture,
+    ])->assertSuccessful();
+
+    $work = Work::query()->where('open_library_key', '/works/OLWNOYEAR')->first();
+    expect($work)->not->toBeNull()
+        ->and($work->first_publish_year)->toBeNull();
 
     @unlink($fixture);
 });

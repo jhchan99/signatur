@@ -133,34 +133,51 @@ class OpenLibraryDumpImportService
      */
     protected function isImportableAuthorName(string $name): bool
     {
-        if (preg_match('/[^\x00-\x7F]/', $name)) {
-            return false;
-        }
+        return $this->openLibraryImportTextIsAsciiOnly($name)
+            && ! $this->openLibraryImportTextHasHtmlEntityPattern($name)
+            && $this->authorNameLengthIsWithinLimit($name, 64)
+            && $this->authorNameStartsAndEndsWithAsciiLetter($name)
+            && ! $this->authorNameContainsForbiddenCharacters($name)
+            && $this->authorNameWordsPassEnglishPersonalNameRules($name);
+    }
 
-        if (strlen($name) > 64) {
-            return false;
-        }
+    protected function openLibraryImportTextIsAsciiOnly(string $value): bool
+    {
+        return ! preg_match('/[^\x00-\x7F]/', $value);
+    }
 
-        if (preg_match('/&#\d+;|&[a-zA-Z][a-zA-Z0-9]{0,48};/', $name)) {
-            return false;
-        }
+    protected function openLibraryImportTextHasHtmlEntityPattern(string $value): bool
+    {
+        return preg_match('/&#\d+;|&[a-zA-Z][a-zA-Z0-9]{0,48};/', $value) === 1;
+    }
 
-        if (! preg_match('/^[A-Za-z]/', $name) || ! preg_match('/[A-Za-z]$/', $name)) {
-            return false;
-        }
+    protected function authorNameLengthIsWithinLimit(string $name, int $maxBytes): bool
+    {
+        return strlen($name) <= $maxBytes;
+    }
 
-        if (preg_match('/[0-9&,";:()[\]{}\/\\\\|`!@#$%*+=?<>]/', $name)) {
-            return false;
-        }
+    protected function authorNameStartsAndEndsWithAsciiLetter(string $name): bool
+    {
+        return preg_match('/^[A-Za-z]/', $name) === 1 && preg_match('/[A-Za-z]$/', $name) === 1;
+    }
 
-        /** @var list<string> $words */
+    protected function authorNameContainsForbiddenCharacters(string $name): bool
+    {
+        return preg_match('/[0-9&,";:()[\]{}\/\\\\|`!@#$%*+=?<>]/', $name) === 1;
+    }
+
+    /**
+     * @return bool false when word count or per-token shape fails English personal-name heuristics.
+     */
+    protected function authorNameWordsPassEnglishPersonalNameRules(string $name): bool
+    {
+        /** @var list<string>|false $words */
         $words = preg_split('/\s+/', $name, -1, PREG_SPLIT_NO_EMPTY);
         if ($words === false || $words === []) {
             return false;
         }
 
-        $wordCount = count($words);
-        if ($wordCount > 6) {
+        if (count($words) > 6) {
             return false;
         }
 
@@ -169,13 +186,83 @@ class OpenLibraryDumpImportService
                 return false;
             }
 
-            if (preg_match('/^[A-Z]{2,}$/', $word)) {
+            if (preg_match('/^[A-Z]{2,}$/', $word) === 1) {
                 return false;
             }
 
             if (! $this->isEnglishLookingAuthorWord($word)) {
                 return false;
             }
+        }
+
+        return true;
+    }
+
+    /**
+     * English-looking book titles only: ASCII, no entity spam, no bibliography/conference markers, conservative length and word count.
+     */
+    protected function isImportableWorkTitle(string $title): bool
+    {
+        $title = trim($title);
+        if ($title === '' || strlen($title) < 2) {
+            return false;
+        }
+
+        if (! $this->openLibraryImportTextIsAsciiOnly($title)) {
+            return false;
+        }
+
+        if ($this->openLibraryImportTextHasHtmlEntityPattern($title)) {
+            return false;
+        }
+
+        if (strlen($title) > 200) {
+            return false;
+        }
+
+        if (! ctype_alpha($title[0])) {
+            return false;
+        }
+
+        $lastIndex = strlen($title) - 1;
+        $last = $title[$lastIndex];
+        if (! ctype_alnum($last) && ! in_array($last, ['!', '?', '\'', ')', ']'], true)) {
+            return false;
+        }
+
+        if (in_array($last, [',', ':', ';', '-', '.'], true)) {
+            return false;
+        }
+
+        if (preg_match('/^[(\[]/', $title) === 1 || preg_match('/[)\]]$/', $title) === 1) {
+            return false;
+        }
+
+        if (preg_match('/^\([^)]+\)$/', $title) === 1) {
+            return false;
+        }
+
+        if (preg_match("/[^A-Za-z0-9\\s\\-':,.!?()\\[\\]\"]/", $title) === 1) {
+            return false;
+        }
+
+        if (str_contains($title, ',,')) {
+            return false;
+        }
+
+        if (preg_match('/\b(proceedings|symposium|conference|congress|workshop|arxiv|http|https|www\.|doi:|isbn)\b/i', $title) === 1) {
+            return false;
+        }
+
+        /** @var list<string>|false $words */
+        $words = preg_split('/\s+/', $title, -1, PREG_SPLIT_NO_EMPTY);
+        if ($words === false || $words === [] || count($words) > 24) {
+            return false;
+        }
+
+        $lettersOnly = preg_replace('/[^A-Za-z]/', '', $title) ?? '';
+        if ($lettersOnly !== '' && $lettersOnly === strtoupper($lettersOnly) && strlen($lettersOnly) > 15) {
+            return false;
         }
 
         return true;
@@ -250,7 +337,12 @@ class OpenLibraryDumpImportService
         $key = OpenLibraryWorkSyncService::normalizeWorkKey($parsed['ol_key']);
 
         $title = $data['title'] ?? null;
-        if (! is_string($title) || $title === '') {
+        if (! is_string($title)) {
+            return null;
+        }
+
+        $title = trim($title);
+        if ($title === '' || ! $this->isImportableWorkTitle($title)) {
             return null;
         }
 
@@ -458,6 +550,47 @@ class OpenLibraryDumpImportService
     }
 
     /**
+     * Work dump rows reference author keys before (or instead of) a passing authors-dump row.
+     * Insert placeholder authors so {@see flushWorksBatch()} can attach author_works rows;
+     * a later {@see upsertAuthorChunk()} replaces the stub with real metadata.
+     *
+     * @param  list<string>  $authorKeys  Normalized Open Library author keys (e.g. /authors/OL1A)
+     */
+    protected function ensureStubAuthorsForReferencedKeys(array $authorKeys): void
+    {
+        if ($authorKeys === []) {
+            return;
+        }
+
+        /** @var list<string> $existing */
+        $existing = DB::table('authors')->whereIn('open_library_id', $authorKeys)->pluck('open_library_id')->all();
+        $have = array_fill_keys($existing, true);
+
+        $ts = now();
+        $stubRows = [];
+        foreach ($authorKeys as $key) {
+            if (isset($have[$key])) {
+                continue;
+            }
+            $stubRows[] = [
+                'open_library_id' => $key,
+                'name' => 'Pending Author',
+                'bio' => null,
+                'birth_date' => null,
+                'death_date' => null,
+                'wikipedia' => null,
+                'alternate_names' => null,
+                'created_at' => $ts,
+                'updated_at' => $ts,
+            ];
+        }
+
+        if ($stubRows !== []) {
+            DB::table('authors')->insert($stubRows);
+        }
+    }
+
+    /**
      * @param  list<array{work_row: array<string, mixed>, author_links: list<array{work_key: string, author_key: string, position: int, role: string|null}>}>  $batch
      */
     public function flushWorksBatch(array $batch): void
@@ -485,6 +618,8 @@ class OpenLibraryDumpImportService
             }
         }
         $authorKeys = array_values(array_unique($authorKeys));
+        $this->ensureStubAuthorsForReferencedKeys($authorKeys);
+
         /** @var array<string, int> $authorIds */
         $authorIds = $authorKeys === []
             ? []

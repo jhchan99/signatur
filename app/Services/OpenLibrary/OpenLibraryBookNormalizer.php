@@ -39,19 +39,64 @@ final class OpenLibraryBookNormalizer
     public static function firstPublishYearFromWork(array $work): ?int
     {
         $yearRaw = $work['first_publish_year'] ?? null;
-        if (is_numeric($yearRaw)) {
-            return (int) $yearRaw;
+        if (is_int($yearRaw)) {
+            return self::yearIntIsPlausible($yearRaw) ? $yearRaw : null;
+        }
+
+        if (is_float($yearRaw)) {
+            $asInt = (int) round($yearRaw);
+
+            return self::yearIntIsPlausible($asInt) ? $asInt : null;
+        }
+
+        if (is_string($yearRaw) && $yearRaw !== '') {
+            if (ctype_digit($yearRaw)) {
+                $asInt = (int) $yearRaw;
+
+                return self::yearIntIsPlausible($asInt) ? $asInt : null;
+            }
+
+            $fromYearField = self::extractFirstPlausibleYearFromString($yearRaw);
+            if ($fromYearField !== null) {
+                return $fromYearField;
+            }
         }
 
         $dateRaw = $work['first_publish_date'] ?? null;
         if (! is_string($dateRaw) || $dateRaw === '') {
             return null;
         }
-        if (preg_match('/(\d{4})/', $dateRaw, $m) === 1) {
-            return (int) $m[1];
+
+        return self::extractFirstPlausibleYearFromString($dateRaw);
+    }
+
+    /**
+     * First valid 4-digit year in range 1000–2100 from noisy Open Library date text, or null.
+     */
+    private static function extractFirstPlausibleYearFromString(string $trimmed): ?int
+    {
+        $trimmed = trim($trimmed);
+        if ($trimmed === '') {
+            return null;
+        }
+
+        if (preg_match_all('/\b(1[0-9]{3}|20[0-9]{2}|2100)\b/', $trimmed, $matches) === 0) {
+            return null;
+        }
+
+        foreach ($matches[1] as $candidate) {
+            $year = (int) $candidate;
+            if (self::yearIntIsPlausible($year)) {
+                return $year;
+            }
         }
 
         return null;
+    }
+
+    protected static function yearIntIsPlausible(int $year): bool
+    {
+        return $year >= 1000 && $year <= 2100;
     }
 
     /**

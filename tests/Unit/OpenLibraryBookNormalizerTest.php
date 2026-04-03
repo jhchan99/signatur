@@ -88,6 +88,34 @@ it('extracts first publish year from work payload', function () {
     ]))->toBe(1999);
 });
 
+it('extracts first plausible year from messy work publish strings', function () {
+    expect(OpenLibraryBookNormalizer::firstPublishYearFromWork([
+        'first_publish_date' => '(c. 1950 March)',
+    ]))->toBe(1950);
+
+    expect(OpenLibraryBookNormalizer::firstPublishYearFromWork([
+        'first_publish_year' => 'circa 1999 edition',
+    ]))->toBe(1999);
+
+    expect(OpenLibraryBookNormalizer::firstPublishYearFromWork([
+        'first_publish_year' => 'June 2001',
+    ]))->toBe(2001);
+});
+
+it('returns null for work publish years outside plausible range or missing digits', function () {
+    expect(OpenLibraryBookNormalizer::firstPublishYearFromWork([
+        'first_publish_year' => 850,
+    ]))->toBeNull();
+
+    expect(OpenLibraryBookNormalizer::firstPublishYearFromWork([
+        'first_publish_year' => 2201,
+    ]))->toBeNull();
+
+    expect(OpenLibraryBookNormalizer::firstPublishYearFromWork([
+        'first_publish_date' => 'ancient times',
+    ]))->toBeNull();
+});
+
 it('extracts language codes from edition payload', function () {
     expect(OpenLibraryBookNormalizer::languageCodesFromEdition([
         'languages' => [
