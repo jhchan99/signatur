@@ -23,12 +23,15 @@
                 </div>
 
                 <div class="flex flex-col gap-4">
-                    @include('partials.global-search-form', ['value' => $query ?? ''])
+                    @include('partials.global-search-form', [
+                        'value' => $query ?? '',
+                        'emphasized' => true,
+                    ])
                 </div>
 
                 @if (($query ?? null) === null || $query === '')
                     <p class="rounded-[1.5rem] border border-zinc-800 bg-zinc-900/70 p-8 text-center text-sm leading-7 text-zinc-400">
-                        {{ __('Enter a title, author name, or keyword to search the catalog.') }}
+                        {{ __('Search by title, subtitle, subject tags, or author—including alternate names.') }}
                     </p>
                 @elseif (! $result->hasAnyResults())
                     <p class="rounded-[1.5rem] border border-zinc-800 bg-zinc-900/70 p-8 text-center text-sm leading-7 text-zinc-400">

@@ -9,7 +9,7 @@ use function Pest\Laravel\get;
 test('global search without query shows the prompt state', function () {
     get(route('search.index'))
         ->assertSuccessful()
-        ->assertSee(__('Enter a title, author name, or keyword to search the catalog.'), escape: false);
+        ->assertSee(__('Search by title, subtitle, subject tags, or author—including alternate names.'), escape: false);
 });
 
 test('global search shows empty state when nothing matches', function () {
@@ -46,6 +46,74 @@ test('global search matches authors by alternate names', function () {
         ->assertSee('Primary Legal Name')
         ->assertSee(__('Also known as'), escape: false)
         ->assertSee('Pen Name UniqueAlt')
+        ->assertSee(route('authors.show', $author), escape: false);
+});
+
+test('global search matches titles case-insensitively', function () {
+    $work = Work::factory()->create(['title' => 'Project Hail Mary Casetest']);
+
+    get(route('search.index', ['q' => 'project']))
+        ->assertSuccessful()
+        ->assertSee('Project Hail Mary Casetest')
+        ->assertSee(route('books.show', $work), escape: false);
+});
+
+test('global search matches works by subject tags when the title does not contain the term', function () {
+    $work = Work::factory()->create([
+        'title' => 'Silent Planet Subjtest',
+        'subjects' => ['Mars colonization', 'fiction'],
+    ]);
+
+    get(route('search.index', ['q' => 'mars']))
+        ->assertSuccessful()
+        ->assertSee('Silent Planet Subjtest')
+        ->assertSee(route('books.show', $work), escape: false);
+});
+
+test('global search matches works by subtitle', function () {
+    $work = Work::factory()->create([
+        'title' => 'Volume One Subtitletest',
+        'subtitle' => 'The Crystal Project Chronicle',
+    ]);
+
+    get(route('search.index', ['q' => 'crystal']))
+        ->assertSuccessful()
+        ->assertSee('Volume One Subtitletest')
+        ->assertSee(route('books.show', $work), escape: false);
+});
+
+test('global search orders book results with stronger title matches before author-only matches', function () {
+    $author = Author::factory()->create(['name' => 'Someone Findtoken Here']);
+
+    $authorOnly = Work::factory()->create(['title' => 'ZZZ Author Only Findtoken']);
+    $authorOnly->authors()->attach($author, ['position' => 1, 'role' => null]);
+
+    Work::factory()->create(['title' => 'Middle findtoken Middle']);
+    Work::factory()->create(['title' => 'findtoken Starts Here']);
+
+    $response = get(route('search.index', ['q' => 'findtoken']));
+    $response->assertSuccessful();
+
+    $content = $response->getContent();
+    expect($content)->toBeString();
+    $posPrefix = mb_strpos($content, 'findtoken Starts Here');
+    $posMiddle = mb_strpos($content, 'Middle findtoken Middle');
+    $posAuthor = mb_strpos($content, 'ZZZ Author Only Findtoken');
+    expect($posPrefix)->not->toBeFalse()
+        ->and($posMiddle)->not->toBeFalse()
+        ->and($posAuthor)->not->toBeFalse()
+        ->and($posPrefix)->toBeLessThan($posMiddle)
+        ->and($posMiddle)->toBeLessThan($posAuthor);
+});
+
+test('global search matches author names case-insensitively', function () {
+    $author = Author::factory()->create(['name' => 'Erica Authorcasetest']);
+    $work = Work::factory()->create(['title' => 'Some Novel']);
+    $work->authors()->attach($author, ['position' => 1, 'role' => null]);
+
+    get(route('search.index', ['q' => 'erica']))
+        ->assertSuccessful()
+        ->assertSee('Erica Authorcasetest')
         ->assertSee(route('authors.show', $author), escape: false);
 });
 
