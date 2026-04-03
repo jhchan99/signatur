@@ -70,11 +70,53 @@ test('authors index lists authors', function () {
         ->assertSee('ZZZ List Author');
 });
 
+test('authors index lists authors in name order by default', function () {
+    Author::factory()->create(['name' => 'Zebra OrderTest']);
+    Author::factory()->create(['name' => 'Alpha OrderTest']);
+    Author::factory()->create(['name' => 'Mike OrderTest']);
+
+    get(route('authors.index'))
+        ->assertSuccessful()
+        ->assertSeeInOrder(['Alpha OrderTest', 'Mike OrderTest', 'Zebra OrderTest']);
+});
+
+test('authors index can be filtered by letter case-insensitively', function () {
+    Author::factory()->create(['name' => 'brian LetterFilter']);
+    Author::factory()->create(['name' => 'Clara LetterFilter']);
+
+    get(route('authors.index', ['letter' => 'B']))
+        ->assertSuccessful()
+        ->assertSee('brian LetterFilter')
+        ->assertDontSee('Clara LetterFilter');
+});
+
+test('authors index hash letter shows names not starting with a latin letter', function () {
+    Author::factory()->create(['name' => '123 Numeric Author']);
+    Author::factory()->create(['name' => 'Alpha Author']);
+
+    get(route('authors.index', ['letter' => '#']))
+        ->assertSuccessful()
+        ->assertSee('123 Numeric Author')
+        ->assertDontSee('Alpha Author');
+});
+
+test('authors index paginator retains letter in query string', function () {
+    foreach (range(1, 25) as $i) {
+        Author::factory()->create(['name' => sprintf('B Paginate Author %02d', $i)]);
+    }
+
+    get(route('authors.index', ['letter' => 'B']))
+        ->assertSuccessful()
+        ->assertSee('letter=B', escape: false);
+});
+
 test('the books index header includes the global catalog search form', function () {
     get(route('books.index'))
         ->assertSuccessful()
         ->assertSee(__('Search books and authors'), escape: false)
-        ->assertSee(route('search.index'), escape: false);
+        ->assertSee(route('search.index'), escape: false)
+        ->assertSee('data-test="header-global-search"', escape: false)
+        ->assertSee('data-test="global-search-form"', escape: false);
 });
 
 test('the authenticated app shell includes the global catalog search form', function () {

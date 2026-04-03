@@ -10,6 +10,7 @@
         ? 'flex w-full min-w-0 items-center gap-2'
         : 'mx-auto flex w-full max-w-xl items-center gap-2 lg:mx-0' }}"
     role="search"
+    data-test="global-search-form"
 >
     <label class="sr-only" for="{{ $compact ? 'global-search-q-compact' : 'global-search-q' }}">{{ __('Search') }}</label>
     <input

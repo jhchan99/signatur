@@ -18,14 +18,6 @@
                         $displayAuthor = static fn (\App\Models\Work $book): ?string => $book->displayAuthor();
                     @endphp
                     <div class="flex flex-col gap-4">
-                        <div class="flex flex-wrap items-baseline justify-between gap-x-8 gap-y-2">
-                            <p class="text-[10px] font-semibold uppercase tracking-[0.2em] text-zinc-500">
-                                Browse by
-                            </p>
-                            <p class="text-[10px] font-semibold uppercase tracking-[0.2em] text-zinc-500 lg:text-right">
-                                Find a book
-                            </p>
-                        </div>
 
                         <div class="flex flex-col gap-4 lg:flex-row lg:flex-wrap lg:items-center lg:justify-between">
                             <div class="flex min-w-0 flex-1 flex-wrap items-center gap-2 sm:gap-3">
@@ -110,7 +102,7 @@
                                 @endif
                             </div>
 
-                            <div class="flex w-full flex-col gap-3 lg:w-auto lg:max-w-md">
+                            <!-- <div class="flex w-full flex-col gap-3 lg:w-auto lg:max-w-md">
                                 <fieldset class="flex flex-wrap gap-2">
                                     <legend class="sr-only">{{ __('Search scope') }}</legend>
                                     <label class="inline-flex cursor-pointer items-center gap-2 rounded-md border border-zinc-800 bg-zinc-900/70 px-3 py-2 text-[10px] font-semibold uppercase tracking-wider text-zinc-300 has-[:checked]:border-zinc-500 has-[:checked]:bg-zinc-800">
@@ -148,7 +140,7 @@
                                         {{ __('Go') }}
                                     </button>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </form>
