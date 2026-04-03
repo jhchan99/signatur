@@ -1,0 +1,6 @@
+book_id,goodreads_book_id,best_book_id,work_id,books_count,isbn,isbn13,authors,original_publication_year,original_title,title,language_code,average_rating,ratings_count,work_ratings_count,work_text_reviews_count,ratings_1,ratings_2,ratings_3,ratings_4,ratings_5,image_url,small_image_url
+1,100,100,200,1,1111111111,9780111111111,Suzanne Collins,2008.0,The Hunger Games,The Hunger Games,eng,4.34,100000,5000000,1,1,1,1,1,1,https://example.com/m1.jpg,https://example.com/s1.jpg
+2,101,101,201,1,2222222222,9780222222222,Spanish Author,2000.0,Libro,Libro,spa,4.0,100000,5000000,1,1,1,1,1,1,https://example.com/m2.jpg,https://example.com/s2.jpg
+3,102,102,202,1,3333333333,9780333333333,Jane Doe,2010.0,Low Ratings Book,Low Ratings Book,eng,3.0,100,5000,1,1,1,1,1,1,https://example.com/m3.jpg,https://example.com/s3.jpg
+4,104,104,204,1,4444444444,9780444444444,"Alice A, Bob B",2015.0,Pair Work,Pair Work Title,eng,4.0,20000,200000,1,1,1,1,1,1,https://example.com/m4.jpg,https://example.com/s4.jpg
+5,105,105,205,1,5555555555,9780555555555,"Alice A, Alice A, Bob B",2016.0,Dup Authors,Dup Authors Work,eng,4.0,20000,200000,1,1,1,1,1,1,https://example.com/m5.jpg,https://example.com/s5.jpg

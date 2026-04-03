@@ -22,6 +22,7 @@ class WorkFactory extends Factory
 
         return [
             'open_library_key' => '/works/OL'.$suffix.'W',
+            'goodbooks_book_id' => null,
             'title' => fake()->sentence(3),
             'subtitle' => null,
             'cover_id' => fake()->numberBetween(1000000, 9999999),

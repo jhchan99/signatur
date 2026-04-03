@@ -19,6 +19,7 @@ class Work extends Model
      */
     protected $fillable = [
         'open_library_key',
+        'goodbooks_book_id',
         'title',
         'subtitle',
         'cover_id',
@@ -36,6 +37,7 @@ class Work extends Model
             'cover_id' => 'integer',
             'first_publish_year' => 'integer',
             'subjects' => 'array',
+            'goodbooks_book_id' => 'integer',
         ];
     }
 
