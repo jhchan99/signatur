@@ -7,11 +7,12 @@ use App\Http\Requests\BookIndexRequest;
 use App\Models\ReadingLog;
 use App\Models\Work;
 use App\Services\Books\BookDiscoveryService;
+use App\Services\Books\BookFilterMetadataService;
 use Illuminate\Contracts\View\View;
 
 class BookController extends Controller
 {
-    public function index(BookIndexRequest $request, BookDiscoveryService $discovery): View
+    public function index(BookIndexRequest $request, BookDiscoveryService $discovery, BookFilterMetadataService $filterMetadata): View
     {
         /** @var array{q?: string|null, subject?: string|null, year?: int|null, mode?: string|null} $validated */
         $validated = array_merge(
@@ -26,22 +27,6 @@ class BookController extends Controller
 
         $discoveryResult = $discovery->discover($validated);
 
-        $subjectOptions = Work::query()
-            ->whereNotNull('subjects')
-            ->pluck('subjects')
-            ->flatten()
-            ->filter(fn ($tag): bool => is_string($tag) && $tag !== '')
-            ->unique()
-            ->sort()
-            ->values();
-
-        $yearOptions = Work::query()
-            ->whereNotNull('first_publish_year')
-            ->distinct()
-            ->orderByDesc('first_publish_year')
-            ->pluck('first_publish_year')
-            ->values();
-
         return view('books.index', [
             'title' => __('Books'),
             'books' => $discoveryResult->books,
@@ -52,8 +37,8 @@ class BookController extends Controller
                 'year' => isset($validated['year']) && $validated['year'] !== null ? (string) (int) $validated['year'] : '',
                 'mode' => $discoveryResult->mode->value,
             ],
-            'subjectOptions' => $subjectOptions,
-            'yearOptions' => $yearOptions,
+            'subjectOptions' => $filterMetadata->subjectOptions(),
+            'yearOptions' => $filterMetadata->yearOptions(),
         ]);
     }
 

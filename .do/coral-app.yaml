@@ -1,0 +1,124 @@
+alerts:
+- rule: DEPLOYMENT_FAILED
+- rule: DOMAIN_FAILED
+databases:
+- cluster_name: signatr-db
+  db_name: defaultdb
+  db_user: doadmin
+  engine: PG
+  name: signatr-db
+  production: true
+  version: "17"
+features:
+- buildpack-stack=ubuntu-22
+ingress:
+  rules:
+  - component:
+      name: signatur
+    match:
+      authority:
+        exact: ""
+      path:
+        prefix: /
+name: coral-app
+region: nyc
+services:
+- build_command: composer install --no-dev --optimize-autoloader && npm run build:assets && php artisan optimize
+  environment_slug: php
+  envs:
+  - key: DB_URL
+    scope: RUN_AND_BUILD_TIME
+    value: ${signatr-db.DATABASE_URL}
+  - key: DB_CONNECTION
+    scope: RUN_AND_BUILD_TIME
+    value: pgsql
+  - key: APP_ENV
+    scope: RUN_AND_BUILD_TIME
+    value: production
+  # Limit PHP-FPM workers on the 512 MiB instance.
+  # The default auto-calculation was being overridden by a previous WEB_CONCURRENCY=63
+  # which caused RAM pressure. 4 workers is safe at ~30-40 MiB each.
+  - key: WEB_CONCURRENCY
+    scope: RUN_TIME
+    value: "4"
+  github:
+    branch: main
+    deploy_on_push: true
+    repo: jhchan99/signatur
+  http_port: 8080
+  instance_count: 1
+  instance_size_slug: apps-s-1vcpu-0.5gb
+  name: signatur
+  run_command: heroku-php-apache2 public/
+  source_dir: /
+workers:
+- build_command: composer install --no-dev --optimize-autoloader && npm run build:assets && php artisan optimize
+  environment_slug: php
+  envs:
+  - key: DB_URL
+    scope: RUN_TIME
+    value: ${signatr-db.DATABASE_URL}
+  - key: DB_CONNECTION
+    scope: RUN_TIME
+    value: pgsql
+  - key: APP_ENV
+    scope: RUN_TIME
+    value: production
+  - key: QUEUE_CONNECTION
+    scope: RUN_TIME
+    value: database
+  github:
+    branch: main
+    deploy_on_push: true
+    repo: jhchan99/signatur
+  instance_count: 1
+  instance_size_slug: apps-s-1vcpu-0.5gb
+  name: queue-worker
+  run_command: php artisan queue:work --queue=default --tries=3 --max-time=3600
+  source_dir: /
+jobs:
+- build_command: composer install --no-dev --optimize-autoloader && npm run build:assets && php artisan optimize
+  environment_slug: php
+  envs:
+  - key: DB_URL
+    scope: RUN_TIME
+    value: ${signatr-db.DATABASE_URL}
+  - key: DB_CONNECTION
+    scope: RUN_TIME
+    value: pgsql
+  - key: APP_ENV
+    scope: RUN_TIME
+    value: production
+  github:
+    branch: main
+    deploy_on_push: true
+    repo: jhchan99/signatur
+  instance_count: 1
+  instance_size_slug: apps-s-1vcpu-0.5gb
+  kind: PRE_DEPLOY
+  name: migrate
+  run_command: php artisan migrate --force
+  source_dir: /
+- build_command: composer install --no-dev --optimize-autoloader && npm run build:assets && php artisan optimize
+  environment_slug: php
+  envs:
+  - key: DB_URL
+    scope: RUN_TIME
+    value: ${signatr-db.DATABASE_URL}
+  - key: DB_CONNECTION
+    scope: RUN_TIME
+    value: pgsql
+  - key: APP_ENV
+    scope: RUN_TIME
+    value: production
+  github:
+    branch: main
+    deploy_on_push: true
+    repo: jhchan99/signatur
+  instance_count: 1
+  instance_size_slug: apps-s-1vcpu-0.5gb
+  kind: CRON
+  name: scheduler
+  run_command: php artisan schedule:run --no-interaction
+  schedule: "* * * * *"
+  source_dir: /

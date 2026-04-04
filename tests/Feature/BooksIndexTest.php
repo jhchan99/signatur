@@ -3,6 +3,8 @@
 use App\Models\Author;
 use App\Models\User;
 use App\Models\Work;
+use App\Services\Books\BookFilterMetadataService;
+use Illuminate\Support\Facades\Cache;
 
 test('the books index page can be rendered', function () {
     $work = Work::factory()->create([
@@ -20,8 +22,8 @@ test('the books index page can be rendered', function () {
         ->assertSee('Books', escape: false)
         ->assertSee('Authors', escape: false)
         ->assertSee('Collections', escape: false)
-        ->assertSee('Browse by', escape: false)
-        ->assertSee('Find a book', escape: false)
+        ->assertSee('Year', escape: false)
+        ->assertSee('Subject', escape: false)
         ->assertSee('Index Visible Book')
         ->assertSee('Taylor Reader')
         ->assertSee(route('books.index'), escape: false);
@@ -115,4 +117,46 @@ test('the books index hides guest tab navigation when logged in', function () {
         ->assertSuccessful()
         ->assertDontSee('Collections', escape: false)
         ->assertSee('Account settings');
+});
+
+test('the books index renders subject and year options from catalog data', function () {
+    Work::factory()->create([
+        'title' => 'Subject Year Book',
+        'subjects' => ['Fiction', 'Mystery'],
+        'first_publish_year' => 2001,
+    ]);
+
+    $response = $this->get(route('books.index'));
+
+    $response->assertSuccessful();
+
+    // Subjects should appear as <option> values in the subject dropdown
+    $response->assertSee('Fiction');
+    $response->assertSee('Mystery');
+
+    // Year should appear as an <option> value in the year dropdown
+    $response->assertSee('2001');
+});
+
+test('the books index filter metadata is served from cache on repeated requests', function () {
+    Work::factory()->create([
+        'title' => 'Cached Filters Book',
+        'subjects' => ['History'],
+        'first_publish_year' => 1990,
+    ]);
+
+    // Prime the cache
+    $service = app(BookFilterMetadataService::class);
+    $service->subjectOptions();
+    $service->yearOptions();
+
+    // Subsequent calls must be served from cache — verify cache keys are present
+    expect(Cache::has('book_filter_subjects'))->toBeTrue();
+    expect(Cache::has('book_filter_years'))->toBeTrue();
+
+    // The response still renders correctly using the cached data
+    $this->get(route('books.index'))
+        ->assertSuccessful()
+        ->assertSee('History')
+        ->assertSee('1990');
 });
