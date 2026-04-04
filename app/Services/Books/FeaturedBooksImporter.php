@@ -86,7 +86,7 @@ class FeaturedBooksImporter
             return null;
         }
 
-        $documents = $this->openLibrary->searchDocumentsByTitleAndAuthor($title, $author);
+        $documents = $this->openLibrary->searchDocuments("{$title} {$author}");
         $first = $documents->first();
         if (! is_array($first)) {
             return null;

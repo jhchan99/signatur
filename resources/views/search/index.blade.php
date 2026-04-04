@@ -1,6 +1,6 @@
 @php
     /** @var \App\Data\GlobalSearchResult $result */
-    $displayAuthor = static fn (\App\Models\Work $book): ?string => $book->displayAuthor();
+    $displayAuthor = static fn (\App\Models\Work $book): ?string => $book->primaryAuthorName();
 @endphp
 
 <!DOCTYPE html>

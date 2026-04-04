@@ -26,6 +26,9 @@ class Work extends Model
         'first_publish_year',
         'description',
         'subjects',
+        'open_library_search_doc',
+        'open_library_match_source',
+        'open_library_enriched_at',
     ];
 
     /**
@@ -38,6 +41,8 @@ class Work extends Model
             'first_publish_year' => 'integer',
             'subjects' => 'array',
             'goodbooks_book_id' => 'integer',
+            'open_library_search_doc' => 'array',
+            'open_library_enriched_at' => 'datetime',
         ];
     }
 
@@ -93,13 +98,16 @@ class Work extends Model
         return OpenLibraryBookNormalizer::coverUrlFromCoverId($this->cover_id, $size);
     }
 
+    public function primaryAuthorName(): ?string
+    {
+        $name = $this->authors
+            ->firstWhere('pivot.position', 1)?->name;
+
+        return is_string($name) && $name !== '' ? $name : null;
+    }
+
     public function displayAuthor(): ?string
     {
-        $names = $this->authors
-            ->pluck('name')
-            ->filter(fn (mixed $name): bool => is_string($name) && $name !== '')
-            ->implode(', ');
-
-        return $names !== '' ? $names : null;
+        return $this->primaryAuthorName();
     }
 }

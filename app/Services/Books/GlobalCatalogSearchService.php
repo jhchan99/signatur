@@ -69,6 +69,7 @@ class GlobalCatalogSearchService
                 SELECT 1 FROM author_works
                 INNER JOIN authors ON authors.id = author_works.author_id
                 WHERE author_works.work_id = works.id
+                AND author_works.position = 1
                 AND LOWER(authors.name) LIKE ?
               ) THEN 40
               WHEN {$subjectsLower} LIKE ? THEN 50
@@ -86,7 +87,9 @@ class GlobalCatalogSearchService
                     ->orWhereRaw('LOWER(COALESCE(works.subtitle, \'\')) LIKE ?', [$like])
                     ->orWhereRaw("{$subjectsLower} LIKE ?", [$like])
                     ->orWhereHas('authors', function (Builder $authors) use ($like): void {
-                        $authors->whereRaw('LOWER(authors.name) LIKE ?', [$like]);
+                        $authors
+                            ->where('author_works.position', 1)
+                            ->whereRaw('LOWER(authors.name) LIKE ?', [$like]);
                     });
             })
             ->orderBy('search_rank')

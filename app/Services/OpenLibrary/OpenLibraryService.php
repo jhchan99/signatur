@@ -16,6 +16,8 @@ class OpenLibraryService
 
     protected int $connectTimeout;
 
+    protected string $userAgent;
+
     public function __construct()
     {
         $configured = config('services.openlibrary.base_url');
@@ -24,27 +26,36 @@ class OpenLibraryService
             : 'https://openlibrary.org';
         $this->timeout = (int) config('services.openlibrary.timeout');
         $this->connectTimeout = (int) config('services.openlibrary.connect_timeout');
+        $configuredUserAgent = config('services.openlibrary.user_agent');
+        $this->userAgent = is_string($configuredUserAgent) && trim($configuredUserAgent) !== ''
+            ? trim($configuredUserAgent)
+            : 'Signatr (jhchan99@gmail.com)';
     }
 
     /**
      * @return Collection<int, array<string, mixed>>
      */
-    public function searchDocumentsByTitleAndAuthor(string $title, string $author): Collection
+    public function searchDocuments(string $q, int $limit = 25): Collection
     {
         $payload = $this->get('search.json', [
-            'title' => $title,
-            'author' => $author,
-            'limit' => 10,
+            'q' => $q,
+            'limit' => $limit,
         ], degradeOnTransportFailure: true);
 
-        $docs = $payload['docs'] ?? [];
+        return $this->normalizeSearchDocs($payload);
+    }
 
-        if (! is_array($docs)) {
-            return collect();
-        }
+    /**
+     * @return Collection<int, array<string, mixed>>
+     */
+    public function searchAuthorsByName(string $name, int $limit = 10): Collection
+    {
+        $payload = $this->get('search/authors.json', [
+            'q' => $name,
+            'limit' => $limit,
+        ], degradeOnTransportFailure: true);
 
-        /** @var array<int, array<string, mixed>> $docs */
-        return collect($docs);
+        return $this->normalizeSearchDocs($payload);
     }
 
     /**
@@ -101,12 +112,35 @@ class OpenLibraryService
     {
         $pending = Http::timeout($this->timeout)
             ->retry(3, 250, throw: false)
-            ->acceptJson();
+            ->acceptJson()
+            ->withUserAgent($this->userAgent);
 
         if ($this->connectTimeout > 0) {
             $pending->connectTimeout($this->connectTimeout);
         }
 
         return $pending;
+    }
+
+    /**
+     * @param  array<string, mixed>  $payload
+     * @return Collection<int, array<string, mixed>>
+     */
+    protected function normalizeSearchDocs(array $payload): Collection
+    {
+        $docs = $payload['docs'] ?? [];
+        if (! is_array($docs)) {
+            return collect();
+        }
+
+        $out = [];
+        foreach ($docs as $doc) {
+            if (is_array($doc)) {
+                /** @var array<string, mixed> $doc */
+                $out[] = $doc;
+            }
+        }
+
+        return collect($out);
     }
 }

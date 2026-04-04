@@ -38,6 +38,7 @@ return [
         'base_url' => env('OPENLIBRARY_BASE_URL', 'https://openlibrary.org'),
         'timeout' => (int) env('OPENLIBRARY_TIMEOUT', 10),
         'connect_timeout' => (int) env('OPENLIBRARY_CONNECT_TIMEOUT', 5),
+        'user_agent' => env('OPENLIBRARY_USER_AGENT', 'Signatr (jhchan99@gmail.com)'),
     ],
 
 ];

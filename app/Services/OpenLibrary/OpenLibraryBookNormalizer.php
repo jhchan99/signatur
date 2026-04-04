@@ -3,6 +3,7 @@
 namespace App\Services\OpenLibrary;
 
 use Illuminate\Support\Collection;
+use Illuminate\Support\Str;
 
 final class OpenLibraryBookNormalizer
 {
@@ -294,14 +295,207 @@ final class OpenLibraryBookNormalizer
     /**
      * @param  array<string, mixed>  $doc
      */
-    public static function coverUrlFromSearchDoc(array $doc): ?string
+    public static function workKeyFromSearchDoc(array $doc): ?string
+    {
+        $key = $doc['key'] ?? null;
+        if (! is_string($key)) {
+            return null;
+        }
+
+        $trimmed = trim($key);
+        if (! str_starts_with($trimmed, '/works/')) {
+            return null;
+        }
+
+        return $trimmed;
+    }
+
+    /**
+     * @param  array<string, mixed>  $doc
+     */
+    public static function firstCoverIdFromSearchDoc(array $doc): ?int
     {
         $coverI = $doc['cover_i'] ?? null;
         if (is_int($coverI) || (is_string($coverI) && ctype_digit($coverI))) {
-            return 'https://covers.openlibrary.org/b/id/'.(int) $coverI.'-M.jpg';
+            $id = (int) $coverI;
+
+            return $id > 0 ? $id : null;
         }
 
         return null;
+    }
+
+    /**
+     * @param  array<string, mixed>  $doc
+     */
+    public static function firstPublishYearFromSearchDoc(array $doc): ?int
+    {
+        $year = $doc['first_publish_year'] ?? null;
+        if (is_int($year)) {
+            return self::yearIntIsPlausible($year) ? $year : null;
+        }
+        if (is_string($year) && ctype_digit($year)) {
+            $asInt = (int) $year;
+
+            return self::yearIntIsPlausible($asInt) ? $asInt : null;
+        }
+
+        return null;
+    }
+
+    /**
+     * @param  array<string, mixed>  $doc
+     */
+    public static function firstAuthorKeyFromSearchDoc(array $doc): ?string
+    {
+        $keys = $doc['author_key'] ?? null;
+        if (! is_array($keys) || $keys === []) {
+            return null;
+        }
+
+        $first = $keys[0] ?? null;
+        if (! is_string($first) || trim($first) === '') {
+            return null;
+        }
+
+        $normalized = trim($first);
+        if (str_starts_with($normalized, '/authors/')) {
+            return $normalized;
+        }
+        if (str_starts_with($normalized, 'OL')) {
+            return '/authors/'.$normalized;
+        }
+
+        return null;
+    }
+
+    /**
+     * @param  array<string, mixed>  $doc
+     */
+    public static function firstAuthorNameFromSearchDoc(array $doc): ?string
+    {
+        $names = $doc['author_name'] ?? null;
+        if (is_string($names) && trim($names) !== '') {
+            return trim($names);
+        }
+        if (! is_array($names) || $names === []) {
+            return null;
+        }
+
+        $first = $names[0] ?? null;
+
+        return is_string($first) && trim($first) !== '' ? trim($first) : null;
+    }
+
+    /**
+     * @param  array<string, mixed>  $doc
+     */
+    public static function searchDocLooksLikeNonBook(array $doc): bool
+    {
+        $title = $doc['title'] ?? null;
+        if (! is_string($title) || trim($title) === '') {
+            return true;
+        }
+
+        $normalizedTitle = self::normalizeTextForMatching($title);
+        $blockedPhrases = [
+            'study guide',
+            'companion',
+            'summary',
+            'handbook',
+            'workbook',
+            'boxed set',
+            'box set',
+            'collection',
+            'saga',
+            'omnibus',
+            'sampler',
+            'board game',
+            'card game',
+            'game',
+            'rpg',
+            'roleplaying',
+        ];
+
+        foreach ($blockedPhrases as $phrase) {
+            if (str_contains($normalizedTitle, $phrase)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public static function normalizeTextForMatching(string $value): string
+    {
+        $lower = mb_strtolower($value);
+        $ascii = Str::ascii($lower);
+        $collapsed = preg_replace('/[^a-z0-9]+/i', ' ', $ascii);
+        if (! is_string($collapsed)) {
+            return '';
+        }
+
+        return trim(preg_replace('/\s+/', ' ', $collapsed) ?? '');
+    }
+
+    /**
+     * @param  array<string, mixed>  $doc
+     */
+    public static function authorKeyFromAuthorSearchDoc(array $doc): ?string
+    {
+        $key = $doc['key'] ?? null;
+        if (! is_string($key) || trim($key) === '') {
+            return null;
+        }
+
+        $trimmed = trim($key);
+        if (str_starts_with($trimmed, '/authors/')) {
+            return $trimmed;
+        }
+        if (str_starts_with($trimmed, 'OL')) {
+            return '/authors/'.$trimmed;
+        }
+
+        return null;
+    }
+
+    /**
+     * @param  array<string, mixed>  $doc
+     */
+    public static function authorNameFromAuthorSearchDoc(array $doc): ?string
+    {
+        $name = $doc['name'] ?? null;
+        if (! is_string($name)) {
+            return null;
+        }
+
+        $trimmed = trim($name);
+
+        return $trimmed !== '' ? $trimmed : null;
+    }
+
+    /**
+     * @param  array<string, mixed>  $doc
+     */
+    public static function authorWorkCountFromAuthorSearchDoc(array $doc): int
+    {
+        $count = $doc['work_count'] ?? 0;
+        if (is_int($count) && $count >= 0) {
+            return $count;
+        }
+        if (is_string($count) && ctype_digit($count)) {
+            return (int) $count;
+        }
+
+        return 0;
+    }
+
+    /**
+     * @param  array<string, mixed>  $doc
+     */
+    public static function coverUrlFromSearchDoc(array $doc): ?string
+    {
+        return self::coverUrlFromCoverId(self::firstCoverIdFromSearchDoc($doc), 'M');
     }
 
     /**

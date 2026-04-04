@@ -2,7 +2,7 @@
     $excerpt = $book->description
         ? \Illuminate\Support\Str::limit(\Illuminate\Support\Str::squish(strip_tags($book->description)), 900)
         : null;
-    $displayAuthor = $book->displayAuthor();
+    $displayAuthor = $book->primaryAuthorName();
 
     /** @var list<string> $subjectTags */
     $subjectTags = is_array($book->subjects) ? $book->subjects : [];

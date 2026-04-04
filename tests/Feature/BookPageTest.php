@@ -30,6 +30,26 @@ test('the book detail page renders stored catalog fields', function () {
         ->assertSee('Collections', escape: false);
 });
 
+test('the book detail page shows only the primary author', function () {
+    $work = Work::factory()->create([
+        'title' => 'Primary Author Display',
+    ]);
+
+    $work->authors()->attach(
+        Author::factory()->create(['name' => 'Primary Writer']),
+        ['position' => 1, 'role' => null],
+    );
+    $work->authors()->attach(
+        Author::factory()->create(['name' => 'Secondary Contributor']),
+        ['position' => 2, 'role' => null],
+    );
+
+    $this->get(route('books.show', $work))
+        ->assertSuccessful()
+        ->assertSee('Primary Writer')
+        ->assertDontSee('Secondary Contributor');
+});
+
 test('the book detail page hides guest tab navigation when logged in', function () {
     $work = Work::factory()->create([
         'title' => 'Auth Header Book',

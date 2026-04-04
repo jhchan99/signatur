@@ -65,6 +65,23 @@ test('the books index can search by author', function () {
         ->assertDontSee('Second Book');
 });
 
+test('the books index card shows only the primary author', function () {
+    $work = Work::factory()->create(['title' => 'Primary Only Card']);
+    $work->authors()->attach(
+        Author::factory()->create(['name' => 'Primary Card Author']),
+        ['position' => 1, 'role' => null],
+    );
+    $work->authors()->attach(
+        Author::factory()->create(['name' => 'Secondary Card Author']),
+        ['position' => 2, 'role' => null],
+    );
+
+    $this->get(route('books.index'))
+        ->assertSuccessful()
+        ->assertSee('Primary Card Author')
+        ->assertDontSee('Secondary Card Author');
+});
+
 test('the books index can filter by publish year', function () {
     Work::factory()->create([
         'title' => 'From Nineteen Ninety Nine',

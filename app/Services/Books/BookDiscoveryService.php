@@ -43,14 +43,18 @@ class BookDiscoveryService
             ->when($searchQuery !== null, function (Builder $query) use ($searchQuery, $mode): void {
                 if ($mode === BookSearchMode::Author) {
                     $query->whereHas('authors', function (Builder $authors) use ($searchQuery): void {
-                        $authors->where('name', 'like', '%'.$searchQuery.'%');
+                        $authors
+                            ->where('author_works.position', 1)
+                            ->where('name', 'like', '%'.$searchQuery.'%');
                     });
                 } else {
                     $query->where(function (Builder $inner) use ($searchQuery): void {
                         $inner
                             ->where('title', 'like', '%'.$searchQuery.'%')
                             ->orWhereHas('authors', function (Builder $authors) use ($searchQuery): void {
-                                $authors->where('name', 'like', '%'.$searchQuery.'%');
+                                $authors
+                                    ->where('author_works.position', 1)
+                                    ->where('name', 'like', '%'.$searchQuery.'%');
                             });
                     });
                 }

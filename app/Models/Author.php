@@ -24,6 +24,8 @@ class Author extends Model
         'death_date',
         'wikipedia',
         'alternate_names',
+        'open_library_author_search_doc',
+        'open_library_author_enriched_at',
     ];
 
     /**
@@ -33,6 +35,8 @@ class Author extends Model
     {
         return [
             'alternate_names' => 'array',
+            'open_library_author_search_doc' => 'array',
+            'open_library_author_enriched_at' => 'datetime',
         ];
     }
 

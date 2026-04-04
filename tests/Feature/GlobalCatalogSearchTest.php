@@ -82,6 +82,22 @@ test('global search matches works by subtitle', function () {
         ->assertSee(route('books.show', $work), escape: false);
 });
 
+test('global search does not match works by secondary author names', function () {
+    $work = Work::factory()->create(['title' => 'Primary Search Work']);
+    $work->authors()->attach(
+        Author::factory()->create(['name' => 'Primary Search Author']),
+        ['position' => 1, 'role' => null],
+    );
+    $work->authors()->attach(
+        Author::factory()->create(['name' => 'Secondary Search Alias']),
+        ['position' => 2, 'role' => null],
+    );
+
+    get(route('search.index', ['q' => 'Secondary Search Alias']))
+        ->assertSuccessful()
+        ->assertDontSee('Primary Search Work');
+});
+
 test('global search orders book results with stronger title matches before author-only matches', function () {
     $author = Author::factory()->create(['name' => 'Someone Findtoken Here']);
 

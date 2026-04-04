@@ -61,3 +61,27 @@ test('author mode can match related authors already in the catalog', function ()
         ->assertSuccessful()
         ->assertSee('Catalog Author Hit');
 });
+
+test('author mode does not match secondary authors', function () {
+    Http::preventStrayRequests();
+
+    $work = Work::factory()->create([
+        'title' => 'Primary Filtered Book',
+    ]);
+    $work->authors()->attach(
+        Author::factory()->create(['name' => 'Primary Catalog Author']),
+        ['position' => 1, 'role' => null],
+    );
+    $work->authors()->attach(
+        Author::factory()->create(['name' => 'Secondary Match Name']),
+        ['position' => 2, 'role' => null],
+    );
+
+    get(route('books.index', [
+        'q' => 'Secondary Match',
+        'mode' => 'author',
+    ]))
+        ->assertSuccessful()
+        ->assertSee('No books match those filters yet. Try a different search or filter.', escape: false)
+        ->assertDontSee('Primary Filtered Book');
+});
