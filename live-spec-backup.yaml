@@ -1,0 +1,198 @@
+alerts:
+- rule: DEPLOYMENT_FAILED
+- rule: DOMAIN_FAILED
+databases:
+- cluster_name: signatr-db
+  db_name: defaultdb
+  db_user: doadmin
+  engine: PG
+  name: signatr-db
+  production: true
+  version: "17"
+features:
+- buildpack-stack=ubuntu-22
+ingress:
+  rules:
+  - component:
+      name: signatur
+    match:
+      authority: {}
+      path:
+        prefix: /
+jobs:
+- build_command: composer install --no-dev --optimize-autoloader && npm run build:assets
+  environment_slug: php
+  envs:
+  - key: DB_URL
+    scope: RUN_TIME
+    value: ${signatr-db.DATABASE_URL}
+  - key: DB_CONNECTION
+    scope: RUN_TIME
+    value: pgsql
+  github:
+    branch: main
+    deploy_on_push: true
+    repo: jhchan99/signatur
+  instance_count: 1
+  instance_size_slug: apps-s-1vcpu-0.5gb
+  kind: PRE_DEPLOY
+  name: migrate
+  run_command: php artisan migrate --force
+  source_dir: /
+name: coral-app
+region: nyc
+services:
+- build_command: composer install --no-dev --optimize-autoloader && npm run build:assets
+  environment_slug: php
+  envs:
+  - key: DB_URL
+    scope: RUN_AND_BUILD_TIME
+    value: ${signatr-db.DATABASE_URL}
+  - key: DB_CONNECTION
+    scope: RUN_AND_BUILD_TIME
+    value: pgsql
+  - key: APP_ENV
+    scope: RUN_AND_BUILD_TIME
+    value: production
+  - key: APP_NAME
+    scope: RUN_AND_BUILD_TIME
+    value: Laravel
+  - key: APP_KEY
+    scope: RUN_AND_BUILD_TIME
+    value: base64:3VS7buwMYaz0glfWVslL9u138v0hduBltOsdzwqsLPQ=
+  - key: APP_DEBUG
+    scope: RUN_AND_BUILD_TIME
+    value: "true"
+  - key: APP_URL
+    scope: RUN_AND_BUILD_TIME
+    value: https://coral-app-6m2ts.ondigitalocean.app
+  - key: APP_LOCALE
+    scope: RUN_AND_BUILD_TIME
+    value: en
+  - key: APP_FALLBACK_LOCALE
+    scope: RUN_AND_BUILD_TIME
+    value: en
+  - key: APP_FAKER_LOCALE
+    scope: RUN_AND_BUILD_TIME
+    value: en_US
+  - key: APP_MAINTENANCE_DRIVER
+    scope: RUN_AND_BUILD_TIME
+    value: file
+  - key: BCRYPT_ROUNDS
+    scope: RUN_AND_BUILD_TIME
+    value: "12"
+  - key: LOG_CHANNEL
+    scope: RUN_AND_BUILD_TIME
+    value: stack
+  - key: LOG_STACK
+    scope: RUN_AND_BUILD_TIME
+    value: single
+  - key: LOG_DEPRECATIONS_CHANNEL
+    scope: RUN_AND_BUILD_TIME
+    value: "null"
+  - key: LOG_LEVEL
+    scope: RUN_AND_BUILD_TIME
+    value: debug
+  - key: SESSION_DRIVER
+    scope: RUN_AND_BUILD_TIME
+    value: database
+  - key: SESSION_LIFETIME
+    scope: RUN_AND_BUILD_TIME
+    value: "120"
+  - key: SESSION_ENCRYPT
+    scope: RUN_AND_BUILD_TIME
+    value: "false"
+  - key: SESSION_PATH
+    scope: RUN_AND_BUILD_TIME
+    value: /
+  - key: SESSION_DOMAIN
+    scope: RUN_AND_BUILD_TIME
+    value: "null"
+  - key: BROADCAST_CONNECTION
+    scope: RUN_AND_BUILD_TIME
+    value: log
+  - key: FILESYSTEM_DISK
+    scope: RUN_AND_BUILD_TIME
+    value: local
+  - key: QUEUE_CONNECTION
+    scope: RUN_AND_BUILD_TIME
+    value: database
+  - key: CACHE_STORE
+    scope: RUN_AND_BUILD_TIME
+    value: database
+  - key: MEMCACHED_HOST
+    scope: RUN_AND_BUILD_TIME
+    value: 127.0.0.1
+  - key: REDIS_CLIENT
+    scope: RUN_AND_BUILD_TIME
+    value: phpredis
+  - key: REDIS_HOST
+    scope: RUN_AND_BUILD_TIME
+    value: 127.0.0.1
+  - key: REDIS_PASSWORD
+    scope: RUN_AND_BUILD_TIME
+    value: "null"
+  - key: REDIS_PORT
+    scope: RUN_AND_BUILD_TIME
+    value: "6379"
+  - key: MAIL_MAILER
+    scope: RUN_AND_BUILD_TIME
+    value: log
+  - key: MAIL_SCHEME
+    scope: RUN_AND_BUILD_TIME
+    value: "null"
+  - key: MAIL_HOST
+    scope: RUN_AND_BUILD_TIME
+    value: 127.0.0.1
+  - key: MAIL_PORT
+    scope: RUN_AND_BUILD_TIME
+    value: "2525"
+  - key: MAIL_USERNAME
+    scope: RUN_AND_BUILD_TIME
+    value: "null"
+  - key: MAIL_PASSWORD
+    scope: RUN_AND_BUILD_TIME
+    value: "null"
+  - key: MAIL_FROM_ADDRESS
+    scope: RUN_AND_BUILD_TIME
+    value: hello@example.com
+  - key: MAIL_FROM_NAME
+    scope: RUN_AND_BUILD_TIME
+    value: ${APP_NAME}
+  - key: AWS_ACCESS_KEY_ID
+    scope: RUN_AND_BUILD_TIME
+  - key: AWS_SECRET_ACCESS_KEY
+    scope: RUN_AND_BUILD_TIME
+  - key: AWS_DEFAULT_REGION
+    scope: RUN_AND_BUILD_TIME
+    value: us-east-1
+  - key: AWS_BUCKET
+    scope: RUN_AND_BUILD_TIME
+  - key: AWS_USE_PATH_STYLE_ENDPOINT
+    scope: RUN_AND_BUILD_TIME
+    value: "false"
+  - key: VITE_APP_NAME
+    scope: RUN_AND_BUILD_TIME
+    value: ${APP_NAME}
+  - key: SENTRY_LARAVEL_DSN
+    scope: RUN_AND_BUILD_TIME
+    value: https://de5949436aa369c1e1cc1ea8632f25fa@o4511151963439104.ingest.us.sentry.io/4511151964684288
+  - key: SENTRY_SEND_DEFAULT_PII
+    scope: RUN_AND_BUILD_TIME
+    value: "true"
+  - key: SENTRY_TRACES_SAMPLE_RATE
+    scope: RUN_AND_BUILD_TIME
+    value: "1.0"
+  - key: WEB_CONCURRENCY
+    scope: RUN_AND_BUILD_TIME
+    value: "4"
+  github:
+    branch: main
+    deploy_on_push: true
+    repo: jhchan99/signatur
+  http_port: 8080
+  instance_count: 1
+  instance_size_slug: apps-s-1vcpu-0.5gb
+  name: signatur
+  run_command: heroku-php-apache2 public/
+  source_dir: /
