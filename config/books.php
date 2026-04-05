@@ -11,7 +11,7 @@ return [
         | title/author are resolved via Open Library search.
         */
         'seeds' => [
-            ['title' => 'Project Hail Mary', 'author' => 'Andy Weir'],
+            ['title' => 'Harry Potter and the Prisoner of Azkaban (Harry Potter, #3)', 'author' => 'J.K. Rowling'],
             ['title' => 'Tomorrow, and Tomorrow, and Tomorrow', 'author' => 'Gabrielle Zevin'],
             ['title' => 'The Seven Husbands of Evelyn Hugo', 'author' => 'Taylor Jenkins Reid'],
             ['title' => 'The Night Circus', 'author' => 'Erin Morgenstern'],
