@@ -14,6 +14,7 @@ class BookController extends Controller
 {
     public function index(BookIndexRequest $request, BookDiscoveryService $discovery, BookFilterMetadataService $filterMetadata): View
     {
+        // set default validations
         /** @var array{q?: string|null, subject?: string|null, year?: int|null, mode?: string|null} $validated */
         $validated = array_merge(
             [
@@ -22,6 +23,7 @@ class BookController extends Controller
                 'year' => null,
                 'mode' => BookSearchMode::Books->value,
             ],
+
             $request->validated(),
         );
 

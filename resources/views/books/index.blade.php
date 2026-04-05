@@ -13,6 +13,7 @@
                         $filterBubble = 'inline-flex min-w-0 items-stretch overflow-hidden rounded-md border border-zinc-800 bg-zinc-950 transition focus-within:border-zinc-500 hover:border-zinc-600';
                         $filterBubbleLabel = 'flex shrink-0 items-center border-r border-zinc-800 bg-zinc-900/60 px-2.5 py-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-zinc-500';
                         $filterSelect = 'min-w-0 flex-1 cursor-pointer appearance-none border-0 bg-transparent py-2 pl-2 pr-8 text-[11px] font-semibold uppercase tracking-wider text-zinc-200 outline-none sm:min-w-[6.5rem]';
+                        $filterSelectNormalCase = 'min-w-0 flex-1 cursor-pointer appearance-none border-0 bg-transparent py-2 pl-2 pr-8 text-[11px] font-semibold normal-case tracking-normal text-zinc-200 outline-none sm:min-w-[6.5rem]';
                         $filterSelectDisabled = 'min-w-0 flex-1 cursor-not-allowed appearance-none border-0 bg-transparent py-2 pl-2 pr-8 text-[11px] font-semibold uppercase tracking-wider text-zinc-400 outline-none sm:min-w-[6.5rem]';
                         $filterChevron = 'pointer-events-none absolute right-2 top-1/2 -translate-y-1/2 text-[10px] text-zinc-500';
                         $displayAuthor = static fn (\App\Models\Work $book): ?string => $book->primaryAuthorName();
@@ -30,7 +31,7 @@
                                             id="filter-year"
                                             name="year"
                                             onchange="this.form.requestSubmit()"
-                                            class="{{ $filterSelect }}"
+                                            class="{{ $filterSelectNormalCase }}"
                                         >
                                             <option value="">Any</option>
                                             @foreach ($yearOptions as $y)
@@ -50,7 +51,7 @@
                                             id="filter-subject"
                                             name="subject"
                                             onchange="this.form.requestSubmit()"
-                                            class="{{ $filterSelect }} sm:min-w-[8rem] sm:max-w-[12rem]"
+                                            class="{{ $filterSelectNormalCase }} sm:min-w-[8rem] sm:max-w-[12rem]"
                                         >
                                             <option value="">Any</option>
                                             @foreach ($subjectOptions as $tag)

@@ -110,7 +110,7 @@ test('the books index can filter by subject', function () {
         'subjects' => ['Fiction'],
     ]);
 
-    $this->get(route('books.index', ['subject' => 'Essays']))
+    $this->get(route('books.index', ['subject' => 'Nonfiction & Essays']))
         ->assertSuccessful()
         ->assertSee('Essays Pick')
         ->assertDontSee('Fiction Only');
@@ -147,9 +147,9 @@ test('the books index renders subject and year options from catalog data', funct
 
     $response->assertSuccessful();
 
-    // Subjects should appear as <option> values in the subject dropdown
-    $response->assertSee('Fiction');
-    $response->assertSee('Mystery');
+    // Subject umbrellas should appear as <option> values in the subject dropdown.
+    $response->assertSee('Fiction & Literature');
+    $response->assertSee('Mystery & Thriller');
 
     // Year should appear as an <option> value in the year dropdown
     $response->assertSee('2001');
@@ -168,7 +168,8 @@ test('the books index filter metadata is served from cache on repeated requests'
     $service->yearOptions();
 
     // Subsequent calls must be served from cache — verify cache keys are present
-    expect(Cache::has('book_filter_subjects'))->toBeTrue();
+    expect(Cache::has('book_filter_subject_options_v2'))->toBeTrue();
+    expect(Cache::has('book_filter_subject_buckets_v2'))->toBeTrue();
     expect(Cache::has('book_filter_years'))->toBeTrue();
 
     // The response still renders correctly using the cached data
@@ -176,4 +177,27 @@ test('the books index filter metadata is served from cache on repeated requests'
         ->assertSuccessful()
         ->assertSee('History')
         ->assertSee('1990');
+});
+
+test('the books index umbrella subject filter matches multiple underlying raw subjects', function () {
+    Work::factory()->create([
+        'title' => 'Dragon Archive',
+        'subjects' => ['Fantasy'],
+    ]);
+
+    Work::factory()->create([
+        'title' => 'Orbit Frontier',
+        'subjects' => ['Science fiction'],
+    ]);
+
+    Work::factory()->create([
+        'title' => 'Family Biography',
+        'subjects' => ['Biography'],
+    ]);
+
+    $this->get(route('books.index', ['subject' => 'Fantasy & Sci-Fi']))
+        ->assertSuccessful()
+        ->assertSee('Dragon Archive')
+        ->assertSee('Orbit Frontier')
+        ->assertDontSee('Family Biography');
 });

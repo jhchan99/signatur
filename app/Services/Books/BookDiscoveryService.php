@@ -9,6 +9,10 @@ use Illuminate\Database\Eloquent\Builder;
 
 class BookDiscoveryService
 {
+    public function __construct(
+        private readonly BookFilterMetadataService $filterMetadata,
+    ) {}
+
     /**
      * @param  array{q?: string|null, subject?: string|null, year?: int|null, mode?: string|null}  $validated
      */
@@ -60,7 +64,23 @@ class BookDiscoveryService
                 }
             })
             ->when($subjectFilter !== null, function (Builder $query) use ($subjectFilter): void {
-                $query->whereJsonContains('subjects', $subjectFilter);
+                $subjectsToMatch = $this->filterMetadata
+                    ->subjectsForFilter($subjectFilter)
+                    ->filter(fn (mixed $subject): bool => is_string($subject) && $subject !== '')
+                    ->unique()
+                    ->values();
+
+                if ($subjectsToMatch->isEmpty()) {
+                    $query->whereRaw('0 = 1');
+
+                    return;
+                }
+
+                $query->where(function (Builder $subjectQuery) use ($subjectsToMatch): void {
+                    foreach ($subjectsToMatch as $subject) {
+                        $subjectQuery->orWhereJsonContains('subjects', $subject);
+                    }
+                });
             })
             ->when($yearFilter !== null, function (Builder $query) use ($yearFilter): void {
                 $query->where('first_publish_year', $yearFilter);
