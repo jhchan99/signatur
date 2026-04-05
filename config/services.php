@@ -39,6 +39,7 @@ return [
         'timeout' => (int) env('OPENLIBRARY_TIMEOUT', 10),
         'connect_timeout' => (int) env('OPENLIBRARY_CONNECT_TIMEOUT', 5),
         'user_agent' => env('OPENLIBRARY_USER_AGENT', 'Signatr (jhchan99@gmail.com)'),
+        'max_requests_per_second' => (int) env('OPENLIBRARY_MAX_REQUESTS_PER_SECOND', 3),
     ],
 
 ];

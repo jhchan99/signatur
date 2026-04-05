@@ -7,9 +7,14 @@ use Illuminate\Http\Client\PendingRequest;
 use Illuminate\Http\Client\Response;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\RateLimiter;
 
 class OpenLibraryService
 {
+    protected const RATE_LIMITER_KEY = 'openlibrary:http';
+
+    protected int $maxRequestsPerSecond;
+
     protected string $baseUrl;
 
     protected int $timeout;
@@ -20,6 +25,7 @@ class OpenLibraryService
 
     public function __construct()
     {
+        $this->maxRequestsPerSecond = (int) config('services.openlibrary.max_requests_per_second', 3);
         $configured = config('services.openlibrary.base_url');
         $this->baseUrl = is_string($configured) && $configured !== ''
             ? $configured
@@ -84,6 +90,7 @@ class OpenLibraryService
      */
     protected function get(string $path, array $query = [], bool $degradeOnTransportFailure = false): array
     {
+        $this->waitForOutgoingRequestSlot();
         $url = rtrim($this->baseUrl, '/').'/'.ltrim($path, '/');
 
         try {
@@ -142,5 +149,24 @@ class OpenLibraryService
         }
 
         return collect($out);
+    }
+
+    protected function waitForOutgoingRequestSlot(): void
+    {
+        if ($this->maxRequestsPerSecond <= 0) {
+            return;
+        }
+
+        $key = self::RATE_LIMITER_KEY;
+
+        while (RateLimiter::tooManyAttempts($key, $this->maxRequestsPerSecond)) {
+            $seconds = RateLimiter::availableIn($key);
+            if ($seconds > 0) {
+                sleep($seconds);
+                continue;
+            }
+            usleep(100000);
+        }
+        RateLimiter::hit($key, 1);
     }
 }
