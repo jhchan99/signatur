@@ -46,3 +46,48 @@ test('featured books import persists catalog rows and featured entries', functio
     expect(BookFeaturedEntry::query()->count())->toBe(1)
         ->and(BookFeaturedEntry::query()->first()->work_id)->toBe($work->id);
 });
+
+test('featured books import skips blank Open Library author keys and still attaches valid authors', function () {
+    Http::fake([
+        'https://openlibrary.org/works/*.json' => Http::response([
+            'title' => 'Work With Mixed Author Keys',
+            'authors' => [
+                ['author' => ['key' => '']],
+                ['author' => ['key' => '   ']],
+                ['author' => ['key' => '/authors/OLVALID']],
+            ],
+        ], 200),
+        'https://openlibrary.org/authors/OLVALID.json' => Http::response([
+            'name' => 'Valid Only',
+        ], 200),
+    ]);
+
+    app(FeaturedBooksImporter::class)->import();
+
+    $work = Work::query()->where('open_library_key', '/works/OL27448W')->first();
+    expect($work)->not->toBeNull()
+        ->and($work->authors)->toHaveCount(1)
+        ->and($work->authors()->first()?->open_library_id)->toBe('/authors/OLVALID');
+});
+
+test('featured books import creates a pending author stub when Open Library author json is missing', function () {
+    Http::fake([
+        'https://openlibrary.org/works/*.json' => Http::response([
+            'title' => 'Work Stub Author',
+            'authors' => [
+                ['author' => ['key' => '/authors/OLSTUBONLY']],
+            ],
+        ], 200),
+        'https://openlibrary.org/authors/OLSTUBONLY.json' => Http::response([], 404),
+    ]);
+
+    app(FeaturedBooksImporter::class)->import();
+
+    $work = Work::query()->where('open_library_key', '/works/OL27448W')->first();
+    $author = Author::query()->where('open_library_id', '/authors/OLSTUBONLY')->first();
+
+    expect($work)->not->toBeNull()
+        ->and($author)->not->toBeNull()
+        ->and($author->name)->toBe('Pending Author')
+        ->and($work->authors()->whereKey($author->id)->exists())->toBeTrue();
+});

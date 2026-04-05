@@ -101,9 +101,14 @@ class OpenLibraryWorkSyncService
                 continue;
             }
 
+            $authorId = $authorModel->getKey();
+            if (! is_numeric($authorId) || (int) $authorId < 1) {
+                continue;
+            }
+
             $role = OpenLibraryBookNormalizer::authorRoleFromWorkAuthorEntry($item);
 
-            $syncPayload[$authorModel->getKey()] = [
+            $syncPayload[(int) $authorId] = [
                 'position' => $position,
                 'role' => $role,
             ];
@@ -122,7 +127,15 @@ class OpenLibraryWorkSyncService
 
     protected function resolveAuthor(string $authorKey): ?Author
     {
-        $normalizedAuthorKey = self::normalizeAuthorKey($authorKey);
+        $trimmedKey = trim($authorKey);
+        if ($trimmedKey === '') {
+            return null;
+        }
+
+        $normalizedAuthorKey = self::normalizeAuthorKey($trimmedKey);
+        if (! self::isValidNormalizedOpenLibraryAuthorKey($normalizedAuthorKey)) {
+            return null;
+        }
 
         try {
             $payload = $this->openLibrary->getAuthor($normalizedAuthorKey);
@@ -144,9 +157,33 @@ class OpenLibraryWorkSyncService
             );
         }
 
-        return Author::query()
-            ->where('open_library_id', $normalizedAuthorKey)
-            ->first();
+        return Author::query()->firstOrCreate(
+            ['open_library_id' => $normalizedAuthorKey],
+            [
+                'name' => 'Pending Author',
+                'bio' => null,
+                'birth_date' => null,
+                'death_date' => null,
+                'wikipedia' => null,
+                'alternate_names' => null,
+            ],
+        );
+    }
+
+    /**
+     * Reject keys that normalize to a bare `/authors/` path with no Open Library author id.
+     */
+    protected static function isValidNormalizedOpenLibraryAuthorKey(string $normalizedKey): bool
+    {
+        $prefix = '/authors/';
+
+        if (! str_starts_with($normalizedKey, $prefix)) {
+            return false;
+        }
+
+        $slug = substr($normalizedKey, strlen($prefix));
+
+        return $slug !== '' && trim($slug) !== '';
     }
 
     /**
