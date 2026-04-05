@@ -1,48 +1,47 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" @class(['dark' => session('theme', 'dark') !== 'light'])>
     <head>
         @include('partials.head')
     </head>
-    <body class="min-h-screen bg-surface-page text-text-default">
-        <flux:sidebar sticky collapsible="mobile" class="border-e border-border-subtle bg-surface-card">
+    <body class="min-h-screen bg-page text-ui-primary antialiased">
+        <flux:sidebar sticky collapsible="mobile" class="border-e border-ui bg-surface">
             <flux:sidebar.header>
                 <x-app-logo :sidebar="true" href="{{ route('home') }}" wire:navigate />
                 <flux:sidebar.collapse class="lg:hidden" />
             </flux:sidebar.header>
 
-            <div class="border-b border-border-subtle px-2 pb-3 pt-1">
-                @include('partials.global-search-form', ['compact' => true, 'theme' => 'app-light'])
+            <div class="border-b border-ui px-2 pb-3 pt-1">
+                @include('partials.global-search-form', ['compact' => true])
             </div>
 
             <flux:sidebar.nav>
-                <flux:sidebar.group :heading="__('Platform')" class="grid">
+                <flux:sidebar.group class="grid">
                     <flux:sidebar.item icon="home" :href="route('home')" :current="request()->routeIs('home')" wire:navigate>
                         {{ __('Home') }}
+                    </flux:sidebar.item>
+                    <flux:sidebar.item icon="book-open-text" :href="route('books.index')" :current="request()->routeIs('books.*')" wire:navigate>
+                        {{ __('Books') }}
+                    </flux:sidebar.item>
+                    <flux:sidebar.item icon="users" :href="route('authors.index')" :current="request()->routeIs('authors.*')" wire:navigate>
+                        {{ __('Authors') }}
+                    </flux:sidebar.item>
+                    <flux:sidebar.item icon="rectangle-stack" :href="route('collections.index')" :current="request()->routeIs('collections.*')" wire:navigate>
+                        {{ __('Collections') }}
                     </flux:sidebar.item>
                 </flux:sidebar.group>
             </flux:sidebar.nav>
 
             <flux:spacer />
 
-            <flux:sidebar.nav>
-                <flux:sidebar.item icon="folder-git-2" href="https://github.com/laravel/livewire-starter-kit" target="_blank">
-                    {{ __('Repository') }}
-                </flux:sidebar.item>
-
-                <flux:sidebar.item icon="book-open-text" href="https://laravel.com/docs/starter-kits#livewire" target="_blank">
-                    {{ __('Documentation') }}
-                </flux:sidebar.item>
-            </flux:sidebar.nav>
-
             <x-desktop-user-menu class="hidden lg:block" :name="auth()->user()->name" />
         </flux:sidebar>
 
         <!-- Mobile User Menu -->
-        <flux:header class="lg:hidden flex items-center gap-2 border-b border-border-subtle bg-surface-card px-2 py-2">
+        <flux:header class="lg:hidden flex items-center gap-2 border-b border-ui bg-surface px-2 py-2">
             <flux:sidebar.toggle class="lg:hidden shrink-0" icon="bars-2" inset="left" />
 
             <div class="min-w-0 flex-1">
-                @include('partials.global-search-form', ['compact' => true, 'theme' => 'app-light'])
+                @include('partials.global-search-form', ['compact' => true])
             </div>
 
             <flux:dropdown position="top" align="end" class="shrink-0">

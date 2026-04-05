@@ -13,20 +13,20 @@
     <head>
         @include('partials.head', ['title' => $book->title])
     </head>
-    <body class="min-h-screen bg-surface-page text-text-default">
+    <body class="min-h-screen bg-page text-ui-primary antialiased">
         <div class="relative">
             @include('partials.guest-header')
 
-            <main class="mx-auto flex w-full max-w-7xl flex-col gap-10 px-6 pb-20 lg:px-8 lg:pb-28">
+            <main class="guest-page-main mx-auto flex w-full max-w-7xl flex-col gap-10 px-6 pb-20 lg:px-8 lg:pb-28">
                 <p class="text-sm">
-                    <a href="{{ route('books.index') }}" class="text-text-soft underline decoration-border-strong underline-offset-4 hover:text-text-default">
+                    <a href="{{ route('books.index') }}" class="text-ui-faint underline decoration-border-strong underline-offset-4 hover:text-ui-primary">
                         {{ __('Back to books') }}
                     </a>
                 </p>
                 <article class="grid gap-10 lg:grid-cols-[18rem_minmax(0,1fr)] lg:items-start">
                     <div class="mx-auto w-full max-w-xs lg:mx-0">
                         @if (filled($book->cover_url))
-                            <div class="overflow-hidden rounded-2xl border border-border-subtle bg-surface-card shadow-lg">
+                            <div class="overflow-hidden rounded-2xl border border-ui bg-surface shadow-lg">
                                 <img
                                     src="{{ $book->cover_url }}"
                                     alt=""
@@ -34,7 +34,7 @@
                                 />
                             </div>
                         @else
-                            <div class="flex aspect-[2/3] w-full items-center justify-center rounded-2xl border border-border-subtle bg-surface-card text-sm text-text-soft">
+                            <div class="flex aspect-[2/3] w-full items-center justify-center rounded-2xl border border-ui bg-surface text-sm text-ui-faint">
                                 No cover
                             </div>
                         @endif
@@ -42,42 +42,42 @@
 
                     <div class="min-w-0 space-y-4">
                         <div class="flex flex-wrap items-baseline gap-x-4 gap-y-2">
-                            <h1 class="font-serif text-4xl font-semibold tracking-tight text-text-strong sm:text-5xl">
+                            <h1 class="font-serif text-4xl font-semibold tracking-tight text-ui-primary sm:text-5xl">
                                 {{ $book->title }}
                             </h1>
                             @if ($book->publish_year)
-                                <span class="text-lg text-text-muted">{{ $book->publish_year }}</span>
+                                <span class="text-lg text-ui-muted">{{ $book->publish_year }}</span>
                             @endif
                         </div>
 
                         @if (filled($displayAuthor))
-                            <p class="text-base text-text-muted">{{ $displayAuthor }}</p>
+                            <p class="text-base text-ui-muted">{{ $displayAuthor }}</p>
                         @endif
 
                         @if ($excerpt !== null && $excerpt !== '')
-                            <p class="text-base leading-7 text-text-muted">
+                            <p class="text-base leading-7 text-ui-muted">
                                 {{ $excerpt }}
                             </p>
                         @endif
                     </div>
                 </article>
 
-                <section class="rounded-[1.5rem] border border-border-subtle bg-surface-card p-6 shadow-sm backdrop-blur lg:p-8">
-                    <h2 class="text-sm font-semibold uppercase tracking-[0.25em] text-text-soft">Details</h2>
+                <section class="rounded-[1.5rem] border border-ui bg-surface p-6 shadow-sm backdrop-blur lg:p-8">
+                    <h2 class="text-sm font-semibold uppercase tracking-[0.25em] text-ui-faint">Details</h2>
                     <dl class="mt-6 space-y-4 text-sm">
                         @if ($book->publish_year)
                             <div class="flex flex-col gap-1 sm:flex-row sm:gap-6">
-                                <dt class="shrink-0 font-medium text-text-soft sm:w-32">Published</dt>
-                                <dd class="text-text-default">{{ $book->publish_year }}</dd>
+                                <dt class="shrink-0 font-medium text-ui-faint sm:w-32">Published</dt>
+                                <dd class="text-ui-primary">{{ $book->publish_year }}</dd>
                             </div>
                         @endif
 
                         @if ($subjectTags !== [])
                             <div class="flex flex-col gap-3 sm:flex-row sm:gap-6">
-                                <dt class="shrink-0 font-medium text-text-soft sm:w-32 sm:pt-1">Subjects</dt>
+                                <dt class="shrink-0 font-medium text-ui-faint sm:w-32 sm:pt-1">Subjects</dt>
                                 <dd class="flex flex-wrap gap-2">
                                     @foreach ($subjectTags as $tag)
-                                        <span class="rounded-full border border-border-subtle bg-surface-page-muted px-3 py-1 text-xs font-medium text-text-default">
+                                        <span class="rounded-full border border-ui bg-page px-3 py-1 text-xs font-medium text-ui-primary">
                                             {{ $tag }}
                                         </span>
                                     @endforeach
@@ -86,18 +86,18 @@
                         @endif
 
                         @if (! $book->publish_year && $subjectTags === [])
-                            <p class="text-text-soft">More catalog metadata will show here once this title is enriched.</p>
+                            <p class="text-ui-faint">More catalog metadata will show here once this title is enriched.</p>
                         @endif
                     </dl>
                 </section>
 
-                <section class="rounded-[1.5rem] border border-border-subtle bg-surface-card p-6 shadow-sm backdrop-blur lg:p-8">
+                <section class="rounded-[1.5rem] border border-ui bg-surface p-6 shadow-sm backdrop-blur lg:p-8">
                     <div class="flex items-center justify-between gap-4">
-                        <h2 class="text-sm font-semibold uppercase tracking-[0.25em] text-text-soft">Reviews</h2>
+                        <h2 class="text-sm font-semibold uppercase tracking-[0.25em] text-ui-faint">Reviews</h2>
                     </div>
 
                     @if ($reviews->isEmpty())
-                        <p class="mt-6 text-sm leading-7 text-text-soft">
+                        <p class="mt-6 text-sm leading-7 text-ui-faint">
                             No public reviews yet. When readers share their thoughts (and keep them public), they will show up here.
                         </p>
                     @else
@@ -105,7 +105,7 @@
                             @foreach ($reviews as $review)
                                 <li class="py-6 first:pt-0 last:pb-0">
                                     <div class="flex flex-wrap items-center gap-3">
-                                        <p class="text-sm font-medium text-text-strong">
+                                        <p class="text-sm font-medium text-ui-primary">
                                             Review by {{ $review->user->display_name ?? $review->user->name }}
                                         </p>
                                         @if ($review->rating !== null)
@@ -117,7 +117,7 @@
                                             </span>
                                         @endif
                                     </div>
-                                    <p class="mt-3 text-sm leading-7 text-text-muted">
+                                    <p class="mt-3 text-sm leading-7 text-ui-muted">
                                         {{ $review->review_text }}
                                     </p>
                                 </li>

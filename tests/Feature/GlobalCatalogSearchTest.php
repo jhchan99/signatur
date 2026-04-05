@@ -9,6 +9,7 @@ use function Pest\Laravel\get;
 test('global search without query shows the prompt state', function () {
     get(route('search.index'))
         ->assertSuccessful()
+        ->assertSee('guest-page-main', escape: false)
         ->assertSee(__('Search by title, subtitle, subject tags, or author—including alternate names.'), escape: false);
 });
 

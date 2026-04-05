@@ -6,6 +6,20 @@ use App\Http\Controllers\CollectionsController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SearchController;
 use Illuminate\Support\Facades\Route;
+use Livewire\Mechanisms\HandleRequests\EndpointResolver;
+
+/*
+|--------------------------------------------------------------------------
+| Livewire update URL (POST-only)
+|--------------------------------------------------------------------------
+|
+| Browsers, bots, or speculative prefetch can issue GET to this path. Without
+| a GET route, Laravel raises MethodNotAllowedHttpException. Reject cleanly.
+|
+*/
+Route::match(['get', 'head'], EndpointResolver::updatePath(), function (): void {
+    abort(404);
+});
 
 Route::get('/', HomeController::class)->name('home');
 Route::get('/search', SearchController::class)->name('search.index');

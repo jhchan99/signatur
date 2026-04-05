@@ -1,101 +1,85 @@
 @php
     /** @var string|null $subline */
     $subline = $subline ?? null;
-    $theme = $theme ?? 'light';
-    $isLightTheme = $theme !== 'dark';
 
-    $tabBase =
-        'inline-flex select-none rounded-full px-4 py-2 transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 '.($isLightTheme ? 'focus-visible:outline-action-primary' : 'focus-visible:outline-white');
-    $tabActive = $isLightTheme ? 'bg-surface-card-strong text-text-strong shadow-sm' : 'bg-white text-zinc-950 shadow-sm';
-    $tabInactive = $isLightTheme ? 'text-text-muted hover:bg-surface-card-muted hover:text-text-strong' : 'text-zinc-300 hover:bg-zinc-800 hover:text-white';
+    $logHref = auth()->check() ? route('books.index') : route('login');
 @endphp
 
-<header class="mx-auto flex w-full max-w-7xl flex-col gap-4 px-6 py-6 lg:px-8">
-    <div class="flex flex-wrap items-center gap-x-3 gap-y-3">
-        <a href="{{ route('home') }}" class="flex shrink-0 items-center gap-3">
-            <span class="{{ $isLightTheme ? 'flex size-10 items-center justify-center rounded-2xl bg-action-secondary text-sm font-semibold text-surface-page' : 'flex size-10 items-center justify-center rounded-2xl bg-white text-sm font-semibold text-zinc-950' }}">
-                S
-            </span>
-            <span>
-                <span class="{{ $isLightTheme ? 'block text-sm font-semibold tracking-[0.2em] uppercase text-text-strong' : 'block text-sm font-semibold tracking-[0.2em] uppercase text-zinc-300' }}">Signatr</span>
-            </span>
-        </a>
+<header class="guest-header-band">
+    <div class="guest-header-shell">
+        <div class="flex flex-wrap items-center gap-x-4 gap-y-3 py-3">
+            <div class="contents min-[1100px]:flex min-[1100px]:min-w-0 min-[1100px]:flex-1 min-[1100px]:items-center min-[1100px]:gap-x-5">
+                <a href="{{ route('home') }}" class="nav-logo shrink-0 lowercase no-underline" wire:navigate>
+                    <span class="font-sans font-medium">signa</span><span class="font-serif text-ui-gold">t</span><span class="font-sans font-medium">ur</span>
+                </a>
 
-        @guest
-            <div class="flex min-w-0 flex-1 basis-full justify-center min-[1024px]:basis-0 min-[1024px]:justify-center">
-                <div
-                    class="{{ $isLightTheme ? 'inline-flex rounded-full border border-border-subtle bg-surface-card/90 p-1 text-xs font-semibold text-text-muted' : 'inline-flex rounded-full border border-zinc-800 bg-zinc-900/80 p-1 text-xs font-semibold text-zinc-300' }}"
-                    role="tablist"
-                    aria-label="Navigation"
-                >
-                    <a
-                        href="{{ route('home') }}"
-                        @class([$tabBase, request()->routeIs('home') ? $tabActive : $tabInactive])
-                        role="tab"
-                        aria-selected="{{ request()->routeIs('home') ? 'true' : 'false' }}"
-                    >
-                        Home
-                    </a>
-                    <a
-                        href="{{ route('books.index') }}"
-                        @class([$tabBase, request()->routeIs('books.*') ? $tabActive : $tabInactive])
-                        role="tab"
-                        aria-selected="{{ request()->routeIs('books.*') ? 'true' : 'false' }}"
-                    >
-                        Books
-                    </a>
-                    <a
-                        href="{{ route('authors.index') }}"
-                        @class([$tabBase, request()->routeIs('authors.*') ? $tabActive : $tabInactive])
-                        role="tab"
-                        aria-selected="{{ request()->routeIs('authors.*') ? 'true' : 'false' }}"
-                    >
-                        Authors
-                    </a>
-                    <a
-                        href="{{ route('collections.index') }}"
-                        @class([$tabBase, request()->routeIs('collections.*') ? $tabActive : $tabInactive])
-                        role="tab"
-                        aria-selected="{{ request()->routeIs('collections.*') ? 'true' : 'false' }}"
-                    >
-                        Collections
-                    </a>
-                </div>
+                @guest
+                    <nav class="guest-primary-nav order-3 flex w-full flex-none flex-wrap items-center justify-center gap-x-5 gap-y-2 min-[1100px]:order-none min-[1100px]:w-auto min-[1100px]:flex-1 min-[1100px]:justify-center" aria-label="{{ __('Primary') }}">
+                        <a
+                            href="{{ route('home') }}"
+                            @class([request()->routeIs('home') ? 'nav-link-active' : 'nav-link'])
+                            wire:navigate
+                        >
+                            {{ __('Home') }}
+                        </a>
+                        <a
+                            href="{{ route('books.index') }}"
+                            @class([request()->routeIs('books.*') ? 'nav-link-active' : 'nav-link'])
+                            wire:navigate
+                        >
+                            {{ __('Books') }}
+                        </a>
+                        <a
+                            href="{{ route('authors.index') }}"
+                            @class([request()->routeIs('authors.*') ? 'nav-link-active' : 'nav-link'])
+                            wire:navigate
+                        >
+                            {{ __('Authors') }}
+                        </a>
+                        <a
+                            href="{{ route('collections.index') }}"
+                            @class([request()->routeIs('collections.*') ? 'nav-link-active' : 'nav-link'])
+                            wire:navigate
+                        >
+                            {{ __('Collections') }}
+                        </a>
+                    </nav>
+                @endguest
             </div>
-        @endguest
 
-        <div class="min-w-0 w-full max-w-sm flex-1 basis-full min-[1024px]:w-56 min-[1024px]:max-w-xs min-[1024px]:flex-none min-[1024px]:basis-auto" data-test="header-global-search">
-            @include('partials.global-search-form', [
-                'value' => $globalSearchQuery ?? request('q', ''),
-                'compact' => true,
-                'theme' => $theme,
-            ])
+            <div
+                class="min-w-0 w-full max-w-sm flex-1 basis-full min-[1100px]:order-none min-[1100px]:w-56 min-[1100px]:max-w-xs min-[1100px]:flex-none min-[1100px]:basis-auto"
+                data-test="header-global-search"
+            >
+                @include('partials.global-search-form', [
+                    'value' => $globalSearchQuery ?? request('q', ''),
+                    'compact' => true,
+                ])
+            </div>
+
+            <div class="ms-auto flex shrink-0 flex-wrap items-center justify-end gap-2">
+                @auth
+                    <a href="{{ route('profile.edit') }}" class="btn-secondary rounded-tag px-4 py-2 text-meta no-underline" wire:navigate>
+                        {{ __('Account settings') }}
+                    </a>
+                @else
+                    @if (Route::has('register'))
+                        <a href="{{ route('register') }}" class="btn-ghost rounded-tag px-3 py-2 no-underline">
+                            {{ __('Create account') }}
+                        </a>
+                    @endif
+                @endauth
+
+                <a href="{{ $logHref }}" class="btn-log whitespace-nowrap no-underline" wire:navigate>
+                    {{ __('+ Log') }}
+                </a>
+            </div>
         </div>
 
-        <nav class="ms-auto flex shrink-0 items-center gap-3 text-sm">
-            @auth
-                <a href="{{ route('profile.edit') }}" class="{{ $isLightTheme ? 'inline-flex rounded-full border border-border-strong bg-surface-card px-4 py-2 font-medium text-text-strong transition hover:bg-surface-card-muted' : 'inline-flex rounded-full border border-zinc-700 bg-zinc-900 px-4 py-2 font-medium text-white transition hover:border-zinc-600 hover:bg-zinc-800' }}">
-                    Account settings
-                </a>
-            @else
-                @if (Route::has('login'))
-                    <a href="{{ route('login') }}" class="{{ $isLightTheme ? 'inline-flex rounded-full px-4 py-2 text-text-muted transition hover:bg-surface-card hover:text-text-strong' : 'inline-flex rounded-full px-4 py-2 text-zinc-300 transition hover:bg-zinc-900 hover:text-white' }}">
-                        Log in
-                    </a>
-                @endif
-
-                @if (Route::has('register'))
-                    <a href="{{ route('register') }}" class="{{ $isLightTheme ? 'inline-flex rounded-full border border-action-primary bg-action-primary px-4 py-2 font-medium text-surface-page shadow-sm transition hover:border-action-primary-hover hover:bg-action-primary-hover' : 'inline-flex rounded-full border border-white bg-white px-4 py-2 font-medium text-zinc-950 shadow-sm transition hover:bg-zinc-200' }}">
-                        Create account
-                    </a>
-                @endif
-            @endauth
-        </nav>
+        @if (filled($subline))
+            <p class="text-center text-xs text-ui-faint lg:text-left">
+                {{ $subline }}
+            </p>
+        @endif
     </div>
-
-    @if (filled($subline))
-        <p class="{{ $isLightTheme ? 'text-center text-xs text-text-soft lg:text-left' : 'text-center text-xs text-zinc-500 lg:text-left' }}">
-            {{ $subline }}
-        </p>
-    @endif
 </header>

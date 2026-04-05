@@ -22,6 +22,7 @@ test('the books index page can be rendered', function () {
         ->assertSee('Books', escape: false)
         ->assertSee('Authors', escape: false)
         ->assertSee('Collections', escape: false)
+        ->assertSee('guest-page-main', escape: false)
         ->assertSee('Year', escape: false)
         ->assertSee('Subject', escape: false)
         ->assertSee('Index Visible Book')
