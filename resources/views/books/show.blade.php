@@ -15,9 +15,14 @@
     </head>
     <body class="min-h-screen bg-zinc-950 text-zinc-100">
         <div class="relative">
-            @include('partials.guest-header', ['subline' => 'Back to home'])
+            @include('partials.guest-header')
 
             <main class="mx-auto flex w-full max-w-7xl flex-col gap-10 px-6 pb-20 lg:px-8 lg:pb-28">
+                <p class="text-sm">
+                    <a href="{{ route('books.index') }}" class="text-zinc-500 underline decoration-zinc-700 underline-offset-4 hover:text-zinc-300">
+                        {{ __('Back to books') }}
+                    </a>
+                </p>
                 <article class="grid gap-10 lg:grid-cols-[18rem_minmax(0,1fr)] lg:items-start">
                     <div class="mx-auto w-full max-w-xs lg:mx-0">
                         @if (filled($book->cover_url))

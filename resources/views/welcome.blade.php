@@ -40,6 +40,27 @@
             @include('partials.guest-header')
 
             <main class="mx-auto flex w-full max-w-7xl flex-col gap-18 px-6 pb-20 pt-4 lg:px-8 lg:pb-28">
+                <section class="relative overflow-hidden rounded-[2rem] border border-zinc-800 bg-zinc-900/70 shadow-sm">
+                    <div class="relative h-[17rem] w-full overflow-hidden sm:h-[22rem] lg:h-[26rem]">
+                        <img
+                            src="{{ asset('images/home-hero3.png') }}"
+                            alt="A person reading in a cozy chair"
+                            class="absolute inset-0 h-full w-full scale-105 object-cover object-center blur-xs"
+                        />
+                    </div>
+                    <div class="pointer-events-none absolute inset-0 bg-linear-to-t from-zinc-950/85 via-zinc-950/40 to-zinc-950/10"></div>
+
+                    <div class="absolute inset-x-0 bottom-0 p-6 sm:p-8 lg:p-10">
+                        <p class="text-xs font-semibold uppercase tracking-[0.28em] text-zinc-300/90">Signatur</p>
+                        <h1 class="mt-3 max-w-2xl text-3xl font-semibold leading-tight text-white sm:text-4xl lg:text-5xl">
+                            Where readers chat.
+                        </h1>
+                        <p class="mt-3 max-w-xl text-sm leading-6 text-zinc-200 sm:text-base">
+                            Build your reading profile with books you love, books you want next, and reactions that capture your taste.
+                        </p>
+                    </div>
+                </section>
+
                 <section id="featured-books" class="space-y-6">
                     <p class="text-sm font-semibold uppercase tracking-[0.25em] text-zinc-400">Featured books</p>
 

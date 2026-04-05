@@ -11,7 +11,7 @@
     </head>
     <body class="min-h-screen bg-zinc-950 text-zinc-100">
         <div class="relative">
-            @include('partials.guest-header', ['subline' => __('Back to authors')])
+            @include('partials.guest-header')
 
             <main class="mx-auto flex w-full max-w-7xl flex-col gap-10 px-6 pb-20 lg:px-8 lg:pb-28">
                 <p class="text-sm">

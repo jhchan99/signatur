@@ -11,6 +11,8 @@ test('the landing page can be rendered', function () {
     $response
         ->assertSuccessful()
         ->assertSee('Track what you read')
+        ->assertSee('Where readers chat.')
+        ->assertSee('/images/home-hero3.png', escape: false)
         ->assertSee('Featured books')
         ->assertSee('What Signatr does')
         ->assertSee('Project Hail Mary')
