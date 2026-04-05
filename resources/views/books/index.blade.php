@@ -3,19 +3,19 @@
     <head>
         @include('partials.head', ['title' => $title])
     </head>
-    <body class="min-h-screen bg-zinc-950 text-zinc-100">
+    <body class="min-h-screen bg-surface-page text-text-default">
         <div class="relative">
             @include('partials.guest-header')
 
             <main class="mx-auto flex w-full max-w-7xl flex-col gap-8 px-6 pb-20 lg:px-8 lg:pb-28">
-                <form method="get" action="{{ route('books.index') }}" class="border-b border-zinc-800 pb-4">
+                <form method="get" action="{{ route('books.index') }}" class="border-b border-border-subtle pb-4">
                     @php
-                        $filterBubble = 'inline-flex min-w-0 items-stretch overflow-hidden rounded-md border border-zinc-800 bg-zinc-950 transition focus-within:border-zinc-500 hover:border-zinc-600';
-                        $filterBubbleLabel = 'flex shrink-0 items-center border-r border-zinc-800 bg-zinc-900/60 px-2.5 py-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-zinc-500';
-                        $filterSelect = 'min-w-0 flex-1 cursor-pointer appearance-none border-0 bg-transparent py-2 pl-2 pr-8 text-[11px] font-semibold uppercase tracking-wider text-zinc-200 outline-none sm:min-w-[6.5rem]';
-                        $filterSelectNormalCase = 'min-w-0 flex-1 cursor-pointer appearance-none border-0 bg-transparent py-2 pl-2 pr-8 text-[11px] font-semibold normal-case tracking-normal text-zinc-200 outline-none sm:min-w-[6.5rem]';
-                        $filterSelectDisabled = 'min-w-0 flex-1 cursor-not-allowed appearance-none border-0 bg-transparent py-2 pl-2 pr-8 text-[11px] font-semibold uppercase tracking-wider text-zinc-400 outline-none sm:min-w-[6.5rem]';
-                        $filterChevron = 'pointer-events-none absolute right-2 top-1/2 -translate-y-1/2 text-[10px] text-zinc-500';
+                        $filterBubble = 'inline-flex min-w-0 items-stretch overflow-hidden rounded-md border border-border-subtle bg-surface-card transition focus-within:border-border-strong hover:border-border-strong';
+                        $filterBubbleLabel = 'flex shrink-0 items-center border-r border-border-subtle bg-surface-page-muted px-2.5 py-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-text-soft';
+                        $filterSelect = 'min-w-0 flex-1 cursor-pointer appearance-none border-0 bg-transparent py-2 pl-2 pr-8 text-[11px] font-semibold uppercase tracking-wider text-text-default outline-none sm:min-w-[6.5rem]';
+                        $filterSelectNormalCase = 'min-w-0 flex-1 cursor-pointer appearance-none border-0 bg-transparent py-2 pl-2 pr-8 text-[11px] font-semibold normal-case tracking-normal text-text-default outline-none sm:min-w-[6.5rem]';
+                        $filterSelectDisabled = 'min-w-0 flex-1 cursor-not-allowed appearance-none border-0 bg-transparent py-2 pl-2 pr-8 text-[11px] font-semibold uppercase tracking-wider text-text-soft outline-none sm:min-w-[6.5rem]';
+                        $filterChevron = 'pointer-events-none absolute right-2 top-1/2 -translate-y-1/2 text-[10px] text-text-soft';
                         $displayAuthor = static fn (\App\Models\Work $book): ?string => $book->primaryAuthorName();
                     @endphp
                     <div class="flex flex-col gap-4">
@@ -74,7 +74,7 @@
                                         >
                                             <option>—</option>
                                         </select>
-                                        <span class="pointer-events-none absolute right-2 top-1/2 -translate-y-1/2 text-[10px] text-zinc-600" aria-hidden="true">▾</span>
+                                        <span class="pointer-events-none absolute right-2 top-1/2 -translate-y-1/2 text-[10px] text-text-soft" aria-hidden="true">▾</span>
                                     </div>
                                 </div>
 
@@ -96,7 +96,7 @@
 
                                 @if (filled($filters['q']) || filled($filters['subject']) || filled($filters['year']) || ($filters['mode'] ?? 'books') !== 'books')
                                     <p class="w-full pb-0.5 sm:w-auto sm:self-center">
-                                        <a href="{{ route('books.index') }}" class="text-[10px] font-semibold uppercase tracking-wider text-zinc-500 underline decoration-zinc-700 underline-offset-4 hover:text-zinc-300 hover:decoration-zinc-500">
+                                        <a href="{{ route('books.index') }}" class="text-[10px] font-semibold uppercase tracking-wider text-text-soft underline decoration-border-strong underline-offset-4 hover:text-text-default hover:decoration-border-strong">
                                             Clear filters
                                         </a>
                                     </p>
@@ -151,11 +151,11 @@
                         @foreach ($books as $book)
                             <a
                                 href="{{ route('books.show', $book) }}"
-                                class="group flex gap-4 rounded-[1.25rem] border border-zinc-800 bg-zinc-900/70 p-4 shadow-sm transition hover:border-white/40"
+                                        class="group flex gap-4 rounded-[1.25rem] border border-border-subtle bg-surface-card p-4 shadow-sm transition hover:border-border-strong"
                             >
                                 <div class="shrink-0">
                                     @if (filled($book->cover_url))
-                                        <div class="overflow-hidden rounded-xl border border-zinc-800 bg-zinc-950">
+                                                <div class="overflow-hidden rounded-xl border border-border-subtle bg-surface-page-muted">
                                             <img
                                                 src="{{ $book->cover_url }}"
                                                 alt=""
@@ -163,31 +163,31 @@
                                             />
                                         </div>
                                     @else
-                                        <div class="flex h-28 w-20 items-center justify-center rounded-xl border border-zinc-800 bg-zinc-950 text-xs text-zinc-500 sm:h-32 sm:w-[5.5rem]">
+                                                <div class="flex h-28 w-20 items-center justify-center rounded-xl border border-border-subtle bg-surface-page-muted text-xs text-text-soft sm:h-32 sm:w-[5.5rem]">
                                             {{ __('No cover') }}
                                         </div>
                                     @endif
                                 </div>
                                 <div class="min-w-0 flex-1 space-y-2">
-                                    <h2 class="text-sm font-semibold leading-snug text-white group-hover:underline">
+                                            <h2 class="text-sm font-semibold leading-snug text-text-strong group-hover:underline">
                                         {{ $book->title }}
                                     </h2>
                                     @if (filled($displayAuthor($book)))
-                                        <p class="text-xs text-zinc-400">{{ $displayAuthor($book) }}</p>
+                                                <p class="text-xs text-text-muted">{{ $displayAuthor($book) }}</p>
                                     @endif
                                     @if ($book->publish_year)
-                                        <p class="text-xs text-zinc-500">{{ $book->publish_year }}</p>
+                                                <p class="text-xs text-text-soft">{{ $book->publish_year }}</p>
                                     @endif
                                 </div>
                             </a>
                         @endforeach
                     </div>
 
-                    <div class="mt-4 text-zinc-400">
+                    <div class="mt-4 text-text-muted">
                         {{ $books->links() }}
                     </div>
                 @else
-                    <p class="rounded-[1.5rem] border border-zinc-800 bg-zinc-900/70 p-8 text-center text-sm leading-7 text-zinc-400">
+                    <p class="rounded-[1.5rem] border border-border-subtle bg-surface-card p-8 text-center text-sm leading-7 text-text-muted">
                         {{ __('No books match those filters yet. Try a different search or filter.') }}
                     </p>
                 @endif

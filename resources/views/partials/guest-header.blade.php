@@ -1,28 +1,30 @@
 @php
     /** @var string|null $subline */
     $subline = $subline ?? null;
+    $theme = $theme ?? 'light';
+    $isLightTheme = $theme !== 'dark';
 
     $tabBase =
-        'inline-flex select-none rounded-full px-4 py-2 transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white';
-    $tabActive = 'bg-white text-zinc-950 shadow-sm';
-    $tabInactive = 'text-zinc-300 hover:bg-zinc-800 hover:text-white';
+        'inline-flex select-none rounded-full px-4 py-2 transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 '.($isLightTheme ? 'focus-visible:outline-action-primary' : 'focus-visible:outline-white');
+    $tabActive = $isLightTheme ? 'bg-surface-card-strong text-text-strong shadow-sm' : 'bg-white text-zinc-950 shadow-sm';
+    $tabInactive = $isLightTheme ? 'text-text-muted hover:bg-surface-card-muted hover:text-text-strong' : 'text-zinc-300 hover:bg-zinc-800 hover:text-white';
 @endphp
 
 <header class="mx-auto flex w-full max-w-7xl flex-col gap-4 px-6 py-6 lg:px-8">
     <div class="flex flex-wrap items-center gap-x-3 gap-y-3">
         <a href="{{ route('home') }}" class="flex shrink-0 items-center gap-3">
-            <span class="flex size-10 items-center justify-center rounded-2xl bg-white text-sm font-semibold text-zinc-950">
+            <span class="{{ $isLightTheme ? 'flex size-10 items-center justify-center rounded-2xl bg-action-secondary text-sm font-semibold text-surface-page' : 'flex size-10 items-center justify-center rounded-2xl bg-white text-sm font-semibold text-zinc-950' }}">
                 S
             </span>
             <span>
-                <span class="block text-sm font-semibold tracking-[0.2em] uppercase text-zinc-300">Signatr</span>
+                <span class="{{ $isLightTheme ? 'block text-sm font-semibold tracking-[0.2em] uppercase text-text-strong' : 'block text-sm font-semibold tracking-[0.2em] uppercase text-zinc-300' }}">Signatr</span>
             </span>
         </a>
 
         @guest
             <div class="flex min-w-0 flex-1 basis-full justify-center min-[1024px]:basis-0 min-[1024px]:justify-center">
                 <div
-                    class="inline-flex rounded-full border border-zinc-800 bg-zinc-900/80 p-1 text-xs font-semibold text-zinc-300"
+                    class="{{ $isLightTheme ? 'inline-flex rounded-full border border-border-subtle bg-surface-card/90 p-1 text-xs font-semibold text-text-muted' : 'inline-flex rounded-full border border-zinc-800 bg-zinc-900/80 p-1 text-xs font-semibold text-zinc-300' }}"
                     role="tablist"
                     aria-label="Navigation"
                 >
@@ -66,23 +68,24 @@
             @include('partials.global-search-form', [
                 'value' => $globalSearchQuery ?? request('q', ''),
                 'compact' => true,
+                'theme' => $theme,
             ])
         </div>
 
         <nav class="ms-auto flex shrink-0 items-center gap-3 text-sm">
             @auth
-                <a href="{{ route('profile.edit') }}" class="inline-flex rounded-full border border-zinc-700 bg-zinc-900 px-4 py-2 font-medium text-white transition hover:border-zinc-600 hover:bg-zinc-800">
+                <a href="{{ route('profile.edit') }}" class="{{ $isLightTheme ? 'inline-flex rounded-full border border-border-strong bg-surface-card px-4 py-2 font-medium text-text-strong transition hover:bg-surface-card-muted' : 'inline-flex rounded-full border border-zinc-700 bg-zinc-900 px-4 py-2 font-medium text-white transition hover:border-zinc-600 hover:bg-zinc-800' }}">
                     Account settings
                 </a>
             @else
                 @if (Route::has('login'))
-                    <a href="{{ route('login') }}" class="inline-flex rounded-full px-4 py-2 text-zinc-300 transition hover:bg-zinc-900 hover:text-white">
+                    <a href="{{ route('login') }}" class="{{ $isLightTheme ? 'inline-flex rounded-full px-4 py-2 text-text-muted transition hover:bg-surface-card hover:text-text-strong' : 'inline-flex rounded-full px-4 py-2 text-zinc-300 transition hover:bg-zinc-900 hover:text-white' }}">
                         Log in
                     </a>
                 @endif
 
                 @if (Route::has('register'))
-                    <a href="{{ route('register') }}" class="inline-flex rounded-full border border-white bg-white px-4 py-2 font-medium text-zinc-950 shadow-sm transition hover:bg-zinc-200">
+                    <a href="{{ route('register') }}" class="{{ $isLightTheme ? 'inline-flex rounded-full border border-action-primary bg-action-primary px-4 py-2 font-medium text-surface-page shadow-sm transition hover:border-action-primary-hover hover:bg-action-primary-hover' : 'inline-flex rounded-full border border-white bg-white px-4 py-2 font-medium text-zinc-950 shadow-sm transition hover:bg-zinc-200' }}">
                         Create account
                     </a>
                 @endif
@@ -91,7 +94,7 @@
     </div>
 
     @if (filled($subline))
-        <p class="text-center text-xs text-zinc-500 lg:text-left">
+        <p class="{{ $isLightTheme ? 'text-center text-xs text-text-soft lg:text-left' : 'text-center text-xs text-zinc-500 lg:text-left' }}">
             {{ $subline }}
         </p>
     @endif

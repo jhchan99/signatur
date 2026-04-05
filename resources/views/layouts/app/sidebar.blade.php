@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="dark">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         @include('partials.head')
     </head>
-    <body class="min-h-screen bg-white dark:bg-zinc-800">
-        <flux:sidebar sticky collapsible="mobile" class="border-e border-zinc-200 bg-zinc-50 dark:border-zinc-700 dark:bg-zinc-900">
+    <body class="min-h-screen bg-surface-page text-text-default">
+        <flux:sidebar sticky collapsible="mobile" class="border-e border-border-subtle bg-surface-card">
             <flux:sidebar.header>
                 <x-app-logo :sidebar="true" href="{{ route('home') }}" wire:navigate />
                 <flux:sidebar.collapse class="lg:hidden" />
             </flux:sidebar.header>
 
-            <div class="border-b border-zinc-200 px-2 pb-3 pt-1 dark:border-zinc-700">
-                @include('partials.global-search-form', ['compact' => true])
+            <div class="border-b border-border-subtle px-2 pb-3 pt-1">
+                @include('partials.global-search-form', ['compact' => true, 'theme' => 'app-light'])
             </div>
 
             <flux:sidebar.nav>
@@ -38,11 +38,11 @@
         </flux:sidebar>
 
         <!-- Mobile User Menu -->
-        <flux:header class="lg:hidden flex items-center gap-2 border-b border-zinc-200 px-2 py-2 dark:border-zinc-700">
+        <flux:header class="lg:hidden flex items-center gap-2 border-b border-border-subtle bg-surface-card px-2 py-2">
             <flux:sidebar.toggle class="lg:hidden shrink-0" icon="bars-2" inset="left" />
 
             <div class="min-w-0 flex-1">
-                @include('partials.global-search-form', ['compact' => true])
+                @include('partials.global-search-form', ['compact' => true, 'theme' => 'app-light'])
             </div>
 
             <flux:dropdown position="top" align="end" class="shrink-0">

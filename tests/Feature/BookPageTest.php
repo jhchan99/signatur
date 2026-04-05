@@ -25,7 +25,7 @@ test('the book detail page renders stored catalog fields', function () {
         ->assertSee('Essays')
         ->assertSee('Biography')
         ->assertSee('No public reviews yet')
-        ->assertSee('Back to home')
+        ->assertSee('Back to books')
         ->assertSee('Books', escape: false)
         ->assertSee('Collections', escape: false);
 });

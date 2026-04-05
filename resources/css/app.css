@@ -23,9 +23,89 @@
     --color-zinc-900: #171717;
     --color-zinc-950: #0a0a0a;
 
-    --color-accent: var(--color-neutral-800);
-    --color-accent-content: var(--color-neutral-800);
-    --color-accent-foreground: var(--color-white);
+    --color-ink-black-50: #e8f5fc;
+    --color-ink-black-100: #d2ebf9;
+    --color-ink-black-200: #a5d6f3;
+    --color-ink-black-300: #78c2ed;
+    --color-ink-black-400: #4aaee8;
+    --color-ink-black-500: #1d9ae2;
+    --color-ink-black-600: #177bb5;
+    --color-ink-black-700: #125c87;
+    --color-ink-black-800: #0c3d5a;
+    --color-ink-black-900: #061f2d;
+    --color-ink-black-950: #041620;
+
+    --color-espresso-50: #faedeb;
+    --color-espresso-100: #f4dad7;
+    --color-espresso-200: #e9b6af;
+    --color-espresso-300: #de9187;
+    --color-espresso-400: #d36c5f;
+    --color-espresso-500: #c84837;
+    --color-espresso-600: #a0392c;
+    --color-espresso-700: #782b21;
+    --color-espresso-800: #501d16;
+    --color-espresso-900: #280e0b;
+    --color-espresso-950: #1c0a08;
+
+    --color-faded-copper-50: #f5f2f0;
+    --color-faded-copper-100: #eae6e1;
+    --color-faded-copper-200: #d6ccc2;
+    --color-faded-copper-300: #c1b3a4;
+    --color-faded-copper-400: #ac9a86;
+    --color-faded-copper-500: #988067;
+    --color-faded-copper-600: #796753;
+    --color-faded-copper-700: #5b4d3e;
+    --color-faded-copper-800: #3d3329;
+    --color-faded-copper-900: #1e1a15;
+    --color-faded-copper-950: #15120e;
+
+    --color-sand-dune-50: #f5f5f0;
+    --color-sand-dune-100: #ebeae0;
+    --color-sand-dune-200: #d7d6c1;
+    --color-sand-dune-300: #c3c1a2;
+    --color-sand-dune-400: #aead84;
+    --color-sand-dune-500: #9a9865;
+    --color-sand-dune-600: #7b7a51;
+    --color-sand-dune-700: #5d5b3c;
+    --color-sand-dune-800: #3e3d28;
+    --color-sand-dune-900: #1f1e14;
+    --color-sand-dune-950: #16150e;
+
+    --color-white-smoke-50: #f5f1f0;
+    --color-white-smoke-100: #ebe3e0;
+    --color-white-smoke-200: #d6c7c2;
+    --color-white-smoke-300: #c2aba3;
+    --color-white-smoke-400: #ad8f85;
+    --color-white-smoke-500: #997366;
+    --color-white-smoke-600: #7a5c52;
+    --color-white-smoke-700: #5c453d;
+    --color-white-smoke-800: #3d2e29;
+    --color-white-smoke-900: #1f1714;
+    --color-white-smoke-950: #15100e;
+
+    --color-surface-page: var(--color-sand-dune-50);
+    --color-surface-page-muted: var(--color-sand-dune-100);
+    --color-surface-card: var(--color-white-smoke-50);
+    --color-surface-card-muted: var(--color-white-smoke-100);
+    --color-surface-card-strong: var(--color-faded-copper-100);
+    --color-surface-elevated: var(--color-white-smoke-100);
+    --color-surface-inset: var(--color-sand-dune-100);
+    --color-text-strong: var(--color-ink-black-950);
+    --color-text-default: var(--color-ink-black-900);
+    --color-text-muted: var(--color-faded-copper-700);
+    --color-text-soft: var(--color-faded-copper-600);
+    --color-border-subtle: var(--color-faded-copper-200);
+    --color-border-muted: var(--color-faded-copper-300);
+    --color-border-strong: var(--color-faded-copper-400);
+    --color-text-inverse: var(--color-white-smoke-50);
+    --color-action-primary: var(--color-espresso-600);
+    --color-action-primary-hover: var(--color-espresso-700);
+    --color-action-secondary: var(--color-ink-black-950);
+    --color-action-secondary-hover: var(--color-ink-black-900);
+
+    --color-accent: var(--color-action-primary);
+    --color-accent-content: var(--color-action-primary);
+    --color-accent-foreground: var(--color-text-inverse);
 }
 
 @layer theme {

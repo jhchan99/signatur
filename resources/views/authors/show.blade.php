@@ -9,34 +9,34 @@
     <head>
         @include('partials.head', ['title' => $title])
     </head>
-    <body class="min-h-screen bg-zinc-950 text-zinc-100">
+    <body class="min-h-screen bg-surface-page text-text-default">
         <div class="relative">
             @include('partials.guest-header')
 
             <main class="mx-auto flex w-full max-w-7xl flex-col gap-10 px-6 pb-20 lg:px-8 lg:pb-28">
                 <p class="text-sm">
-                    <a href="{{ route('authors.index') }}" class="text-zinc-500 underline decoration-zinc-700 underline-offset-4 hover:text-zinc-300">
+                    <a href="{{ route('authors.index') }}" class="text-text-soft underline decoration-border-strong underline-offset-4 hover:text-text-default">
                         {{ __('All authors') }}
                     </a>
                 </p>
 
-                <header class="space-y-4 border-b border-zinc-800 pb-6">
-                    <h1 class="font-serif text-4xl font-semibold tracking-tight text-white sm:text-5xl">
+                <header class="space-y-4 border-b border-border-subtle pb-6">
+                    <h1 class="font-serif text-4xl font-semibold tracking-tight text-text-strong sm:text-5xl">
                         {{ $author->name }}
                     </h1>
                     @if ($alts !== null && $alts !== [])
-                        <p class="text-sm text-zinc-400">
-                            <span class="font-medium text-zinc-500">{{ __('Also known as') }}:</span>
+                        <p class="text-sm text-text-muted">
+                            <span class="font-medium text-text-soft">{{ __('Also known as') }}:</span>
                             {{ implode(', ', $alts) }}
                         </p>
                     @endif
                     @if (filled($author->bio))
-                        <p class="max-w-3xl text-base leading-7 text-zinc-400">
+                        <p class="max-w-3xl text-base leading-7 text-text-muted">
                             {{ \Illuminate\Support\Str::limit(\Illuminate\Support\Str::squish(strip_tags($author->bio)), 1200) }}
                         </p>
                     @endif
                     @if (filled($author->birth_date) || filled($author->death_date))
-                        <p class="text-sm text-zinc-500">
+                        <p class="text-sm text-text-soft">
                             @if (filled($author->birth_date))
                                 <span>{{ $author->birth_date }}</span>
                             @endif
@@ -51,11 +51,11 @@
                 </header>
 
                 <section class="space-y-4">
-                    <h2 class="text-xs font-semibold uppercase tracking-[0.2em] text-zinc-500">
+                    <h2 class="text-xs font-semibold uppercase tracking-[0.2em] text-text-soft">
                         {{ __('Works') }}
                     </h2>
                     @if ($author->works->isEmpty())
-                        <p class="rounded-[1.5rem] border border-zinc-800 bg-zinc-900/70 p-8 text-center text-sm text-zinc-400">
+                        <p class="rounded-[1.5rem] border border-border-subtle bg-surface-card p-8 text-center text-sm text-text-muted">
                             {{ __('No works linked to this author yet.') }}
                         </p>
                     @else
@@ -63,11 +63,11 @@
                             @foreach ($author->works as $book)
                                 <a
                                     href="{{ route('books.show', $book) }}"
-                                    class="group flex gap-4 rounded-[1.25rem] border border-zinc-800 bg-zinc-900/70 p-4 shadow-sm transition hover:border-white/40"
+                                    class="group flex gap-4 rounded-[1.25rem] border border-border-subtle bg-surface-card p-4 shadow-sm transition hover:border-border-strong"
                                 >
                                     <div class="shrink-0">
                                         @if (filled($book->cover_url))
-                                            <div class="overflow-hidden rounded-xl border border-zinc-800 bg-zinc-950">
+                                            <div class="overflow-hidden rounded-xl border border-border-subtle bg-surface-page-muted">
                                                 <img
                                                     src="{{ $book->cover_url }}"
                                                     alt=""
@@ -75,20 +75,20 @@
                                                 />
                                             </div>
                                         @else
-                                            <div class="flex h-28 w-20 items-center justify-center rounded-xl border border-zinc-800 bg-zinc-950 text-xs text-zinc-500 sm:h-32 sm:w-[5.5rem]">
+                                            <div class="flex h-28 w-20 items-center justify-center rounded-xl border border-border-subtle bg-surface-page-muted text-xs text-text-soft sm:h-32 sm:w-[5.5rem]">
                                                 {{ __('No cover') }}
                                             </div>
                                         @endif
                                     </div>
                                     <div class="min-w-0 flex-1 space-y-2">
-                                        <h3 class="text-sm font-semibold leading-snug text-white group-hover:underline">
+                                        <h3 class="text-sm font-semibold leading-snug text-text-strong group-hover:underline">
                                             {{ $book->title }}
                                         </h3>
                                         @if (filled($displayAuthor($book)))
-                                            <p class="text-xs text-zinc-400">{{ $displayAuthor($book) }}</p>
+                                            <p class="text-xs text-text-muted">{{ $displayAuthor($book) }}</p>
                                         @endif
                                         @if ($book->publish_year)
-                                            <p class="text-xs text-zinc-500">{{ $book->publish_year }}</p>
+                                            <p class="text-xs text-text-soft">{{ $book->publish_year }}</p>
                                         @endif
                                     </div>
                                 </a>
