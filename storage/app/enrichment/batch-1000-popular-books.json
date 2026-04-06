@@ -1,0 +1,6021 @@
+[
+    {
+        "title": "Harry Potter and the Sorcerer's Stone",
+        "author": "J.K. Rowling",
+        "first_publish_year": 1997,
+        "source_rank": 1
+    },
+    {
+        "title": "Harry Potter and the Chamber of Secrets",
+        "author": "J.K. Rowling",
+        "first_publish_year": 1998,
+        "source_rank": 2
+    },
+    {
+        "title": "Harry Potter and the Prisoner of Azkaban",
+        "author": "J.K. Rowling",
+        "first_publish_year": 1999,
+        "source_rank": 3
+    },
+    {
+        "title": "Harry Potter and the Goblet of Fire",
+        "author": "J.K. Rowling",
+        "first_publish_year": 2000,
+        "source_rank": 4
+    },
+    {
+        "title": "Harry Potter and the Order of the Phoenix",
+        "author": "J.K. Rowling",
+        "first_publish_year": 2003,
+        "source_rank": 5
+    },
+    {
+        "title": "Harry Potter and the Half-Blood Prince",
+        "author": "J.K. Rowling",
+        "first_publish_year": 2005,
+        "source_rank": 6
+    },
+    {
+        "title": "Harry Potter and the Deathly Hallows",
+        "author": "J.K. Rowling",
+        "first_publish_year": 2007,
+        "source_rank": 7
+    },
+    {
+        "title": "The Hunger Games",
+        "author": "Suzanne Collins",
+        "first_publish_year": 2008,
+        "source_rank": 8
+    },
+    {
+        "title": "Catching Fire",
+        "author": "Suzanne Collins",
+        "first_publish_year": 2009,
+        "source_rank": 9
+    },
+    {
+        "title": "Mockingjay",
+        "author": "Suzanne Collins",
+        "first_publish_year": 2010,
+        "source_rank": 10
+    },
+    {
+        "title": "Twilight",
+        "author": "Stephenie Meyer",
+        "first_publish_year": 2005,
+        "source_rank": 11
+    },
+    {
+        "title": "New Moon",
+        "author": "Stephenie Meyer",
+        "first_publish_year": 2006,
+        "source_rank": 12
+    },
+    {
+        "title": "Eclipse",
+        "author": "Stephenie Meyer",
+        "first_publish_year": 2007,
+        "source_rank": 13
+    },
+    {
+        "title": "Breaking Dawn",
+        "author": "Stephenie Meyer",
+        "first_publish_year": 2008,
+        "source_rank": 14
+    },
+    {
+        "title": "The Book Thief",
+        "author": "Markus Zusak",
+        "first_publish_year": 2005,
+        "source_rank": 15
+    },
+    {
+        "title": "The Fault in Our Stars",
+        "author": "John Green",
+        "first_publish_year": 2012,
+        "source_rank": 16
+    },
+    {
+        "title": "Gone Girl",
+        "author": "Gillian Flynn",
+        "first_publish_year": 2012,
+        "source_rank": 17
+    },
+    {
+        "title": "The Da Vinci Code",
+        "author": "Dan Brown",
+        "first_publish_year": 2003,
+        "source_rank": 18
+    },
+    {
+        "title": "The Kite Runner",
+        "author": "Khaled Hosseini",
+        "first_publish_year": 2003,
+        "source_rank": 19
+    },
+    {
+        "title": "A Thousand Splendid Suns",
+        "author": "Khaled Hosseini",
+        "first_publish_year": 2007,
+        "source_rank": 20
+    },
+    {
+        "title": "The Help",
+        "author": "Kathryn Stockett",
+        "first_publish_year": 2009,
+        "source_rank": 21
+    },
+    {
+        "title": "The Girl with the Dragon Tattoo",
+        "author": "Stieg Larsson",
+        "first_publish_year": 2005,
+        "source_rank": 22
+    },
+    {
+        "title": "The Girl Who Played with Fire",
+        "author": "Stieg Larsson",
+        "first_publish_year": 2006,
+        "source_rank": 23
+    },
+    {
+        "title": "The Girl Who Kicked the Hornets' Nest",
+        "author": "Stieg Larsson",
+        "first_publish_year": 2007,
+        "source_rank": 24
+    },
+    {
+        "title": "The Lovely Bones",
+        "author": "Alice Sebold",
+        "first_publish_year": 2002,
+        "source_rank": 25
+    },
+    {
+        "title": "Life of Pi",
+        "author": "Yann Martel",
+        "first_publish_year": 2001,
+        "source_rank": 26
+    },
+    {
+        "title": "The Time Traveler's Wife",
+        "author": "Audrey Niffenegger",
+        "first_publish_year": 2003,
+        "source_rank": 27
+    },
+    {
+        "title": "The Road",
+        "author": "Cormac McCarthy",
+        "first_publish_year": 2006,
+        "source_rank": 28
+    },
+    {
+        "title": "The Curious Incident of the Dog in the Night-Time",
+        "author": "Mark Haddon",
+        "first_publish_year": 2003,
+        "source_rank": 29
+    },
+    {
+        "title": "The Martian",
+        "author": "Andy Weir",
+        "first_publish_year": 2011,
+        "source_rank": 30
+    },
+    {
+        "title": "Project Hail Mary",
+        "author": "Andy Weir",
+        "first_publish_year": 2021,
+        "source_rank": 31
+    },
+    {
+        "title": "The Silent Patient",
+        "author": "Alex Michaelides",
+        "first_publish_year": 2019,
+        "source_rank": 32
+    },
+    {
+        "title": "Where the Crawdads Sing",
+        "author": "Delia Owens",
+        "first_publish_year": 2018,
+        "source_rank": 33
+    },
+    {
+        "title": "The Midnight Library",
+        "author": "Matt Haig",
+        "first_publish_year": 2020,
+        "source_rank": 34
+    },
+    {
+        "title": "Fourth Wing",
+        "author": "Rebecca Yarros",
+        "first_publish_year": 2023,
+        "source_rank": 35
+    },
+    {
+        "title": "Iron Flame",
+        "author": "Rebecca Yarros",
+        "first_publish_year": 2023,
+        "source_rank": 36
+    },
+    {
+        "title": "Lessons in Chemistry",
+        "author": "Bonnie Garmus",
+        "first_publish_year": 2022,
+        "source_rank": 37
+    },
+    {
+        "title": "Tomorrow, and Tomorrow, and Tomorrow",
+        "author": "Gabrielle Zevin",
+        "first_publish_year": 2022,
+        "source_rank": 38
+    },
+    {
+        "title": "Normal People",
+        "author": "Sally Rooney",
+        "first_publish_year": 2018,
+        "source_rank": 39
+    },
+    {
+        "title": "Beautiful World, Where Are You",
+        "author": "Sally Rooney",
+        "first_publish_year": 2021,
+        "source_rank": 40
+    },
+    {
+        "title": "Conversations with Friends",
+        "author": "Sally Rooney",
+        "first_publish_year": 2017,
+        "source_rank": 41
+    },
+    {
+        "title": "The Seven Husbands of Evelyn Hugo",
+        "author": "Taylor Jenkins Reid",
+        "first_publish_year": 2017,
+        "source_rank": 42
+    },
+    {
+        "title": "Daisy Jones & The Six",
+        "author": "Taylor Jenkins Reid",
+        "first_publish_year": 2019,
+        "source_rank": 43
+    },
+    {
+        "title": "Malibu Rising",
+        "author": "Taylor Jenkins Reid",
+        "first_publish_year": 2021,
+        "source_rank": 44
+    },
+    {
+        "title": "Carrie Soto Is Back",
+        "author": "Taylor Jenkins Reid",
+        "first_publish_year": 2022,
+        "source_rank": 45
+    },
+    {
+        "title": "Circe",
+        "author": "Madeline Miller",
+        "first_publish_year": 2018,
+        "source_rank": 46
+    },
+    {
+        "title": "The Song of Achilles",
+        "author": "Madeline Miller",
+        "first_publish_year": 2011,
+        "source_rank": 47
+    },
+    {
+        "title": "The Goldfinch",
+        "author": "Donna Tartt",
+        "first_publish_year": 2013,
+        "source_rank": 48
+    },
+    {
+        "title": "The Secret History",
+        "author": "Donna Tartt",
+        "first_publish_year": 1992,
+        "source_rank": 49
+    },
+    {
+        "title": "The Handmaid's Tale",
+        "author": "Margaret Atwood",
+        "first_publish_year": 1985,
+        "source_rank": 50
+    },
+    {
+        "title": "The Testaments",
+        "author": "Margaret Atwood",
+        "first_publish_year": 2019,
+        "source_rank": 51
+    },
+    {
+        "title": "Beloved",
+        "author": "Toni Morrison",
+        "first_publish_year": 1987,
+        "source_rank": 52
+    },
+    {
+        "title": "The Color Purple",
+        "author": "Alice Walker",
+        "first_publish_year": 1982,
+        "source_rank": 53
+    },
+    {
+        "title": "The Alchemist",
+        "author": "Paulo Coelho",
+        "first_publish_year": 1988,
+        "source_rank": 54
+    },
+    {
+        "title": "The Remains of the Day",
+        "author": "Kazuo Ishiguro",
+        "first_publish_year": 1989,
+        "source_rank": 55
+    },
+    {
+        "title": "Klara and the Sun",
+        "author": "Kazuo Ishiguro",
+        "first_publish_year": 2021,
+        "source_rank": 56
+    },
+    {
+        "title": "Never Let Me Go",
+        "author": "Kazuo Ishiguro",
+        "first_publish_year": 2005,
+        "source_rank": 57
+    },
+    {
+        "title": "A Little Life",
+        "author": "Hanya Yanagihara",
+        "first_publish_year": 2015,
+        "source_rank": 58
+    },
+    {
+        "title": "The Night Circus",
+        "author": "Erin Morgenstern",
+        "first_publish_year": 2011,
+        "source_rank": 59
+    },
+    {
+        "title": "The Invisible Life of Addie LaRue",
+        "author": "V.E. Schwab",
+        "first_publish_year": 2020,
+        "source_rank": 60
+    },
+    {
+        "title": "Mexican Gothic",
+        "author": "Silvia Moreno-Garcia",
+        "first_publish_year": 2020,
+        "source_rank": 61
+    },
+    {
+        "title": "Yellowface",
+        "author": "R.F. Kuang",
+        "first_publish_year": 2023,
+        "source_rank": 62
+    },
+    {
+        "title": "Babel",
+        "author": "R.F. Kuang",
+        "first_publish_year": 2022,
+        "source_rank": 63
+    },
+    {
+        "title": "The Poppy War",
+        "author": "R.F. Kuang",
+        "first_publish_year": 2018,
+        "source_rank": 64
+    },
+    {
+        "title": "A Court of Thorns and Roses",
+        "author": "Sarah J. Maas",
+        "first_publish_year": 2015,
+        "source_rank": 65
+    },
+    {
+        "title": "A Court of Mist and Fury",
+        "author": "Sarah J. Maas",
+        "first_publish_year": 2016,
+        "source_rank": 66
+    },
+    {
+        "title": "A Court of Wings and Ruin",
+        "author": "Sarah J. Maas",
+        "first_publish_year": 2017,
+        "source_rank": 67
+    },
+    {
+        "title": "Throne of Glass",
+        "author": "Sarah J. Maas",
+        "first_publish_year": 2012,
+        "source_rank": 68
+    },
+    {
+        "title": "Crescent City: House of Earth and Blood",
+        "author": "Sarah J. Maas",
+        "first_publish_year": 2020,
+        "source_rank": 69
+    },
+    {
+        "title": "The Priory of the Orange Tree",
+        "author": "Samantha Shannon",
+        "first_publish_year": 2019,
+        "source_rank": 70
+    },
+    {
+        "title": "Jonathan Strange & Mr Norrell",
+        "author": "Susanna Clarke",
+        "first_publish_year": 2004,
+        "source_rank": 71
+    },
+    {
+        "title": "Piranesi",
+        "author": "Susanna Clarke",
+        "first_publish_year": 2020,
+        "source_rank": 72
+    },
+    {
+        "title": "The Name of the Wind",
+        "author": "Patrick Rothfuss",
+        "first_publish_year": 2007,
+        "source_rank": 73
+    },
+    {
+        "title": "The Wise Man's Fear",
+        "author": "Patrick Rothfuss",
+        "first_publish_year": 2011,
+        "source_rank": 74
+    },
+    {
+        "title": "A Game of Thrones",
+        "author": "George R.R. Martin",
+        "first_publish_year": 1996,
+        "source_rank": 75
+    },
+    {
+        "title": "A Clash of Kings",
+        "author": "George R.R. Martin",
+        "first_publish_year": 1998,
+        "source_rank": 76
+    },
+    {
+        "title": "A Storm of Swords",
+        "author": "George R.R. Martin",
+        "first_publish_year": 2000,
+        "source_rank": 77
+    },
+    {
+        "title": "A Feast for Crows",
+        "author": "George R.R. Martin",
+        "first_publish_year": 2005,
+        "source_rank": 78
+    },
+    {
+        "title": "A Dance with Dragons",
+        "author": "George R.R. Martin",
+        "first_publish_year": 2011,
+        "source_rank": 79
+    },
+    {
+        "title": "The Eye of the World",
+        "author": "Robert Jordan",
+        "first_publish_year": 1990,
+        "source_rank": 80
+    },
+    {
+        "title": "The Great Hunt",
+        "author": "Robert Jordan",
+        "first_publish_year": 1990,
+        "source_rank": 81
+    },
+    {
+        "title": "The Dragon Reborn",
+        "author": "Robert Jordan",
+        "first_publish_year": 1991,
+        "source_rank": 82
+    },
+    {
+        "title": "The Shadow Rising",
+        "author": "Robert Jordan",
+        "first_publish_year": 1992,
+        "source_rank": 83
+    },
+    {
+        "title": "The Fires of Heaven",
+        "author": "Robert Jordan",
+        "first_publish_year": 1993,
+        "source_rank": 84
+    },
+    {
+        "title": "Lord of Chaos",
+        "author": "Robert Jordan",
+        "first_publish_year": 1994,
+        "source_rank": 85
+    },
+    {
+        "title": "A Crown of Swords",
+        "author": "Robert Jordan",
+        "first_publish_year": 1996,
+        "source_rank": 86
+    },
+    {
+        "title": "The Path of Daggers",
+        "author": "Robert Jordan",
+        "first_publish_year": 1998,
+        "source_rank": 87
+    },
+    {
+        "title": "Winter's Heart",
+        "author": "Robert Jordan",
+        "first_publish_year": 2000,
+        "source_rank": 88
+    },
+    {
+        "title": "Crossroads of Twilight",
+        "author": "Robert Jordan",
+        "first_publish_year": 2003,
+        "source_rank": 89
+    },
+    {
+        "title": "Knife of Dreams",
+        "author": "Robert Jordan",
+        "first_publish_year": 2005,
+        "source_rank": 90
+    },
+    {
+        "title": "The Gathering Storm",
+        "author": "Robert Jordan and Brandon Sanderson",
+        "first_publish_year": 2009,
+        "source_rank": 91
+    },
+    {
+        "title": "Towers of Midnight",
+        "author": "Robert Jordan and Brandon Sanderson",
+        "first_publish_year": 2010,
+        "source_rank": 92
+    },
+    {
+        "title": "A Memory of Light",
+        "author": "Robert Jordan and Brandon Sanderson",
+        "first_publish_year": 2013,
+        "source_rank": 93
+    },
+    {
+        "title": "Mistborn: The Final Empire",
+        "author": "Brandon Sanderson",
+        "first_publish_year": 2006,
+        "source_rank": 94
+    },
+    {
+        "title": "The Well of Ascension",
+        "author": "Brandon Sanderson",
+        "first_publish_year": 2007,
+        "source_rank": 95
+    },
+    {
+        "title": "The Hero of Ages",
+        "author": "Brandon Sanderson",
+        "first_publish_year": 2008,
+        "source_rank": 96
+    },
+    {
+        "title": "The Way of Kings",
+        "author": "Brandon Sanderson",
+        "first_publish_year": 2010,
+        "source_rank": 97
+    },
+    {
+        "title": "Words of Radiance",
+        "author": "Brandon Sanderson",
+        "first_publish_year": 2014,
+        "source_rank": 98
+    },
+    {
+        "title": "Oathbringer",
+        "author": "Brandon Sanderson",
+        "first_publish_year": 2017,
+        "source_rank": 99
+    },
+    {
+        "title": "Rhythm of War",
+        "author": "Brandon Sanderson",
+        "first_publish_year": 2020,
+        "source_rank": 100
+    },
+    {
+        "title": "Tress of the Emerald Sea",
+        "author": "Brandon Sanderson",
+        "first_publish_year": 2023,
+        "source_rank": 101
+    },
+    {
+        "title": "The Final Empire",
+        "author": "Brandon Sanderson",
+        "first_publish_year": 2006,
+        "source_rank": 102
+    },
+    {
+        "title": "The Lies of Locke Lamora",
+        "author": "Scott Lynch",
+        "first_publish_year": 2006,
+        "source_rank": 103
+    },
+    {
+        "title": "American Gods",
+        "author": "Neil Gaiman",
+        "first_publish_year": 2001,
+        "source_rank": 104
+    },
+    {
+        "title": "Coraline",
+        "author": "Neil Gaiman",
+        "first_publish_year": 2002,
+        "source_rank": 105
+    },
+    {
+        "title": "Anansi Boys",
+        "author": "Neil Gaiman",
+        "first_publish_year": 2005,
+        "source_rank": 106
+    },
+    {
+        "title": "Good Omens",
+        "author": "Neil Gaiman and Terry Pratchett",
+        "first_publish_year": 1990,
+        "source_rank": 107
+    },
+    {
+        "title": "Neverwhere",
+        "author": "Neil Gaiman",
+        "first_publish_year": 1996,
+        "source_rank": 108
+    },
+    {
+        "title": "The Ocean at the End of the Lane",
+        "author": "Neil Gaiman",
+        "first_publish_year": 2013,
+        "source_rank": 109
+    },
+    {
+        "title": "The Graveyard Book",
+        "author": "Neil Gaiman",
+        "first_publish_year": 2008,
+        "source_rank": 110
+    },
+    {
+        "title": "The Sandman: Preludes & Nocturnes",
+        "author": "Neil Gaiman",
+        "first_publish_year": 1989,
+        "source_rank": 111
+    },
+    {
+        "title": "Sandman, Vol. 2: The Doll's House",
+        "author": "Neil Gaiman",
+        "first_publish_year": 1990,
+        "source_rank": 112
+    },
+    {
+        "title": "Persepolis",
+        "author": "Marjane Satrapi",
+        "first_publish_year": 2000,
+        "source_rank": 113
+    },
+    {
+        "title": "Fun Home",
+        "author": "Alison Bechdel",
+        "first_publish_year": 2006,
+        "source_rank": 114
+    },
+    {
+        "title": "Maus II",
+        "author": "Art Spiegelman",
+        "first_publish_year": 1991,
+        "source_rank": 115
+    },
+    {
+        "title": "Watchmen",
+        "author": "Alan Moore and Dave Gibbons",
+        "first_publish_year": 1987,
+        "source_rank": 116
+    },
+    {
+        "title": "V for Vendetta",
+        "author": "Alan Moore and David Lloyd",
+        "first_publish_year": 1988,
+        "source_rank": 117
+    },
+    {
+        "title": "Batman: The Dark Knight Returns",
+        "author": "Frank Miller",
+        "first_publish_year": 1986,
+        "source_rank": 118
+    },
+    {
+        "title": "Saga, Vol. 1",
+        "author": "Brian K. Vaughan and Fiona Staples",
+        "first_publish_year": 2012,
+        "source_rank": 119
+    },
+    {
+        "title": "Blankets",
+        "author": "Craig Thompson",
+        "first_publish_year": 2003,
+        "source_rank": 120
+    },
+    {
+        "title": "Heartstopper Vol. 1",
+        "author": "Alice Oseman",
+        "first_publish_year": 2019,
+        "source_rank": 121
+    },
+    {
+        "title": "Heartstopper Vol. 2",
+        "author": "Alice Oseman",
+        "first_publish_year": 2019,
+        "source_rank": 122
+    },
+    {
+        "title": "Heartstopper Vol. 3",
+        "author": "Alice Oseman",
+        "first_publish_year": 2020,
+        "source_rank": 123
+    },
+    {
+        "title": "Heartstopper Vol. 4",
+        "author": "Alice Oseman",
+        "first_publish_year": 2021,
+        "source_rank": 124
+    },
+    {
+        "title": "The Perks of Being a Wallflower",
+        "author": "Stephen Chbosky",
+        "first_publish_year": 1999,
+        "source_rank": 125
+    },
+    {
+        "title": "Looking for Alaska",
+        "author": "John Green",
+        "first_publish_year": 2005,
+        "source_rank": 126
+    },
+    {
+        "title": "Paper Towns",
+        "author": "John Green",
+        "first_publish_year": 2008,
+        "source_rank": 127
+    },
+    {
+        "title": "Turtles All the Way Down",
+        "author": "John Green",
+        "first_publish_year": 2017,
+        "source_rank": 128
+    },
+    {
+        "title": "Eleanor & Park",
+        "author": "Rainbow Rowell",
+        "first_publish_year": 2012,
+        "source_rank": 129
+    },
+    {
+        "title": "Fangirl",
+        "author": "Rainbow Rowell",
+        "first_publish_year": 2013,
+        "source_rank": 130
+    },
+    {
+        "title": "Carry On",
+        "author": "Rainbow Rowell",
+        "first_publish_year": 2015,
+        "source_rank": 131
+    },
+    {
+        "title": "If I Stay",
+        "author": "Gayle Forman",
+        "first_publish_year": 2009,
+        "source_rank": 132
+    },
+    {
+        "title": "Thirteen Reasons Why",
+        "author": "Jay Asher",
+        "first_publish_year": 2007,
+        "source_rank": 133
+    },
+    {
+        "title": "Divergent",
+        "author": "Veronica Roth",
+        "first_publish_year": 2011,
+        "source_rank": 134
+    },
+    {
+        "title": "Insurgent",
+        "author": "Veronica Roth",
+        "first_publish_year": 2012,
+        "source_rank": 135
+    },
+    {
+        "title": "Allegiant",
+        "author": "Veronica Roth",
+        "first_publish_year": 2013,
+        "source_rank": 136
+    },
+    {
+        "title": "Matched",
+        "author": "Ally Condie",
+        "first_publish_year": 2010,
+        "source_rank": 137
+    },
+    {
+        "title": "Legend",
+        "author": "Marie Lu",
+        "first_publish_year": 2011,
+        "source_rank": 138
+    },
+    {
+        "title": "Cinder",
+        "author": "Marissa Meyer",
+        "first_publish_year": 2012,
+        "source_rank": 139
+    },
+    {
+        "title": "Scarlet",
+        "author": "Marissa Meyer",
+        "first_publish_year": 2013,
+        "source_rank": 140
+    },
+    {
+        "title": "Cress",
+        "author": "Marissa Meyer",
+        "first_publish_year": 2014,
+        "source_rank": 141
+    },
+    {
+        "title": "Winter",
+        "author": "Marissa Meyer",
+        "first_publish_year": 2015,
+        "source_rank": 142
+    },
+    {
+        "title": "Shatter Me",
+        "author": "Tahereh Mafi",
+        "first_publish_year": 2011,
+        "source_rank": 143
+    },
+    {
+        "title": "Unravel Me",
+        "author": "Tahereh Mafi",
+        "first_publish_year": 2013,
+        "source_rank": 144
+    },
+    {
+        "title": "Ignite Me",
+        "author": "Tahereh Mafi",
+        "first_publish_year": 2014,
+        "source_rank": 145
+    },
+    {
+        "title": "The Selection",
+        "author": "Kiera Cass",
+        "first_publish_year": 2012,
+        "source_rank": 146
+    },
+    {
+        "title": "Red Queen",
+        "author": "Victoria Aveyard",
+        "first_publish_year": 2015,
+        "source_rank": 147
+    },
+    {
+        "title": "Children of Blood and Bone",
+        "author": "Tomi Adeyemi",
+        "first_publish_year": 2018,
+        "source_rank": 148
+    },
+    {
+        "title": "Legendborn",
+        "author": "Tracy Deonn",
+        "first_publish_year": 2020,
+        "source_rank": 149
+    },
+    {
+        "title": "The Hate U Give",
+        "author": "Angie Thomas",
+        "first_publish_year": 2017,
+        "source_rank": 150
+    },
+    {
+        "title": "On the Come Up",
+        "author": "Angie Thomas",
+        "first_publish_year": 2019,
+        "source_rank": 151
+    },
+    {
+        "title": "Simon vs. the Homo Sapiens Agenda",
+        "author": "Becky Albertalli",
+        "first_publish_year": 2015,
+        "source_rank": 152
+    },
+    {
+        "title": "Love, Simon",
+        "author": "Becky Albertalli",
+        "first_publish_year": 2015,
+        "source_rank": 153
+    },
+    {
+        "title": "Aristotle and Dante Discover the Secrets of the Universe",
+        "author": "Benjamin Alire Saenz",
+        "first_publish_year": 2012,
+        "source_rank": 154
+    },
+    {
+        "title": "They Both Die at the End",
+        "author": "Adam Silvera",
+        "first_publish_year": 2017,
+        "source_rank": 155
+    },
+    {
+        "title": "One of Us Is Lying",
+        "author": "Karen M. McManus",
+        "first_publish_year": 2017,
+        "source_rank": 156
+    },
+    {
+        "title": "We Were Liars",
+        "author": "E. Lockhart",
+        "first_publish_year": 2014,
+        "source_rank": 157
+    },
+    {
+        "title": "The Inheritance Games",
+        "author": "Jennifer Lynn Barnes",
+        "first_publish_year": 2020,
+        "source_rank": 158
+    },
+    {
+        "title": "Caraval",
+        "author": "Stephanie Garber",
+        "first_publish_year": 2017,
+        "source_rank": 159
+    },
+    {
+        "title": "Once Upon a Broken Heart",
+        "author": "Stephanie Garber",
+        "first_publish_year": 2021,
+        "source_rank": 160
+    },
+    {
+        "title": "The Cruel Prince",
+        "author": "Holly Black",
+        "first_publish_year": 2018,
+        "source_rank": 161
+    },
+    {
+        "title": "The Wicked King",
+        "author": "Holly Black",
+        "first_publish_year": 2019,
+        "source_rank": 162
+    },
+    {
+        "title": "Queen of Nothing",
+        "author": "Holly Black",
+        "first_publish_year": 2019,
+        "source_rank": 163
+    },
+    {
+        "title": "Six of Crows",
+        "author": "Leigh Bardugo",
+        "first_publish_year": 2015,
+        "source_rank": 164
+    },
+    {
+        "title": "Crooked Kingdom",
+        "author": "Leigh Bardugo",
+        "first_publish_year": 2016,
+        "source_rank": 165
+    },
+    {
+        "title": "Shadow and Bone",
+        "author": "Leigh Bardugo",
+        "first_publish_year": 2012,
+        "source_rank": 166
+    },
+    {
+        "title": "Siege and Storm",
+        "author": "Leigh Bardugo",
+        "first_publish_year": 2013,
+        "source_rank": 167
+    },
+    {
+        "title": "Ruin and Rising",
+        "author": "Leigh Bardugo",
+        "first_publish_year": 2014,
+        "source_rank": 168
+    },
+    {
+        "title": "Ninth House",
+        "author": "Leigh Bardugo",
+        "first_publish_year": 2019,
+        "source_rank": 169
+    },
+    {
+        "title": "Hell Bent",
+        "author": "Leigh Bardugo",
+        "first_publish_year": 2023,
+        "source_rank": 170
+    },
+    {
+        "title": "The Raven Boys",
+        "author": "Maggie Stiefvater",
+        "first_publish_year": 2012,
+        "source_rank": 171
+    },
+    {
+        "title": "The Dream Thieves",
+        "author": "Maggie Stiefvater",
+        "first_publish_year": 2013,
+        "source_rank": 172
+    },
+    {
+        "title": "Blue Lily, Lily Blue",
+        "author": "Maggie Stiefvater",
+        "first_publish_year": 2014,
+        "source_rank": 173
+    },
+    {
+        "title": "The Raven King",
+        "author": "Maggie Stiefvater",
+        "first_publish_year": 2016,
+        "source_rank": 174
+    },
+    {
+        "title": "Inkheart",
+        "author": "Cornelia Funke",
+        "first_publish_year": 2003,
+        "source_rank": 175
+    },
+    {
+        "title": "Inkspell",
+        "author": "Cornelia Funke",
+        "first_publish_year": 2005,
+        "source_rank": 176
+    },
+    {
+        "title": "Inkdeath",
+        "author": "Cornelia Funke",
+        "first_publish_year": 2007,
+        "source_rank": 177
+    },
+    {
+        "title": "The Lightning Thief",
+        "author": "Rick Riordan",
+        "first_publish_year": 2005,
+        "source_rank": 178
+    },
+    {
+        "title": "The Sea of Monsters",
+        "author": "Rick Riordan",
+        "first_publish_year": 2006,
+        "source_rank": 179
+    },
+    {
+        "title": "The Titan's Curse",
+        "author": "Rick Riordan",
+        "first_publish_year": 2007,
+        "source_rank": 180
+    },
+    {
+        "title": "The Battle of the Labyrinth",
+        "author": "Rick Riordan",
+        "first_publish_year": 2008,
+        "source_rank": 181
+    },
+    {
+        "title": "The Last Olympian",
+        "author": "Rick Riordan",
+        "first_publish_year": 2009,
+        "source_rank": 182
+    },
+    {
+        "title": "The Lost Hero",
+        "author": "Rick Riordan",
+        "first_publish_year": 2010,
+        "source_rank": 183
+    },
+    {
+        "title": "The Son of Neptune",
+        "author": "Rick Riordan",
+        "first_publish_year": 2011,
+        "source_rank": 184
+    },
+    {
+        "title": "The Mark of Athena",
+        "author": "Rick Riordan",
+        "first_publish_year": 2012,
+        "source_rank": 185
+    },
+    {
+        "title": "The House of Hades",
+        "author": "Rick Riordan",
+        "first_publish_year": 2013,
+        "source_rank": 186
+    },
+    {
+        "title": "The Blood of Olympus",
+        "author": "Rick Riordan",
+        "first_publish_year": 2014,
+        "source_rank": 187
+    },
+    {
+        "title": "The Red Pyramid",
+        "author": "Rick Riordan",
+        "first_publish_year": 2010,
+        "source_rank": 188
+    },
+    {
+        "title": "The Throne of Fire",
+        "author": "Rick Riordan",
+        "first_publish_year": 2011,
+        "source_rank": 189
+    },
+    {
+        "title": "The Serpent's Shadow",
+        "author": "Rick Riordan",
+        "first_publish_year": 2012,
+        "source_rank": 190
+    },
+    {
+        "title": "Magnus Chase and the Gods of Asgard: The Sword of Summer",
+        "author": "Rick Riordan",
+        "first_publish_year": 2015,
+        "source_rank": 191
+    },
+    {
+        "title": "The Sun and the Star",
+        "author": "Rick Riordan and Mark Oshiro",
+        "first_publish_year": 2023,
+        "source_rank": 192
+    },
+    {
+        "title": "Wonder",
+        "author": "R.J. Palacio",
+        "first_publish_year": 2012,
+        "source_rank": 193
+    },
+    {
+        "title": "Holes",
+        "author": "Louis Sachar",
+        "first_publish_year": 1998,
+        "source_rank": 194
+    },
+    {
+        "title": "The Giver",
+        "author": "Lois Lowry",
+        "first_publish_year": 1993,
+        "source_rank": 195
+    },
+    {
+        "title": "Gathering Blue",
+        "author": "Lois Lowry",
+        "first_publish_year": 2000,
+        "source_rank": 196
+    },
+    {
+        "title": "Messenger",
+        "author": "Lois Lowry",
+        "first_publish_year": 2004,
+        "source_rank": 197
+    },
+    {
+        "title": "Son",
+        "author": "Lois Lowry",
+        "first_publish_year": 2012,
+        "source_rank": 198
+    },
+    {
+        "title": "The Miraculous Journey of Edward Tulane",
+        "author": "Kate DiCamillo",
+        "first_publish_year": 2006,
+        "source_rank": 199
+    },
+    {
+        "title": "Because of Winn-Dixie",
+        "author": "Kate DiCamillo",
+        "first_publish_year": 2000,
+        "source_rank": 200
+    },
+    {
+        "title": "The Tale of Despereaux",
+        "author": "Kate DiCamillo",
+        "first_publish_year": 2003,
+        "source_rank": 201
+    },
+    {
+        "title": "Bridge to Terabithia",
+        "author": "Katherine Paterson",
+        "first_publish_year": 1977,
+        "source_rank": 202
+    },
+    {
+        "title": "Hatchet",
+        "author": "Gary Paulsen",
+        "first_publish_year": 1987,
+        "source_rank": 203
+    },
+    {
+        "title": "Maniac Magee",
+        "author": "Jerry Spinelli",
+        "first_publish_year": 1990,
+        "source_rank": 204
+    },
+    {
+        "title": "Stargirl",
+        "author": "Jerry Spinelli",
+        "first_publish_year": 2000,
+        "source_rank": 205
+    },
+    {
+        "title": "The Absolutely True Diary of a Part-Time Indian",
+        "author": "Sherman Alexie",
+        "first_publish_year": 2007,
+        "source_rank": 206
+    },
+    {
+        "title": "Esperanza Rising",
+        "author": "Pam Munoz Ryan",
+        "first_publish_year": 2000,
+        "source_rank": 207
+    },
+    {
+        "title": "The Westing Game",
+        "author": "Ellen Raskin",
+        "first_publish_year": 1978,
+        "source_rank": 208
+    },
+    {
+        "title": "Number the Stars",
+        "author": "Lois Lowry",
+        "first_publish_year": 1989,
+        "source_rank": 209
+    },
+    {
+        "title": "The Golden Compass",
+        "author": "Philip Pullman",
+        "first_publish_year": 1995,
+        "source_rank": 210
+    },
+    {
+        "title": "The Subtle Knife",
+        "author": "Philip Pullman",
+        "first_publish_year": 1997,
+        "source_rank": 211
+    },
+    {
+        "title": "The Amber Spyglass",
+        "author": "Philip Pullman",
+        "first_publish_year": 2000,
+        "source_rank": 212
+    },
+    {
+        "title": "Northern Lights",
+        "author": "Philip Pullman",
+        "first_publish_year": 1995,
+        "source_rank": 213
+    },
+    {
+        "title": "Eragon",
+        "author": "Christopher Paolini",
+        "first_publish_year": 2002,
+        "source_rank": 214
+    },
+    {
+        "title": "Eldest",
+        "author": "Christopher Paolini",
+        "first_publish_year": 2005,
+        "source_rank": 215
+    },
+    {
+        "title": "Brisingr",
+        "author": "Christopher Paolini",
+        "first_publish_year": 2008,
+        "source_rank": 216
+    },
+    {
+        "title": "Inheritance",
+        "author": "Christopher Paolini",
+        "first_publish_year": 2011,
+        "source_rank": 217
+    },
+    {
+        "title": "The Maze Runner",
+        "author": "James Dashner",
+        "first_publish_year": 2009,
+        "source_rank": 218
+    },
+    {
+        "title": "The Scorch Trials",
+        "author": "James Dashner",
+        "first_publish_year": 2010,
+        "source_rank": 219
+    },
+    {
+        "title": "The Death Cure",
+        "author": "James Dashner",
+        "first_publish_year": 2011,
+        "source_rank": 220
+    },
+    {
+        "title": "The 5th Wave",
+        "author": "Rick Yancey",
+        "first_publish_year": 2013,
+        "source_rank": 221
+    },
+    {
+        "title": "Ready Player One",
+        "author": "Ernest Cline",
+        "first_publish_year": 2011,
+        "source_rank": 222
+    },
+    {
+        "title": "Ready Player Two",
+        "author": "Ernest Cline",
+        "first_publish_year": 2020,
+        "source_rank": 223
+    },
+    {
+        "title": "Ender's Game",
+        "author": "Orson Scott Card",
+        "first_publish_year": 1985,
+        "source_rank": 224
+    },
+    {
+        "title": "Speaker for the Dead",
+        "author": "Orson Scott Card",
+        "first_publish_year": 1986,
+        "source_rank": 225
+    },
+    {
+        "title": "Xenocide",
+        "author": "Orson Scott Card",
+        "first_publish_year": 1991,
+        "source_rank": 226
+    },
+    {
+        "title": "Children of the Mind",
+        "author": "Orson Scott Card",
+        "first_publish_year": 1996,
+        "source_rank": 227
+    },
+    {
+        "title": "Jurassic Park",
+        "author": "Michael Crichton",
+        "first_publish_year": 1990,
+        "source_rank": 228
+    },
+    {
+        "title": "The Lost World",
+        "author": "Michael Crichton",
+        "first_publish_year": 1995,
+        "source_rank": 229
+    },
+    {
+        "title": "Sphere",
+        "author": "Michael Crichton",
+        "first_publish_year": 1987,
+        "source_rank": 230
+    },
+    {
+        "title": "Congo",
+        "author": "Michael Crichton",
+        "first_publish_year": 1980,
+        "source_rank": 231
+    },
+    {
+        "title": "Timeline",
+        "author": "Michael Crichton",
+        "first_publish_year": 1999,
+        "source_rank": 232
+    },
+    {
+        "title": "Prey",
+        "author": "Michael Crichton",
+        "first_publish_year": 2002,
+        "source_rank": 233
+    },
+    {
+        "title": "State of Fear",
+        "author": "Michael Crichton",
+        "first_publish_year": 2004,
+        "source_rank": 234
+    },
+    {
+        "title": "The Firm",
+        "author": "John Grisham",
+        "first_publish_year": 1991,
+        "source_rank": 235
+    },
+    {
+        "title": "The Pelican Brief",
+        "author": "John Grisham",
+        "first_publish_year": 1992,
+        "source_rank": 236
+    },
+    {
+        "title": "The Client",
+        "author": "John Grisham",
+        "first_publish_year": 1993,
+        "source_rank": 237
+    },
+    {
+        "title": "A Time to Kill",
+        "author": "John Grisham",
+        "first_publish_year": 1989,
+        "source_rank": 238
+    },
+    {
+        "title": "The Chamber",
+        "author": "John Grisham",
+        "first_publish_year": 1994,
+        "source_rank": 239
+    },
+    {
+        "title": "The Rainmaker",
+        "author": "John Grisham",
+        "first_publish_year": 1995,
+        "source_rank": 240
+    },
+    {
+        "title": "Runaway Jury",
+        "author": "John Grisham",
+        "first_publish_year": 1996,
+        "source_rank": 241
+    },
+    {
+        "title": "The Partner",
+        "author": "John Grisham",
+        "first_publish_year": 1997,
+        "source_rank": 242
+    },
+    {
+        "title": "The Street Lawyer",
+        "author": "John Grisham",
+        "first_publish_year": 1998,
+        "source_rank": 243
+    },
+    {
+        "title": "The Testament",
+        "author": "John Grisham",
+        "first_publish_year": 1999,
+        "source_rank": 244
+    },
+    {
+        "title": "Skipping Christmas",
+        "author": "John Grisham",
+        "first_publish_year": 2001,
+        "source_rank": 245
+    },
+    {
+        "title": "The Last Juror",
+        "author": "John Grisham",
+        "first_publish_year": 2004,
+        "source_rank": 246
+    },
+    {
+        "title": "The Broker",
+        "author": "John Grisham",
+        "first_publish_year": 2005,
+        "source_rank": 247
+    },
+    {
+        "title": "The Appeal",
+        "author": "John Grisham",
+        "first_publish_year": 2008,
+        "source_rank": 248
+    },
+    {
+        "title": "Sycamore Row",
+        "author": "John Grisham",
+        "first_publish_year": 2013,
+        "source_rank": 249
+    },
+    {
+        "title": "The Reckoning",
+        "author": "John Grisham",
+        "first_publish_year": 2018,
+        "source_rank": 250
+    },
+    {
+        "title": "Camino Winds",
+        "author": "John Grisham",
+        "first_publish_year": 2020,
+        "source_rank": 251
+    },
+    {
+        "title": "The Boys from Biloxi",
+        "author": "John Grisham",
+        "first_publish_year": 2022,
+        "source_rank": 252
+    },
+    {
+        "title": "The Exchange",
+        "author": "John Grisham",
+        "first_publish_year": 2023,
+        "source_rank": 253
+    },
+    {
+        "title": "Presumed Innocent",
+        "author": "Scott Turow",
+        "first_publish_year": 1987,
+        "source_rank": 254
+    },
+    {
+        "title": "The Bonfire of the Vanities",
+        "author": "Tom Wolfe",
+        "first_publish_year": 1987,
+        "source_rank": 255
+    },
+    {
+        "title": "The Devil Wears Prada",
+        "author": "Lauren Weisberger",
+        "first_publish_year": 2003,
+        "source_rank": 256
+    },
+    {
+        "title": "The Nanny Diaries",
+        "author": "Emma McLaughlin and Nicola Kraus",
+        "first_publish_year": 2002,
+        "source_rank": 257
+    },
+    {
+        "title": "The Notebook",
+        "author": "Nicholas Sparks",
+        "first_publish_year": 1996,
+        "source_rank": 258
+    },
+    {
+        "title": "Message in a Bottle",
+        "author": "Nicholas Sparks",
+        "first_publish_year": 1998,
+        "source_rank": 259
+    },
+    {
+        "title": "A Walk to Remember",
+        "author": "Nicholas Sparks",
+        "first_publish_year": 1999,
+        "source_rank": 260
+    },
+    {
+        "title": "The Rescue",
+        "author": "Nicholas Sparks",
+        "first_publish_year": 2000,
+        "source_rank": 261
+    },
+    {
+        "title": "Nights in Rodanthe",
+        "author": "Nicholas Sparks",
+        "first_publish_year": 2002,
+        "source_rank": 262
+    },
+    {
+        "title": "The Guardian",
+        "author": "Nicholas Sparks",
+        "first_publish_year": 2003,
+        "source_rank": 263
+    },
+    {
+        "title": "Dear John",
+        "author": "Nicholas Sparks",
+        "first_publish_year": 2006,
+        "source_rank": 264
+    },
+    {
+        "title": "The Choice",
+        "author": "Nicholas Sparks",
+        "first_publish_year": 2007,
+        "source_rank": 265
+    },
+    {
+        "title": "The Lucky One",
+        "author": "Nicholas Sparks",
+        "first_publish_year": 2008,
+        "source_rank": 266
+    },
+    {
+        "title": "The Last Song",
+        "author": "Nicholas Sparks",
+        "first_publish_year": 2009,
+        "source_rank": 267
+    },
+    {
+        "title": "Safe Haven",
+        "author": "Nicholas Sparks",
+        "first_publish_year": 2010,
+        "source_rank": 268
+    },
+    {
+        "title": "The Best of Me",
+        "author": "Nicholas Sparks",
+        "first_publish_year": 2011,
+        "source_rank": 269
+    },
+    {
+        "title": "The Longest Ride",
+        "author": "Nicholas Sparks",
+        "first_publish_year": 2013,
+        "source_rank": 270
+    },
+    {
+        "title": "See Me",
+        "author": "Nicholas Sparks",
+        "first_publish_year": 2015,
+        "source_rank": 271
+    },
+    {
+        "title": "Every Breath",
+        "author": "Nicholas Sparks",
+        "first_publish_year": 2018,
+        "source_rank": 272
+    },
+    {
+        "title": "Dreamland",
+        "author": "Nicholas Sparks",
+        "first_publish_year": 2022,
+        "source_rank": 273
+    },
+    {
+        "title": "The Bridges of Madison County",
+        "author": "Robert James Waller",
+        "first_publish_year": 1992,
+        "source_rank": 274
+    },
+    {
+        "title": "The Horse Whisperer",
+        "author": "Nicholas Evans",
+        "first_publish_year": 1995,
+        "source_rank": 275
+    },
+    {
+        "title": "The Red Tent",
+        "author": "Anita Diamant",
+        "first_publish_year": 1997,
+        "source_rank": 276
+    },
+    {
+        "title": "Memoirs of a Geisha",
+        "author": "Arthur Golden",
+        "first_publish_year": 1997,
+        "source_rank": 277
+    },
+    {
+        "title": "The Poisonwood Bible",
+        "author": "Barbara Kingsolver",
+        "first_publish_year": 1998,
+        "source_rank": 278
+    },
+    {
+        "title": "Prodigal Summer",
+        "author": "Barbara Kingsolver",
+        "first_publish_year": 2000,
+        "source_rank": 279
+    },
+    {
+        "title": "The Bean Trees",
+        "author": "Barbara Kingsolver",
+        "first_publish_year": 1988,
+        "source_rank": 280
+    },
+    {
+        "title": "Demon Copperhead",
+        "author": "Barbara Kingsolver",
+        "first_publish_year": 2022,
+        "source_rank": 281
+    },
+    {
+        "title": "Animal Dreams",
+        "author": "Barbara Kingsolver",
+        "first_publish_year": 1990,
+        "source_rank": 282
+    },
+    {
+        "title": "The Lacuna",
+        "author": "Barbara Kingsolver",
+        "first_publish_year": 2009,
+        "source_rank": 283
+    },
+    {
+        "title": "The Heaven & Earth Grocery Store",
+        "author": "James McBride",
+        "first_publish_year": 2023,
+        "source_rank": 284
+    },
+    {
+        "title": "Deacon King Kong",
+        "author": "James McBride",
+        "first_publish_year": 2020,
+        "source_rank": 285
+    },
+    {
+        "title": "The Known World",
+        "author": "Edward P. Jones",
+        "first_publish_year": 2003,
+        "source_rank": 286
+    },
+    {
+        "title": "The Amazing Adventures of Kavalier & Clay",
+        "author": "Michael Chabon",
+        "first_publish_year": 2000,
+        "source_rank": 287
+    },
+    {
+        "title": "The Yiddish Policemen's Union",
+        "author": "Michael Chabon",
+        "first_publish_year": 2007,
+        "source_rank": 288
+    },
+    {
+        "title": "The Corrections",
+        "author": "Jonathan Franzen",
+        "first_publish_year": 2001,
+        "source_rank": 289
+    },
+    {
+        "title": "Freedom",
+        "author": "Jonathan Franzen",
+        "first_publish_year": 2010,
+        "source_rank": 290
+    },
+    {
+        "title": "Crossroads",
+        "author": "Jonathan Franzen",
+        "first_publish_year": 2021,
+        "source_rank": 291
+    },
+    {
+        "title": "White Teeth",
+        "author": "Zadie Smith",
+        "first_publish_year": 2000,
+        "source_rank": 292
+    },
+    {
+        "title": "On Beauty",
+        "author": "Zadie Smith",
+        "first_publish_year": 2005,
+        "source_rank": 293
+    },
+    {
+        "title": "NW",
+        "author": "Zadie Smith",
+        "first_publish_year": 2012,
+        "source_rank": 294
+    },
+    {
+        "title": "Swing Time",
+        "author": "Zadie Smith",
+        "first_publish_year": 2016,
+        "source_rank": 295
+    },
+    {
+        "title": "The Joy Luck Club",
+        "author": "Amy Tan",
+        "first_publish_year": 1989,
+        "source_rank": 296
+    },
+    {
+        "title": "The Kitchen God's Wife",
+        "author": "Amy Tan",
+        "first_publish_year": 1991,
+        "source_rank": 297
+    },
+    {
+        "title": "The Bonesetter's Daughter",
+        "author": "Amy Tan",
+        "first_publish_year": 2001,
+        "source_rank": 298
+    },
+    {
+        "title": "The Hundred Secret Senses",
+        "author": "Amy Tan",
+        "first_publish_year": 1995,
+        "source_rank": 299
+    },
+    {
+        "title": "Cold Mountain",
+        "author": "Charles Frazier",
+        "first_publish_year": 1997,
+        "source_rank": 300
+    },
+    {
+        "title": "All the Pretty Horses",
+        "author": "Cormac McCarthy",
+        "first_publish_year": 1992,
+        "source_rank": 301
+    },
+    {
+        "title": "No Country for Old Men",
+        "author": "Cormac McCarthy",
+        "first_publish_year": 2005,
+        "source_rank": 302
+    },
+    {
+        "title": "Blood Meridian",
+        "author": "Cormac McCarthy",
+        "first_publish_year": 1985,
+        "source_rank": 303
+    },
+    {
+        "title": "Cities of the Plain",
+        "author": "Cormac McCarthy",
+        "first_publish_year": 1998,
+        "source_rank": 304
+    },
+    {
+        "title": "The Crossing",
+        "author": "Cormac McCarthy",
+        "first_publish_year": 1994,
+        "source_rank": 305
+    },
+    {
+        "title": "A Prayer for Owen Meany",
+        "author": "John Irving",
+        "first_publish_year": 1989,
+        "source_rank": 306
+    },
+    {
+        "title": "The Cider House Rules",
+        "author": "John Irving",
+        "first_publish_year": 1985,
+        "source_rank": 307
+    },
+    {
+        "title": "A Widow for One Year",
+        "author": "John Irving",
+        "first_publish_year": 1998,
+        "source_rank": 308
+    },
+    {
+        "title": "The World According to Garp",
+        "author": "John Irving",
+        "first_publish_year": 1978,
+        "source_rank": 309
+    },
+    {
+        "title": "The Hotel New Hampshire",
+        "author": "John Irving",
+        "first_publish_year": 1981,
+        "source_rank": 310
+    },
+    {
+        "title": "Until I Find You",
+        "author": "John Irving",
+        "first_publish_year": 2005,
+        "source_rank": 311
+    },
+    {
+        "title": "The English Patient",
+        "author": "Michael Ondaatje",
+        "first_publish_year": 1992,
+        "source_rank": 312
+    },
+    {
+        "title": "Anil's Ghost",
+        "author": "Michael Ondaatje",
+        "first_publish_year": 2000,
+        "source_rank": 313
+    },
+    {
+        "title": "Life After Life",
+        "author": "Kate Atkinson",
+        "first_publish_year": 2013,
+        "source_rank": 314
+    },
+    {
+        "title": "A God in Ruins",
+        "author": "Kate Atkinson",
+        "first_publish_year": 2015,
+        "source_rank": 315
+    },
+    {
+        "title": "Case Histories",
+        "author": "Kate Atkinson",
+        "first_publish_year": 2004,
+        "source_rank": 316
+    },
+    {
+        "title": "Cloud Atlas",
+        "author": "David Mitchell",
+        "first_publish_year": 2004,
+        "source_rank": 317
+    },
+    {
+        "title": "The Bone Clocks",
+        "author": "David Mitchell",
+        "first_publish_year": 2014,
+        "source_rank": 318
+    },
+    {
+        "title": "Utopia Avenue",
+        "author": "David Mitchell",
+        "first_publish_year": 2020,
+        "source_rank": 319
+    },
+    {
+        "title": "Atonement",
+        "author": "Ian McEwan",
+        "first_publish_year": 2001,
+        "source_rank": 320
+    },
+    {
+        "title": "Amsterdam",
+        "author": "Ian McEwan",
+        "first_publish_year": 1998,
+        "source_rank": 321
+    },
+    {
+        "title": "Saturday",
+        "author": "Ian McEwan",
+        "first_publish_year": 2005,
+        "source_rank": 322
+    },
+    {
+        "title": "On Chesil Beach",
+        "author": "Ian McEwan",
+        "first_publish_year": 2007,
+        "source_rank": 323
+    },
+    {
+        "title": "Machines Like Me",
+        "author": "Ian McEwan",
+        "first_publish_year": 2019,
+        "source_rank": 324
+    },
+    {
+        "title": "The Children Act",
+        "author": "Ian McEwan",
+        "first_publish_year": 2014,
+        "source_rank": 325
+    },
+    {
+        "title": "White Oleander",
+        "author": "Janet Fitch",
+        "first_publish_year": 1999,
+        "source_rank": 326
+    },
+    {
+        "title": "Girl, Woman, Other",
+        "author": "Bernardine Evaristo",
+        "first_publish_year": 2019,
+        "source_rank": 327
+    },
+    {
+        "title": "The Sellout",
+        "author": "Paul Beatty",
+        "first_publish_year": 2015,
+        "source_rank": 328
+    },
+    {
+        "title": "Lincoln in the Bardo",
+        "author": "George Saunders",
+        "first_publish_year": 2017,
+        "source_rank": 329
+    },
+    {
+        "title": "Tenth of December",
+        "author": "George Saunders",
+        "first_publish_year": 2013,
+        "source_rank": 330
+    },
+    {
+        "title": "CivilWarLand in Bad Decline",
+        "author": "George Saunders",
+        "first_publish_year": 1996,
+        "source_rank": 331
+    },
+    {
+        "title": "Olive Kitteridge",
+        "author": "Elizabeth Strout",
+        "first_publish_year": 2008,
+        "source_rank": 332
+    },
+    {
+        "title": "My Name Is Lucy Barton",
+        "author": "Elizabeth Strout",
+        "first_publish_year": 2016,
+        "source_rank": 333
+    },
+    {
+        "title": "The Burgess Boys",
+        "author": "Elizabeth Strout",
+        "first_publish_year": 2013,
+        "source_rank": 334
+    },
+    {
+        "title": "Olive, Again",
+        "author": "Elizabeth Strout",
+        "first_publish_year": 2019,
+        "source_rank": 335
+    },
+    {
+        "title": "A Visit from the Goon Squad",
+        "author": "Jennifer Egan",
+        "first_publish_year": 2010,
+        "source_rank": 336
+    },
+    {
+        "title": "Manhattan Beach",
+        "author": "Jennifer Egan",
+        "first_publish_year": 2017,
+        "source_rank": 337
+    },
+    {
+        "title": "The Candy House",
+        "author": "Jennifer Egan",
+        "first_publish_year": 2022,
+        "source_rank": 338
+    },
+    {
+        "title": "Station Eleven",
+        "author": "Emily St. John Mandel",
+        "first_publish_year": 2014,
+        "source_rank": 339
+    },
+    {
+        "title": "The Glass Hotel",
+        "author": "Emily St. John Mandel",
+        "first_publish_year": 2020,
+        "source_rank": 340
+    },
+    {
+        "title": "Sea of Tranquility",
+        "author": "Emily St. John Mandel",
+        "first_publish_year": 2022,
+        "source_rank": 341
+    },
+    {
+        "title": "The Nightingale",
+        "author": "Kristin Hannah",
+        "first_publish_year": 2015,
+        "source_rank": 342
+    },
+    {
+        "title": "The Great Alone",
+        "author": "Kristin Hannah",
+        "first_publish_year": 2018,
+        "source_rank": 343
+    },
+    {
+        "title": "The Four Winds",
+        "author": "Kristin Hannah",
+        "first_publish_year": 2021,
+        "source_rank": 344
+    },
+    {
+        "title": "The Women",
+        "author": "Kristin Hannah",
+        "first_publish_year": 2024,
+        "source_rank": 345
+    },
+    {
+        "title": "Firefly Lane",
+        "author": "Kristin Hannah",
+        "first_publish_year": 2008,
+        "source_rank": 346
+    },
+    {
+        "title": "Winter Garden",
+        "author": "Kristin Hannah",
+        "first_publish_year": 2010,
+        "source_rank": 347
+    },
+    {
+        "title": "The House in the Cerulean Sea",
+        "author": "T.J. Klune",
+        "first_publish_year": 2020,
+        "source_rank": 348
+    },
+    {
+        "title": "Under the Whispering Door",
+        "author": "T.J. Klune",
+        "first_publish_year": 2021,
+        "source_rank": 349
+    },
+    {
+        "title": "Remarkably Bright Creatures",
+        "author": "Shelby Van Pelt",
+        "first_publish_year": 2022,
+        "source_rank": 350
+    },
+    {
+        "title": "The Covenant of Water",
+        "author": "Abraham Verghese",
+        "first_publish_year": 2023,
+        "source_rank": 351
+    },
+    {
+        "title": "Cutting for Stone",
+        "author": "Abraham Verghese",
+        "first_publish_year": 2009,
+        "source_rank": 352
+    },
+    {
+        "title": "The People We Keep",
+        "author": "Allison Larkin",
+        "first_publish_year": 2021,
+        "source_rank": 353
+    },
+    {
+        "title": "The Vanishing Half",
+        "author": "Brit Bennett",
+        "first_publish_year": 2020,
+        "source_rank": 354
+    },
+    {
+        "title": "The Mothers",
+        "author": "Brit Bennett",
+        "first_publish_year": 2016,
+        "source_rank": 355
+    },
+    {
+        "title": "Such a Fun Age",
+        "author": "Kiley Reid",
+        "first_publish_year": 2019,
+        "source_rank": 356
+    },
+    {
+        "title": "Little Fires Everywhere",
+        "author": "Celeste Ng",
+        "first_publish_year": 2017,
+        "source_rank": 357
+    },
+    {
+        "title": "Everything I Never Told You",
+        "author": "Celeste Ng",
+        "first_publish_year": 2014,
+        "source_rank": 358
+    },
+    {
+        "title": "Our Missing Hearts",
+        "author": "Celeste Ng",
+        "first_publish_year": 2022,
+        "source_rank": 359
+    },
+    {
+        "title": "The Dutch House",
+        "author": "Ann Patchett",
+        "first_publish_year": 2019,
+        "source_rank": 360
+    },
+    {
+        "title": "Bel Canto",
+        "author": "Ann Patchett",
+        "first_publish_year": 2001,
+        "source_rank": 361
+    },
+    {
+        "title": "Tom Lake",
+        "author": "Ann Patchett",
+        "first_publish_year": 2023,
+        "source_rank": 362
+    },
+    {
+        "title": "State of Wonder",
+        "author": "Ann Patchett",
+        "first_publish_year": 2011,
+        "source_rank": 363
+    },
+    {
+        "title": "Commonwealth",
+        "author": "Ann Patchett",
+        "first_publish_year": 2016,
+        "source_rank": 364
+    },
+    {
+        "title": "The Patron Saint of Liars",
+        "author": "Ann Patchett",
+        "first_publish_year": 1992,
+        "source_rank": 365
+    },
+    {
+        "title": "The Secret Life of Bees",
+        "author": "Sue Monk Kidd",
+        "first_publish_year": 2001,
+        "source_rank": 366
+    },
+    {
+        "title": "The Invention of Wings",
+        "author": "Sue Monk Kidd",
+        "first_publish_year": 2014,
+        "source_rank": 367
+    },
+    {
+        "title": "The Mermaid Chair",
+        "author": "Sue Monk Kidd",
+        "first_publish_year": 2005,
+        "source_rank": 368
+    },
+    {
+        "title": "Practical Magic",
+        "author": "Alice Hoffman",
+        "first_publish_year": 1995,
+        "source_rank": 369
+    },
+    {
+        "title": "Here on Earth",
+        "author": "Alice Hoffman",
+        "first_publish_year": 1997,
+        "source_rank": 370
+    },
+    {
+        "title": "The Dovekeepers",
+        "author": "Alice Hoffman",
+        "first_publish_year": 2011,
+        "source_rank": 371
+    },
+    {
+        "title": "Magic Lessons",
+        "author": "Alice Hoffman",
+        "first_publish_year": 2020,
+        "source_rank": 372
+    },
+    {
+        "title": "The Rules of Magic",
+        "author": "Alice Hoffman",
+        "first_publish_year": 2017,
+        "source_rank": 373
+    },
+    {
+        "title": "The World That We Knew",
+        "author": "Alice Hoffman",
+        "first_publish_year": 2019,
+        "source_rank": 374
+    },
+    {
+        "title": "The Marriage Portrait",
+        "author": "Maggie O'Farrell",
+        "first_publish_year": 2022,
+        "source_rank": 375
+    },
+    {
+        "title": "Hamnet",
+        "author": "Maggie O'Farrell",
+        "first_publish_year": 2020,
+        "source_rank": 376
+    },
+    {
+        "title": "This Must Be the Place",
+        "author": "Maggie O'Farrell",
+        "first_publish_year": 2016,
+        "source_rank": 377
+    },
+    {
+        "title": "The Invisible Bridge",
+        "author": "Julie Orringer",
+        "first_publish_year": 2010,
+        "source_rank": 378
+    },
+    {
+        "title": "The Golem and the Jinni",
+        "author": "Helene Wecker",
+        "first_publish_year": 2013,
+        "source_rank": 379
+    },
+    {
+        "title": "The Hidden Palace",
+        "author": "Helene Wecker",
+        "first_publish_year": 2021,
+        "source_rank": 380
+    },
+    {
+        "title": "The Historian",
+        "author": "Elizabeth Kostova",
+        "first_publish_year": 2005,
+        "source_rank": 381
+    },
+    {
+        "title": "The Shadow of the Wind",
+        "author": "Carlos Ruiz Zafon",
+        "first_publish_year": 2001,
+        "source_rank": 382
+    },
+    {
+        "title": "The Angel's Game",
+        "author": "Carlos Ruiz Zafon",
+        "first_publish_year": 2008,
+        "source_rank": 383
+    },
+    {
+        "title": "The Prisoner of Heaven",
+        "author": "Carlos Ruiz Zafon",
+        "first_publish_year": 2011,
+        "source_rank": 384
+    },
+    {
+        "title": "The Labyrinth of the Spirits",
+        "author": "Carlos Ruiz Zafon",
+        "first_publish_year": 2016,
+        "source_rank": 385
+    },
+    {
+        "title": "The Thirteenth Tale",
+        "author": "Diane Setterfield",
+        "first_publish_year": 2006,
+        "source_rank": 386
+    },
+    {
+        "title": "The Memory Keeper's Daughter",
+        "author": "Kim Edwards",
+        "first_publish_year": 2005,
+        "source_rank": 387
+    },
+    {
+        "title": "Her Fearful Symmetry",
+        "author": "Audrey Niffenegger",
+        "first_publish_year": 2009,
+        "source_rank": 388
+    },
+    {
+        "title": "Water for Elephants",
+        "author": "Sara Gruen",
+        "first_publish_year": 2006,
+        "source_rank": 389
+    },
+    {
+        "title": "At the Water's Edge",
+        "author": "Sara Gruen",
+        "first_publish_year": 2015,
+        "source_rank": 390
+    },
+    {
+        "title": "The Guernsey Literary and Potato Peel Pie Society",
+        "author": "Mary Ann Shaffer and Annie Barrows",
+        "first_publish_year": 2008,
+        "source_rank": 391
+    },
+    {
+        "title": "The Art of Racing in the Rain",
+        "author": "Garth Stein",
+        "first_publish_year": 2008,
+        "source_rank": 392
+    },
+    {
+        "title": "The Shack",
+        "author": "William P. Young",
+        "first_publish_year": 2007,
+        "source_rank": 393
+    },
+    {
+        "title": "The Five People You Meet in Heaven",
+        "author": "Mitch Albom",
+        "first_publish_year": 2003,
+        "source_rank": 394
+    },
+    {
+        "title": "Tuesdays with Morrie",
+        "author": "Mitch Albom",
+        "first_publish_year": 1997,
+        "source_rank": 395
+    },
+    {
+        "title": "For One More Day",
+        "author": "Mitch Albom",
+        "first_publish_year": 2006,
+        "source_rank": 396
+    },
+    {
+        "title": "The Time Keeper",
+        "author": "Mitch Albom",
+        "first_publish_year": 2012,
+        "source_rank": 397
+    },
+    {
+        "title": "The First Phone Call from Heaven",
+        "author": "Mitch Albom",
+        "first_publish_year": 2013,
+        "source_rank": 398
+    },
+    {
+        "title": "The Magic Strings of Frankie Presto",
+        "author": "Mitch Albom",
+        "first_publish_year": 2015,
+        "source_rank": 399
+    },
+    {
+        "title": "The Stranger in the Lifeboat",
+        "author": "Mitch Albom",
+        "first_publish_year": 2021,
+        "source_rank": 400
+    },
+    {
+        "title": "The Purpose Driven Life",
+        "author": "Rick Warren",
+        "first_publish_year": 2002,
+        "source_rank": 401
+    },
+    {
+        "title": "The Prayer of Jabez",
+        "author": "Bruce Wilkinson",
+        "first_publish_year": 2000,
+        "source_rank": 402
+    },
+    {
+        "title": "Jesus Calling",
+        "author": "Sarah Young",
+        "first_publish_year": 2004,
+        "source_rank": 403
+    },
+    {
+        "title": "The Secret",
+        "author": "Rhonda Byrne",
+        "first_publish_year": 2006,
+        "source_rank": 404
+    },
+    {
+        "title": "The Power of Now",
+        "author": "Eckhart Tolle",
+        "first_publish_year": 1997,
+        "source_rank": 405
+    },
+    {
+        "title": "A New Earth",
+        "author": "Eckhart Tolle",
+        "first_publish_year": 2005,
+        "source_rank": 406
+    },
+    {
+        "title": "The Subtle Art of Not Giving a F*ck",
+        "author": "Mark Manson",
+        "first_publish_year": 2016,
+        "source_rank": 407
+    },
+    {
+        "title": "Atomic Habits",
+        "author": "James Clear",
+        "first_publish_year": 2018,
+        "source_rank": 408
+    },
+    {
+        "title": "Think Like a Monk",
+        "author": "Jay Shetty",
+        "first_publish_year": 2020,
+        "source_rank": 409
+    },
+    {
+        "title": "The 7 Habits of Highly Effective People",
+        "author": "Stephen R. Covey",
+        "first_publish_year": 1989,
+        "source_rank": 410
+    },
+    {
+        "title": "Who Moved My Cheese?",
+        "author": "Spencer Johnson",
+        "first_publish_year": 1998,
+        "source_rank": 411
+    },
+    {
+        "title": "Rich Dad Poor Dad",
+        "author": "Robert T. Kiyosaki and Sharon Lechter",
+        "first_publish_year": 1997,
+        "source_rank": 412
+    },
+    {
+        "title": "The Total Money Makeover",
+        "author": "Dave Ramsey",
+        "first_publish_year": 2003,
+        "source_rank": 413
+    },
+    {
+        "title": "The Life-Changing Magic of Tidying Up",
+        "author": "Marie Kondo",
+        "first_publish_year": 2011,
+        "source_rank": 414
+    },
+    {
+        "title": "The Four Agreements",
+        "author": "Don Miguel Ruiz",
+        "first_publish_year": 1997,
+        "source_rank": 415
+    },
+    {
+        "title": "Daring Greatly",
+        "author": "Brene Brown",
+        "first_publish_year": 2012,
+        "source_rank": 416
+    },
+    {
+        "title": "The Gifts of Imperfection",
+        "author": "Brene Brown",
+        "first_publish_year": 2010,
+        "source_rank": 417
+    },
+    {
+        "title": "Atlas of the Heart",
+        "author": "Brene Brown",
+        "first_publish_year": 2021,
+        "source_rank": 418
+    },
+    {
+        "title": "Quiet",
+        "author": "Susan Cain",
+        "first_publish_year": 2012,
+        "source_rank": 419
+    },
+    {
+        "title": "Grit",
+        "author": "Angela Duckworth",
+        "first_publish_year": 2016,
+        "source_rank": 420
+    },
+    {
+        "title": "Outliers",
+        "author": "Malcolm Gladwell",
+        "first_publish_year": 2008,
+        "source_rank": 421
+    },
+    {
+        "title": "The Tipping Point",
+        "author": "Malcolm Gladwell",
+        "first_publish_year": 2000,
+        "source_rank": 422
+    },
+    {
+        "title": "Blink",
+        "author": "Malcolm Gladwell",
+        "first_publish_year": 2005,
+        "source_rank": 423
+    },
+    {
+        "title": "David and Goliath",
+        "author": "Malcolm Gladwell",
+        "first_publish_year": 2013,
+        "source_rank": 424
+    },
+    {
+        "title": "Talking to Strangers",
+        "author": "Malcolm Gladwell",
+        "first_publish_year": 2019,
+        "source_rank": 425
+    },
+    {
+        "title": "Freakonomics",
+        "author": "Steven D. Levitt and Stephen J. Dubner",
+        "first_publish_year": 2005,
+        "source_rank": 426
+    },
+    {
+        "title": "SuperFreakonomics",
+        "author": "Steven D. Levitt and Stephen J. Dubner",
+        "first_publish_year": 2009,
+        "source_rank": 427
+    },
+    {
+        "title": "Thinking, Fast and Slow",
+        "author": "Daniel Kahneman",
+        "first_publish_year": 2011,
+        "source_rank": 428
+    },
+    {
+        "title": "Nudge",
+        "author": "Richard H. Thaler and Cass R. Sunstein",
+        "first_publish_year": 2008,
+        "source_rank": 429
+    },
+    {
+        "title": "Predictably Irrational",
+        "author": "Dan Ariely",
+        "first_publish_year": 2008,
+        "source_rank": 430
+    },
+    {
+        "title": "Sapiens",
+        "author": "Yuval Noah Harari",
+        "first_publish_year": 2014,
+        "source_rank": 431
+    },
+    {
+        "title": "Homo Deus",
+        "author": "Yuval Noah Harari",
+        "first_publish_year": 2015,
+        "source_rank": 432
+    },
+    {
+        "title": "21 Lessons for the 21st Century",
+        "author": "Yuval Noah Harari",
+        "first_publish_year": 2018,
+        "source_rank": 433
+    },
+    {
+        "title": "A Brief History of Time",
+        "author": "Stephen Hawking",
+        "first_publish_year": 1988,
+        "source_rank": 434
+    },
+    {
+        "title": "Black Holes and Baby Universes",
+        "author": "Stephen Hawking",
+        "first_publish_year": 1993,
+        "source_rank": 435
+    },
+    {
+        "title": "The Universe in a Nutshell",
+        "author": "Stephen Hawking",
+        "first_publish_year": 2001,
+        "source_rank": 436
+    },
+    {
+        "title": "Cosmos",
+        "author": "Carl Sagan",
+        "first_publish_year": 1980,
+        "source_rank": 437
+    },
+    {
+        "title": "Pale Blue Dot",
+        "author": "Carl Sagan",
+        "first_publish_year": 1994,
+        "source_rank": 438
+    },
+    {
+        "title": "The Demon-Haunted World",
+        "author": "Carl Sagan",
+        "first_publish_year": 1995,
+        "source_rank": 439
+    },
+    {
+        "title": "The Body Keeps the Score",
+        "author": "Bessel van der Kolk",
+        "first_publish_year": 2014,
+        "source_rank": 440
+    },
+    {
+        "title": "Educated",
+        "author": "Tara Westover",
+        "first_publish_year": 2018,
+        "source_rank": 441
+    },
+    {
+        "title": "Becoming",
+        "author": "Michelle Obama",
+        "first_publish_year": 2018,
+        "source_rank": 442
+    },
+    {
+        "title": "Spare",
+        "author": "Prince Harry",
+        "first_publish_year": 2023,
+        "source_rank": 443
+    },
+    {
+        "title": "I'm Glad My Mom Died",
+        "author": "Jennette McCurdy",
+        "first_publish_year": 2022,
+        "source_rank": 444
+    },
+    {
+        "title": "Crying in H Mart",
+        "author": "Michelle Zauner",
+        "first_publish_year": 2021,
+        "source_rank": 445
+    },
+    {
+        "title": "Born a Crime",
+        "author": "Trevor Noah",
+        "first_publish_year": 2016,
+        "source_rank": 446
+    },
+    {
+        "title": "Greenlights",
+        "author": "Matthew McConaughey",
+        "first_publish_year": 2020,
+        "source_rank": 447
+    },
+    {
+        "title": "Open",
+        "author": "Andre Agassi",
+        "first_publish_year": 2009,
+        "source_rank": 448
+    },
+    {
+        "title": "The Glass Castle",
+        "author": "Jeannette Walls",
+        "first_publish_year": 2005,
+        "source_rank": 449
+    },
+    {
+        "title": "Angela's Ashes",
+        "author": "Frank McCourt",
+        "first_publish_year": 1996,
+        "source_rank": 450
+    },
+    {
+        "title": "Eat, Pray, Love",
+        "author": "Elizabeth Gilbert",
+        "first_publish_year": 2006,
+        "source_rank": 451
+    },
+    {
+        "title": "Wild",
+        "author": "Cheryl Strayed",
+        "first_publish_year": 2012,
+        "source_rank": 452
+    },
+    {
+        "title": "Into the Wild",
+        "author": "Jon Krakauer",
+        "first_publish_year": 1996,
+        "source_rank": 453
+    },
+    {
+        "title": "Into Thin Air",
+        "author": "Jon Krakauer",
+        "first_publish_year": 1997,
+        "source_rank": 454
+    },
+    {
+        "title": "Under the Banner of Heaven",
+        "author": "Jon Krakauer",
+        "first_publish_year": 2003,
+        "source_rank": 455
+    },
+    {
+        "title": "Midnight in the Garden of Good and Evil",
+        "author": "John Berendt",
+        "first_publish_year": 1994,
+        "source_rank": 456
+    },
+    {
+        "title": "Seabiscuit",
+        "author": "Laura Hillenbrand",
+        "first_publish_year": 2001,
+        "source_rank": 457
+    },
+    {
+        "title": "Unbroken",
+        "author": "Laura Hillenbrand",
+        "first_publish_year": 2010,
+        "source_rank": 458
+    },
+    {
+        "title": "The Immortal Life of Henrietta Lacks",
+        "author": "Rebecca Skloot",
+        "first_publish_year": 2010,
+        "source_rank": 459
+    },
+    {
+        "title": "Killers of the Flower Moon",
+        "author": "David Grann",
+        "first_publish_year": 2017,
+        "source_rank": 460
+    },
+    {
+        "title": "The Wager",
+        "author": "David Grann",
+        "first_publish_year": 2023,
+        "source_rank": 461
+    },
+    {
+        "title": "The Lost City of Z",
+        "author": "David Grann",
+        "first_publish_year": 2009,
+        "source_rank": 462
+    },
+    {
+        "title": "Bad Blood",
+        "author": "John Carreyrou",
+        "first_publish_year": 2018,
+        "source_rank": 463
+    },
+    {
+        "title": "Empire of Pain",
+        "author": "Patrick Radden Keefe",
+        "first_publish_year": 2021,
+        "source_rank": 464
+    },
+    {
+        "title": "Say Nothing",
+        "author": "Patrick Radden Keefe",
+        "first_publish_year": 2018,
+        "source_rank": 465
+    },
+    {
+        "title": "Evicted",
+        "author": "Matthew Desmond",
+        "first_publish_year": 2016,
+        "source_rank": 466
+    },
+    {
+        "title": "Between the World and Me",
+        "author": "Ta-Nehisi Coates",
+        "first_publish_year": 2015,
+        "source_rank": 467
+    },
+    {
+        "title": "The Warmth of Other Suns",
+        "author": "Isabel Wilkerson",
+        "first_publish_year": 2010,
+        "source_rank": 468
+    },
+    {
+        "title": "Caste",
+        "author": "Isabel Wilkerson",
+        "first_publish_year": 2020,
+        "source_rank": 469
+    },
+    {
+        "title": "Hidden Figures",
+        "author": "Margot Lee Shetterly",
+        "first_publish_year": 2016,
+        "source_rank": 470
+    },
+    {
+        "title": "The Devil in the White City",
+        "author": "Erik Larson",
+        "first_publish_year": 2003,
+        "source_rank": 471
+    },
+    {
+        "title": "Isaac's Storm",
+        "author": "Erik Larson",
+        "first_publish_year": 1999,
+        "source_rank": 472
+    },
+    {
+        "title": "Dead Wake",
+        "author": "Erik Larson",
+        "first_publish_year": 2015,
+        "source_rank": 473
+    },
+    {
+        "title": "In the Garden of Beasts",
+        "author": "Erik Larson",
+        "first_publish_year": 2011,
+        "source_rank": 474
+    },
+    {
+        "title": "Moneyball",
+        "author": "Michael Lewis",
+        "first_publish_year": 2003,
+        "source_rank": 475
+    },
+    {
+        "title": "The Blind Side",
+        "author": "Michael Lewis",
+        "first_publish_year": 2006,
+        "source_rank": 476
+    },
+    {
+        "title": "The Big Short",
+        "author": "Michael Lewis",
+        "first_publish_year": 2010,
+        "source_rank": 477
+    },
+    {
+        "title": "Flash Boys",
+        "author": "Michael Lewis",
+        "first_publish_year": 2014,
+        "source_rank": 478
+    },
+    {
+        "title": "Liar's Poker",
+        "author": "Michael Lewis",
+        "first_publish_year": 1989,
+        "source_rank": 479
+    },
+    {
+        "title": "The New Jim Crow",
+        "author": "Michelle Alexander",
+        "first_publish_year": 2010,
+        "source_rank": 480
+    },
+    {
+        "title": "Just Mercy",
+        "author": "Bryan Stevenson",
+        "first_publish_year": 2014,
+        "source_rank": 481
+    },
+    {
+        "title": "Maybe You Should Talk to Someone",
+        "author": "Lori Gottlieb",
+        "first_publish_year": 2019,
+        "source_rank": 482
+    },
+    {
+        "title": "Why We Sleep",
+        "author": "Matthew Walker",
+        "first_publish_year": 2017,
+        "source_rank": 483
+    },
+    {
+        "title": "Breath",
+        "author": "James Nestor",
+        "first_publish_year": 2020,
+        "source_rank": 484
+    },
+    {
+        "title": "The Gene",
+        "author": "Siddhartha Mukherjee",
+        "first_publish_year": 2016,
+        "source_rank": 485
+    },
+    {
+        "title": "The Emperor of All Maladies",
+        "author": "Siddhartha Mukherjee",
+        "first_publish_year": 2010,
+        "source_rank": 486
+    },
+    {
+        "title": "The Song of the Cell",
+        "author": "Siddhartha Mukherjee",
+        "first_publish_year": 2022,
+        "source_rank": 487
+    },
+    {
+        "title": "Being Mortal",
+        "author": "Atul Gawande",
+        "first_publish_year": 2014,
+        "source_rank": 488
+    },
+    {
+        "title": "The Checklist Manifesto",
+        "author": "Atul Gawande",
+        "first_publish_year": 2009,
+        "source_rank": 489
+    },
+    {
+        "title": "Complications",
+        "author": "Atul Gawande",
+        "first_publish_year": 2002,
+        "source_rank": 490
+    },
+    {
+        "title": "When Breath Becomes Air",
+        "author": "Paul Kalanithi",
+        "first_publish_year": 2016,
+        "source_rank": 491
+    },
+    {
+        "title": "How to Win Friends & Influence People in the Digital Age",
+        "author": "Dale Carnegie & Associates",
+        "first_publish_year": 2011,
+        "source_rank": 492
+    },
+    {
+        "title": "Drive",
+        "author": "Daniel H. Pink",
+        "first_publish_year": 2009,
+        "source_rank": 493
+    },
+    {
+        "title": "The Power of Habit",
+        "author": "Charles Duhigg",
+        "first_publish_year": 2012,
+        "source_rank": 494
+    },
+    {
+        "title": "Smarter Faster Better",
+        "author": "Charles Duhigg",
+        "first_publish_year": 2016,
+        "source_rank": 495
+    },
+    {
+        "title": "Originals",
+        "author": "Adam Grant",
+        "first_publish_year": 2016,
+        "source_rank": 496
+    },
+    {
+        "title": "Think Again",
+        "author": "Adam Grant",
+        "first_publish_year": 2021,
+        "source_rank": 497
+    },
+    {
+        "title": "Give and Take",
+        "author": "Adam Grant",
+        "first_publish_year": 2013,
+        "source_rank": 498
+    },
+    {
+        "title": "Option B",
+        "author": "Sheryl Sandberg and Adam Grant",
+        "first_publish_year": 2017,
+        "source_rank": 499
+    },
+    {
+        "title": "Lean In",
+        "author": "Sheryl Sandberg",
+        "first_publish_year": 2013,
+        "source_rank": 500
+    },
+    {
+        "title": "Attached",
+        "author": "Amir Levine and Rachel Heller",
+        "first_publish_year": 2010,
+        "source_rank": 501
+    },
+    {
+        "title": "Men Are from Mars, Women Are from Venus",
+        "author": "John Gray",
+        "first_publish_year": 1992,
+        "source_rank": 502
+    },
+    {
+        "title": "The 48 Laws of Power",
+        "author": "Robert Greene",
+        "first_publish_year": 1998,
+        "source_rank": 503
+    },
+    {
+        "title": "The Laws of Human Nature",
+        "author": "Robert Greene",
+        "first_publish_year": 2018,
+        "source_rank": 504
+    },
+    {
+        "title": "Mastery",
+        "author": "Robert Greene",
+        "first_publish_year": 2012,
+        "source_rank": 505
+    },
+    {
+        "title": "The Art of Seduction",
+        "author": "Robert Greene",
+        "first_publish_year": 2001,
+        "source_rank": 506
+    },
+    {
+        "title": "Can't Hurt Me",
+        "author": "David Goggins",
+        "first_publish_year": 2018,
+        "source_rank": 507
+    },
+    {
+        "title": "Never Finished",
+        "author": "David Goggins",
+        "first_publish_year": 2022,
+        "source_rank": 508
+    },
+    {
+        "title": "You Are a Badass",
+        "author": "Jen Sincero",
+        "first_publish_year": 2013,
+        "source_rank": 509
+    },
+    {
+        "title": "Girl, Wash Your Face",
+        "author": "Rachel Hollis",
+        "first_publish_year": 2018,
+        "source_rank": 510
+    },
+    {
+        "title": "The Last Lecture",
+        "author": "Randy Pausch",
+        "first_publish_year": 2008,
+        "source_rank": 511
+    },
+    {
+        "title": "Start with Why",
+        "author": "Simon Sinek",
+        "first_publish_year": 2009,
+        "source_rank": 512
+    },
+    {
+        "title": "Leaders Eat Last",
+        "author": "Simon Sinek",
+        "first_publish_year": 2014,
+        "source_rank": 513
+    },
+    {
+        "title": "The Infinite Game",
+        "author": "Simon Sinek",
+        "first_publish_year": 2019,
+        "source_rank": 514
+    },
+    {
+        "title": "Zero to One",
+        "author": "Peter Thiel and Blake Masters",
+        "first_publish_year": 2014,
+        "source_rank": 515
+    },
+    {
+        "title": "Hooked",
+        "author": "Nir Eyal",
+        "first_publish_year": 2014,
+        "source_rank": 516
+    },
+    {
+        "title": "Deep Work",
+        "author": "Cal Newport",
+        "first_publish_year": 2016,
+        "source_rank": 517
+    },
+    {
+        "title": "Digital Minimalism",
+        "author": "Cal Newport",
+        "first_publish_year": 2019,
+        "source_rank": 518
+    },
+    {
+        "title": "So Good They Can't Ignore You",
+        "author": "Cal Newport",
+        "first_publish_year": 2012,
+        "source_rank": 519
+    },
+    {
+        "title": "The Defining Decade",
+        "author": "Meg Jay",
+        "first_publish_year": 2012,
+        "source_rank": 520
+    },
+    {
+        "title": "The Road Less Traveled",
+        "author": "M. Scott Peck",
+        "first_publish_year": 1978,
+        "source_rank": 521
+    },
+    {
+        "title": "Women Who Run With the Wolves",
+        "author": "Clarissa Pinkola Estes",
+        "first_publish_year": 1992,
+        "source_rank": 522
+    },
+    {
+        "title": "All About Love",
+        "author": "bell hooks",
+        "first_publish_year": 2000,
+        "source_rank": 523
+    },
+    {
+        "title": "Communion",
+        "author": "bell hooks",
+        "first_publish_year": 2001,
+        "source_rank": 524
+    },
+    {
+        "title": "The Artist's Way",
+        "author": "Julia Cameron",
+        "first_publish_year": 1992,
+        "source_rank": 525
+    },
+    {
+        "title": "Bird by Bird",
+        "author": "Anne Lamott",
+        "first_publish_year": 1994,
+        "source_rank": 526
+    },
+    {
+        "title": "Operating Instructions",
+        "author": "Anne Lamott",
+        "first_publish_year": 1993,
+        "source_rank": 527
+    },
+    {
+        "title": "Traveling Mercies",
+        "author": "Anne Lamott",
+        "first_publish_year": 1999,
+        "source_rank": 528
+    },
+    {
+        "title": "The Year of Magical Thinking",
+        "author": "Joan Didion",
+        "first_publish_year": 2005,
+        "source_rank": 529
+    },
+    {
+        "title": "Blue Nights",
+        "author": "Joan Didion",
+        "first_publish_year": 2011,
+        "source_rank": 530
+    },
+    {
+        "title": "A Heartbreaking Work of Staggering Genius",
+        "author": "Dave Eggers",
+        "first_publish_year": 2000,
+        "source_rank": 531
+    },
+    {
+        "title": "Zeitoun",
+        "author": "Dave Eggers",
+        "first_publish_year": 2009,
+        "source_rank": 532
+    },
+    {
+        "title": "What Is the What",
+        "author": "Dave Eggers",
+        "first_publish_year": 2006,
+        "source_rank": 533
+    },
+    {
+        "title": "Nickel and Dimed",
+        "author": "Barbara Ehrenreich",
+        "first_publish_year": 2001,
+        "source_rank": 534
+    },
+    {
+        "title": "The Omnivore's Dilemma",
+        "author": "Michael Pollan",
+        "first_publish_year": 2006,
+        "source_rank": 535
+    },
+    {
+        "title": "In Defense of Food",
+        "author": "Michael Pollan",
+        "first_publish_year": 2008,
+        "source_rank": 536
+    },
+    {
+        "title": "Cooked",
+        "author": "Michael Pollan",
+        "first_publish_year": 2013,
+        "source_rank": 537
+    },
+    {
+        "title": "How to Change Your Mind",
+        "author": "Michael Pollan",
+        "first_publish_year": 2018,
+        "source_rank": 538
+    },
+    {
+        "title": "Fast Food Nation",
+        "author": "Eric Schlosser",
+        "first_publish_year": 2001,
+        "source_rank": 539
+    },
+    {
+        "title": "Salt Sugar Fat",
+        "author": "Michael Moss",
+        "first_publish_year": 2013,
+        "source_rank": 540
+    },
+    {
+        "title": "Kitchen Confidential",
+        "author": "Anthony Bourdain",
+        "first_publish_year": 2000,
+        "source_rank": 541
+    },
+    {
+        "title": "Medium Raw",
+        "author": "Anthony Bourdain",
+        "first_publish_year": 2010,
+        "source_rank": 542
+    },
+    {
+        "title": "On Writing",
+        "author": "Stephen King",
+        "first_publish_year": 2000,
+        "source_rank": 543
+    },
+    {
+        "title": "Danse Macabre",
+        "author": "Stephen King",
+        "first_publish_year": 1981,
+        "source_rank": 544
+    },
+    {
+        "title": "It",
+        "author": "Stephen King",
+        "first_publish_year": 1986,
+        "source_rank": 545
+    },
+    {
+        "title": "The Shining",
+        "author": "Stephen King",
+        "first_publish_year": 1977,
+        "source_rank": 546
+    },
+    {
+        "title": "Pet Sematary",
+        "author": "Stephen King",
+        "first_publish_year": 1983,
+        "source_rank": 547
+    },
+    {
+        "title": "Misery",
+        "author": "Stephen King",
+        "first_publish_year": 1987,
+        "source_rank": 548
+    },
+    {
+        "title": "The Stand",
+        "author": "Stephen King",
+        "first_publish_year": 1978,
+        "source_rank": 549
+    },
+    {
+        "title": "The Green Mile",
+        "author": "Stephen King",
+        "first_publish_year": 1996,
+        "source_rank": 550
+    },
+    {
+        "title": "11/22/63",
+        "author": "Stephen King",
+        "first_publish_year": 2011,
+        "source_rank": 551
+    },
+    {
+        "title": "Under the Dome",
+        "author": "Stephen King",
+        "first_publish_year": 2009,
+        "source_rank": 552
+    },
+    {
+        "title": "The Institute",
+        "author": "Stephen King",
+        "first_publish_year": 2019,
+        "source_rank": 553
+    },
+    {
+        "title": "Fairy Tale",
+        "author": "Stephen King",
+        "first_publish_year": 2022,
+        "source_rank": 554
+    },
+    {
+        "title": "Holly",
+        "author": "Stephen King",
+        "first_publish_year": 2023,
+        "source_rank": 555
+    },
+    {
+        "title": "Doctor Sleep",
+        "author": "Stephen King",
+        "first_publish_year": 2013,
+        "source_rank": 556
+    },
+    {
+        "title": "Revival",
+        "author": "Stephen King",
+        "first_publish_year": 2014,
+        "source_rank": 557
+    },
+    {
+        "title": "The Outsider",
+        "author": "Stephen King",
+        "first_publish_year": 2018,
+        "source_rank": 558
+    },
+    {
+        "title": "Billy Summers",
+        "author": "Stephen King",
+        "first_publish_year": 2021,
+        "source_rank": 559
+    },
+    {
+        "title": "The Gunslinger",
+        "author": "Stephen King",
+        "first_publish_year": 1982,
+        "source_rank": 560
+    },
+    {
+        "title": "The Drawing of the Three",
+        "author": "Stephen King",
+        "first_publish_year": 1987,
+        "source_rank": 561
+    },
+    {
+        "title": "The Waste Lands",
+        "author": "Stephen King",
+        "first_publish_year": 1991,
+        "source_rank": 562
+    },
+    {
+        "title": "Wizard and Glass",
+        "author": "Stephen King",
+        "first_publish_year": 1997,
+        "source_rank": 563
+    },
+    {
+        "title": "Wolves of the Calla",
+        "author": "Stephen King",
+        "first_publish_year": 2003,
+        "source_rank": 564
+    },
+    {
+        "title": "Song of Susannah",
+        "author": "Stephen King",
+        "first_publish_year": 2004,
+        "source_rank": 565
+    },
+    {
+        "title": "The Dark Tower",
+        "author": "Stephen King",
+        "first_publish_year": 2004,
+        "source_rank": 566
+    },
+    {
+        "title": "The Tommyknockers",
+        "author": "Stephen King",
+        "first_publish_year": 1987,
+        "source_rank": 567
+    },
+    {
+        "title": "Needful Things",
+        "author": "Stephen King",
+        "first_publish_year": 1991,
+        "source_rank": 568
+    },
+    {
+        "title": "Dolores Claiborne",
+        "author": "Stephen King",
+        "first_publish_year": 1992,
+        "source_rank": 569
+    },
+    {
+        "title": "Gerald's Game",
+        "author": "Stephen King",
+        "first_publish_year": 1992,
+        "source_rank": 570
+    },
+    {
+        "title": "Bag of Bones",
+        "author": "Stephen King",
+        "first_publish_year": 1998,
+        "source_rank": 571
+    },
+    {
+        "title": "Dreamcatcher",
+        "author": "Stephen King",
+        "first_publish_year": 2001,
+        "source_rank": 572
+    },
+    {
+        "title": "Later",
+        "author": "Stephen King",
+        "first_publish_year": 2021,
+        "source_rank": 573
+    },
+    {
+        "title": "The Dead Zone",
+        "author": "Stephen King",
+        "first_publish_year": 1979,
+        "source_rank": 574
+    },
+    {
+        "title": "Interview with the Vampire",
+        "author": "Anne Rice",
+        "first_publish_year": 1976,
+        "source_rank": 575
+    },
+    {
+        "title": "The Vampire Lestat",
+        "author": "Anne Rice",
+        "first_publish_year": 1985,
+        "source_rank": 576
+    },
+    {
+        "title": "The Queen of the Damned",
+        "author": "Anne Rice",
+        "first_publish_year": 1988,
+        "source_rank": 577
+    },
+    {
+        "title": "The Witching Hour",
+        "author": "Anne Rice",
+        "first_publish_year": 1990,
+        "source_rank": 578
+    },
+    {
+        "title": "Memnoch the Devil",
+        "author": "Anne Rice",
+        "first_publish_year": 1995,
+        "source_rank": 579
+    },
+    {
+        "title": "Servant of the Bones",
+        "author": "Anne Rice",
+        "first_publish_year": 1996,
+        "source_rank": 580
+    },
+    {
+        "title": "The Wolf Gift",
+        "author": "Anne Rice",
+        "first_publish_year": 2012,
+        "source_rank": 581
+    },
+    {
+        "title": "Flowers in the Attic",
+        "author": "V.C. Andrews",
+        "first_publish_year": 1979,
+        "source_rank": 582
+    },
+    {
+        "title": "My Sweet Audrina",
+        "author": "V.C. Andrews",
+        "first_publish_year": 1982,
+        "source_rank": 583
+    },
+    {
+        "title": "Heaven",
+        "author": "V.C. Andrews",
+        "first_publish_year": 1985,
+        "source_rank": 584
+    },
+    {
+        "title": "Ghost Story",
+        "author": "Peter Straub",
+        "first_publish_year": 1979,
+        "source_rank": 585
+    },
+    {
+        "title": "The Talisman",
+        "author": "Stephen King and Peter Straub",
+        "first_publish_year": 1984,
+        "source_rank": 586
+    },
+    {
+        "title": "Swan Song",
+        "author": "Robert McCammon",
+        "first_publish_year": 1987,
+        "source_rank": 587
+    },
+    {
+        "title": "Summer of Night",
+        "author": "Dan Simmons",
+        "first_publish_year": 1991,
+        "source_rank": 588
+    },
+    {
+        "title": "Carrion Comfort",
+        "author": "Dan Simmons",
+        "first_publish_year": 1989,
+        "source_rank": 589
+    },
+    {
+        "title": "The Terror",
+        "author": "Dan Simmons",
+        "first_publish_year": 2007,
+        "source_rank": 590
+    },
+    {
+        "title": "Hyperion",
+        "author": "Dan Simmons",
+        "first_publish_year": 1989,
+        "source_rank": 591
+    },
+    {
+        "title": "The Fall of Hyperion",
+        "author": "Dan Simmons",
+        "first_publish_year": 1990,
+        "source_rank": 592
+    },
+    {
+        "title": "Endymion",
+        "author": "Dan Simmons",
+        "first_publish_year": 1996,
+        "source_rank": 593
+    },
+    {
+        "title": "The Rise of Endymion",
+        "author": "Dan Simmons",
+        "first_publish_year": 1997,
+        "source_rank": 594
+    },
+    {
+        "title": "Snow Crash",
+        "author": "Neal Stephenson",
+        "first_publish_year": 1992,
+        "source_rank": 595
+    },
+    {
+        "title": "Cryptonomicon",
+        "author": "Neal Stephenson",
+        "first_publish_year": 1999,
+        "source_rank": 596
+    },
+    {
+        "title": "Anathem",
+        "author": "Neal Stephenson",
+        "first_publish_year": 2008,
+        "source_rank": 597
+    },
+    {
+        "title": "Reamde",
+        "author": "Neal Stephenson",
+        "first_publish_year": 2011,
+        "source_rank": 598
+    },
+    {
+        "title": "Seveneves",
+        "author": "Neal Stephenson",
+        "first_publish_year": 2015,
+        "source_rank": 599
+    },
+    {
+        "title": "Termination Shock",
+        "author": "Neal Stephenson",
+        "first_publish_year": 2021,
+        "source_rank": 600
+    },
+    {
+        "title": "Neuromancer",
+        "author": "William Gibson",
+        "first_publish_year": 1984,
+        "source_rank": 601
+    },
+    {
+        "title": "Count Zero",
+        "author": "William Gibson",
+        "first_publish_year": 1986,
+        "source_rank": 602
+    },
+    {
+        "title": "Mona Lisa Overdrive",
+        "author": "William Gibson",
+        "first_publish_year": 1988,
+        "source_rank": 603
+    },
+    {
+        "title": "Pattern Recognition",
+        "author": "William Gibson",
+        "first_publish_year": 2003,
+        "source_rank": 604
+    },
+    {
+        "title": "The Peripheral",
+        "author": "William Gibson",
+        "first_publish_year": 2014,
+        "source_rank": 605
+    },
+    {
+        "title": "Burning Chrome",
+        "author": "William Gibson",
+        "first_publish_year": 1986,
+        "source_rank": 606
+    },
+    {
+        "title": "Kindred",
+        "author": "Octavia E. Butler",
+        "first_publish_year": 1979,
+        "source_rank": 607
+    },
+    {
+        "title": "Parable of the Sower",
+        "author": "Octavia E. Butler",
+        "first_publish_year": 1993,
+        "source_rank": 608
+    },
+    {
+        "title": "Parable of the Talents",
+        "author": "Octavia E. Butler",
+        "first_publish_year": 1998,
+        "source_rank": 609
+    },
+    {
+        "title": "Dawn",
+        "author": "Octavia E. Butler",
+        "first_publish_year": 1987,
+        "source_rank": 610
+    },
+    {
+        "title": "Lilith's Brood",
+        "author": "Octavia E. Butler",
+        "first_publish_year": 2000,
+        "source_rank": 611
+    },
+    {
+        "title": "Fledgling",
+        "author": "Octavia E. Butler",
+        "first_publish_year": 2005,
+        "source_rank": 612
+    },
+    {
+        "title": "The Fifth Season",
+        "author": "N.K. Jemisin",
+        "first_publish_year": 2015,
+        "source_rank": 613
+    },
+    {
+        "title": "The Obelisk Gate",
+        "author": "N.K. Jemisin",
+        "first_publish_year": 2016,
+        "source_rank": 614
+    },
+    {
+        "title": "The Stone Sky",
+        "author": "N.K. Jemisin",
+        "first_publish_year": 2017,
+        "source_rank": 615
+    },
+    {
+        "title": "The City We Became",
+        "author": "N.K. Jemisin",
+        "first_publish_year": 2020,
+        "source_rank": 616
+    },
+    {
+        "title": "The Hundred Thousand Kingdoms",
+        "author": "N.K. Jemisin",
+        "first_publish_year": 2010,
+        "source_rank": 617
+    },
+    {
+        "title": "Black Leopard, Red Wolf",
+        "author": "Marlon James",
+        "first_publish_year": 2019,
+        "source_rank": 618
+    },
+    {
+        "title": "Moon Witch, Spider King",
+        "author": "Marlon James",
+        "first_publish_year": 2022,
+        "source_rank": 619
+    },
+    {
+        "title": "The Underground Railroad",
+        "author": "Colson Whitehead",
+        "first_publish_year": 2016,
+        "source_rank": 620
+    },
+    {
+        "title": "The Nickel Boys",
+        "author": "Colson Whitehead",
+        "first_publish_year": 2019,
+        "source_rank": 621
+    },
+    {
+        "title": "Harlem Shuffle",
+        "author": "Colson Whitehead",
+        "first_publish_year": 2021,
+        "source_rank": 622
+    },
+    {
+        "title": "Crook Manifesto",
+        "author": "Colson Whitehead",
+        "first_publish_year": 2023,
+        "source_rank": 623
+    },
+    {
+        "title": "The Sympathizer",
+        "author": "Viet Thanh Nguyen",
+        "first_publish_year": 2015,
+        "source_rank": 624
+    },
+    {
+        "title": "The Committed",
+        "author": "Viet Thanh Nguyen",
+        "first_publish_year": 2021,
+        "source_rank": 625
+    },
+    {
+        "title": "Homegoing",
+        "author": "Yaa Gyasi",
+        "first_publish_year": 2016,
+        "source_rank": 626
+    },
+    {
+        "title": "Transcendent Kingdom",
+        "author": "Yaa Gyasi",
+        "first_publish_year": 2020,
+        "source_rank": 627
+    },
+    {
+        "title": "An American Marriage",
+        "author": "Tayari Jones",
+        "first_publish_year": 2018,
+        "source_rank": 628
+    },
+    {
+        "title": "Silver Sparrow",
+        "author": "Tayari Jones",
+        "first_publish_year": 2011,
+        "source_rank": 629
+    },
+    {
+        "title": "Americanah",
+        "author": "Chimamanda Ngozi Adichie",
+        "first_publish_year": 2013,
+        "source_rank": 630
+    },
+    {
+        "title": "Half of a Yellow Sun",
+        "author": "Chimamanda Ngozi Adichie",
+        "first_publish_year": 2006,
+        "source_rank": 631
+    },
+    {
+        "title": "Purple Hibiscus",
+        "author": "Chimamanda Ngozi Adichie",
+        "first_publish_year": 2003,
+        "source_rank": 632
+    },
+    {
+        "title": "We Should All Be Feminists",
+        "author": "Chimamanda Ngozi Adichie",
+        "first_publish_year": 2014,
+        "source_rank": 633
+    },
+    {
+        "title": "Roots",
+        "author": "Alex Haley",
+        "first_publish_year": 1976,
+        "source_rank": 634
+    },
+    {
+        "title": "The Thorn Birds",
+        "author": "Colleen McCullough",
+        "first_publish_year": 1977,
+        "source_rank": 635
+    },
+    {
+        "title": "The Color of Water",
+        "author": "James McBride",
+        "first_publish_year": 1995,
+        "source_rank": 636
+    },
+    {
+        "title": "Verity",
+        "author": "Colleen Hoover",
+        "first_publish_year": 2018,
+        "source_rank": 637
+    },
+    {
+        "title": "It Ends with Us",
+        "author": "Colleen Hoover",
+        "first_publish_year": 2016,
+        "source_rank": 638
+    },
+    {
+        "title": "It Starts with Us",
+        "author": "Colleen Hoover",
+        "first_publish_year": 2022,
+        "source_rank": 639
+    },
+    {
+        "title": "Ugly Love",
+        "author": "Colleen Hoover",
+        "first_publish_year": 2014,
+        "source_rank": 640
+    },
+    {
+        "title": "November 9",
+        "author": "Colleen Hoover",
+        "first_publish_year": 2015,
+        "source_rank": 641
+    },
+    {
+        "title": "Reminders of Him",
+        "author": "Colleen Hoover",
+        "first_publish_year": 2022,
+        "source_rank": 642
+    },
+    {
+        "title": "Confess",
+        "author": "Colleen Hoover",
+        "first_publish_year": 2015,
+        "source_rank": 643
+    },
+    {
+        "title": "Heart Bones",
+        "author": "Colleen Hoover",
+        "first_publish_year": 2020,
+        "source_rank": 644
+    },
+    {
+        "title": "Maybe Someday",
+        "author": "Colleen Hoover",
+        "first_publish_year": 2014,
+        "source_rank": 645
+    },
+    {
+        "title": "Hopeless",
+        "author": "Colleen Hoover",
+        "first_publish_year": 2012,
+        "source_rank": 646
+    },
+    {
+        "title": "Beach Read",
+        "author": "Emily Henry",
+        "first_publish_year": 2020,
+        "source_rank": 647
+    },
+    {
+        "title": "People We Meet on Vacation",
+        "author": "Emily Henry",
+        "first_publish_year": 2021,
+        "source_rank": 648
+    },
+    {
+        "title": "Book Lovers",
+        "author": "Emily Henry",
+        "first_publish_year": 2022,
+        "source_rank": 649
+    },
+    {
+        "title": "Happy Place",
+        "author": "Emily Henry",
+        "first_publish_year": 2023,
+        "source_rank": 650
+    },
+    {
+        "title": "Funny Story",
+        "author": "Emily Henry",
+        "first_publish_year": 2024,
+        "source_rank": 651
+    },
+    {
+        "title": "Yours Truly",
+        "author": "Abby Jimenez",
+        "first_publish_year": 2023,
+        "source_rank": 652
+    },
+    {
+        "title": "Just for the Summer",
+        "author": "Abby Jimenez",
+        "first_publish_year": 2024,
+        "source_rank": 653
+    },
+    {
+        "title": "Part of Your World",
+        "author": "Abby Jimenez",
+        "first_publish_year": 2022,
+        "source_rank": 654
+    },
+    {
+        "title": "The Friend Zone",
+        "author": "Abby Jimenez",
+        "first_publish_year": 2019,
+        "source_rank": 655
+    },
+    {
+        "title": "Red, White & Royal Blue",
+        "author": "Casey McQuiston",
+        "first_publish_year": 2019,
+        "source_rank": 656
+    },
+    {
+        "title": "One Last Stop",
+        "author": "Casey McQuiston",
+        "first_publish_year": 2021,
+        "source_rank": 657
+    },
+    {
+        "title": "The Hating Game",
+        "author": "Sally Thorne",
+        "first_publish_year": 2016,
+        "source_rank": 658
+    },
+    {
+        "title": "The Love Hypothesis",
+        "author": "Ali Hazelwood",
+        "first_publish_year": 2021,
+        "source_rank": 659
+    },
+    {
+        "title": "Love on the Brain",
+        "author": "Ali Hazelwood",
+        "first_publish_year": 2022,
+        "source_rank": 660
+    },
+    {
+        "title": "Bride",
+        "author": "Ali Hazelwood",
+        "first_publish_year": 2024,
+        "source_rank": 661
+    },
+    {
+        "title": "The Kiss Quotient",
+        "author": "Helen Hoang",
+        "first_publish_year": 2018,
+        "source_rank": 662
+    },
+    {
+        "title": "The Bride Test",
+        "author": "Helen Hoang",
+        "first_publish_year": 2019,
+        "source_rank": 663
+    },
+    {
+        "title": "Get a Life, Chloe Brown",
+        "author": "Talia Hibbert",
+        "first_publish_year": 2019,
+        "source_rank": 664
+    },
+    {
+        "title": "Take a Hint, Dani Brown",
+        "author": "Talia Hibbert",
+        "first_publish_year": 2020,
+        "source_rank": 665
+    },
+    {
+        "title": "Act Your Age, Eve Brown",
+        "author": "Talia Hibbert",
+        "first_publish_year": 2021,
+        "source_rank": 666
+    },
+    {
+        "title": "The Rosie Project",
+        "author": "Graeme Simsion",
+        "first_publish_year": 2013,
+        "source_rank": 667
+    },
+    {
+        "title": "Me Before You",
+        "author": "Jojo Moyes",
+        "first_publish_year": 2012,
+        "source_rank": 668
+    },
+    {
+        "title": "After You",
+        "author": "Jojo Moyes",
+        "first_publish_year": 2015,
+        "source_rank": 669
+    },
+    {
+        "title": "Still Me",
+        "author": "Jojo Moyes",
+        "first_publish_year": 2018,
+        "source_rank": 670
+    },
+    {
+        "title": "Someone Else's Shoes",
+        "author": "Jojo Moyes",
+        "first_publish_year": 2023,
+        "source_rank": 671
+    },
+    {
+        "title": "The Wedding Date",
+        "author": "Jasmine Guillory",
+        "first_publish_year": 2018,
+        "source_rank": 672
+    },
+    {
+        "title": "The Proposal",
+        "author": "Jasmine Guillory",
+        "first_publish_year": 2018,
+        "source_rank": 673
+    },
+    {
+        "title": "The Roommate",
+        "author": "Rosie Danan",
+        "first_publish_year": 2020,
+        "source_rank": 674
+    },
+    {
+        "title": "The Soulmate Equation",
+        "author": "Christina Lauren",
+        "first_publish_year": 2021,
+        "source_rank": 675
+    },
+    {
+        "title": "The Unhoneymooners",
+        "author": "Christina Lauren",
+        "first_publish_year": 2019,
+        "source_rank": 676
+    },
+    {
+        "title": "Love and Other Words",
+        "author": "Christina Lauren",
+        "first_publish_year": 2018,
+        "source_rank": 677
+    },
+    {
+        "title": "In a Holidaze",
+        "author": "Christina Lauren",
+        "first_publish_year": 2020,
+        "source_rank": 678
+    },
+    {
+        "title": "The Spanish Love Deception",
+        "author": "Elena Armas",
+        "first_publish_year": 2021,
+        "source_rank": 679
+    },
+    {
+        "title": "The American Roommate Experiment",
+        "author": "Elena Armas",
+        "first_publish_year": 2022,
+        "source_rank": 680
+    },
+    {
+        "title": "The Bromance Book Club",
+        "author": "Lyssa Kay Adams",
+        "first_publish_year": 2019,
+        "source_rank": 681
+    },
+    {
+        "title": "The Duke and I",
+        "author": "Julia Quinn",
+        "first_publish_year": 2000,
+        "source_rank": 682
+    },
+    {
+        "title": "The Viscount Who Loved Me",
+        "author": "Julia Quinn",
+        "first_publish_year": 2000,
+        "source_rank": 683
+    },
+    {
+        "title": "Romancing Mister Bridgerton",
+        "author": "Julia Quinn",
+        "first_publish_year": 2002,
+        "source_rank": 684
+    },
+    {
+        "title": "When He Was Wicked",
+        "author": "Julia Quinn",
+        "first_publish_year": 2004,
+        "source_rank": 685
+    },
+    {
+        "title": "Outlander",
+        "author": "Diana Gabaldon",
+        "first_publish_year": 1991,
+        "source_rank": 686
+    },
+    {
+        "title": "Dragonfly in Amber",
+        "author": "Diana Gabaldon",
+        "first_publish_year": 1992,
+        "source_rank": 687
+    },
+    {
+        "title": "Voyager",
+        "author": "Diana Gabaldon",
+        "first_publish_year": 1993,
+        "source_rank": 688
+    },
+    {
+        "title": "Drums of Autumn",
+        "author": "Diana Gabaldon",
+        "first_publish_year": 1996,
+        "source_rank": 689
+    },
+    {
+        "title": "A Breath of Snow and Ashes",
+        "author": "Diana Gabaldon",
+        "first_publish_year": 2005,
+        "source_rank": 690
+    },
+    {
+        "title": "Written in My Own Heart's Blood",
+        "author": "Diana Gabaldon",
+        "first_publish_year": 2014,
+        "source_rank": 691
+    },
+    {
+        "title": "Go Tell the Bees That I Am Gone",
+        "author": "Diana Gabaldon",
+        "first_publish_year": 2021,
+        "source_rank": 692
+    },
+    {
+        "title": "The Clan of the Cave Bear",
+        "author": "Jean M. Auel",
+        "first_publish_year": 1980,
+        "source_rank": 693
+    },
+    {
+        "title": "The Valley of Horses",
+        "author": "Jean M. Auel",
+        "first_publish_year": 1982,
+        "source_rank": 694
+    },
+    {
+        "title": "The Mammoth Hunters",
+        "author": "Jean M. Auel",
+        "first_publish_year": 1985,
+        "source_rank": 695
+    },
+    {
+        "title": "The Plains of Passage",
+        "author": "Jean M. Auel",
+        "first_publish_year": 1990,
+        "source_rank": 696
+    },
+    {
+        "title": "The Bourne Identity",
+        "author": "Robert Ludlum",
+        "first_publish_year": 1980,
+        "source_rank": 697
+    },
+    {
+        "title": "The Bourne Supremacy",
+        "author": "Robert Ludlum",
+        "first_publish_year": 1986,
+        "source_rank": 698
+    },
+    {
+        "title": "The Bourne Ultimatum",
+        "author": "Robert Ludlum",
+        "first_publish_year": 1990,
+        "source_rank": 699
+    },
+    {
+        "title": "Patriot Games",
+        "author": "Tom Clancy",
+        "first_publish_year": 1987,
+        "source_rank": 700
+    },
+    {
+        "title": "The Hunt for Red October",
+        "author": "Tom Clancy",
+        "first_publish_year": 1984,
+        "source_rank": 701
+    },
+    {
+        "title": "Clear and Present Danger",
+        "author": "Tom Clancy",
+        "first_publish_year": 1989,
+        "source_rank": 702
+    },
+    {
+        "title": "The Sum of All Fears",
+        "author": "Tom Clancy",
+        "first_publish_year": 1991,
+        "source_rank": 703
+    },
+    {
+        "title": "Without Remorse",
+        "author": "Tom Clancy",
+        "first_publish_year": 1993,
+        "source_rank": 704
+    },
+    {
+        "title": "Debt of Honor",
+        "author": "Tom Clancy",
+        "first_publish_year": 1994,
+        "source_rank": 705
+    },
+    {
+        "title": "Executive Orders",
+        "author": "Tom Clancy",
+        "first_publish_year": 1996,
+        "source_rank": 706
+    },
+    {
+        "title": "Rainbow Six",
+        "author": "Tom Clancy",
+        "first_publish_year": 1998,
+        "source_rank": 707
+    },
+    {
+        "title": "The Bear and the Dragon",
+        "author": "Tom Clancy",
+        "first_publish_year": 2000,
+        "source_rank": 708
+    },
+    {
+        "title": "The Girl on the Train",
+        "author": "Paula Hawkins",
+        "first_publish_year": 2015,
+        "source_rank": 709
+    },
+    {
+        "title": "Into the Water",
+        "author": "Paula Hawkins",
+        "first_publish_year": 2017,
+        "source_rank": 710
+    },
+    {
+        "title": "Behind Closed Doors",
+        "author": "B.A. Paris",
+        "first_publish_year": 2016,
+        "source_rank": 711
+    },
+    {
+        "title": "The Woman in the Window",
+        "author": "A.J. Finn",
+        "first_publish_year": 2018,
+        "source_rank": 712
+    },
+    {
+        "title": "The Couple Next Door",
+        "author": "Shari Lapena",
+        "first_publish_year": 2016,
+        "source_rank": 713
+    },
+    {
+        "title": "The Last Thing He Told Me",
+        "author": "Laura Dave",
+        "first_publish_year": 2021,
+        "source_rank": 714
+    },
+    {
+        "title": "Big Little Lies",
+        "author": "Liane Moriarty",
+        "first_publish_year": 2014,
+        "source_rank": 715
+    },
+    {
+        "title": "The Husband's Secret",
+        "author": "Liane Moriarty",
+        "first_publish_year": 2013,
+        "source_rank": 716
+    },
+    {
+        "title": "Apples Never Fall",
+        "author": "Liane Moriarty",
+        "first_publish_year": 2021,
+        "source_rank": 717
+    },
+    {
+        "title": "Truly Madly Guilty",
+        "author": "Liane Moriarty",
+        "first_publish_year": 2016,
+        "source_rank": 718
+    },
+    {
+        "title": "Nine Perfect Strangers",
+        "author": "Liane Moriarty",
+        "first_publish_year": 2018,
+        "source_rank": 719
+    },
+    {
+        "title": "The Last Mrs. Parrish",
+        "author": "Liv Constantine",
+        "first_publish_year": 2017,
+        "source_rank": 720
+    },
+    {
+        "title": "The Guest List",
+        "author": "Lucy Foley",
+        "first_publish_year": 2020,
+        "source_rank": 721
+    },
+    {
+        "title": "The Paris Apartment",
+        "author": "Lucy Foley",
+        "first_publish_year": 2022,
+        "source_rank": 722
+    },
+    {
+        "title": "The Hunting Party",
+        "author": "Lucy Foley",
+        "first_publish_year": 2018,
+        "source_rank": 723
+    },
+    {
+        "title": "Rock Paper Scissors",
+        "author": "Alice Feeney",
+        "first_publish_year": 2021,
+        "source_rank": 724
+    },
+    {
+        "title": "Sometimes I Lie",
+        "author": "Alice Feeney",
+        "first_publish_year": 2017,
+        "source_rank": 725
+    },
+    {
+        "title": "The Housemaid",
+        "author": "Freida McFadden",
+        "first_publish_year": 2022,
+        "source_rank": 726
+    },
+    {
+        "title": "The Housemaid's Secret",
+        "author": "Freida McFadden",
+        "first_publish_year": 2023,
+        "source_rank": 727
+    },
+    {
+        "title": "Never Lie",
+        "author": "Freida McFadden",
+        "first_publish_year": 2022,
+        "source_rank": 728
+    },
+    {
+        "title": "Wrong Place Wrong Time",
+        "author": "Gillian McAllister",
+        "first_publish_year": 2022,
+        "source_rank": 729
+    },
+    {
+        "title": "The Thursday Murder Club",
+        "author": "Richard Osman",
+        "first_publish_year": 2020,
+        "source_rank": 730
+    },
+    {
+        "title": "The Man Who Died Twice",
+        "author": "Richard Osman",
+        "first_publish_year": 2021,
+        "source_rank": 731
+    },
+    {
+        "title": "The Bullet That Missed",
+        "author": "Richard Osman",
+        "first_publish_year": 2022,
+        "source_rank": 732
+    },
+    {
+        "title": "The Last Devil to Die",
+        "author": "Richard Osman",
+        "first_publish_year": 2023,
+        "source_rank": 733
+    },
+    {
+        "title": "Still Life",
+        "author": "Louise Penny",
+        "first_publish_year": 2005,
+        "source_rank": 734
+    },
+    {
+        "title": "A Fatal Grace",
+        "author": "Louise Penny",
+        "first_publish_year": 2007,
+        "source_rank": 735
+    },
+    {
+        "title": "The Cruelest Month",
+        "author": "Louise Penny",
+        "first_publish_year": 2008,
+        "source_rank": 736
+    },
+    {
+        "title": "Bury Your Dead",
+        "author": "Louise Penny",
+        "first_publish_year": 2010,
+        "source_rank": 737
+    },
+    {
+        "title": "How the Light Gets In",
+        "author": "Louise Penny",
+        "first_publish_year": 2013,
+        "source_rank": 738
+    },
+    {
+        "title": "A Great Reckoning",
+        "author": "Louise Penny",
+        "first_publish_year": 2016,
+        "source_rank": 739
+    },
+    {
+        "title": "Kingdom of the Blind",
+        "author": "Louise Penny",
+        "first_publish_year": 2018,
+        "source_rank": 740
+    },
+    {
+        "title": "A Better Man",
+        "author": "Louise Penny",
+        "first_publish_year": 2019,
+        "source_rank": 741
+    },
+    {
+        "title": "The Madness of Crowds",
+        "author": "Louise Penny",
+        "first_publish_year": 2021,
+        "source_rank": 742
+    },
+    {
+        "title": "A World of Curiosities",
+        "author": "Louise Penny",
+        "first_publish_year": 2022,
+        "source_rank": 743
+    },
+    {
+        "title": "Still Life",
+        "author": "Sarah Winman",
+        "first_publish_year": 2019,
+        "source_rank": 744
+    },
+    {
+        "title": "Magpie Murders",
+        "author": "Anthony Horowitz",
+        "first_publish_year": 2016,
+        "source_rank": 745
+    },
+    {
+        "title": "Moonflower Murders",
+        "author": "Anthony Horowitz",
+        "first_publish_year": 2020,
+        "source_rank": 746
+    },
+    {
+        "title": "The Word Is Murder",
+        "author": "Anthony Horowitz",
+        "first_publish_year": 2017,
+        "source_rank": 747
+    },
+    {
+        "title": "The Sentence Is Death",
+        "author": "Anthony Horowitz",
+        "first_publish_year": 2019,
+        "source_rank": 748
+    },
+    {
+        "title": "Close to Death",
+        "author": "Anthony Horowitz",
+        "first_publish_year": 2024,
+        "source_rank": 749
+    },
+    {
+        "title": "In the Woods",
+        "author": "Tana French",
+        "first_publish_year": 2007,
+        "source_rank": 750
+    },
+    {
+        "title": "The Likeness",
+        "author": "Tana French",
+        "first_publish_year": 2008,
+        "source_rank": 751
+    },
+    {
+        "title": "Faithful Place",
+        "author": "Tana French",
+        "first_publish_year": 2010,
+        "source_rank": 752
+    },
+    {
+        "title": "Broken Harbor",
+        "author": "Tana French",
+        "first_publish_year": 2012,
+        "source_rank": 753
+    },
+    {
+        "title": "The Secret Place",
+        "author": "Tana French",
+        "first_publish_year": 2014,
+        "source_rank": 754
+    },
+    {
+        "title": "The Trespasser",
+        "author": "Tana French",
+        "first_publish_year": 2016,
+        "source_rank": 755
+    },
+    {
+        "title": "The Searcher",
+        "author": "Tana French",
+        "first_publish_year": 2020,
+        "source_rank": 756
+    },
+    {
+        "title": "The Guest",
+        "author": "Emma Cline",
+        "first_publish_year": 2023,
+        "source_rank": 757
+    },
+    {
+        "title": "The Girls",
+        "author": "Emma Cline",
+        "first_publish_year": 2016,
+        "source_rank": 758
+    },
+    {
+        "title": "Sharp Objects",
+        "author": "Gillian Flynn",
+        "first_publish_year": 2006,
+        "source_rank": 759
+    },
+    {
+        "title": "Dark Places",
+        "author": "Gillian Flynn",
+        "first_publish_year": 2009,
+        "source_rank": 760
+    },
+    {
+        "title": "The Paris Wife",
+        "author": "Paula McLain",
+        "first_publish_year": 2011,
+        "source_rank": 761
+    },
+    {
+        "title": "Circling the Sun",
+        "author": "Paula McLain",
+        "first_publish_year": 2015,
+        "source_rank": 762
+    },
+    {
+        "title": "The Alice Network",
+        "author": "Kate Quinn",
+        "first_publish_year": 2017,
+        "source_rank": 763
+    },
+    {
+        "title": "The Huntress",
+        "author": "Kate Quinn",
+        "first_publish_year": 2019,
+        "source_rank": 764
+    },
+    {
+        "title": "The Rose Code",
+        "author": "Kate Quinn",
+        "first_publish_year": 2021,
+        "source_rank": 765
+    },
+    {
+        "title": "The Diamond Eye",
+        "author": "Kate Quinn",
+        "first_publish_year": 2022,
+        "source_rank": 766
+    },
+    {
+        "title": "The Briar Club",
+        "author": "Kate Quinn",
+        "first_publish_year": 2024,
+        "source_rank": 767
+    },
+    {
+        "title": "All the Light We Cannot See",
+        "author": "Anthony Doerr",
+        "first_publish_year": 2014,
+        "source_rank": 768
+    },
+    {
+        "title": "Cloud Cuckoo Land",
+        "author": "Anthony Doerr",
+        "first_publish_year": 2021,
+        "source_rank": 769
+    },
+    {
+        "title": "The Lincoln Highway",
+        "author": "Amor Towles",
+        "first_publish_year": 2021,
+        "source_rank": 770
+    },
+    {
+        "title": "A Gentleman in Moscow",
+        "author": "Amor Towles",
+        "first_publish_year": 2016,
+        "source_rank": 771
+    },
+    {
+        "title": "Rules of Civility",
+        "author": "Amor Towles",
+        "first_publish_year": 2011,
+        "source_rank": 772
+    },
+    {
+        "title": "The Storied Life of A.J. Fikry",
+        "author": "Gabrielle Zevin",
+        "first_publish_year": 2014,
+        "source_rank": 773
+    },
+    {
+        "title": "Elsewhere",
+        "author": "Gabrielle Zevin",
+        "first_publish_year": 2005,
+        "source_rank": 774
+    },
+    {
+        "title": "The Interestings",
+        "author": "Meg Wolitzer",
+        "first_publish_year": 2013,
+        "source_rank": 775
+    },
+    {
+        "title": "The Female Persuasion",
+        "author": "Meg Wolitzer",
+        "first_publish_year": 2018,
+        "source_rank": 776
+    },
+    {
+        "title": "The Wife",
+        "author": "Meg Wolitzer",
+        "first_publish_year": 2003,
+        "source_rank": 777
+    },
+    {
+        "title": "The Love Songs of W.E.B. Du Bois",
+        "author": "Honoree Fanonne Jeffers",
+        "first_publish_year": 2021,
+        "source_rank": 778
+    },
+    {
+        "title": "The Trees",
+        "author": "Percival Everett",
+        "first_publish_year": 2021,
+        "source_rank": 779
+    },
+    {
+        "title": "Erasure",
+        "author": "Percival Everett",
+        "first_publish_year": 2001,
+        "source_rank": 780
+    },
+    {
+        "title": "James",
+        "author": "Percival Everett",
+        "first_publish_year": 2024,
+        "source_rank": 781
+    },
+    {
+        "title": "The Overstory",
+        "author": "Richard Powers",
+        "first_publish_year": 2018,
+        "source_rank": 782
+    },
+    {
+        "title": "Bewilderment",
+        "author": "Richard Powers",
+        "first_publish_year": 2021,
+        "source_rank": 783
+    },
+    {
+        "title": "The Gold Bug Variations",
+        "author": "Richard Powers",
+        "first_publish_year": 1991,
+        "source_rank": 784
+    },
+    {
+        "title": "The Circle",
+        "author": "Dave Eggers",
+        "first_publish_year": 2013,
+        "source_rank": 785
+    },
+    {
+        "title": "Tomorrow and Tomorrow",
+        "author": "Tom Sweterlitsch",
+        "first_publish_year": 2016,
+        "source_rank": 786
+    },
+    {
+        "title": "Convenience Store Woman",
+        "author": "Sayaka Murata",
+        "first_publish_year": 2016,
+        "source_rank": 788
+    },
+    {
+        "title": "Before the Coffee Gets Cold",
+        "author": "Toshikazu Kawaguchi",
+        "first_publish_year": 2015,
+        "source_rank": 789
+    },
+    {
+        "title": "Breasts and Eggs",
+        "author": "Mieko Kawakami",
+        "first_publish_year": 2008,
+        "source_rank": 790
+    },
+    {
+        "title": "Heaven",
+        "author": "Mieko Kawakami",
+        "first_publish_year": 2009,
+        "source_rank": 791
+    },
+    {
+        "title": "The Vegetarian",
+        "author": "Han Kang",
+        "first_publish_year": 2007,
+        "source_rank": 792
+    },
+    {
+        "title": "Human Acts",
+        "author": "Han Kang",
+        "first_publish_year": 2014,
+        "source_rank": 793
+    },
+    {
+        "title": "Greek Lessons",
+        "author": "Han Kang",
+        "first_publish_year": 2011,
+        "source_rank": 794
+    },
+    {
+        "title": "Please Look After Mom",
+        "author": "Kyung-sook Shin",
+        "first_publish_year": 2008,
+        "source_rank": 795
+    },
+    {
+        "title": "1Q84",
+        "author": "Haruki Murakami",
+        "first_publish_year": 2009,
+        "source_rank": 796
+    },
+    {
+        "title": "Kafka on the Shore",
+        "author": "Haruki Murakami",
+        "first_publish_year": 2002,
+        "source_rank": 797
+    },
+    {
+        "title": "Norwegian Wood",
+        "author": "Haruki Murakami",
+        "first_publish_year": 1987,
+        "source_rank": 798
+    },
+    {
+        "title": "The Wind-Up Bird Chronicle",
+        "author": "Haruki Murakami",
+        "first_publish_year": 1994,
+        "source_rank": 799
+    },
+    {
+        "title": "Colorless Tsukuru Tazaki and His Years of Pilgrimage",
+        "author": "Haruki Murakami",
+        "first_publish_year": 2013,
+        "source_rank": 800
+    },
+    {
+        "title": "Killing Commendatore",
+        "author": "Haruki Murakami",
+        "first_publish_year": 2017,
+        "source_rank": 801
+    },
+    {
+        "title": "Men Without Women",
+        "author": "Haruki Murakami",
+        "first_publish_year": 2014,
+        "source_rank": 802
+    },
+    {
+        "title": "A Wild Sheep Chase",
+        "author": "Haruki Murakami",
+        "first_publish_year": 1982,
+        "source_rank": 803
+    },
+    {
+        "title": "Hard-Boiled Wonderland and the End of the World",
+        "author": "Haruki Murakami",
+        "first_publish_year": 1985,
+        "source_rank": 804
+    },
+    {
+        "title": "The Housekeeper and the Professor",
+        "author": "Yoko Ogawa",
+        "first_publish_year": 2003,
+        "source_rank": 805
+    },
+    {
+        "title": "The Name of the Rose",
+        "author": "Umberto Eco",
+        "first_publish_year": 1980,
+        "source_rank": 806
+    },
+    {
+        "title": "Foucault's Pendulum",
+        "author": "Umberto Eco",
+        "first_publish_year": 1988,
+        "source_rank": 807
+    },
+    {
+        "title": "The Prague Cemetery",
+        "author": "Umberto Eco",
+        "first_publish_year": 2010,
+        "source_rank": 808
+    },
+    {
+        "title": "Love in the Time of Cholera",
+        "author": "Gabriel Garcia Marquez",
+        "first_publish_year": 1985,
+        "source_rank": 809
+    },
+    {
+        "title": "Chronicle of a Death Foretold",
+        "author": "Gabriel Garcia Marquez",
+        "first_publish_year": 1981,
+        "source_rank": 810
+    },
+    {
+        "title": "Of Love and Other Demons",
+        "author": "Gabriel Garcia Marquez",
+        "first_publish_year": 1994,
+        "source_rank": 811
+    },
+    {
+        "title": "Midnight's Children",
+        "author": "Salman Rushdie",
+        "first_publish_year": 1981,
+        "source_rank": 812
+    },
+    {
+        "title": "The Satanic Verses",
+        "author": "Salman Rushdie",
+        "first_publish_year": 1988,
+        "source_rank": 813
+    },
+    {
+        "title": "The Moor's Last Sigh",
+        "author": "Salman Rushdie",
+        "first_publish_year": 1995,
+        "source_rank": 814
+    },
+    {
+        "title": "Shalimar the Clown",
+        "author": "Salman Rushdie",
+        "first_publish_year": 2005,
+        "source_rank": 815
+    },
+    {
+        "title": "Quichotte",
+        "author": "Salman Rushdie",
+        "first_publish_year": 2019,
+        "source_rank": 816
+    },
+    {
+        "title": "The God of Small Things",
+        "author": "Arundhati Roy",
+        "first_publish_year": 1997,
+        "source_rank": 817
+    },
+    {
+        "title": "The Ministry of Utmost Happiness",
+        "author": "Arundhati Roy",
+        "first_publish_year": 2017,
+        "source_rank": 818
+    },
+    {
+        "title": "The White Tiger",
+        "author": "Aravind Adiga",
+        "first_publish_year": 2008,
+        "source_rank": 819
+    },
+    {
+        "title": "A Fine Balance",
+        "author": "Rohinton Mistry",
+        "first_publish_year": 1995,
+        "source_rank": 820
+    },
+    {
+        "title": "The Inheritance of Loss",
+        "author": "Kiran Desai",
+        "first_publish_year": 2006,
+        "source_rank": 821
+    },
+    {
+        "title": "The Lowland",
+        "author": "Jhumpa Lahiri",
+        "first_publish_year": 2013,
+        "source_rank": 822
+    },
+    {
+        "title": "Interpreter of Maladies",
+        "author": "Jhumpa Lahiri",
+        "first_publish_year": 1999,
+        "source_rank": 823
+    },
+    {
+        "title": "The Namesake",
+        "author": "Jhumpa Lahiri",
+        "first_publish_year": 2003,
+        "source_rank": 824
+    },
+    {
+        "title": "Unaccustomed Earth",
+        "author": "Jhumpa Lahiri",
+        "first_publish_year": 2008,
+        "source_rank": 825
+    },
+    {
+        "title": "The Brief Wondrous Life of Oscar Wao",
+        "author": "Junot Diaz",
+        "first_publish_year": 2007,
+        "source_rank": 826
+    },
+    {
+        "title": "Drown",
+        "author": "Junot Diaz",
+        "first_publish_year": 1996,
+        "source_rank": 827
+    },
+    {
+        "title": "Trust",
+        "author": "Hernan Diaz",
+        "first_publish_year": 2022,
+        "source_rank": 828
+    },
+    {
+        "title": "The Bee Sting",
+        "author": "Paul Murray",
+        "first_publish_year": 2023,
+        "source_rank": 829
+    },
+    {
+        "title": "Skippy Dies",
+        "author": "Paul Murray",
+        "first_publish_year": 2010,
+        "source_rank": 830
+    },
+    {
+        "title": "Shuggie Bain",
+        "author": "Douglas Stuart",
+        "first_publish_year": 2020,
+        "source_rank": 831
+    },
+    {
+        "title": "Young Mungo",
+        "author": "Douglas Stuart",
+        "first_publish_year": 2022,
+        "source_rank": 832
+    },
+    {
+        "title": "Ducks, Newburyport",
+        "author": "Lucy Ellmann",
+        "first_publish_year": 2019,
+        "source_rank": 833
+    },
+    {
+        "title": "The Little Friend",
+        "author": "Donna Tartt",
+        "first_publish_year": 2002,
+        "source_rank": 834
+    },
+    {
+        "title": "Horse",
+        "author": "Geraldine Brooks",
+        "first_publish_year": 2022,
+        "source_rank": 835
+    },
+    {
+        "title": "March",
+        "author": "Geraldine Brooks",
+        "first_publish_year": 2005,
+        "source_rank": 836
+    },
+    {
+        "title": "People of the Book",
+        "author": "Geraldine Brooks",
+        "first_publish_year": 2008,
+        "source_rank": 837
+    },
+    {
+        "title": "Year of Wonders",
+        "author": "Geraldine Brooks",
+        "first_publish_year": 2001,
+        "source_rank": 838
+    },
+    {
+        "title": "Flight Behavior",
+        "author": "Barbara Kingsolver",
+        "first_publish_year": 2012,
+        "source_rank": 839
+    },
+    {
+        "title": "The Paris Library",
+        "author": "Janet Skeslien Charles",
+        "first_publish_year": 2020,
+        "source_rank": 840
+    },
+    {
+        "title": "The Book Woman of Troublesome Creek",
+        "author": "Kim Michele Richardson",
+        "first_publish_year": 2019,
+        "source_rank": 841
+    },
+    {
+        "title": "The Paris Apartment",
+        "author": "Kelly Bowen",
+        "first_publish_year": 2024,
+        "source_rank": 842
+    },
+    {
+        "title": "The Henna Artist",
+        "author": "Alka Joshi",
+        "first_publish_year": 2020,
+        "source_rank": 843
+    },
+    {
+        "title": "My Brilliant Friend",
+        "author": "Elena Ferrante",
+        "first_publish_year": 2011,
+        "source_rank": 844
+    },
+    {
+        "title": "The Story of a New Name",
+        "author": "Elena Ferrante",
+        "first_publish_year": 2012,
+        "source_rank": 845
+    },
+    {
+        "title": "Those Who Leave and Those Who Stay",
+        "author": "Elena Ferrante",
+        "first_publish_year": 2013,
+        "source_rank": 846
+    },
+    {
+        "title": "The Story of the Lost Child",
+        "author": "Elena Ferrante",
+        "first_publish_year": 2014,
+        "source_rank": 847
+    },
+    {
+        "title": "The Lost Daughter",
+        "author": "Elena Ferrante",
+        "first_publish_year": 2006,
+        "source_rank": 848
+    },
+    {
+        "title": "The Days of Abandonment",
+        "author": "Elena Ferrante",
+        "first_publish_year": 2002,
+        "source_rank": 849
+    },
+    {
+        "title": "The Lying Life of Adults",
+        "author": "Elena Ferrante",
+        "first_publish_year": 2019,
+        "source_rank": 850
+    },
+    {
+        "title": "Austerlitz",
+        "author": "W.G. Sebald",
+        "first_publish_year": 2001,
+        "source_rank": 851
+    },
+    {
+        "title": "The Rings of Saturn",
+        "author": "W.G. Sebald",
+        "first_publish_year": 1995,
+        "source_rank": 852
+    },
+    {
+        "title": "The Emigrants",
+        "author": "W.G. Sebald",
+        "first_publish_year": 1992,
+        "source_rank": 853
+    },
+    {
+        "title": "Possession",
+        "author": "A.S. Byatt",
+        "first_publish_year": 1990,
+        "source_rank": 854
+    },
+    {
+        "title": "Regeneration",
+        "author": "Pat Barker",
+        "first_publish_year": 1991,
+        "source_rank": 855
+    },
+    {
+        "title": "The Ghost Road",
+        "author": "Pat Barker",
+        "first_publish_year": 1995,
+        "source_rank": 856
+    },
+    {
+        "title": "Wolf Hall",
+        "author": "Hilary Mantel",
+        "first_publish_year": 2009,
+        "source_rank": 857
+    },
+    {
+        "title": "Bring Up the Bodies",
+        "author": "Hilary Mantel",
+        "first_publish_year": 2012,
+        "source_rank": 858
+    },
+    {
+        "title": "The Mirror and the Light",
+        "author": "Hilary Mantel",
+        "first_publish_year": 2020,
+        "source_rank": 859
+    },
+    {
+        "title": "The Luminaries",
+        "author": "Eleanor Catton",
+        "first_publish_year": 2013,
+        "source_rank": 860
+    },
+    {
+        "title": "Birnam Wood",
+        "author": "Eleanor Catton",
+        "first_publish_year": 2023,
+        "source_rank": 861
+    },
+    {
+        "title": "The Essex Serpent",
+        "author": "Sarah Perry",
+        "first_publish_year": 2016,
+        "source_rank": 862
+    },
+    {
+        "title": "Enlightenment",
+        "author": "Sarah Perry",
+        "first_publish_year": 2024,
+        "source_rank": 863
+    },
+    {
+        "title": "The Miniaturist",
+        "author": "Jessie Burton",
+        "first_publish_year": 2014,
+        "source_rank": 864
+    },
+    {
+        "title": "The Muse",
+        "author": "Jessie Burton",
+        "first_publish_year": 2016,
+        "source_rank": 865
+    },
+    {
+        "title": "The Gold Coast",
+        "author": "Nelson DeMille",
+        "first_publish_year": 1990,
+        "source_rank": 866
+    },
+    {
+        "title": "The General's Daughter",
+        "author": "Nelson DeMille",
+        "first_publish_year": 1992,
+        "source_rank": 867
+    },
+    {
+        "title": "Night Fall",
+        "author": "Nelson DeMille",
+        "first_publish_year": 2004,
+        "source_rank": 868
+    },
+    {
+        "title": "Plum Island",
+        "author": "Nelson DeMille",
+        "first_publish_year": 1997,
+        "source_rank": 869
+    },
+    {
+        "title": "The Charm School",
+        "author": "Nelson DeMille",
+        "first_publish_year": 1988,
+        "source_rank": 870
+    },
+    {
+        "title": "Killing Floor",
+        "author": "Lee Child",
+        "first_publish_year": 1997,
+        "source_rank": 871
+    },
+    {
+        "title": "Die Trying",
+        "author": "Lee Child",
+        "first_publish_year": 1998,
+        "source_rank": 872
+    },
+    {
+        "title": "Tripwire",
+        "author": "Lee Child",
+        "first_publish_year": 1999,
+        "source_rank": 873
+    },
+    {
+        "title": "Running Blind",
+        "author": "Lee Child",
+        "first_publish_year": 2000,
+        "source_rank": 874
+    },
+    {
+        "title": "Echo Burning",
+        "author": "Lee Child",
+        "first_publish_year": 2001,
+        "source_rank": 875
+    },
+    {
+        "title": "Without Fail",
+        "author": "Lee Child",
+        "first_publish_year": 2002,
+        "source_rank": 876
+    },
+    {
+        "title": "Persuader",
+        "author": "Lee Child",
+        "first_publish_year": 2003,
+        "source_rank": 877
+    },
+    {
+        "title": "The Enemy",
+        "author": "Lee Child",
+        "first_publish_year": 2004,
+        "source_rank": 878
+    },
+    {
+        "title": "One Shot",
+        "author": "Lee Child",
+        "first_publish_year": 2005,
+        "source_rank": 879
+    },
+    {
+        "title": "The Hard Way",
+        "author": "Lee Child",
+        "first_publish_year": 2006,
+        "source_rank": 880
+    },
+    {
+        "title": "Bad Luck and Trouble",
+        "author": "Lee Child",
+        "first_publish_year": 2007,
+        "source_rank": 881
+    },
+    {
+        "title": "Nothing to Lose",
+        "author": "Lee Child",
+        "first_publish_year": 2008,
+        "source_rank": 882
+    },
+    {
+        "title": "61 Hours",
+        "author": "Lee Child",
+        "first_publish_year": 2010,
+        "source_rank": 883
+    },
+    {
+        "title": "Worth Dying For",
+        "author": "Lee Child",
+        "first_publish_year": 2010,
+        "source_rank": 884
+    },
+    {
+        "title": "A Wanted Man",
+        "author": "Lee Child",
+        "first_publish_year": 2012,
+        "source_rank": 885
+    },
+    {
+        "title": "Never Go Back",
+        "author": "Lee Child",
+        "first_publish_year": 2013,
+        "source_rank": 886
+    },
+    {
+        "title": "Make Me",
+        "author": "Lee Child",
+        "first_publish_year": 2015,
+        "source_rank": 887
+    },
+    {
+        "title": "The Midnight Line",
+        "author": "Lee Child",
+        "first_publish_year": 2017,
+        "source_rank": 888
+    },
+    {
+        "title": "Blue Moon",
+        "author": "Lee Child",
+        "first_publish_year": 2019,
+        "source_rank": 889
+    },
+    {
+        "title": "Better Off Dead",
+        "author": "Lee Child and Andrew Child",
+        "first_publish_year": 2021,
+        "source_rank": 890
+    },
+    {
+        "title": "No Plan B",
+        "author": "Lee Child and Andrew Child",
+        "first_publish_year": 2022,
+        "source_rank": 891
+    },
+    {
+        "title": "The Sentinel",
+        "author": "Lee Child and Andrew Child",
+        "first_publish_year": 2020,
+        "source_rank": 892
+    },
+    {
+        "title": "Gone Tomorrow",
+        "author": "Lee Child",
+        "first_publish_year": 2009,
+        "source_rank": 893
+    },
+    {
+        "title": "The Silent Corner",
+        "author": "Dean Koontz",
+        "first_publish_year": 2017,
+        "source_rank": 894
+    },
+    {
+        "title": "Watchers",
+        "author": "Dean Koontz",
+        "first_publish_year": 1987,
+        "source_rank": 895
+    },
+    {
+        "title": "Intensity",
+        "author": "Dean Koontz",
+        "first_publish_year": 1995,
+        "source_rank": 896
+    },
+    {
+        "title": "Odd Thomas",
+        "author": "Dean Koontz",
+        "first_publish_year": 2003,
+        "source_rank": 897
+    },
+    {
+        "title": "From the Corner of His Eye",
+        "author": "Dean Koontz",
+        "first_publish_year": 2000,
+        "source_rank": 898
+    },
+    {
+        "title": "False Memory",
+        "author": "Dean Koontz",
+        "first_publish_year": 1999,
+        "source_rank": 899
+    },
+    {
+        "title": "Lightning",
+        "author": "Dean Koontz",
+        "first_publish_year": 1988,
+        "source_rank": 900
+    },
+    {
+        "title": "Dragon Tears",
+        "author": "Dean Koontz",
+        "first_publish_year": 1993,
+        "source_rank": 901
+    },
+    {
+        "title": "The Bad Place",
+        "author": "Dean Koontz",
+        "first_publish_year": 1990,
+        "source_rank": 902
+    },
+    {
+        "title": "The Husband",
+        "author": "Dean Koontz",
+        "first_publish_year": 2006,
+        "source_rank": 903
+    },
+    {
+        "title": "Velocity",
+        "author": "Dean Koontz",
+        "first_publish_year": 2005,
+        "source_rank": 904
+    },
+    {
+        "title": "The Taking",
+        "author": "Dean Koontz",
+        "first_publish_year": 2004,
+        "source_rank": 905
+    },
+    {
+        "title": "Tick Tock",
+        "author": "Dean Koontz",
+        "first_publish_year": 1996,
+        "source_rank": 906
+    },
+    {
+        "title": "Kane and Abel",
+        "author": "Jeffrey Archer",
+        "first_publish_year": 1979,
+        "source_rank": 907
+    },
+    {
+        "title": "The Prodigal Daughter",
+        "author": "Jeffrey Archer",
+        "first_publish_year": 1982,
+        "source_rank": 908
+    },
+    {
+        "title": "First Among Equals",
+        "author": "Jeffrey Archer",
+        "first_publish_year": 1984,
+        "source_rank": 909
+    },
+    {
+        "title": "Not a Penny More, Not a Penny Less",
+        "author": "Jeffrey Archer",
+        "first_publish_year": 1976,
+        "source_rank": 910
+    },
+    {
+        "title": "A Prisoner of Birth",
+        "author": "Jeffrey Archer",
+        "first_publish_year": 2008,
+        "source_rank": 911
+    },
+    {
+        "title": "The Clifton Chronicles: Only Time Will Tell",
+        "author": "Jeffrey Archer",
+        "first_publish_year": 2011,
+        "source_rank": 912
+    },
+    {
+        "title": "The Clifton Chronicles: Best Kept Secret",
+        "author": "Jeffrey Archer",
+        "first_publish_year": 2013,
+        "source_rank": 913
+    },
+    {
+        "title": "The Evening and the Morning",
+        "author": "Ken Follett",
+        "first_publish_year": 2020,
+        "source_rank": 914
+    },
+    {
+        "title": "The Pillars of the Earth",
+        "author": "Ken Follett",
+        "first_publish_year": 1989,
+        "source_rank": 915
+    },
+    {
+        "title": "World Without End",
+        "author": "Ken Follett",
+        "first_publish_year": 2007,
+        "source_rank": 916
+    },
+    {
+        "title": "A Column of Fire",
+        "author": "Ken Follett",
+        "first_publish_year": 2017,
+        "source_rank": 917
+    },
+    {
+        "title": "Fall of Giants",
+        "author": "Ken Follett",
+        "first_publish_year": 2010,
+        "source_rank": 918
+    },
+    {
+        "title": "Winter of the World",
+        "author": "Ken Follett",
+        "first_publish_year": 2012,
+        "source_rank": 919
+    },
+    {
+        "title": "Edge of Eternity",
+        "author": "Ken Follett",
+        "first_publish_year": 2014,
+        "source_rank": 920
+    },
+    {
+        "title": "The Eye of the Needle",
+        "author": "Ken Follett",
+        "first_publish_year": 1978,
+        "source_rank": 921
+    },
+    {
+        "title": "Lie Down with Lions",
+        "author": "Ken Follett",
+        "first_publish_year": 1986,
+        "source_rank": 922
+    },
+    {
+        "title": "The Key to Rebecca",
+        "author": "Ken Follett",
+        "first_publish_year": 1980,
+        "source_rank": 923
+    },
+    {
+        "title": "Shantaram",
+        "author": "Gregory David Roberts",
+        "first_publish_year": 2003,
+        "source_rank": 924
+    },
+    {
+        "title": "The Night Watchman",
+        "author": "Louise Erdrich",
+        "first_publish_year": 2020,
+        "source_rank": 925
+    },
+    {
+        "title": "Love Medicine",
+        "author": "Louise Erdrich",
+        "first_publish_year": 1984,
+        "source_rank": 926
+    },
+    {
+        "title": "The Round House",
+        "author": "Louise Erdrich",
+        "first_publish_year": 2012,
+        "source_rank": 927
+    },
+    {
+        "title": "The Sentence",
+        "author": "Louise Erdrich",
+        "first_publish_year": 2021,
+        "source_rank": 928
+    },
+    {
+        "title": "The Painted Drum",
+        "author": "Louise Erdrich",
+        "first_publish_year": 2005,
+        "source_rank": 929
+    },
+    {
+        "title": "Tracks",
+        "author": "Louise Erdrich",
+        "first_publish_year": 1988,
+        "source_rank": 930
+    },
+    {
+        "title": "The Master Butchers Singing Club",
+        "author": "Louise Erdrich",
+        "first_publish_year": 2003,
+        "source_rank": 931
+    },
+    {
+        "title": "The Art of Fielding",
+        "author": "Chad Harbach",
+        "first_publish_year": 2011,
+        "source_rank": 932
+    },
+    {
+        "title": "The Nix",
+        "author": "Nathan Hill",
+        "first_publish_year": 2016,
+        "source_rank": 933
+    },
+    {
+        "title": "Wellness",
+        "author": "Nathan Hill",
+        "first_publish_year": 2023,
+        "source_rank": 934
+    },
+    {
+        "title": "The Marriage Plot",
+        "author": "Jeffrey Eugenides",
+        "first_publish_year": 2011,
+        "source_rank": 935
+    },
+    {
+        "title": "Middlesex",
+        "author": "Jeffrey Eugenides",
+        "first_publish_year": 2002,
+        "source_rank": 936
+    },
+    {
+        "title": "The Virgin Suicides",
+        "author": "Jeffrey Eugenides",
+        "first_publish_year": 1993,
+        "source_rank": 937
+    },
+    {
+        "title": "Middlegame",
+        "author": "Seanan McGuire",
+        "first_publish_year": 2019,
+        "source_rank": 938
+    },
+    {
+        "title": "Every Heart a Doorway",
+        "author": "Seanan McGuire",
+        "first_publish_year": 2016,
+        "source_rank": 939
+    },
+    {
+        "title": "NOS4A2",
+        "author": "Joe Hill",
+        "first_publish_year": 2013,
+        "source_rank": 940
+    },
+    {
+        "title": "Horns",
+        "author": "Joe Hill",
+        "first_publish_year": 2010,
+        "source_rank": 941
+    },
+    {
+        "title": "Heart-Shaped Box",
+        "author": "Joe Hill",
+        "first_publish_year": 2007,
+        "source_rank": 942
+    },
+    {
+        "title": "The Fireman",
+        "author": "Joe Hill",
+        "first_publish_year": 2016,
+        "source_rank": 943
+    },
+    {
+        "title": "Locke & Key, Vol. 1",
+        "author": "Joe Hill and Gabriel Rodriguez",
+        "first_publish_year": 2008,
+        "source_rank": 944
+    },
+    {
+        "title": "House of Leaves",
+        "author": "Mark Z. Danielewski",
+        "first_publish_year": 2000,
+        "source_rank": 945
+    },
+    {
+        "title": "The Secret Commonwealth",
+        "author": "Philip Pullman",
+        "first_publish_year": 2019,
+        "source_rank": 946
+    },
+    {
+        "title": "La Belle Sauvage",
+        "author": "Philip Pullman",
+        "first_publish_year": 2017,
+        "source_rank": 947
+    },
+    {
+        "title": "The Book of Dust",
+        "author": "Philip Pullman",
+        "first_publish_year": 2017,
+        "source_rank": 948
+    },
+    {
+        "title": "Daemon",
+        "author": "Daniel Suarez",
+        "first_publish_year": 2006,
+        "source_rank": 949
+    },
+    {
+        "title": "Freedom TM",
+        "author": "Daniel Suarez",
+        "first_publish_year": 2010,
+        "source_rank": 950
+    },
+    {
+        "title": "Wool",
+        "author": "Hugh Howey",
+        "first_publish_year": 2011,
+        "source_rank": 951
+    },
+    {
+        "title": "Shift",
+        "author": "Hugh Howey",
+        "first_publish_year": 2013,
+        "source_rank": 952
+    },
+    {
+        "title": "Dust",
+        "author": "Hugh Howey",
+        "first_publish_year": 2013,
+        "source_rank": 953
+    },
+    {
+        "title": "Red Rising",
+        "author": "Pierce Brown",
+        "first_publish_year": 2014,
+        "source_rank": 954
+    },
+    {
+        "title": "Golden Son",
+        "author": "Pierce Brown",
+        "first_publish_year": 2015,
+        "source_rank": 955
+    },
+    {
+        "title": "Morning Star",
+        "author": "Pierce Brown",
+        "first_publish_year": 2016,
+        "source_rank": 956
+    },
+    {
+        "title": "Iron Gold",
+        "author": "Pierce Brown",
+        "first_publish_year": 2018,
+        "source_rank": 957
+    },
+    {
+        "title": "Dark Age",
+        "author": "Pierce Brown",
+        "first_publish_year": 2019,
+        "source_rank": 958
+    },
+    {
+        "title": "Light Bringer",
+        "author": "Pierce Brown",
+        "first_publish_year": 2023,
+        "source_rank": 959
+    },
+    {
+        "title": "The Gold Coast",
+        "author": "Nelson DeMille",
+        "first_publish_year": 1990
+    },
+    {
+        "title": "The Women in the Castle",
+        "author": "Jessica Shattuck",
+        "first_publish_year": 2017,
+        "source_rank": 960
+    },
+    {
+        "title": "The Paper Palace",
+        "author": "Miranda Cowley Heller",
+        "first_publish_year": 2021,
+        "source_rank": 961
+    },
+    {
+        "title": "The Berry Pickers",
+        "author": "Amanda Peters",
+        "first_publish_year": 2023,
+        "source_rank": 962
+    },
+    {
+        "title": "Hello Beautiful",
+        "author": "Ann Napolitano",
+        "first_publish_year": 2023,
+        "source_rank": 963
+    },
+    {
+        "title": "Dear Edward",
+        "author": "Ann Napolitano",
+        "first_publish_year": 2020,
+        "source_rank": 964
+    },
+    {
+        "title": "Ask Again, Yes",
+        "author": "Mary Beth Keane",
+        "first_publish_year": 2019,
+        "source_rank": 965
+    },
+    {
+        "title": "The Light We Lost",
+        "author": "Jill Santopolo",
+        "first_publish_year": 2017,
+        "source_rank": 966
+    },
+    {
+        "title": "Anxious People",
+        "author": "Fredrik Backman",
+        "first_publish_year": 2019,
+        "source_rank": 967
+    },
+    {
+        "title": "A Man Called Ove",
+        "author": "Fredrik Backman",
+        "first_publish_year": 2012,
+        "source_rank": 968
+    },
+    {
+        "title": "Beartown",
+        "author": "Fredrik Backman",
+        "first_publish_year": 2016,
+        "source_rank": 969
+    },
+    {
+        "title": "Us Against You",
+        "author": "Fredrik Backman",
+        "first_publish_year": 2017,
+        "source_rank": 970
+    },
+    {
+        "title": "The Winners",
+        "author": "Fredrik Backman",
+        "first_publish_year": 2021,
+        "source_rank": 971
+    },
+    {
+        "title": "My Grandmother Asked Me to Tell You She's Sorry",
+        "author": "Fredrik Backman",
+        "first_publish_year": 2013,
+        "source_rank": 972
+    },
+    {
+        "title": "Britt-Marie Was Here",
+        "author": "Fredrik Backman",
+        "first_publish_year": 2014,
+        "source_rank": 973
+    },
+    {
+        "title": "The Housemaid Is Watching",
+        "author": "Freida McFadden",
+        "first_publish_year": 2024,
+        "source_rank": 974
+    },
+    {
+        "title": "None of This Is True",
+        "author": "Lisa Jewell",
+        "first_publish_year": 2023,
+        "source_rank": 975
+    },
+    {
+        "title": "Then She Was Gone",
+        "author": "Lisa Jewell",
+        "first_publish_year": 2017,
+        "source_rank": 976
+    },
+    {
+        "title": "The Family Upstairs",
+        "author": "Lisa Jewell",
+        "first_publish_year": 2019,
+        "source_rank": 977
+    },
+    {
+        "title": "The Night She Disappeared",
+        "author": "Lisa Jewell",
+        "first_publish_year": 2021,
+        "source_rank": 978
+    },
+    {
+        "title": "Local Woman Missing",
+        "author": "Mary Kubica",
+        "first_publish_year": 2021,
+        "source_rank": 979
+    },
+    {
+        "title": "Pretty Girls",
+        "author": "Karin Slaughter",
+        "first_publish_year": 2015,
+        "source_rank": 980
+    },
+    {
+        "title": "Pieces of Her",
+        "author": "Karin Slaughter",
+        "first_publish_year": 2018,
+        "source_rank": 981
+    },
+    {
+        "title": "Girl, Forgotten",
+        "author": "Karin Slaughter",
+        "first_publish_year": 2022,
+        "source_rank": 982
+    },
+    {
+        "title": "The Silent Wife",
+        "author": "A.S.A. Harrison",
+        "first_publish_year": 2013,
+        "source_rank": 983
+    },
+    {
+        "title": "Before We Were Yours",
+        "author": "Lisa Wingate",
+        "first_publish_year": 2017,
+        "source_rank": 984
+    },
+    {
+        "title": "The Night Swim",
+        "author": "Megan Goldin",
+        "first_publish_year": 2020,
+        "source_rank": 985
+    },
+    {
+        "title": "Dark Matter",
+        "author": "Blake Crouch",
+        "first_publish_year": 2016,
+        "source_rank": 986
+    },
+    {
+        "title": "Recursion",
+        "author": "Blake Crouch",
+        "first_publish_year": 2019,
+        "source_rank": 987
+    },
+    {
+        "title": "Upgrade",
+        "author": "Blake Crouch",
+        "first_publish_year": 2022,
+        "source_rank": 988
+    },
+    {
+        "title": "The Power",
+        "author": "Naomi Alderman",
+        "first_publish_year": 2016,
+        "source_rank": 989
+    },
+    {
+        "title": "Yellow Wife",
+        "author": "Sadeqa Johnson",
+        "first_publish_year": 2021,
+        "source_rank": 990
+    },
+    {
+        "title": "Long Bright River",
+        "author": "Liz Moore",
+        "first_publish_year": 2020,
+        "source_rank": 991
+    },
+    {
+        "title": "God of the Woods",
+        "author": "Liz Moore",
+        "first_publish_year": 2024,
+        "source_rank": 992
+    },
+    {
+        "title": "The Great Believers",
+        "author": "Rebecca Makkai",
+        "first_publish_year": 2018,
+        "source_rank": 993
+    },
+    {
+        "title": "I Have Some Questions for You",
+        "author": "Rebecca Makkai",
+        "first_publish_year": 2023,
+        "source_rank": 994
+    },
+    {
+        "title": "The Women Could Fly",
+        "author": "Megan Giddings",
+        "first_publish_year": 2022
+    },
+    {
+        "title": "Chain-Gang All-Stars",
+        "author": "Nana Kwame Adjei-Brenyah",
+        "first_publish_year": 2023,
+        "source_rank": 995
+    },
+    {
+        "title": "Martyr!",
+        "author": "Kaveh Akbar",
+        "first_publish_year": 2024,
+        "source_rank": 996
+    },
+    {
+        "title": "Trust Exercise",
+        "author": "Susan Choi",
+        "first_publish_year": 2019,
+        "source_rank": 997
+    },
+    {
+        "title": "The Great Alone",
+        "author": "Kristin Hannah",
+        "first_publish_year": 2018
+    },
+    {
+        "title": "Home Front",
+        "author": "Kristin Hannah",
+        "first_publish_year": 2012,
+        "source_rank": 998
+    },
+    {
+        "title": "The Women on Platform Two",
+        "author": "Laura Anthony",
+        "first_publish_year": 2023
+    },
+    {
+        "title": "The River We Remember",
+        "author": "William Kent Krueger",
+        "first_publish_year": 2023
+    },
+    {
+        "title": "This Tender Land",
+        "author": "William Kent Krueger",
+        "first_publish_year": 2019,
+        "source_rank": 999
+    },
+    {
+        "title": "Ordinary Grace",
+        "author": "William Kent Krueger",
+        "first_publish_year": 2013,
+        "source_rank": 1000
+    }
+]

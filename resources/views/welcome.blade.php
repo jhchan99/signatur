@@ -111,7 +111,7 @@
                                         target="_blank"
                                         rel="noreferrer"
                                     @endif
-                                    class="group block min-w-[10rem] overflow-hidden rounded-card border border-ui transition-colors duration-150 hover:border-[#b0a898] dark:hover:border-[#7a7874]"
+                                    class="group block min-w-[10rem] overflow-hidden rounded-card border-[3px] border-ui transition-colors duration-150 hover:border-gold-dark focus-visible:border-gold-dark dark:hover:border-gold dark:focus-visible:border-gold"
                                 >
                                     <img
                                         src="{{ $cover['card_image'] ?? $cover['image'] }}"

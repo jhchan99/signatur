@@ -1,4 +1,6 @@
 *
 !private/
 !public/
+!enrichment/
+!enrichment/*.json
 !.gitignore

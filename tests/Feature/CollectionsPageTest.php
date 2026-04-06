@@ -17,5 +17,8 @@ test('the collections placeholder page loads for authenticated users', function 
         ->get(route('collections.index'))
         ->assertSuccessful()
         ->assertSee('Collections are taking shape.')
+        ->assertSee('Collections', escape: false)
+        ->assertSee('Books', escape: false)
+        ->assertSee('Authors', escape: false)
         ->assertSee('Account settings');
 });

@@ -1,0 +1,317 @@
+[
+    {
+        "id": 6,
+        "title": "The Fault in Our Stars",
+        "subtitle": null,
+        "author": "John Green",
+        "first_publish_year": 2012
+    },
+    {
+        "id": 11,
+        "title": "The Kite Runner",
+        "subtitle": null,
+        "author": "Khaled Hosseini",
+        "first_publish_year": 2003
+    },
+    {
+        "id": 22,
+        "title": "The Lovely Bones",
+        "subtitle": null,
+        "author": "Alice Sebold",
+        "first_publish_year": 2002
+    },
+    {
+        "id": 30,
+        "title": "Gone Girl",
+        "subtitle": null,
+        "author": "Gillian Flynn",
+        "first_publish_year": 2012
+    },
+    {
+        "id": 31,
+        "title": "The Help",
+        "subtitle": null,
+        "author": "Kathryn Stockett",
+        "first_publish_year": 2009
+    },
+    {
+        "id": 33,
+        "title": "Memoirs of a Geisha",
+        "subtitle": null,
+        "author": "Arthur Golden",
+        "first_publish_year": 1997
+    },
+    {
+        "id": 35,
+        "title": "The Alchemist",
+        "subtitle": null,
+        "author": "Paulo Coelho",
+        "first_publish_year": 1988
+    },
+    {
+        "id": 38,
+        "title": "The Time Traveler's Wife",
+        "subtitle": null,
+        "author": "Audrey Niffenegger",
+        "first_publish_year": 2003
+    },
+    {
+        "id": 40,
+        "title": "Eat, Pray, Love",
+        "subtitle": null,
+        "author": "Elizabeth Gilbert",
+        "first_publish_year": 2006
+    },
+    {
+        "id": 46,
+        "title": "The Book Thief",
+        "subtitle": null,
+        "author": "Markus Zusak",
+        "first_publish_year": 2005
+    },
+    {
+        "id": 58,
+        "title": "The Curious Incident of the Dog in the Night-Time",
+        "subtitle": null,
+        "author": "Mark Haddon",
+        "first_publish_year": 2003
+    },
+    {
+        "id": 66,
+        "title": "The Perks of Being a Wallflower",
+        "subtitle": null,
+        "author": "Stephen Chbosky",
+        "first_publish_year": 1999
+    },
+    {
+        "id": 80,
+        "title": "Into the Wild",
+        "subtitle": null,
+        "author": "Jon Krakauer",
+        "first_publish_year": 1996
+    },
+    {
+        "id": 97,
+        "title": "The Poisonwood Bible",
+        "subtitle": null,
+        "author": "Barbara Kingsolver",
+        "first_publish_year": 1998
+    },
+    {
+        "id": 101,
+        "title": "The Road",
+        "subtitle": null,
+        "author": "Cormac McCarthy",
+        "first_publish_year": 2006
+    },
+    {
+        "id": 111,
+        "title": "Tuesdays with Morrie",
+        "subtitle": null,
+        "author": "Mitch Albom",
+        "first_publish_year": 1997
+    },
+    {
+        "id": 115,
+        "title": "The Joy Luck Club",
+        "subtitle": null,
+        "author": "Amy Tan",
+        "first_publish_year": 1989
+    },
+    {
+        "id": 116,
+        "title": "The Handmaid's Tale",
+        "subtitle": null,
+        "author": "Margaret Atwood",
+        "first_publish_year": 1985
+    },
+    {
+        "id": 139,
+        "title": "All the Light We Cannot See",
+        "subtitle": null,
+        "author": "Anthony Doerr",
+        "first_publish_year": 2014
+    },
+    {
+        "id": 142,
+        "title": "The Goldfinch",
+        "subtitle": null,
+        "author": "Donna Tartt",
+        "first_publish_year": 2013
+    },
+    {
+        "id": 172,
+        "title": "It",
+        "subtitle": null,
+        "author": "Stephen King",
+        "first_publish_year": 1986
+    },
+    {
+        "id": 194,
+        "title": "The Color Purple",
+        "subtitle": null,
+        "author": "Alice Walker",
+        "first_publish_year": 1982
+    },
+    {
+        "id": 256,
+        "title": "Big Little Lies",
+        "subtitle": null,
+        "author": "Liane Moriarty",
+        "first_publish_year": 2014
+    },
+    {
+        "id": 298,
+        "title": "Pet Sematary",
+        "subtitle": null,
+        "author": "Stephen King",
+        "first_publish_year": 1983
+    },
+    {
+        "id": 304,
+        "title": "The Thorn Birds",
+        "subtitle": null,
+        "author": "Colleen McCullough",
+        "first_publish_year": 1977
+    },
+    {
+        "id": 321,
+        "title": "The Last Lecture",
+        "subtitle": null,
+        "author": "Randy Pausch",
+        "first_publish_year": 2008
+    },
+    {
+        "id": 346,
+        "title": "Beloved",
+        "subtitle": null,
+        "author": "Toni Morrison",
+        "first_publish_year": 1987
+    },
+    {
+        "id": 414,
+        "title": "The Name of the Rose",
+        "subtitle": null,
+        "author": "Umberto Eco",
+        "first_publish_year": 1980
+    },
+    {
+        "id": 416,
+        "title": "A Confederacy of Dunces",
+        "subtitle": null,
+        "author": "John Kennedy Toole",
+        "first_publish_year": 1980
+    },
+    {
+        "id": 426,
+        "title": "The God of Small Things",
+        "subtitle": null,
+        "author": "Arundhati Roy",
+        "first_publish_year": 1997
+    },
+    {
+        "id": 447,
+        "title": "The Historian",
+        "subtitle": null,
+        "author": "Elizabeth Kostova",
+        "first_publish_year": 2005
+    },
+    {
+        "id": 448,
+        "title": "Station Eleven",
+        "subtitle": null,
+        "author": "Emily St. John Mandel",
+        "first_publish_year": 2014
+    },
+    {
+        "id": 476,
+        "title": "The Green Mile",
+        "subtitle": null,
+        "author": "Stephen King",
+        "first_publish_year": 1996
+    },
+    {
+        "id": 482,
+        "title": "The Secret History",
+        "subtitle": null,
+        "author": "Donna Tartt",
+        "first_publish_year": 1992
+    },
+    {
+        "id": 526,
+        "title": "Midnight in the Garden of Good and Evil",
+        "subtitle": null,
+        "author": "John Berendt",
+        "first_publish_year": 1994
+    },
+    {
+        "id": 556,
+        "title": "High Fidelity",
+        "subtitle": null,
+        "author": "Nick Hornby",
+        "first_publish_year": 1995
+    },
+    {
+        "id": 603,
+        "title": "Thinking, Fast and Slow",
+        "subtitle": null,
+        "author": "Daniel Kahneman",
+        "first_publish_year": 2011
+    },
+    {
+        "id": 641,
+        "title": "The Corrections",
+        "subtitle": null,
+        "author": "Jonathan Franzen",
+        "first_publish_year": 2001
+    },
+    {
+        "id": 687,
+        "title": "The Cider House Rules",
+        "subtitle": null,
+        "author": "John Irving",
+        "first_publish_year": 1985
+    },
+    {
+        "id": 794,
+        "title": "The Remains of the Day",
+        "subtitle": null,
+        "author": "Kazuo Ishiguro",
+        "first_publish_year": 1989
+    },
+    {
+        "id": 949,
+        "title": "Between the World and Me",
+        "subtitle": null,
+        "author": "Ta-Nehisi Coates",
+        "first_publish_year": 2015
+    },
+    {
+        "id": 1016,
+        "title": "Midnight's Children",
+        "subtitle": null,
+        "author": "Salman Rushdie",
+        "first_publish_year": 1981
+    },
+    {
+        "id": 1149,
+        "title": "A Little Life",
+        "subtitle": null,
+        "author": "Hanya Yanagihara",
+        "first_publish_year": 2015
+    },
+    {
+        "id": 1912,
+        "title": "The Bridges of Madison County",
+        "subtitle": null,
+        "author": "Robert James Waller",
+        "first_publish_year": 1992
+    },
+    {
+        "id": 6971,
+        "title": "The Firm",
+        "subtitle": null,
+        "author": "John Grisham",
+        "first_publish_year": 1991
+    }
+]

@@ -11,11 +11,10 @@ test('the landing page can be rendered', function () {
     $response
         ->assertSuccessful()
         ->assertSee('Track what you read')
-        ->assertSee('Where readers chat.')
+        ->assertSee('The cozy social network.')
         ->assertSee('guest-page-main', escape: false)
         ->assertSee('Create account')
         ->assertSee('Featured books')
-        ->assertSee('A small shelf of books that set the tone')
         ->assertSee('What Signatur does')
         ->assertSee('Project Hail Mary')
         ->assertSee('Books', escape: false)
@@ -24,11 +23,13 @@ test('the landing page can be rendered', function () {
         ->assertDontSee('Open on Open Library');
 });
 
-test('the landing page hides guest tab navigation when logged in', function () {
+test('the landing page shows public navigation when logged in', function () {
     $this->actingAs(User::factory()->create())
         ->get(route('home'))
         ->assertSuccessful()
-        ->assertDontSee('Collections', escape: false)
+        ->assertSee('Collections', escape: false)
+        ->assertSee('Books', escape: false)
+        ->assertSee('Authors', escape: false)
         ->assertSee('Account settings');
 });
 

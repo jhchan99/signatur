@@ -50,7 +50,7 @@ test('the book detail page shows only the primary author', function () {
         ->assertDontSee('Secondary Contributor');
 });
 
-test('the book detail page hides guest tab navigation when logged in', function () {
+test('the book detail page shows public navigation when logged in', function () {
     $work = Work::factory()->create([
         'title' => 'Auth Header Book',
     ]);
@@ -58,7 +58,9 @@ test('the book detail page hides guest tab navigation when logged in', function 
     $this->actingAs(User::factory()->create())
         ->get(route('books.show', $work))
         ->assertSuccessful()
-        ->assertDontSee('Collections', escape: false)
+        ->assertSee('Collections', escape: false)
+        ->assertSee('Authors', escape: false)
+        ->assertSee('Books', escape: false)
         ->assertSee('Account settings');
 });
 

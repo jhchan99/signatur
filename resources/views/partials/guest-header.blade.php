@@ -13,38 +13,36 @@
                     <span class="font-sans font-medium">signa</span><span class="font-serif text-ui-gold">t</span><span class="font-sans font-medium">ur</span>
                 </a>
 
-                @guest
-                    <nav class="guest-primary-nav order-3 flex w-full flex-none flex-wrap items-center justify-center gap-x-5 gap-y-2 min-[1100px]:order-none min-[1100px]:w-auto min-[1100px]:flex-1 min-[1100px]:justify-center" aria-label="{{ __('Primary') }}">
-                        <a
-                            href="{{ route('home') }}"
-                            @class([request()->routeIs('home') ? 'nav-link-active' : 'nav-link'])
-                            wire:navigate
-                        >
-                            {{ __('Home') }}
-                        </a>
-                        <a
-                            href="{{ route('books.index') }}"
-                            @class([request()->routeIs('books.*') ? 'nav-link-active' : 'nav-link'])
-                            wire:navigate
-                        >
-                            {{ __('Books') }}
-                        </a>
-                        <a
-                            href="{{ route('authors.index') }}"
-                            @class([request()->routeIs('authors.*') ? 'nav-link-active' : 'nav-link'])
-                            wire:navigate
-                        >
-                            {{ __('Authors') }}
-                        </a>
-                        <a
-                            href="{{ route('collections.index') }}"
-                            @class([request()->routeIs('collections.*') ? 'nav-link-active' : 'nav-link'])
-                            wire:navigate
-                        >
-                            {{ __('Collections') }}
-                        </a>
-                    </nav>
-                @endguest
+                <nav class="guest-primary-nav order-3 flex w-full flex-none flex-wrap items-center justify-center gap-x-5 gap-y-2 min-[1100px]:order-none min-[1100px]:w-auto min-[1100px]:flex-1 min-[1100px]:justify-center" aria-label="{{ __('Primary') }}">
+                    <a
+                        href="{{ route('home') }}"
+                        @class([request()->routeIs('home') ? 'nav-link-active' : 'nav-link'])
+                        wire:navigate
+                    >
+                        {{ __('Home') }}
+                    </a>
+                    <a
+                        href="{{ route('books.index') }}"
+                        @class([request()->routeIs('books.*') ? 'nav-link-active' : 'nav-link'])
+                        wire:navigate
+                    >
+                        {{ __('Books') }}
+                    </a>
+                    <a
+                        href="{{ route('authors.index') }}"
+                        @class([request()->routeIs('authors.*') ? 'nav-link-active' : 'nav-link'])
+                        wire:navigate
+                    >
+                        {{ __('Authors') }}
+                    </a>
+                    <a
+                        href="{{ route('collections.index') }}"
+                        @class([request()->routeIs('collections.*') ? 'nav-link-active' : 'nav-link'])
+                        wire:navigate
+                    >
+                        {{ __('Collections') }}
+                    </a>
+                </nav>
             </div>
 
             <div

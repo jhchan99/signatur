@@ -129,11 +129,13 @@ test('the books index paginates results', function () {
         ->assertSee('page=2', escape: false);
 });
 
-test('the books index hides guest tab navigation when logged in', function () {
+test('the books index shows public navigation when logged in', function () {
     $this->actingAs(User::factory()->create())
         ->get(route('books.index'))
         ->assertSuccessful()
-        ->assertDontSee('Collections', escape: false)
+        ->assertSee('Collections', escape: false)
+        ->assertSee('Authors', escape: false)
+        ->assertSee('Books', escape: false)
         ->assertSee('Account settings');
 });
 

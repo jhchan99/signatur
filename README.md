@@ -99,13 +99,13 @@ Track hours spent on the project here.
 | Date       | Description                 | Hours   |
 | ---------- | --------------------------- | ------- |
 | 03/24/2026 | Project research            | 1.0     |
-| 03/25/2026 | Project setup and planning  | 4.0     |
+| 03/25/2026 | Project setup and planning  | 3.0     |
 | 03/26/2026 | Initial implementation work | 1.0     |
-| 03/27/2026 |                             |         |
-|            |                             |         |
-|            |                             |         |
-|            |                             |         |
-|            |                             |         |
-|            | **Total**                   | **6.0** |
+| 03/27/2026 | Backend work                | 3.0     |
+| 04/2/2026  | Data/api integration        | 7.0     |
+| 04/3/2026  | deploy to digital ocean     | 7.0     |
+| 04/04/2026 | backend work/frontend work  | 5.0     |
+| 04/05/2026 | frontend rework             | 5.0     |
+|            | **Total**                   | **32.0** |
 
 
