@@ -117,6 +117,9 @@ Track hours spent on the project here.
 | 04/3/2026  | deploy to digital ocean     | 7.0      |
 | 04/04/2026 | backend work/frontend work  | 5.0      |
 | 04/05/2026 | frontend rework             | 5.0      |
-|            | **Total**                   | **32.0** |
+| 04/06/2026 | class presentation/collaboration | 1.0      |
+| 04/12/2026 | Final Presentations on teams | 1.0      |
+| 04/14/2026 | teams overview | 1.0      |
+|            | **Total**                   | **35.0** |
 
 
